@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="404, ‘学习’">
+    <meta name="keywords" content="音乐！音乐！, ‘学习’">
     <meta name="description" content="错误的示范">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>404 | Knight Zhou 的博客</title>
+    <title>音乐！音乐！ | Knight Zhou 的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -340,36 +340,47 @@
 
 </header>
 
-    <style type="text/css">
-    /* don't remove. */
-    .about-cover {
-        height: 90.2vh;
-    }
-</style>
-<div class="bg-cover pd-header about-cover">
-    <div class="container">
-        <div class="row">
-            <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-                <div class="brand">
-                    <div class="title center-align">
-                        404
-                    </div>
-                    <div class="description center-align">
-                        Oops～，我崩溃了！找不到你想要的页面 :(
-                    </div>
-                </div>
-            </div>
-        </div>
+    <main class="music-page" style="
+    background: url('https://nimg.ws.126.net/?url=http://dingyue.ws.126.net/2022/0824/07cf2aa9j00rh4k4e003xc000u000l7m.jpg&thumbnail=660x2147483647&quality=80&type=jpg') center center / contain no-repeat fixed;
+    padding: 4rem 1rem;
+    min-height: 88vh;
+    position: relative;
+    z-index: 0;
+">
+
+    <!-- 背景遮罩（提升文字可读性） -->
+    <div style="
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(255,255,255,0.9);  /* 可根据需求调成 rgba(0,0,0,0.5) 做暗色 */
+        z-index: -1;
+    "></div>
+
+    <div style="max-width: 800px; margin: auto; text-align: center;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 1rem; color: #444;">🎵 音乐！音乐！ 🎵</h1>
+        <p style="margin-bottom: 2rem; font-size: 1.2rem; color: #666;">
+            🎧 让我们一起沉浸在音乐的世界里 🎼
+        </p>
+
+        <!-- 播放器开始 -->
+        <meting-js
+                server="netease"
+                type="playlist"
+                id="14060001796"
+                fixed="false"
+                autoplay="false"
+                loop="all"
+                order="random"
+                preload="auto"
+                volume="0.7"
+                list-folded="false"
+                lrc-type="3"
+                mutex="true"
+                theme="#42b983">
+        </meting-js>
+        <!-- 播放器结束 -->
     </div>
-</div>
-
-
-    <script>
-        // 每天切换 banner 图.  Switch banner image every day.
-        var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-        $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-    </script>
-
+</main>
 
 
     <footer class="page-footer bg-color">
