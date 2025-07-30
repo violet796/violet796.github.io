@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>算法:定长滑动窗口类型题目总结</title>
+      <link href="/2025/07/29/ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/"/>
+      <url>/2025/07/29/ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="定长滑动窗口介绍"><a href="#定长滑动窗口介绍" class="headerlink" title="定长滑动窗口介绍"></a>定长滑动窗口介绍</h1><p>定长滑动窗口指的是–在一定背景条件下，从列表当中找到连续k个元素，使得他们满足如：“这些元素的和最大”，“这些元素的和最小”等条件并将结果返回。将这些连续元素构成的子列表称作窗口。<br></p><p>一般来说，定长滑动窗口类型的题目在题干中会给出很明显的提示，比如：”一个大小为k的连续子串”，“可以保持连续minutes分钟不生气”。看到此类固定值出现在题目中，就应该考虑使用定长滑动窗口了。<br></p><h1 id="定长滑动窗口分类"><a href="#定长滑动窗口分类" class="headerlink" title="定长滑动窗口分类"></a>定长滑动窗口分类</h1><p>定长滑动窗口一般分为两类，第一类为统计类，第二类为计算类<br></p><ul><li>统计类:指的是需要统计子列表中某些类型元素的个数，找到拥有该类型元素个数最多或最少的子列表，记录值并返回。<br></li><li>计算类:指的是需要计算子列表当中的元素，找到当中元素和最大或者最小的子列表，记录值并返回。<br></li></ul><h1 id="定长滑动窗口的一般求解方法"><a href="#定长滑动窗口的一般求解方法" class="headerlink" title="定长滑动窗口的一般求解方法"></a>定长滑动窗口的一般求解方法</h1><p>这类题目的解法一般遵循三部曲</p><ul><li>创造窗口(入)</li><li>更新结果(算)</li><li>拆除窗口(出)</li></ul><p>正如前文所说，我们要找的是由一系列大小为k的连续元素构成的窗口，那么第二个窗口和第一个窗口实际上只有一个元素不同，即第一个窗口的最左边元素和第二个窗口的最右边元素。后面的窗口以此类推。<br></p><p>如果我们已知第一个窗口(由列表最开始的k个元素构成)的信息,比如:”第一个窗口内有多少个元音字母”,”第一个窗口的元素和是多少”。此时我们想要知道第二个窗口的信息，那么只需要判断第一个窗口最左边的元素是否也被纳入了计算或者统计当中，如果是，那么就用第一个窗口得到的值减去最左边元素对该值的贡献，再将第二个窗口最右边的值的贡献加入，即可得到第二个窗口的值。<br></p><p>这样的一个过程便是三部曲的体现。具体模板代码如下。<br></p><pre><code class="language-python">class Solution:    def funcname(self,nums:list[int],k:int) -&gt; int:        """        nums:为待处理的列表        k:为题目规定的窗口大小        """        ans = res = 0 #定义两个值，分别用来存放全局结果和局部结构        for i in range(len(nums)):            #1.构建窗口            ans += nums[i]            if i &lt; k - 1:                continue            #2.更新结果            res = max(res,ans)            #3.拆除窗口            ans -= nums[i - k + 1]        return res</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 滑动窗口 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
