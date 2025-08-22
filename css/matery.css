@@ -528,19 +528,19 @@ header .go-back i {
     line-height: 56px;
 }
 
-/* 背景图效果. */
-.bg-cover {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 60vh;
-    padding: 0;
-    border: 0;
-    overflow: hidden;
-    background-position: center center;
-    background-size: cover;
-    transform: translate3d(0px, 0px, 0px);
-}
+/*!* 背景图效果. *!*/
+/*.bg-cover {*/
+/*    position: relative;*/
+/*    display: flex;*/
+/*    align-items: center;*/
+/*    height: 60vh;*/
+/*    padding: 0;*/
+/*    border: 0;*/
+/*    overflow: hidden;*/
+/*    background-position: center center;*/
+/*    background-size: cover;*/
+/*    transform: translate3d(0px, 0px, 0px);*/
+/*}*/
 
 .index-cover {
     height: 100vh;
