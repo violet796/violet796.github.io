@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Node.js 与 JavaScript：从浏览器走向全栈的关键一步, ‘学习’">
+    <meta name="keywords" content="算法:滑动窗口类型题目总结, ‘学习’">
     <meta name="description" content="欢迎一起交流">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Node.js 与 JavaScript：从浏览器走向全栈的关键一步 | Knight Zhou 的博客</title>
+    <title>算法:滑动窗口类型题目总结 | Knight Zhou 的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -344,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://images.wallpaperscraft.com/image/single/piano_silhouette_space_156662_1280x720.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://pic2.zhimg.com/v2-3aecfb4a857585d6eb2796902a565956_r.jpg?source=172ae18b')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Node.js 与 JavaScript：从浏览器走向全栈的关键一步</h1>
+                    <h1 class="description center-align post-title">算法:滑动窗口类型题目总结</h1>
                 </div>
             </div>
         </div>
@@ -465,16 +465,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                <span class="chip bg-color">工具</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
-                            <a href="/tags/Node-js/">
-                                <span class="chip bg-color">Node.js</span>
-                            </a>
-                        
-                            <a href="/tags/%E5%BC%80%E5%8F%91/">
-                                <span class="chip bg-color">开发</span>
+                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                                <span class="chip bg-color">滑动窗口</span>
                             </a>
                         
                     </div>
@@ -485,8 +481,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Tools/" class="post-category">
-                                Tools
+                            <a href="/categories/Algorithm/" class="post-category">
+                                Algorithm
                             </a>
                         
                     </div>
@@ -498,7 +494,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-08-12
+                    2025-08-26
                 </div>
                 
 
@@ -507,14 +503,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    4.9k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    17 分
                 </div>
                 
 
@@ -532,47 +528,277 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>在最初的互联网时代，JavaScript 只是浏览器里的“小角色”，负责让网页动起来、能互动。然而，随着 Web 应用的复杂度不断提高，前后端分属两种语言的开发模式变得低效而割裂。Node.js 的诞生，让 JavaScript 从浏览器的前端脚本摇身一变，成为可以同时驾驭前端与后端的“全栈语言”。本篇博客将带梳理 JavaScript 与 Node.js 的关系，以及它们如何共同推动现代 Web 开发的演变。</p>
-<h2 id="JavaScript的诞生"><a href="#JavaScript的诞生" class="headerlink" title="JavaScript的诞生"></a>JavaScript的诞生</h2><p>最早的浏览器页面由 HTML 和 CSS 两种文件构成。其中，HTML 负责描述页面的内容，如：“今天的天气”，“文章的标题”等。CSS 则负责规定这些页面内容该以什么样的形式展示，如：“标题的位置”，“标题的大小”。但是这样写出来的 HTML 页面是静态的、不可交互的，页面必须在每次对文件修改后刷新才能显示成最新的样子。为了使浏览器变得动态、可交互，1995 年，JavaScript 作为一种全新的语言诞生了。</p>
-<h2 id="浏览器页面语言的“分工”"><a href="#浏览器页面语言的“分工”" class="headerlink" title="浏览器页面语言的“分工”"></a>浏览器页面语言的“分工”</h2><p>哪怕到 2025 年的今天，浏览器页面的构成也依然是“HTML + CSS + JavaScript”，这三种语言有着不同的分工，具体如下。</p>
+                <h1 id="什么是滑动窗口"><a href="#什么是滑动窗口" class="headerlink" title="什么是滑动窗口"></a>什么是滑动窗口</h1><p>滑动窗口是算法题当中一种常见的解题方法，属于双指针的一种，常用于数据结构为数组(列表)、字符串类型的题目。其目的在于通过维护两个指针left、right，并将left和right当作题目给出数组(列表)、字符串中的一个子数组(列表)、字符串的左右端点，通过不断增大两指针的值，使得由两指针维护的窗口始终满足题目所给要求，最后计算答案。</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826162157075.png" alt="一个符合题意的最大窗口"></p>
+<p>如上图所示，在算法刚开始执行时窗口会先不断扩大，此时可以确保由left指向的a0作为左端点和right指向的a3作为右端点所构成的窗口是符合题意的。假设当窗口继续扩大，即right继续右移指向a4时，窗口不再满足题目要求，这个时候就需要通过右移left指向新的元素使得窗口缩小，以重新满足题目要求。假设当left指向a2时，由两指针构成的窗口可重新满足题意，如下图所示：</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826163339407.png" alt="重新满足题意的窗口"></p>
+<p>这样由a2到a4构成的新的窗口又重新满足了题意。最后只需根据题目要求，计算答案的个数即可。由于移动两个指针的过程就像是一个窗口在移动，故得名为滑动窗口。而定长滑动窗口则又是滑动窗口的一个特殊形式，它的窗口大小是固定的，也就是窗口的左右端点需要一起移动，在后文中会对定长滑动窗口进行举例介绍。双指针、滑动窗口、定长滑动窗口的关系如下图所示：</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826164144380.png" alt="三者关系"></p>
+<p>双指针是最基础的方法，滑动窗口是双指针的应用，定长滑动窗口是一种特殊的滑动窗口。</p>
+<h1 id="滑动窗口的使用场景"><a href="#滑动窗口的使用场景" class="headerlink" title="滑动窗口的使用场景"></a>滑动窗口的使用场景</h1><p>当一道题目能用 <strong>滑动窗口解决</strong> 时，它一般符合以下三个特征：</p>
 <ul>
-<li><strong>HTML</strong>: 定义页面内容的<strong>结构与语义</strong>（如标题、段落、图片等元素的层级关系）</li>
-<li><strong>CSS</strong>: 控制页面内容的<strong>视觉呈现</strong>（布局、颜色、动画等样式）</li>
-<li><strong>JavaScript</strong>: 实现页面的<strong>动态行为与交互逻辑</strong>（数据更新、事件响应等）</li>
+<li>题目背景的数据结构为数组(列表)、字符串</li>
+<li>题目需要求 “满足条件的子数组(列表)、子字符串个数”，或 “满足条件的子数组(列表)、子字符串的最大长度或个数”</li>
+<li>滑动窗口适用的题目往往具有 <strong>单调性</strong></li>
 </ul>
-<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/Screenshot%202025-08-12%20104225.png" alt="Html + CSS说明图"></p>
-<p>以上图为例，在 HTML 中定义了这个页面应该有“开源”、“企业版”、“高校版”等文字，在 CSS 中定义了这些文字应该以这个大小，这个颜色出现在页面中。<br><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/Screenshot%202025-08-12%20105621.png" alt="JavaScript说明图"></p>
-<p>而在这张图中，当点击右上角的 English 按钮后，整个页面切换成英文显示，这便是通过 JavaScript 来监听点击事件，实现了与浏览器之间的交互。</p>
-<h2 id="计算机是如何识别-JavaScript-等高级语言的"><a href="#计算机是如何识别-JavaScript-等高级语言的" class="headerlink" title="计算机是如何识别 JavaScript 等高级语言的"></a>计算机是如何识别 JavaScript 等高级语言的</h2><p>众所周知，计算机只能识别一系列机器码，对于开发者来说，要用计算机可识别的机器码进行开发是十分困难的。于是，在此基础上，有了汇编语言。汇编语言是一种低级语言（亦称符号语言），用助记符代替机器指令的操作码，用地址符号或标号代替指令或操作数的地址。在不同的设备中，汇编语言对应着不同的机器语言指令集，通过<strong>汇编器</strong>转换成机器指令。</p>
-<p>相对于机器语言，汇编语言的开发相对来说简单了一些，但依然复杂。于是，就有了一系列的高级语言，如 C++、Java、Python、JavaScript 等。每一种高级语言都有专门的<strong>工具</strong>将它们转换成机器可识别并执行的机器码，并按照开发者的意思给出结果。</p>
+<p>对第三点做进一步说明：当窗口扩张时，窗口整体与题目条件的关系会呈现出一定的单调性：要么越容易满足条件（例如要求子数组和大于某个值 <em>k</em>，且数组元素为非负数时），要么越不容易满足条件。一旦窗口失去题意，就可以通过移动左指针缩小窗口来重新满足条件。这种单调性是滑动窗口能够高效发挥作用的关键。</p>
+<p>当一道题目能使用更特别的 <strong>定长滑动窗口</strong> 时，除了符合上述的第一点，还应当满足以下特征：</p>
 <ul>
-<li><strong>Python</strong>：主要通过 <strong>解释器</strong>（如官方发行版自带的 <strong>CPython</strong>）将代码翻译并执行。</li>
-<li><strong>Java</strong>：通过 <strong><code>javac</code> 编译器</strong>（JDK 提供）将源代码编译成字节码，再由 <strong>JVM（Java 虚拟机）</strong> 解释执行或即时编译为机器码。</li>
-<li><strong>JavaScript</strong>：依赖<strong>引擎</strong>（如 Chrome 浏览器中的 <strong>V8 引擎</strong>）将代码转成机器码执行。</li>
+<li>题目明确说明需要找一个大小为<em>k</em>的子数组(列表)、字符串，使其满足题目条件</li>
+<li>题目要求在固定大小的窗口上进行统计或优化，例如 “统计该窗口内某类元素的个数”，或 “计算和、最大值、平均值等”</li>
 </ul>
-<p>需要注意的是，JavaScript 引擎只实现了 ECMAScript 语言规范，而像 DOM 操作、<code>window</code>、<code>document</code> 等是浏览器提供的 Web API，不属于 JavaScript 语言本身。JavaScript 诞生之初就是为了在浏览器中运行，因此这些 API 最初只存在于浏览器环境中。</p>
-<h2 id="Node-js的诞生"><a href="#Node-js的诞生" class="headerlink" title="Node.js的诞生"></a>Node.js的诞生</h2><p>传统上，JavaScript 只能运行在浏览器环境中。当 Web 应用需要与后端服务器或数据库交互时，如果允许浏览器中的 JavaScript 直接访问系统资源，会带来严重的安全风险。因此，浏览器端与后端必须隔离，后端通常由其他语言编写。</p>
-<p>Node.js 的出现改变了这一点——它基于 Chrome 的 V8 JavaScript 引擎构建，提供了一个独立于浏览器的 JavaScript 运行时环境。这样，开发者可以<strong>用 JavaScript 编写服务器端代码</strong>，运行在服务器上处理业务逻辑、访问数据库、操作文件等。前端（浏览器端）和后端（服务器端）都可以统一使用 JavaScript 进行开发，从而降低学习成本，并通过 API 接口实现安全的数据交互。</p>
-<p>⚠️ 注意：Node.js 并不会让浏览器端的 JavaScript 获得访问本地文件系统的能力，它是一个单独运行的环境，通常在服务器或本地开发机上执行。</p>
-<h2 id="Node-js的实际作用"><a href="#Node-js的实际作用" class="headerlink" title="Node.js的实际作用"></a>Node.js的实际作用</h2><p>JavaScript 代码一般有两种编写和运行方式：</p>
-<ul>
-<li><strong>在 HTML 文件中通过 <code>&lt;script&gt;</code> 标签</strong> 来定义交互行为：运行在浏览器中，能调用 Web API，但不能访问系统文件。</li>
-<li><strong>通过 Node.js 在各种 IDE 或命令行中运行 <code>.js</code> 文件</strong>：Node.js 内置了 V8 引擎和自己的 API（如 <code>fs</code> 模块），可以访问文件系统和网络资源（权限范围内）。</li>
-</ul>
-<p>运行 JavaScript 文件的方式包括：</p>
-<ul>
-<li>在 IDE 中点击运行按钮</li>
-<li>在命令行中执行：<br></li>
-</ul>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">node</span> 文件名.js</code></pre>
+<p>相比一般滑动窗口，由于定长滑动窗口固定了窗口大小，寻找子数组的过程中无论结果如何左右指针都会一起移动，本身就不会回溯，故定长滑动窗口的使用对单调性并无要求，但其使用场景更为局限，判断条件更直观明确。</p>
+<p><img src="http://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250827213223761.png" alt="有无单调性的数组对比"></p>
+<p>普通滑动窗口能否使用的核心，仍然在于题目是否具有单调性。以找到元素和大于<em>k</em>的子数组为例：通过第一小节<strong>什么是滑动窗口</strong>我们知道，当窗口不满足条件时，右指针会右移使得窗口逐渐满足条件。对于上图中具有单调性的数组，随着指针不断右移，子数组将越来越符合条件，因为它每次都是增加一个正数，使得子数组和越来越接近<em>k</em>。而不含单调性的数组随着指针右移，它有时因为加了一个正数，使得子数组和离<em>k</em>越接近，但有时候又因为加了一个负数使得子数组和离<em>k</em>越遥远，这就是不含有单调性的具体体现。</p>
+<p>关于单调性的必需的原因，将在下一节中介绍。</p>
+<h1 id="一般滑动窗口的原理"><a href="#一般滑动窗口的原理" class="headerlink" title="一般滑动窗口的原理"></a>一般滑动窗口的原理</h1><blockquote>
+<p><em>注:本小节若无特别说明，提到的滑动窗口指的均是一般滑动窗口，而非定长滑动窗口</em></p>
+</blockquote>
+<p>在介绍单调性对于使用一般滑动窗口的必要性之前，首先介绍滑动窗口的本质。</p>
+<p>滑动窗口的本质实际上是对暴力解法的一种<strong>剪枝</strong>，也就是利用滑动窗口省去很大一部分不必要的判断。当我们需要找到一个数组的子数组，使其满足某种条件并统计个数或者返回需要满足的条件的值时，暴力解法是遍历这个数组当中的所有子数组，分别判断是否符合题意并记录结果，具体的解题伪代码如下:<br></p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">Brute_Force</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nums<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        暴力法
+        nums为待遍历数组
+        """</span>
+        ans <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">#用来记录答案</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">:</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> meets the condition<span class="token punctuation">:</span>
+                    ans <span class="token operator">+=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> ans</code></pre>
 
-<p>可以把 JavaScript 和 Node.js 的关系类比为：JavaScript 是“接待员”，Node.js 是“管理员兼仓库钥匙”，而操作系统中的数据文件是“仓库里的货物”。Node.js 内置了 V8 引擎，因此既能理解接待员的语言，又能带着权限去仓库取货。</p>
-<p>如今，Node.js 在前端开发中几乎是必不可少的。它不仅是运行 JavaScript 的环境，还集成了大量开源工具和库，比如构建工具 <strong>webpack</strong>、静态博客工具 <strong>hexo</strong> 等。这些工具本质上都是用 JavaScript 编写的程序，可以通过 <strong>npm（Node Package Manager）</strong> 安装：<br></p>
-<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> 库名</code></pre>
+<p>不难判断暴力解法的时间复杂度为O (n²)。</p>
+<p>当题目给出的数组<em>nums</em>具有单调性时，也就是要么子数组越长越容易满足条件要么子数组越短越容易满足条件，就可以省去很多不必要的判断，使得左右指针只用向一个方向移动，无需回溯。下文分别称这两种情况为越长越合法和越短越合法。当给出数组<em>nums</em>具有单调性时，一般会有以下<strong>两条性质</strong>:</p>
+<ul>
+<li>若由left 和 right构成的窗口不符合题意，那么由left 和 right + 1、right + 2、right + 3….len(<em>nums</em>) - 1 构成的窗口依然不符合题意</li>
+<li>若由left 和 right构成的窗口符合题意,那么由left + 1、left + 2…..right 和 right 构成的窗口依然符合题意</li>
+</ul>
+<p><em>注:上述两条性质适用于单调性为越短越合法的题目，对于单调性为越长越合法的题目，需将第一条性质中的两个不符合改为符合，将第二条性质中的符合改为不符合。</em></p>
+<p>对于单调性为越短越合法的题目而言，子数组越大，该子数组就越不满足题目要求，如下图所示：</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828102434545.png" alt="对性质一进行解释"></p>
+<p>假设由left,right两指针构成的窗口<strong>恰好</strong>此时不满足条件了，由于单调性为越短越合法，也就是当窗口越大时，反而越不满足条件，那么由left和right之后的元素构成的窗口自然也是不满足条件的，之后就不用再进行判断了，这即为上述性质一。</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828103312415.png" alt="对性质二进行解释"></p>
+<p>如上图，假设由left和right构成的窗口此时是满足条件的，由于数组越短越合法，则从left到right之间的所有元素和right构成的窗口都是满足条件的，在后续又可以省去这一部分的判断，这即为上述性质二。</p>
+<p>正如前文所说，滑动窗口类型的题目，left和right两个指针只会向同一个地方移动，绝不回溯，这正是因为题目具有单调性，两个指针的作用分别如下:</p>
+<ul>
+<li>右指针:负责扩大窗口使窗口不断满足题意，但在扩大窗口的过程中可能会由于新加入窗口的元素过大等原因，使得窗口不再满足题意</li>
+<li>左指针:负责缩小窗口使窗口重新满足题意</li>
+</ul>
+<p>过程中左指针无需回溯可以理解成: 随着右指针的移动，窗口越来越大，直至不满足条件，左指针<strong>通过右移</strong>使其<strong>重新满足条件</strong>。如果左指针回溯到开始的位置重新遍历形成了一个大窗口，那么那段不符合题意的小窗口也依然包含在了这个大窗口中，由于越短越合法，故此时这个大窗口<strong>一定是不合法</strong>的，无需再进行判断。也就是说，<strong>性质一</strong>确保了左指针无需再回溯，只用从当前位置开始继续遍历。</p>
+<p>过程中右指针无需回溯可以理解成: 当左指针发生了移动，说明此时右指针<strong>恰好停留在使得窗口不满足条件的位置</strong>，也就是当前右指针所指向位置的前一个元素，和先前的左指针以及两指针中间的元素所构成的窗口<strong>均合法</strong>，故右指针无需再回溯来判断它与当前左指针构成的新窗口是否依然合法，这是由上述<strong>性质二</strong>确保的。</p>
+<p>越长越合法类型的滑动窗口同理。</p>
+<p>滑动窗口的解题模板大致如下：</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+	<span class="token keyword">def</span> <span class="token function">sliding_windows</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nums<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        滑动窗口
+        """</span>
+        left <span class="token operator">=</span> ans <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> right<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment">#根据题目条件</span>
+            <span class="token comment">#计算需要的值</span>
+            <span class="token keyword">while</span> ans <span class="token keyword">not</span> meets the condition<span class="token punctuation">:</span>
+                <span class="token comment">#用计算出来的值</span>
+                <span class="token comment">#减去左指针指向的值</span>
+                left <span class="token operator">+=</span> <span class="token number">1</span> <span class="token comment">#左指针右移</span>
+            ans <span class="token operator">+=</span> right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span> <span class="token comment">#越短越合法类型</span>
+            ans <span class="token operator">+=</span> left <span class="token comment">#越长越合法类型</span>
+        <span class="token keyword">return</span> ans</code></pre>
 
-<p>npm 是 Node.js 自带的包管理工具，用来安装、管理和发布 JavaScript 包（库）。</p>
-<p>而安装一些命令行工具，如<strong>hexo,vue</strong>等，实际上就是在安装一系列JavaScript文件，并在安装的过程中注册这些命令。在执行某些命令，如hexo -g时,命令行工具会<strong>自动找到该命令对应的JavaScript</strong>文件并通过<strong>Node.js</strong>执行。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从最初只存在于浏览器中的前端脚本，到如今在服务器端同样大放异彩，JavaScript 的舞台早已不再局限于网页。Node.js 不仅让 JavaScript 跨越了前后端的鸿沟，还推动了全栈开发模式的普及。无论是构建高性能的 API 服务，还是搭建个人博客、命令行工具，Node.js 都提供了稳定而强大的运行环境。理解 JavaScript 与 Node.js 的关系，不仅是学习前端开发的基础，更是迈向全栈开发的重要一步。</p>
+<p>由于外层循环是right不断右移直至数组的末尾，内层循环是left不断右移(不回溯)直至数组的末尾，每个数组元素<strong>最多被操作两次</strong>(一次进窗口、一次出窗口)。故时间复杂度为O (2n)，省略常数项，滑动窗口的时间复杂度可以达到<strong>O (n)</strong>。</p>
+<p>最后介绍单调性的必要性。倘若此时题目给出的数组不具有单调性，即有正有负。以找和小于<em>k</em>的子数组为例，假设在一个负数元素之前的所有元素均为正数，那么当该元素进入窗口时，它缩小了子数组的和，这就使得和小于<em>k</em>的子数组可能会<strong>出现在以当前left左边的元素为左端点的窗口中</strong>，如下图所示：</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828111059431.png" alt="找到和<=4的子数组个数"></p>
+<p>当*-5<em>进入窗口并作为窗口的右端点时，通过上文的分析我们知道，若具有单调性，由于*<em>性质一</em></em>，left不必回溯。但对于这种不具有单调性的情况，当*-5*进入窗口时，left指向下标为0的元素1，此时新窗口依然符合题意，也就是左指针此时需要回溯，并未达到节省时间复杂度的目的，不符合滑动窗口的逻辑，故不能使用滑动窗口，这也解释了为什么单调性是使用滑动窗口的必要条件。</p>
+<h1 id="定长滑动窗口"><a href="#定长滑动窗口" class="headerlink" title="定长滑动窗口"></a>定长滑动窗口</h1><p>定长滑动窗口是一种特殊的滑动窗口，常用在给定一个数组(列表)、字符串，寻找一个大小为<em>k</em>的子数组(列表)、字符串，使其满足“窗口和最大”、”窗口平均值最大”、”窗口内某元素数量最多”等条件。</p>
+<p>以数组<em>nums</em>为例，由于<em>nums</em>中长度为<em>k</em>的子数组个数固定为<em>len(nums) - k + 1</em>，定长滑动窗口<strong>无论当前窗口结果</strong>如何，左右指针都要进行一次的移动来找到下一个窗口，也就是说，对于一个新的窗口而言，它与前一个窗口的区别在于首尾两个元素，如下图所示:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250829094935530.png" alt="定长滑动窗口示例"></p>
+<p>从窗口1变换为窗口2，left指针指向的元素出窗口，right’指针指向的元素进入窗口，也就是只要将统计值减去left指针指向元素带来的影响，再加上right’指针指向元素带来的影响，得到的就是新的窗口的统计值，再利用新窗口的统计值和当前最优统计值进行对比，找到最满足题意的统计值，记录并返回即可。</p>
+<p>定长滑动窗口的三步曲如下:</p>
+<ul>
+<li>构建一个大小为<em>k</em>的窗口</li>
+<li>记录当前窗口的统计值(如:窗口元素和、窗口元素平均值、窗口内某元素的个数)</li>
+<li>统计值减去左指针指向值带来的影响，左指针右移、统计值加上右指针指向值带来的影响，右指针右移</li>
+</ul>
+<p>又由于窗口大小固定为<em>k</em>，故<em>left</em>指针指向的元素和<em>right</em>指针指向的元素有如下关系:<br>$$<br>left = right - k + 1<br>$$<br>因为<em>right</em>为大小为<em>k</em>的窗口的右端点，除去<em>right</em>指向元素以外，还需往前数<em>k-1</em> 个元素才到<em>left</em>指向元素，故实际上:<br>$$<br>left = right - (k - 1) = right - k + 1<br>$$<br>所以在实际的解题过程中，无需再定义一个左指针<em>left</em>，可直接用上述公式得到<em>left</em>所指向元素。</p>
+<p>重复以上第二和第三步，直到统计完所有结果为止。</p>
+<p>定长滑动窗口解题的伪代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">fixed_size_sliding_windows</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nums<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">,</span>k<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        定长滑动窗口
+        k为窗口大小
+        nums为待进行寻找答案的列表
+        """</span>
+        <span class="token keyword">if</span> k <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> alllist
+        ans <span class="token operator">=</span> res <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token keyword">for</span> right <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment">#1.构建窗口</span>
+            res <span class="token operator">+=</span> nums<span class="token punctuation">[</span>right<span class="token punctuation">]</span> 
+            <span class="token keyword">if</span> right <span class="token operator">&lt;</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span> 
+                <span class="token keyword">continue</span>
+            <span class="token comment">#2.记录窗口统计值，并与当前最优解比较</span>
+            ans <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>res<span class="token punctuation">)</span>
+            <span class="token comment">#3.统计值减去最左边元素带来的影响</span>
+            res <span class="token operator">-=</span> nums<span class="token punctuation">[</span>right <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>  
+        <span class="token keyword">return</span> ans</code></pre>
+
+<h1 id="滑动窗口例题"><a href="#滑动窗口例题" class="headerlink" title="滑动窗口例题"></a>滑动窗口例题</h1><h2 id="定长滑动窗口-1"><a href="#定长滑动窗口-1" class="headerlink" title="定长滑动窗口"></a>定长滑动窗口</h2><p>定长滑动窗口的题目类型一般分为以下两种:</p>
+<ul>
+<li>找到大小为<em>k</em>的子数组，使其具有最大、最小的元素和等</li>
+<li>找到大小为<em>k</em>的子数组，使子数组内某元素的个数最小或最大</li>
+</ul>
+<p>不管题目描述如何改变，最后都可以转化为上述两种类型。</p>
+<blockquote>
+<p><em>下文介绍定长滑动窗口类型具体例题的解法</em></p>
+</blockquote>
+<p><strong>1.定长子串中元音的最大数</strong></p>
+<p>题目链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description/" title="定长子串中元音的最大数">1456.定长子串中元音的最大数</a></p>
+<p>题目描述:</p>
+<pre class="language-none"><code class="language-none">给你字符串 s 和整数 k 。
+
+请返回字符串 s 中长度为 k 的单个子字符串中可能包含的最大元音字母数。
+
+英文中的 元音字母 为（a, e, i, o, u）。</code></pre>
+
+<p>输入输出示例</p>
+<pre class="language-none"><code class="language-none">示例 1：
+
+输入：s = "abciiidef", k = 3
+输出：3
+解释：子字符串 "iii" 包含 3 个元音字母。
+示例 2：
+
+输入：s = "aeiou", k = 2
+输出：2
+解释：任意长度为 2 的子字符串都包含 2 个元音字母。
+示例 3：
+
+输入：s = "leetcode", k = 3
+输出：2
+解释："lee"、"eet" 和 "ode" 都包含 2 个元音字母。
+示例 4：
+
+输入：s = "rhythms", k = 4
+输出：0
+解释：字符串 s 中不含任何元音字母。
+示例 5：
+
+输入：s = "tryhard", k = 4
+输出：1</code></pre>
+
+<p>题目规模:</p>
+<pre class="language-none"><code class="language-none">1 &lt;= s.length &lt;= 10^5
+s 由小写英文字母组成
+1 &lt;= k &lt;= s.length</code></pre>
+
+<p>解题思路:</p>
+<pre class="language-none"><code class="language-none">这道题属于典型的定长滑动窗口类型二，给定一个大小为k的窗口，找到包含元音数量最多的那个窗口并返回结果。
+只需按照三部曲：
+1.构建第一个窗口并在该过程中统计元音个数
+2.将当前窗口的元音个数和当前最优解比较
+3.判断left指向的元素和right + 1指向的元素是否为元音字母，并作出相应操作
+具体代码如下。</code></pre>
+
+<p>解题代码:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxVowels</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> s<span class="token punctuation">:</span> <span class="token builtin">str</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        定长滑动窗口
+        """</span>
+        vowels <span class="token operator">=</span> <span class="token string">'aeiou'</span> <span class="token comment">#记录元音字母</span>
+        ans <span class="token operator">=</span> res <span class="token operator">=</span> <span class="token number">0</span>  <span class="token comment">#ans是返回值，res是临时变量</span>
+        <span class="token keyword">for</span> right <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment">#1.统计第一个窗口元音个数</span>
+            <span class="token keyword">if</span> s<span class="token punctuation">[</span>right<span class="token punctuation">]</span> <span class="token keyword">in</span> vowels<span class="token punctuation">:</span>
+                res <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token keyword">if</span> right <span class="token operator">&lt;</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+            <span class="token comment">#2.和当前最优解比较</span>
+            ans <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span>ans<span class="token punctuation">)</span>
+            <span class="token comment">#3.判断左指针指向元素的性质，并移动左指针</span>
+            <span class="token keyword">if</span> s<span class="token punctuation">[</span>right <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token keyword">in</span> vowels<span class="token punctuation">:</span>
+                res <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> ans</code></pre>
+
+<ul>
+<li>时间复杂度:O (n)</li>
+<li>空间复杂度:O (1)</li>
+</ul>
+<p><strong>2.可获得的最大点数</strong></p>
+<p>题目链接:<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/description/" title="可获得的最大点数">1423. 可获得的最大点数 </a></p>
+<p>题目描述：</p>
+<pre class="language-none"><code class="language-none">几张卡牌 排成一行，每张卡牌都有一个对应的点数。点数由整数数组 cardPoints 给出。
+
+每次行动，你可以从行的开头或者末尾拿一张卡牌，最终你必须正好拿 k 张卡牌。
+
+你的点数就是你拿到手中的所有卡牌的点数之和。
+
+给你一个整数数组 cardPoints 和整数 k，请你返回可以获得的最大点数。</code></pre>
+
+<p>输入输出示例；</p>
+<pre class="language-none"><code class="language-none">示例 1：
+
+输入：cardPoints = [1,2,3,4,5,6,1], k = 3
+输出：12
+解释：第一次行动，不管拿哪张牌，你的点数总是 1 。但是，先拿最右边的卡牌将会最大化你的可获得点数。最优策略是拿右边的三张牌，最终点数为 1 + 6 + 5 = 12 。
+示例 2：
+
+输入：cardPoints = [2,2,2], k = 2
+输出：4
+解释：无论你拿起哪两张卡牌，可获得的点数总是 4 。
+示例 3：
+
+输入：cardPoints = [9,7,7,9,7,7,9], k = 7
+输出：55
+解释：你必须拿起所有卡牌，可以获得的点数为所有卡牌的点数之和。
+示例 4：
+
+输入：cardPoints = [1,1000,1], k = 1
+输出：1
+解释：你无法拿到中间那张卡牌，所以可以获得的最大点数为 1 。 
+示例 5：
+
+输入：cardPoints = [1,79,80,1,1,1,200,1], k = 3
+输出：202</code></pre>
+
+<p>题目规模：</p>
+<pre class="language-none"><code class="language-none">1 &lt;= cardPoints.length &lt;= 10^5
+1 &lt;= cardPoints[i] &lt;= 10^4
+1 &lt;= k &lt;= cardPoints.length</code></pre>
+
+<p>解题思路:</p>
+<pre class="language-none"><code class="language-none">这道题则对应定长滑动窗口题目的类型一，只不过需要用到逆向思维。
+由于抽牌只能从cardPoints的左右两边抽，并且只能抽k张，也就是最后牌组里会剩下len(cardPoints) - k张牌，且这k张牌是连续的。
+那么题目就变成了：
+从cardPoints中找到一个大小为len(cardPoints) - k的子数组，使得这个子数组的元素和最小。
+具体代码如下。</code></pre>
+
+<p>解题代码:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxScore</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> cardPoints<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        定长滑动窗口
+        窗口为0的话需要特判
+        """</span>
+        l <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>cardPoints<span class="token punctuation">)</span> <span class="token operator">-</span> k <span class="token comment">#逆向思维的窗口大小</span>
+        <span class="token keyword">if</span> l <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>cardPoints<span class="token punctuation">)</span>
+        ans<span class="token punctuation">,</span>res <span class="token operator">=</span><span class="token builtin">sum</span><span class="token punctuation">(</span>cardPoints<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span> <span class="token comment">#ans记录答案，res记录中间值</span>
+        <span class="token keyword">for</span> right <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>cardPoints<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment">#1.构建窗口并记录值</span>
+            res <span class="token operator">+=</span> cardPoints<span class="token punctuation">[</span>right<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> right <span class="token operator">&lt;</span> l <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+            <span class="token comment">#2.与当前最优解比较</span>
+            ans <span class="token operator">=</span> <span class="token builtin">min</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>res<span class="token punctuation">)</span>
+            <span class="token comment">#3.移除左指针指向元素</span>
+            res <span class="token operator">-=</span> cardPoints<span class="token punctuation">[</span>right <span class="token operator">-</span> l <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>cardPoints<span class="token punctuation">)</span> <span class="token operator">-</span> ans</code></pre>
+
+<p>当窗口大小为0时需要特判。因为<em>res</em>减去的是窗口最左边的元素，如果一个窗口大小为0的话，那它将不存在所谓最左边的元素，代入进倒数第二行，当<em>right = len(cardPoints) - 1</em>时将会越界。</p>
+<p>时间复杂度:O (n)</p>
+<p>空间复杂度:O (1)</p>
 
                 
             </div>
@@ -599,7 +825,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://violet796.github.io/2025/08/12/node.js-yu-javascript-cong-liu-lan-qi-zou-xiang-quan-zhan-de-guan-jian-yi-bu/">https://violet796.github.io/2025/08/12/node.js-yu-javascript-cong-liu-lan-qi-zou-xiang-quan-zhan-de-guan-jian-yi-bu/</a>
+                    <a href="https://violet796.github.io/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">https://violet796.github.io/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -637,16 +863,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E5%B7%A5%E5%85%B7/">
-                                    <span class="chip bg-color">工具</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
-                                <a href="/tags/Node-js/">
-                                    <span class="chip bg-color">Node.js</span>
-                                </a>
-                            
-                                <a href="/tags/%E5%BC%80%E5%8F%91/">
-                                    <span class="chip bg-color">开发</span>
+                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
+                                    <span class="chip bg-color">滑动窗口</span>
                                 </a>
                             
                         </div>
@@ -953,9 +1175,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">
                     <div class="card-image">
@@ -972,9 +1195,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-08-26
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -987,6 +1210,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1009,30 +1233,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/07/29/suan-fa-ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">
+                <a href="/2025/08/12/node.js-yu-javascript-cong-liu-lan-qi-zou-xiang-quan-zhan-de-guan-jian-yi-bu/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.cn.hongkong.tu.b2w.top/2025/07/29/0d180b99374a0b6403cdb013f2708d5a.jpg" class="responsive-img" alt="算法:定长滑动窗口类型题目总结">
+                        <img src="https://images.wallpaperscraft.com/image/single/piano_silhouette_space_156662_1280x720.jpg" class="responsive-img" alt="Node.js 与 JavaScript：从浏览器走向全栈的关键一步">
                         
-                        <span class="card-title">算法:定长滑动窗口类型题目总结</span>
+                        <span class="card-title">Node.js 与 JavaScript：从浏览器走向全栈的关键一步</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            总结定长滑动窗口类型题目的模板
+                            讲述Node.JS和JavaScript的关系以及发展历史
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-07-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
+                            <a href="/categories/Tools/" class="post-category">
+                                    Tools
                                 </a>
                             
                             
@@ -1042,12 +1266,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E5%B7%A5%E5%85%B7/">
+                        <span class="chip bg-color">工具</span>
                     </a>
                     
-                    <a href="/tags/%E5%AE%9A%E9%95%BF%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                        <span class="chip bg-color">定长滑动窗口</span>
+                    <a href="/tags/Node-js/">
+                        <span class="chip bg-color">Node.js</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%BC%80%E5%8F%91/">
+                        <span class="chip bg-color">开发</span>
                     </a>
                     
                 </div>
@@ -1215,6 +1443,13 @@
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 
