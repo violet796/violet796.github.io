@@ -503,14 +503,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    6.9k
+                    10.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    25 分
+                    40 分
                 </div>
                 
 
@@ -575,7 +575,9 @@
 <li>若由left 和 right构成的窗口不符合题意，那么由left 和 right + 1、right + 2、right + 3….len（<em>nums</em>） - 1 构成的窗口依然不符合题意</li>
 <li>若由left 和 right构成的窗口符合题意,那么由left + 1、left + 2…..right 和 right 构成的窗口依然符合题意</li>
 </ul>
-<p><em>注:上述两条性质适用于单调性为越短越合法的题目，对于单调性为越长越合法的题目，需将第一条性质中的两个不符合改为符合，将第二条性质中的符合改为不符合。</em></p>
+<blockquote>
+<p>注:上述两条性质适用于单调性为越短越合法的题目，对于单调性为越长越合法的题目，需将第一条性质中的两个不符合改为符合，将第二条性质中的符合改为不符合。*</p>
+</blockquote>
 <p>对于单调性为越短越合法的题目而言，子数组越大，该子数组就越不满足题目要求，如下图所示：</p>
 <p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828102434545.png" alt="对性质一进行解释"></p>
 <p>假设由left,right两指针构成的窗口<strong>恰好</strong>此时不满足条件了，由于单调性为越短越合法，也就是当窗口越大时，反而越不满足条件，那么由left和right之后的元素构成的窗口自然也是不满足条件的，之后就不用再进行判断了，这即为上述性质一。</p>
@@ -722,6 +724,7 @@ s 由小写英文字母组成
                 res <span class="token operator">-=</span> <span class="token number">1</span>
         <span class="token keyword">return</span> ans</code></pre>
 
+<p>复杂度分析:</p>
 <ul>
 <li>时间复杂度:O（n）</li>
 <li>空间复杂度:O（1）</li>
@@ -797,8 +800,13 @@ s 由小写英文字母组成
         <span class="token keyword">return</span> <span class="token builtin">sum</span><span class="token punctuation">(</span>cardPoints<span class="token punctuation">)</span> <span class="token operator">-</span> ans</code></pre>
 
 <p>当窗口大小为0时需要特判。因为<em>res</em>减去的是窗口最左边的元素，如果一个窗口大小为0的话，那它将不存在所谓最左边的元素，代入进倒数第二行，当<em>right = len(cardPoints) - 1</em>时将会越界。</p>
-<p>时间复杂度:O（n）</p>
-<p>空间复杂度:O（1）</p>
+<p>复杂度分析:</p>
+<ul>
+<li><p>时间复杂度:O（n）</p>
+</li>
+<li><p>空间复杂度:O（1）</p>
+</li>
+</ul>
 <h2 id="不定长滑动窗口"><a href="#不定长滑动窗口" class="headerlink" title="不定长滑动窗口"></a>不定长滑动窗口</h2><p>不定长滑动窗口对题目有着严格的单调性要求，一般分为以下几种类型：</p>
 <ul>
 <li>越短越合法求最长的子数组</li>
@@ -870,10 +878,15 @@ right不用回溯:由于当right移动到不符合题意的位置时，left会�
             ans <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>ans<span class="token punctuation">,</span>right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
         <span class="token keyword">return</span> ans</code></pre>
 
-<p>时间复杂度:O（n）</p>
-<p>空间复杂度:O（1）字符集大小为128，c的最大长度即为128，省略常数项，即为O（1）</p>
+<p>复杂度分析:</p>
+<ul>
+<li><p>时间复杂度:O（n）</p>
+</li>
+<li><p>空间复杂度:O（1）字符集大小为128，c的最大长度即为128，省略常数项，即为O（1）</p>
+</li>
+</ul>
 <p><strong>2.将x减到0的最小操作数</strong></p>
-<p>题目链接:[1658.将 x 减到 0 的最小操作数](<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero/">https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero/</a>  ”将x减到0的最小操作数“)</p>
+<p>题目链接:<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-operations-to-reduce-x-to-zero/" title="将x减到0的最小操作数">1658.将x减到0的最小操作数</a></p>
 <p>题目描述:</p>
 <pre class="language-none"><code class="language-none">给你一个整数数组 nums 和一个整数 x 。每一次操作时，你应当移除数组 nums 最左边或最右边的元素，然后从 x 中减去该元素的值。请注意，需要 修改 数组以供接下来的操作使用。
 
@@ -935,8 +948,13 @@ right不用回溯:由于当right移动到不符合题意的位置时，left会�
         <span class="token comment">#如果题目当中没有符合题意的子数组，ans = -1，直接返回-1，否则返回除去ans外剩下的元素长度</span>
         <span class="token keyword">return</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> ans <span class="token keyword">if</span> ans <span class="token operator">!=</span> <span class="token operator">-</span><span class="token number">1</span> <span class="token keyword">else</span> <span class="token operator">-</span> <span class="token number">1</span></code></pre>
 
-<p>时间复杂度：O（n)</p>
-<p>空间复杂度：O（1）</p>
+<p>复杂度分析:</p>
+<ul>
+<li><p>时间复杂度：O（n)</p>
+</li>
+<li><p>空间复杂度：O（1）</p>
+</li>
+</ul>
 <p><strong>3.最小覆盖字串</strong></p>
 <p>题目链接：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/minimum-window-substring/submissions/657830960/" title="最小覆盖子串">76. 最小覆盖子串</a></p>
 <p>题目描述:</p>
@@ -987,7 +1005,7 @@ s 和 t 由英文字母组成</code></pre>
         """</span>
         c <span class="token operator">=</span> Counter<span class="token punctuation">(</span><span class="token punctuation">)</span>
         d <span class="token operator">=</span> Counter<span class="token punctuation">(</span>t<span class="token punctuation">)</span>
-        left<span class="token punctuation">,</span>cnt<span class="token punctuation">,</span>res <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token string">""</span>
+        left<span class="token punctuation">,</span>cnt<span class="token punctuation">,</span>ans <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token string">""</span>
         <span class="token keyword">for</span> right<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span><span class="token punctuation">:</span>
             c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
             <span class="token comment">#此时覆盖了t字符串</span>
@@ -999,8 +1017,281 @@ s 和 t 由英文字母组成</code></pre>
                 left <span class="token operator">+=</span> <span class="token number">1</span>
         <span class="token keyword">return</span> ans</code></pre>
 
-<p>时间复杂度:O（∣Σ∣<em>m</em>+<em>n</em>）</p>
-<p>空间复杂度:O（∣Σ∣）</p>
+<p>复杂度分析:</p>
+<ul>
+<li><p>时间复杂度:O（<em>|Σ|·|s| + |t|</em>） <code>while c &gt;= d</code> 的条件在每次 <code>right</code> 移动时会判断一次（≤|s| 次），并且每次 <code>left</code> 移动也会导致一次判断（<code>left</code> 全程最多移动 ≤|s| 次），所以条件判断总次数 ≤ 2|s|，每次判断代价为 <code>O(|Σ|)</code>，再加上构造 <code>Counter(t)</code> 的 <code>O(|t|)</code>。当 |Σ| 为常数（如本题 52 个字母）时，复杂度可简化为 <code>O(|s| + |t|)</code>。</p>
+</li>
+<li><p>空间复杂度:O（1） 由于s和t均由英文字母构成，c和d大小最多为52，和为104，故空间复杂度为常数。</p>
+</li>
+</ul>
+<p><strong>4.不间断子数组</strong></p>
+<p>题目链接:<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/continuous-subarrays/" title="不间断子数组">2762. 不间断子数组 </a></p>
+<p>题目描述：</p>
+<pre class="language-none"><code class="language-none">给你一个下标从 0 开始的整数数组 nums 。nums 的一个子数组如果满足以下条件，那么它是 不间断 的：
+
+i，i + 1 ，...，j  表示子数组中的下标。对于所有满足 i &lt;= i1, i2 &lt;= j 的下标对，都有 0 &lt;= |nums[i1] - nums[i2]| &lt;= 2 。
+请你返回 不间断 子数组的总数目。
+
+子数组是一个数组中一段连续 非空 的元素序列。</code></pre>
+
+<p>输入输出示例:</p>
+<pre class="language-none"><code class="language-none">示例 1：
+
+输入：nums = [5,4,2,4]
+输出：8
+解释：
+大小为 1 的不间断子数组：[5], [4], [2], [4] 。
+大小为 2 的不间断子数组：[5,4], [4,2], [2,4] 。
+大小为 3 的不间断子数组：[4,2,4] 。
+没有大小为 4 的不间断子数组。
+不间断子数组的总数目为 4 + 3 + 1 = 8 。
+除了这些以外，没有别的不间断子数组。
+示例 2：
+
+输入：nums = [1,2,3]
+输出：6
+解释：
+大小为 1 的不间断子数组：[1], [2], [3] 。
+大小为 2 的不间断子数组：[1,2], [2,3] 。
+大小为 3 的不间断子数组：[1,2,3] 。
+不间断子数组的总数目为 3 + 2 + 1 = 6 。</code></pre>
+
+<p>题目规模:</p>
+<pre class="language-none"><code class="language-none">1 &lt;= nums.length &lt;= 105
+1 &lt;= nums[i] &lt;= 109</code></pre>
+
+<p>解题思路:</p>
+<pre class="language-none"><code class="language-none">首先判断题目意思，找到一个子数组，使其中任意两个元素的差的绝对值均小于等于2。
+这等价于，找到一个子数组，使得该子数组中最大的元素和最小的元素差值小于等于2。
+再来判断题目的单调性，当子数组内元素越多，子数组中最大和最小的元素差就可能越大，就越不合法。
+故这是一个越短越合法类型的题目。
+题目要求统计合法的子数组个数，只需要每次统计时加上right - left + 1即可。
+具体代码如下。</code></pre>
+
+<p>解题代码:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">continuousSubarrays</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        越短越合法
+        求数组个数
+        """</span>
+        left <span class="token operator">=</span> ans <span class="token operator">=</span> <span class="token number">0</span>
+        c <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token comment">#记录当前窗口的元素</span>
+        <span class="token keyword">for</span> right<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token comment">#如果不符合题意，就让它变成符合题意为止</span>
+            <span class="token keyword">while</span> <span class="token builtin">max</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token builtin">min</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">2</span><span class="token punctuation">:</span>
+                c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>
+                <span class="token keyword">if</span> c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                  	<span class="token keyword">del</span> c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span>
+                left <span class="token operator">+=</span> <span class="token number">1</span>
+            ans <span class="token operator">+=</span> right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> ans</code></pre>
+
+<p>复杂度分析:</p>
+<ul>
+<li><p>时间复杂度:O（n）</p>
+<p>将题目要求的差值设为M，即：<br>$$<br>0 &lt;= nums[i] - nums[j] &lt;= M(0 &lt;= i &lt;= j &lt;= len(nums) - 1)<br>$$<br>则时间复杂度为O（（M+1）n），其中n为数组的长度，原因如下：</p>
+<p>每一次left指针的移动都伴随着<br>$$<br>max(c) - min(c)<br>$$<br>而字典调用这两个方法的逻辑是遍历整个字典，寻找最大的键。<strong>由于题目要求子数组内差值两两之间不能超过M，故最多有M + 1个元素会被存入字典中</strong>，max和min两个方法遍历的最坏情况也就是遍历M + 1个元素。而left最多移动n次，故时间复杂度是O（（M+1）n）。</p>
+<p>而对于本题，M＝2，代入并省略常数项可得时间复杂度为O（n）。</p>
+</li>
+<li><p>空间复杂度:O（1）</p>
+<p>空间复杂度即为定义的c的最大长度，理由同上。</p>
+</li>
+</ul>
+<p>​		故空间复杂度最大为O（M + 1）。对于本题，M＝2，代入并省略常数项可得空间复杂度为O（1）。</p>
+<p>Q&amp;A：</p>
+<p>Q:为什么子数组中最大的元素和最小的元素差值小于等于2即可满足条件?</p>
+<p>A:可以看成一根数轴，子数组的最大和最小元素分别对应数轴两端，其余元素全在该数轴内，差的绝对值自然小于等于2.</p>
+<p>Q:为什么统计时加上right - left + 1即可？</p>
+<p>A:经过分析可知，该题目为越短越合法类型。由性质二可得，对于一个由left,right构成的窗口，如果它满足题意，那么从left到right之间（包含left和right）的所有元素和right构成的窗口均符合题意，这里一共有right - left + 1个元素，即有right - left + 1个合法子数组。而在统计时，对于每一个right，均能确保left在恰好使得窗口满足题意的位置，故直接加上right - left + 1即可。</p>
+<p><strong>5.统计好子数组的数目</strong></p>
+<p>题目链接:<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-the-number-of-good-subarrays/description/" title="统计好子数组的数目">2537. 统计好子数组的数目 </a></p>
+<p>题目描述:</p>
+<pre class="language-none"><code class="language-none">给你一个整数数组 nums 和一个整数 k ，请你返回 nums 中 好 子数组的数目。
+
+一个子数组 arr 如果有 至少 k 对下标 (i, j) 满足 i &lt; j 且 arr[i] == arr[j] ，那么称它是一个 好 子数组。
+
+子数组 是原数组中一段连续 非空 的元素序列。</code></pre>
+
+<p>输入输出示例:</p>
+<pre class="language-none"><code class="language-none">示例 1：
+
+输入：nums = [1,1,1,1,1], k = 10
+输出：1
+解释：唯一的好子数组是这个数组本身。
+示例 2：
+
+输入：nums = [3,1,4,3,2,2,4], k = 2
+输出：4
+解释：总共有 4 个不同的好子数组：
+- [3,1,4,3,2,2] 有 2 对。
+- [3,1,4,3,2,2,4] 有 3 对。
+- [1,4,3,2,2,4] 有 2 对。
+- [4,3,2,2,4] 有 2 对。</code></pre>
+
+<p>题目规模:</p>
+<pre class="language-none"><code class="language-none">1 &lt;= nums.length &lt;= 105
+1 &lt;= nums[i], k &lt;= 109</code></pre>
+
+<p>解题思路:</p>
+<pre class="language-none"><code class="language-none">首先分析题目意思，有k对元素相同，那就为一个好子数组，求子数组个数。
+即，找到子数组使其相同元素下标对数大于等于k，这是一个越长越合法求个数的问题。
+当子数组越大，子数组内元素就越多，相同元素出现的概率就越大，越可能满足题意。
+符合单调性，可以使用滑动窗口。
+对于每一个加入进窗口的元素，假设窗口内有k个该元素，那么相同元素对数结果需要加k。
+而在每次统计时，答案加left 即为”以当前right指针指向元素“作为数组右端点的满足题意的子数组个数。
+具体代码如下。</code></pre>
+
+<p>解题代码:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">countGood</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        越长越合法
+        求合法子数组个数
+        """</span>
+        c <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token comment">#记录窗口内的元素个数</span>
+        left <span class="token operator">=</span> ans <span class="token operator">=</span> cnt <span class="token operator">=</span>  <span class="token number">0</span> <span class="token comment">#cnt统计相同元素</span>
+        <span class="token keyword">for</span> right<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+            c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+            cnt <span class="token operator">+=</span> c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span>  <span class="token comment">#与当前元素加入窗口之前的相同元素成对</span>
+            <span class="token keyword">while</span> cnt <span class="token operator">&gt;=</span> k<span class="token punctuation">:</span>
+                cnt <span class="token operator">-=</span> c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">-</span> <span class="token number">1</span>
+                c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>
+                left <span class="token operator">+=</span> <span class="token number">1</span>
+            ans <span class="token operator">+=</span> left
+        <span class="token keyword">return</span> ans</code></pre>
+
+<p>复杂度分析:</p>
+<ul>
+<li>时间复杂度:O（n）</li>
+<li>空间复杂度:O（n）</li>
+</ul>
+<p>Q&amp;A:</p>
+<p>Q:为什么对于每一个加入进窗口的元素，假设窗口内有<em>k</em>个该元素，那么相同元素对数结果需要加<em>k</em>？</p>
+<p>A：当一个新元素进入窗口，此时窗口内每一个和它相同的元素均能和它组成一对，而窗口中一个有<em>k</em>个这样的元素，故结果加<em>k</em>即可。</p>
+<p>Q：为什么在每次统计时，答案加<em>left</em> 即为”<strong>以当前<em>right</em>指针指向元素</strong>“作为<strong>子数组右端点</strong>的满足题意的子数组个数。</p>
+<p>A：经过分析可知，题目为越长越合法求子数组个数的类型。每一次遍历实际上是在找<strong>以当前的right指针作为窗口的右端点</strong>，会有多少个符合题意的子数组。接下来分两种情况：</p>
+<ul>
+<li><p>当<em>right</em>不断增加，但合法的窗口还没构成时:<br>此时<em>left</em>不会发生任何移动，依然是初始值<em>0</em>，也就是加上<em>left</em>也不会对结果有任何影响。</p>
+</li>
+<li><p>当合法的窗口已经构成时，需要移动<em>left</em>使其不合法:</p>
+<p>对于<em>right</em>来说，由于经历了<em>while</em>循环使得这个窗口<strong>恰好</strong>重新不合法，也就是在此时<em>left</em>指针指向元素之前的<strong>所有元素</strong>，与当前的<em>right</em>指针指向的元素构成的子数组都是合法的，一共有<em>left</em>个元素(下标为<em>left</em>代表前面有<em>left</em>个元素)。</p>
+</li>
+</ul>
+<blockquote>
+<p>注：多理解：</p>
+<ul>
+<li>越长越合法</li>
+<li><em>left</em>指针指向的元素是恰好让窗口不合法的端点元素</li>
+</ul>
+</blockquote>
+<p><strong>6.K个不同整数的子数组</strong></p>
+<p>题目链接:<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/subarrays-with-k-different-integers/" title="K个不同整数的子数组">992.K 个不同整数的子数组</a></p>
+<p>题目描述:</p>
+<pre class="language-none"><code class="language-none">给定一个正整数数组 nums和一个整数 k，返回 nums 中 「好子数组」 的数目。
+
+如果 nums 的某个子数组中不同整数的个数恰好为 k，则称 nums 的这个连续、不一定不同的子数组为 「好子数组 」。
+
+例如，[1,2,3,1,2] 中有 3 个不同的整数：1，2，以及 3。
+子数组 是数组的 连续 部分。</code></pre>
+
+<p>输入输出示例:</p>
+<pre class="language-none"><code class="language-none">示例 1：
+
+输入：nums = [1,2,1,2,3], k = 2
+输出：7
+解释：恰好由 2 个不同整数组成的子数组：[1,2], [2,1], [1,2], [2,3], [1,2,1], [2,1,2], [1,2,1,2].
+示例 2：
+
+输入：nums = [1,2,1,3,4], k = 3
+输出：3
+解释：恰好由 3 个不同整数组成的子数组：[1,2,1,3], [2,1,3], [1,3,4].
+- [4,3,2,2,4] 有 2 对。</code></pre>
+
+<p>题目规模:</p>
+<pre class="language-none"><code class="language-none">1 &lt;= nums.length &lt;= 2 * 104
+1 &lt;= nums[i], k &lt;= nums.length</code></pre>
+
+<p>解题思路:</p>
+<pre class="language-none"><code class="language-none">对于这种要找一个子数组，使其恰好满足某种条件的问题，可以将其转换为：
+1.两个越长越合法类型的差
+2.两个越短越合法的类型的差
+要找不同整数个数恰好为k个的子数组，可以先找”不同整数个数大于k”和“不同整数个数大于等于k”的子数组个数
+再用两者做差，即可得到不同整数个数等于k的子数组个数。
+要找到这样的子数组，自然是越长越合法，故这是转换为第一种情况。
+或者也可以找“不同整数个数小于等于k”和“不同整数个数小于k”的子数组个数。
+依然是两个答案做差得到答案。
+而要找到这样的子数组，则变成了越短越合法，故这是转换为第二种情况。
+而大于k等价于大于等于k+1，小于k等价于小于等于k-1.
+故只需要写一个方法，传递不同的参数即可得到需要的答案。
+具体代码如下。</code></pre>
+
+<p>解题代码:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">subarraysWithKDistinct_atleast</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span> 
+        <span class="token triple-quoted-string string">"""
+        转换为越长越合法
+        """</span>
+        <span class="token keyword">def</span> <span class="token function">atleast</span><span class="token punctuation">(</span>j<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+            ans <span class="token operator">=</span> left <span class="token operator">=</span> <span class="token number">0</span>
+            c <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token comment">#记录当前窗口内的元素</span>
+            <span class="token keyword">for</span> right<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token comment">#当字典长度大于等于j，说明此时字典内不同元素个数足够，窗口合法</span>
+                <span class="token keyword">while</span> <span class="token builtin">len</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">&gt;=</span> j<span class="token punctuation">:</span>
+                    c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>
+                    <span class="token keyword">if</span> c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                        <span class="token keyword">del</span> c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span>
+                    left <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token comment">#越长越合法每次直接加left</span>
+                ans <span class="token operator">+=</span> left
+            <span class="token keyword">return</span> ans
+        <span class="token keyword">return</span> atleast<span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token operator">-</span> atleast<span class="token punctuation">(</span>k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+    
+     <span class="token keyword">def</span> <span class="token function">subarraysWithKDistinct_atmost</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span> k<span class="token punctuation">:</span> <span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span> 
+        <span class="token triple-quoted-string string">"""
+        转换为越短越合法
+        """</span>
+        <span class="token keyword">def</span> <span class="token function">atmost</span><span class="token punctuation">(</span>j<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+            ans <span class="token operator">=</span> left <span class="token operator">=</span> <span class="token number">0</span>
+            c <span class="token operator">=</span> defaultdict<span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token comment">#记录当前窗口内的元素</span>
+            <span class="token keyword">for</span> right<span class="token punctuation">,</span>i <span class="token keyword">in</span> <span class="token builtin">enumerate</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">:</span>
+                c<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token comment">#当字典长度大于j，说明此时字典内不同元素个数超过了k，窗口不合法</span>
+                <span class="token keyword">while</span> <span class="token builtin">len</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span> <span class="token operator">&gt;</span> j<span class="token punctuation">:</span>
+                    c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">-=</span> <span class="token number">1</span>
+                    <span class="token keyword">if</span> c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
+                        <span class="token keyword">del</span> c<span class="token punctuation">[</span>nums<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">]</span>
+                    left <span class="token operator">+=</span> <span class="token number">1</span>
+                <span class="token comment">#越短越合法每次统计整个[left,right]区间内的所有子数组</span>
+                ans <span class="token operator">+=</span> right <span class="token operator">-</span> left <span class="token operator">+</span> <span class="token number">1</span>
+            <span class="token keyword">return</span> ans
+        <span class="token keyword">return</span> atmost<span class="token punctuation">(</span>k<span class="token punctuation">)</span> <span class="token operator">-</span> atmost<span class="token punctuation">(</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+
+<p>复杂度分析:</p>
+<ul>
+<li>时间复杂度:O（n）两次<em>atleast</em>或<em>atmost</em>的时间复杂度均为O（n），故总体时间复杂度也为O（n）</li>
+<li>空间复杂度:O（k）字典的长度不会超过题目所给出的长度，故空间复杂度为O（k），k为题目要求的数组中恰好有的值的个数。</li>
+</ul>
+<p>Q&amp;A:</p>
+<p>Q:为什么这类题不能像之前的滑动窗口一样，先构建一个合法窗口，再通过移动左指针缩小窗口，每次找到合法的子数组就将答案加一呢?</p>
+<p>A:<em><em>因为不能确保单调性！！！*<em>此类题目没有办法确保当子数组增大，它会越来越符合题意或是越来越不符合题意。以此题为例，假设有这样一个输入：<br>$$<br>nums = [1,1,1,2,3,1,1],k = 3<br>$$<br>若按照前面题目的套路，当</em>left*＝0，<em>right</em>=4时符合条件，此时</em>ans*+1，再右移<em>left</em>，直到*left</em>=3指向2不符合条件时，继续移动<em>right</em>使其重新满足条件。此时<em>right</em>=5，指向列表中的第四个1，又重新符合题意。但是这个<em>right</em>和当前<em>left</em>左边所有元素构成的窗口也依然符合题意。故这种方法不成立。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>能否使用定长滑动窗口解题往往在题干中有比较明显的暗示。而在一道题目能否使用普通滑动窗口，最关键的部分就在于判断题目是否具有单调性。充分利用具有单调性的题目的两条性质（此处以越长越合法举例）:</p>
+<ul>
+<li>若left….right符合题意，那么left…..right + 1、right + 2…len(nums)依然符合题意</li>
+<li>若left….right不符合题意，那么left、left + 1、left + 2…right…right也依然不符合题意</li>
+</ul>
+<p>明确滑动窗口每一次移动<em>right</em>指针实际上是寻找<strong>以当前<em>right</em>指针指向的元素作为子数组的右端点</strong>，<strong>所有符合条件的子数组</strong>的过程。</p>
+<ul>
+<li><p>对于越短越合法求最长的类型，当计算答案时，由于中间符合条件的子数组反而更短，故无需考虑</p>
+</li>
+<li><p>对于越长越合法求最短的类型，当计算答案时，由于中间符合条件的子数组反而更长，故无需考虑</p>
+</li>
+<li><p>对于求个数类型的滑动窗口，当计算答案时，分别用:<br>$$<br>ans += right - left + 1<br>$$<br>和:<br>$$<br>ans += left<br>$$<br>计算所有答案即可。</p>
+</li>
+</ul>
+<p>以上为这篇博客的所有内容，欢迎各位友好交流，如有不对之处请批评指正，希望能对你有所帮助！</p>
 
                 
             </div>
