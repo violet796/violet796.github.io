@@ -895,7 +895,7 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 </tr>
 </tbody></table>
 <p><strong>isnan(array)<strong>方法的使用场景:在读取大量数据元素时，数据难免会有缺失值，Numpy会用</strong>np.nan</strong>填充这些缺失值，此时可以使用<strong>isnan(array)<strong>方法加</strong>布尔索引</strong>的方式快速找出非空元素。</p>
-<h2 id="8-Numpy常用的统计方法"><a href="#8-Numpy常用的统计方法" class="headerlink" title="8.Numpy常用的统计方法"></a>8.Numpy常用的统计方法</h2><p><strong>Numpy</strong>常用的统计方法如下表所示:</p>
+<h3 id="8-Numpy常用的统计方法"><a href="#8-Numpy常用的统计方法" class="headerlink" title="8.Numpy常用的统计方法"></a>8.Numpy常用的统计方法</h3><p><strong>Numpy</strong>常用的统计方法如下表所示:</p>
 <table>
 <thead>
 <tr>
@@ -978,7 +978,7 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 <td align="center">[1,2,6,24]</td>
 </tr>
 </tbody></table>
-<p>上述统计方法大部分都带有一个<strong>axis</strong>参数，通过指定<strong>axis = 0</strong>，可以只统计每一列的数学值、通过指定<strong>axis = 1</strong>，可以只统计每一行的数学值。如要求一个2<em>3的二维数组的每一行的*<em>最大值</em></em>：</p>
+<p>上述统计方法大部分都带有一个<strong>axis</strong>参数，通过指定<strong>axis = 0</strong>，可以只统计每一列的数学值、通过指定<strong>axis = 1</strong>，可以只统计每一行的数学值。如要求一个2  * 3的二维数组的每一行的<strong>最大值</strong>：</p>
 <pre class="language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
 arr_m <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 arr_mr <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>arr_m<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
