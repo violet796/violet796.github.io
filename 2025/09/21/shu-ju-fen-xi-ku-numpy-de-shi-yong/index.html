@@ -719,7 +719,7 @@ arr_1 = np.ones(shape=(3,),dtype=int) #shape可省略</code></pre>
 </tr>
 <tr>
 <td align="center">整型</td>
-<td align="center">int(无符号整型)<br>unit(有符号整型)</td>
+<td align="center">int(有符号整型)<br>unit(无符号整型)</td>
 </tr>
 <tr>
 <td align="center">浮点</td>
@@ -854,7 +854,7 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 <tr>
 <td align="center">sin(x)/cos(x)</td>
 <td align="center">计算正弦值/余弦值</td>
-<td align="center">np.sinx(1)/np.cos(1)</td>
+<td align="center">np.sin(1)/np.cos(1)</td>
 <td align="center">sin1/cos1</td>
 </tr>
 <tr>
@@ -872,7 +872,7 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 <tr>
 <td align="center">round(x)</td>
 <td align="center">四舍五入(采用银行家四舍五入法)</td>
-<td align="center">np.round(3.2,4.5,8.1,9.6])</td>
+<td align="center">np.round([3.2,4.5,8.1,9.6])</td>
 <td align="center">[3,4,8,10]</td>
 </tr>
 <tr>
@@ -1026,7 +1026,7 @@ arr_mr <span class="token operator">=</span> np<span class="token punctuation">.
 <td align="center">[False False  True]</td>
 </tr>
 <tr>
-<td align="center">logucal_and(arr1,arr2)</td>
+<td align="center">logical_and(arr1,arr2)</td>
 <td align="center">arr1和arr2中的对应元素进行逻辑与</td>
 <td align="center">np.logical_and([1,0],[1,1])</td>
 <td align="center">[True,False]</td>
@@ -1198,7 +1198,7 @@ B <span class="token operator">=</span> np<span class="token punctuation">.</spa
 <pre class="language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
 arr <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#左开右闭</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'每列的最大值:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#axxis = 0代表列，axis = 1代表行</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'每列的最大值:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#axis = 0代表列，axis = 1代表行</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'每行的最小镇:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'替换后的矩阵为:'</span><span class="token punctuation">)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>arr <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
