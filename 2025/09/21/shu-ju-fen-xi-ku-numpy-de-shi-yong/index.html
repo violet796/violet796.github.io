@@ -503,14 +503,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.4k
+                    6.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    27 分
                 </div>
                 
 
@@ -528,7 +528,7 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Numpy和Pandas，Matplotlib（或 Scikit-learn）并称为数据分析中主要的三个核心库。它提供了大量方法，能够快速地求得某些统计值，以及实现对不同向量、矩阵的计算。</p>
+                <p><strong>Numpy</strong>和<strong>Pandas，Matplotlib</strong>（或 <strong>Scikit-learn</strong>）并称为数据分析中主要的三个核心库。它提供了大量方法，能够快速地求得某些统计值，以及实现对不同向量、矩阵的计算。</p>
 <h2 id="Numpy的安装"><a href="#Numpy的安装" class="headerlink" title="Numpy的安装"></a>Numpy的安装</h2><ul>
 <li>通过<strong>Python</strong>的<strong>pip</strong>命令安装</li>
 </ul>
@@ -706,7 +706,7 @@ arr_1 = np.ones(shape=(3,),dtype=int) #shape可省略</code></pre>
 <td align="center">获得当前数组的元素字节大小</td>
 </tr>
 </tbody></table>
-<h3 id="5-ndarray的数据类型"><a href="#5-ndarray的数据类型" class="headerlink" title="5.ndarray的数据类型"></a>5.ndarray的数据类型</h3><table>
+<h3 id="4-ndarray的数据类型"><a href="#4-ndarray的数据类型" class="headerlink" title="4.ndarray的数据类型"></a>4.ndarray的数据类型</h3><table>
 <thead>
 <tr>
 <th align="center">类型</th>
@@ -731,7 +731,7 @@ arr_1 = np.ones(shape=(3,),dtype=int) #shape可省略</code></pre>
 </tr>
 </tbody></table>
 <p>每种数据类型根据定义的位数不同，所能表示的范围也有所不同。</p>
-<h3 id="6-ndarray的索引和切片"><a href="#6-ndarray的索引和切片" class="headerlink" title="6.ndarray的索引和切片"></a>6.ndarray的索引和切片</h3><p><strong>ndarray</strong>可以同时对行，列向量进行切片，同<strong>python</strong>的原生列表一样，使用**[:]**对数组进行切片。</p>
+<h3 id="5-ndarray的索引和切片"><a href="#5-ndarray的索引和切片" class="headerlink" title="5.ndarray的索引和切片"></a>5.ndarray的索引和切片</h3><p><strong>ndarray</strong>可以同时对行，列向量进行切片，同<strong>python</strong>的原生列表一样，使用**[:]**对数组进行切片。</p>
 <p>一维<strong>ndarray</strong>的索引和普通数组并无区别，下标从<strong>0</strong>开始，到**len(ndarray)**结束。</p>
 <p>对于一个一维的<strong>ndarray</strong>，数组名为<strong>arr1</strong>，长度大于8。假设要获得其第5到第8个元素，使用下列方式进行切片:</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_c <span class="token operator">=</span> arr1<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">]</span></code></pre>
@@ -766,7 +766,7 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 
 <p>对行或列切片结果如图所示:</p>
 <p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921232734958.png" alt="二维ndarray对特定行列切片"></p>
-<h3 id="7-ndarray的计算"><a href="#7-ndarray的计算" class="headerlink" title="7.ndarray的计算"></a>7.ndarray的计算</h3><p>假设有两个同型二维数组<strong>arr1</strong>和<strong>arr2</strong>，以这两个数组为例说明<strong>ndarray</strong>的计算。</p>
+<h3 id="6-ndarray的计算"><a href="#6-ndarray的计算" class="headerlink" title="6.ndarray的计算"></a>6.ndarray的计算</h3><p>假设有两个同型二维数组<strong>arr1</strong>和<strong>arr2</strong>，以这两个数组为例说明<strong>ndarray</strong>的计算。</p>
 <table>
 <thead>
 <tr>
@@ -801,6 +801,10 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 <td align="center">两矩阵做矩阵乘法</td>
 </tr>
 </tbody></table>
+<blockquote>
+<p>对矩阵乘法的补充：对于规模为a * b的矩阵A和规模为c * d的矩阵B，只有当b = c时，才能有A * B = C，且C的规模为a * d。</p>
+<p>C矩阵的第(i,j)项由，A矩阵的第i行(i &lt;= a)和B矩阵的第j列(j &lt;= d)逐项相乘再相加得到。</p>
+</blockquote>
 <p>对于不同型的二维数组<strong>arr3</strong>和<strong>arr4</strong>，假设<strong>arr3</strong>的规模为<code>m*n</code>，<strong>arr4</strong>的规模为<code>a*b</code>。两个二维数组要想做对应运算需要满足下列条件之一：</p>
 <ul>
 <li><p>m = a 且 n = b</p>
@@ -812,7 +816,495 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 <li><p>m != a 但 m 和 a 当中有一个为1，n != b 但 n 和 b 当中有一个为1</p>
 </li>
 </ul>
-<p>这种机制叫做广播。</p>
+<p>这种机制叫做广播。当判断两个二维数组不同型，但是又满足上述条件之一，<strong>ndarray</strong>会自动将其扩充成同型数组。</p>
+<p>假设<strong>arr3</strong>的规模是3 * 4，<strong>arr4</strong>的规模是1 * 4。这符合上述第二种情况，<strong>arr4</strong>会被扩充为规模为3 * 4的数组，并做对应运算，以加法为例，运算结果如下图所示:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922151535849.png" alt="广播机制示例一"></p>
+<p>可以看到运算结果是<strong>arr3</strong>和<strong>arr4</strong>经过广播后得到的一个规模为3 * 4，且每一行均为[5,3,5,8]的矩阵相加得来的。</p>
+<p>再假设<strong>arr3</strong>的规模是1* 4，<strong>arr4</strong>的规模是4 * 1。这符合上述第四种情况，<strong>arr3</strong>和<strong>arr4</strong>均会被扩充为规模为4 * 4的数组，并做对应运算，以加法为例，运算结果如下图所示:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922152032871.png" alt="广播机制示例二"></p>
+<p>可以看到运算结果是由一个每一行均为[6,9,6,1]的4 * 4矩阵和一个每一列均为[1,2,8,7]的4 * 4矩阵相加得来的。这两个矩阵分别由<strong>arr3</strong>和<strong>arr4</strong>广播得到。</p>
+<h3 id="7-Numpy常用的数学方法"><a href="#7-Numpy常用的数学方法" class="headerlink" title="7.Numpy常用的数学方法"></a>7.Numpy常用的数学方法</h3><p><strong>Numpy</strong>常用的数学方法如下表所示:</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">方法效果</th>
+<th align="center">使用方式</th>
+<th align="center">输出结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sqrt(x)</td>
+<td align="center">对一个数或数组开方</td>
+<td align="center">np.sqrt(9)<br>np.sqrt([1,4,9,16])</td>
+<td align="center">3<br>[1,2,3,4]</td>
+</tr>
+<tr>
+<td align="center">exp(x)</td>
+<td align="center">计算e的x次方</td>
+<td align="center">np.exp(2)</td>
+<td align="center">e²</td>
+</tr>
+<tr>
+<td align="center">log(x)</td>
+<td align="center">计算lnx</td>
+<td align="center">np.log(2)</td>
+<td align="center">ln2</td>
+</tr>
+<tr>
+<td align="center">sin(x)/cos(x)</td>
+<td align="center">计算正弦值/余弦值</td>
+<td align="center">np.sinx(1)/np.cos(1)</td>
+<td align="center">sin1/cos1</td>
+</tr>
+<tr>
+<td align="center">abs(x)</td>
+<td align="center">计算一个数或数组的绝对值</td>
+<td align="center">np.abs(-1)<br>np.abs([-2,-3,-4,-5])</td>
+<td align="center">1<br>[2,3,4,5]</td>
+</tr>
+<tr>
+<td align="center">power(a,b)</td>
+<td align="center">计算a的b次方</td>
+<td align="center">np.power(2,3)</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="center">round(x)</td>
+<td align="center">四舍五入(采用银行家四舍五入法)</td>
+<td align="center">np.round(3.2,4.5,8.1,9.6])</td>
+<td align="center">[3,4,8,10]</td>
+</tr>
+<tr>
+<td align="center">ceil(x)</td>
+<td align="center">对x向上取整</td>
+<td align="center">np.ceil(9.1)<br>np.ceil([1.2,4.1,7.2])</td>
+<td align="center">10<br>[2,5,7]</td>
+</tr>
+<tr>
+<td align="center">floor(x)</td>
+<td align="center">对向下取整</td>
+<td align="center">np.floor(9.1)<br>np.floor([1.2,4.1,7.2]</td>
+<td align="center">9<br>[1,4,7]</td>
+</tr>
+<tr>
+<td align="center">isnan(array)</td>
+<td align="center">判断一个数是否缺失值，返回一个bool值<br>检测数组中是否有缺失值，输出一个bool数组</td>
+<td align="center">np.isnan([1,2,np.nan,3])</td>
+<td align="center">[False,False,TRUE,False]</td>
+</tr>
+</tbody></table>
+<p><strong>isnan(array)<strong>方法的使用场景:在读取大量数据元素时，数据难免会有缺失值，Numpy会用</strong>np.nan</strong>填充这些缺失值，此时可以使用<strong>isnan(array)<strong>方法加</strong>布尔索引</strong>的方式快速找出非空元素。</p>
+<h2 id="8-Numpy常用的统计方法"><a href="#8-Numpy常用的统计方法" class="headerlink" title="8.Numpy常用的统计方法"></a>8.Numpy常用的统计方法</h2><p><strong>Numpy</strong>常用的统计方法如下表所示:</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">方法效果</th>
+<th align="center">使用方式</th>
+<th align="center">输出结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sum(array)</td>
+<td align="center">求和</td>
+<td align="center">np.sum([1,4,9,16])</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="center">mean(array)</td>
+<td align="center">计算平均值</td>
+<td align="center">np.mean([1,4,16])</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td align="center">median(array)</td>
+<td align="center">计算中位数</td>
+<td align="center">np.mean([1,4,5,6])</td>
+<td align="center">4.5</td>
+</tr>
+<tr>
+<td align="center">var(array)</td>
+<td align="center">计算方差</td>
+<td align="center">np.var([1,2,3,4])</td>
+<td align="center">1.25</td>
+</tr>
+<tr>
+<td align="center">std(array)</td>
+<td align="center">计算标准差</td>
+<td align="center">np.std([1,2,3,4])</td>
+<td align="center">1.11</td>
+</tr>
+<tr>
+<td align="center">max(array)</td>
+<td align="center">计算最大值</td>
+<td align="center">np.max([1,3,4,1])</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="center">argmax(array)</td>
+<td align="center">计算第一个最大值的索引</td>
+<td align="center">np.argmax([1,3,4,1])</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">min(array)</td>
+<td align="center">计算最小值</td>
+<td align="center">np.min[1,3,4,1])</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">argmin(array)</td>
+<td align="center">计算第一个最小值的索引</td>
+<td align="center">np.argmin([1,3,4,1])</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">percentile(array,n)</td>
+<td align="center">计算arr的分位数</td>
+<td align="center">np.percentile([1,2,3,4],25)</td>
+<td align="center">1.75</td>
+</tr>
+<tr>
+<td align="center">cumsum(array)</td>
+<td align="center">计算数组的累积和</td>
+<td align="center">np.cumsum([1,2,3,4])</td>
+<td align="center">[1,3,6,10]</td>
+</tr>
+<tr>
+<td align="center">cumprod(array)</td>
+<td align="center">计算数组的累积积</td>
+<td align="center">np.cumprod([1,2,3,4])</td>
+<td align="center">[1,2,6,24]</td>
+</tr>
+</tbody></table>
+<p>上述统计方法大部分都带有一个<strong>axis</strong>参数，通过指定<strong>axis = 0</strong>，可以只统计每一列的数学值、通过指定<strong>axis = 1</strong>，可以只统计每一行的数学值。如要求一个2<em>3的二维数组的每一行的*<em>最大值</em></em>：</p>
+<pre class="language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+arr_m <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+arr_mr <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>arr_m<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+
+<p>打印数组结果如下图所示:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922170626987.png" alt="对每一行进行统计"></p>
+<blockquote>
+<p>这种方式依然适用于其它统计方法。</p>
+</blockquote>
+<p><strong>分位数</strong>指的是对于给定数组，找到一个数，使得至少有**n%<strong>的数小于它,至少有</strong>(100- n)%<strong>的数大于它。<strong>Numpy</strong>的</strong>percentile(array,n)**方法分为两个步骤:</p>
+<ul>
+<li><p>将数组排序</p>
+</li>
+<li><p>计算**(len(array) - 1）* (n / 100)**，<strong>n</strong>为输入的数。</p>
+</li>
+</ul>
+<p>​	若结果恰为整数<strong>a</strong>，返回<strong>array[a]</strong> </p>
+<p>​	若结果不为整数，为一个浮点数<strong>b</strong>，且<code>i &lt; b &lt; j</code>，设<strong>b = i  + f</strong>，<strong>i</strong>为b的整数部分,<strong>f</strong>为b的小数部分。则返回<strong>array[i] + (arr[j] - arr[i]) * f</strong></p>
+<h3 id="9-Numpy的比较方法"><a href="#9-Numpy的比较方法" class="headerlink" title="9.Numpy的比较方法"></a>9.Numpy的比较方法</h3><p><strong>Numpy</strong>的比较方法通常返回一个<strong>bool数组</strong>，常用的比较方法如下表所示:</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">方法效果</th>
+<th align="center">使用方式</th>
+<th align="center">输出结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">great(array,num)</td>
+<td align="center">判断array中的每个元素是否大于num</td>
+<td align="center">np.greater([3,4,5],4)</td>
+<td align="center">[False False  True]</td>
+</tr>
+<tr>
+<td align="center">less(array,num)</td>
+<td align="center">判断array中的每个元素是否小于num</td>
+<td align="center">np.less([3,3,5],4)</td>
+<td align="center">[ True  True False]</td>
+</tr>
+<tr>
+<td align="center">equal(array,num)</td>
+<td align="center">判断array中的每个元素是否等于num</td>
+<td align="center">np.equal([3,4,5],4)</td>
+<td align="center">[False False  True]</td>
+</tr>
+<tr>
+<td align="center">logucal_and(arr1,arr2)</td>
+<td align="center">arr1和arr2中的对应元素进行逻辑与</td>
+<td align="center">np.logical_and([1,0],[1,1])</td>
+<td align="center">[True,False]</td>
+</tr>
+<tr>
+<td align="center">logical_or(arr1,arr2)</td>
+<td align="center">arr1和arr2中的对应元素进行逻辑或</td>
+<td align="center">np.logical_or([1,0],[1,1])</td>
+<td align="center">[True,True]</td>
+</tr>
+<tr>
+<td align="center">logical_not(array)</td>
+<td align="center">对array中的每个元素真值取反</td>
+<td align="center">np.logical_not([1,0])</td>
+<td align="center">[False,True]</td>
+</tr>
+<tr>
+<td align="center">any(array)</td>
+<td align="center">判断array中有没有一个元素为真</td>
+<td align="center">np.any([0,0,0,1])</td>
+<td align="center">True</td>
+</tr>
+<tr>
+<td align="center">all(array)</td>
+<td align="center">判断array中是否所有元素为真</td>
+<td align="center">np.all([1,1,1,0]</td>
+<td align="center">False</td>
+</tr>
+</tbody></table>
+<p>对于每一个比较方法，作为参数的两个数组依然具有<strong>广播机制</strong>。即，哪怕两数组不同型，但只要符合上文四点之一，就可以进行比较。</p>
+<h3 id="10-Numpy的其它方法"><a href="#10-Numpy的其它方法" class="headerlink" title="10.Numpy的其它方法"></a>10.Numpy的其它方法</h3><p><strong>Numpy</strong>的一些其它常用方法如下表所示:</p>
+<table>
+<thead>
+<tr>
+<th align="center">方法名</th>
+<th align="center">方法效果</th>
+<th align="center">使用方式</th>
+<th align="center">输出结果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">where(condition, x, y)</td>
+<td align="center">见下文</td>
+<td align="center">见下文</td>
+<td align="center">见下文</td>
+</tr>
+<tr>
+<td align="center">select(condlist, choicelist, default=0)</td>
+<td align="center">见下文</td>
+<td align="center">见下文</td>
+<td align="center">见下文</td>
+</tr>
+<tr>
+<td align="center">sort(arr)</td>
+<td align="center">排序(不改变数组本身，只是返回副本)</td>
+<td align="center">np.sort([3,5,1,6])</td>
+<td align="center">[1,3,5,6]</td>
+</tr>
+<tr>
+<td align="center">argsort(arr)</td>
+<td align="center">返回有序数组对应的原数组元素索引</td>
+<td align="center">np.argsort([3,5,1,6])</td>
+<td align="center">[2,0,1,3]</td>
+</tr>
+<tr>
+<td align="center">unique(arr)</td>
+<td align="center">排序并去重</td>
+<td align="center">np.unique([1,2,1,3,2])</td>
+<td align="center">[1,2,3]</td>
+</tr>
+<tr>
+<td align="center">concatenate((arr,arr1))</td>
+<td align="center">将arr和arr1拼接</td>
+<td align="center">np.concatenate((arr,arr1))</td>
+<td align="center">[arr,arr1]</td>
+</tr>
+<tr>
+<td align="center">reshape(arr,(n,m))</td>
+<td align="center">将arr重塑成n * m的形状</td>
+<td align="center">np.reshape([1,2,3,4],(2,2))</td>
+<td align="center">[[1,2],[3,4]]</td>
+</tr>
+<tr>
+<td align="center">column_stack(arr_1,arr_2)</td>
+<td align="center">按列堆叠数组</td>
+<td align="center">np.column_stack([1,2,3],[4,5,6])</td>
+<td align="center">[[1,4],[2,5],[3,6]]</td>
+</tr>
+<tr>
+<td align="center">save(‘sa.npy’,data)</td>
+<td align="center">保存数组到文件</td>
+<td align="center">np.save(‘sa.npy’,data)</td>
+<td align="center">工作目录生成sa.npy</td>
+</tr>
+<tr>
+<td align="center">load(‘sa.npy’)</td>
+<td align="center">读取数组文件</td>
+<td align="center">np.load(‘sa.npy’)</td>
+<td align="center">读取sa.npy中的数组</td>
+</tr>
+</tbody></table>
+<p><strong>where(condition, x, y)<strong>的</strong>condition</strong>参数是一个<strong>bool</strong>类型的数组(或可以转换为<strong>bool</strong>类型数组的表达式)。它将数组中为<strong>True</strong>的值替换成<strong>x</strong>，将数组中为<strong>False</strong>的值替换为<strong>y</strong>，并在最后返回一个和<strong>condition</strong>同型的数组，常用于将数组中的某些值全部替换成另一种值。比如要把某个数组<strong>arr</strong>中大于5的元素全部替换成0，代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>arr<span class="token operator">&gt;</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span></code></pre>
+
+<p>运行结果如下图所示:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922173310355.png" alt="使用where替换元素"></p>
+<p><strong>select(condlist, choicelist, default=0)<strong>适用于需要根据多个条件从不同数组中选择元素的场景。给出一个条件列表，一个选择列表，一个默认值(类似于switch - case)，数组中元素依次判断是否符合</strong>condlist</strong>中的条件，若符合下标为<strong>a</strong>的条件，就将该元素替换成<strong>choicelist</strong>中下标为<strong>a</strong>的元素，若所有条件都不符合则替换成<strong>default</strong>。假设给定一个成绩列表，要对不同分数段给出评级，代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">arr <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
+np<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token punctuation">[</span>arr<span class="token operator">&lt;</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token punctuation">(</span>arr<span class="token operator">&gt;=</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>arr<span class="token operator">&lt;</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>arr<span class="token operator">&gt;=</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>arr<span class="token operator">&lt;</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">,</span>arr<span class="token operator">&gt;=</span><span class="token number">80</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'不及格'</span><span class="token punctuation">,</span><span class="token string">'及格'</span><span class="token punctuation">,</span><span class="token string">'良好'</span><span class="token punctuation">,</span><span class="token string">'优秀'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>default<span class="token operator">=</span><span class="token string">'未知'</span><span class="token punctuation">)</span></code></pre>
+
+<p>运行结果如下图所示:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922173936938.png" alt="使用select替换元素"></p>
+<p><strong>column_stack(arr_1,arr_2)<strong>不支持广播，使用的条件是</strong>arr_1</strong>和<strong>arr_2</strong>的行数相同。若<strong>arr_1</strong>和<strong>arr_2</strong>是两个一维行向量，则会先转置为一维列向量再堆叠。</p>
+<h2 id="Numpy练习题"><a href="#Numpy练习题" class="headerlink" title="Numpy练习题"></a>Numpy练习题</h2><h3 id="题目一-温度数据分析"><a href="#题目一-温度数据分析" class="headerlink" title="题目一:温度数据分析"></a>题目一:温度数据分析</h3><p>某城市一周的最高气温(°c)为[28,30,29,31,32,30,29]</p>
+<ul>
+<li>计算平均气温、最高气温和最低气温</li>
+<li>找出气温超过30°c的天数</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">temp <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">28</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">29</span><span class="token punctuation">,</span><span class="token number">31</span><span class="token punctuation">,</span><span class="token number">32</span><span class="token punctuation">,</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">29</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment">#平均气温</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'平均气温:'</span><span class="token punctuation">,</span><span class="token string">'%.3f'</span><span class="token operator">%</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#最高气温</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'最高气温:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#最低气温</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'最低气温:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span>temp<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment">#气温超过三十度的天数</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'超过三十度的天气(布尔索引):'</span><span class="token punctuation">,</span>temp<span class="token punctuation">[</span>temp <span class="token operator">&gt;</span> <span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">.</span>size<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'超过三十度的天气(自定义条件):'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>temp<span class="token operator">&gt;</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>cumsum<span class="token punctuation">(</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>temp<span class="token operator">&gt;</span><span class="token number">30</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'超过三十度的天气(统计非零方法):'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>count_nonzero<span class="token punctuation">(</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>temp<span class="token operator">&gt;</span><span class="token number">30</span><span class="token punctuation">,</span>temp<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174534680.png" alt="题目一输出结果"></p>
+<h3 id="题目二-学生成绩统计"><a href="#题目二-学生成绩统计" class="headerlink" title="题目二:学生成绩统计"></a>题目二:学生成绩统计</h3><p>某班级5名同学的数学成绩为[85,90,78,92,88]</p>
+<ul>
+<li>计算成绩的平均分、中位数、标准差</li>
+<li>将成绩转换为十分制（假设满分为10分）</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">score <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">85</span><span class="token punctuation">,</span><span class="token number">90</span><span class="token punctuation">,</span><span class="token number">78</span><span class="token punctuation">,</span><span class="token number">92</span><span class="token punctuation">,</span><span class="token number">88</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"平均分:"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"中位数:"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>median<span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"标准差:"</span><span class="token punctuation">,</span><span class="token string">'%.3f'</span><span class="token operator">%</span>np<span class="token punctuation">.</span>std<span class="token punctuation">(</span>score<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'转换为十分制后成绩为:'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>score <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174644267.png" alt="题目二输出结果"></p>
+<h3 id="题目三-矩阵运算"><a href="#题目三-矩阵运算" class="headerlink" title="题目三:矩阵运算"></a>题目三:矩阵运算</h3><p>给定矩阵A = [[1,2],[3,4]] 和B = [[5,6],[7,8]]</p>
+<ul>
+<li>计算A + B和A * B（逐元素乘法）</li>
+<li>计算 A 和 B 的矩阵乘法(点积)</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">A <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+B <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"矩阵逐项相加结果为:\n"</span><span class="token punctuation">,</span>A <span class="token operator">+</span> B<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"矩阵逐项相乘结果为:\n"</span><span class="token punctuation">,</span>A <span class="token operator">*</span> B<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"矩阵乘法结果为:\n"</span><span class="token punctuation">,</span>A @ B<span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174835576.png" alt="题目三输出结果"></p>
+<h3 id="题目四-随机数据生成"><a href="#题目四-随机数据生成" class="headerlink" title="题目四:随机数据生成"></a>题目四:随机数据生成</h3><p>生成一个(3,4)的随机整数数组，范围[0,10)</p>
+<ul>
+<li>计算每列的最大值和每行的最小值</li>
+<li>将数组中的所有奇数替换为 -1</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">9</span><span class="token punctuation">)</span>
+arr <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#左开右闭</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'每列的最大值:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#axxis = 0代表列，axis = 1代表行</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'每行的最小镇:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">min</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'替换后的矩阵为:'</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>arr <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175032656.png" alt="题目四输出结果"></p>
+<h3 id="题目五-数组变形"><a href="#题目五-数组变形" class="headerlink" title="题目五:数组变形"></a>题目五:数组变形</h3><p>创建一个 1 到 12 的一维数组，并转换为(3,4)的二维数组。</p>
+<ul>
+<li>计算每行的和与每列的平均值</li>
+<li>将数组展平为一维数组</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">arr <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">13</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'数组为:'</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span>
+arr <span class="token operator">=</span> np<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'转换后数组为:\n'</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'每行的和为:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>arr<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'每列的平均值为:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>arr<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'展平为一维数组:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175132764.png" alt="题目五输出结果"></p>
+<h3 id="题目六：布尔索引"><a href="#题目六：布尔索引" class="headerlink" title="题目六：布尔索引"></a>题目六：布尔索引</h3><p>生成一个 (5,5) 的随机数组，范围 [0,20)</p>
+<ul>
+<li>找出数组中大于 10 的元素</li>
+<li>将所有大于 10 的元素替换为 0</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
+arr <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"生成的随机数组为:"</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"所有大于10的元素为:"</span><span class="token punctuation">,</span>arr<span class="token punctuation">[</span>arr<span class="token operator">&gt;</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+arr<span class="token punctuation">[</span>arr <span class="token operator">&gt;</span> <span class="token number">10</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"替换后的结果为:\n"</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"替换后结果为:\n"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>arr<span class="token operator">&gt;</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="C:/Users/violet796/AppData/Roaming/Typora/typora-user-images/image-20250922175237211.png" alt="题目六输出结果"></p>
+<h3 id="题目七-统计函数应用"><a href="#题目七-统计函数应用" class="headerlink" title="题目七:统计函数应用"></a>题目七:统计函数应用</h3><p>某公司 6 个月的销售额(万元) 为 [120,135,110,125,130,140]</p>
+<ul>
+<li>计算销售额的总和、均值和方差</li>
+<li>找出销售额最高的的月份和最低的月份</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">arr <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">120</span><span class="token punctuation">,</span><span class="token number">135</span><span class="token punctuation">,</span><span class="token number">110</span><span class="token punctuation">,</span><span class="token number">125</span><span class="token punctuation">,</span><span class="token number">130</span><span class="token punctuation">,</span><span class="token number">140</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"销售额的总和:"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span><span class="token builtin">sum</span><span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"销售额的均值:"</span><span class="token punctuation">,</span><span class="token string">'%.3f'</span><span class="token operator">%</span>np<span class="token punctuation">.</span>mean<span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"销售额的方差:"</span><span class="token punctuation">,</span><span class="token string">'%.3f'</span><span class="token operator">%</span>np<span class="token punctuation">.</span>var<span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"销售额最高的月份:"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>argmax<span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"销售额最低的月份:"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>argmin<span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175405738.png" alt="题目七输出结果"></p>
+<h3 id="题目八-数组拼接"><a href="#题目八-数组拼接" class="headerlink" title="题目八:数组拼接"></a>题目八:数组拼接</h3><p>给定A = [1,2,3] 和B = [4,5,6]</p>
+<ul>
+<li>将 A 和 B 水平拼接为一个新数组</li>
+<li>将 A 和 B 垂直拼接为一个新数组</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">A <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+B <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"水平拼接结果为:\n"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">(</span>A<span class="token punctuation">,</span>B<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"垂直拼接结果为:\n"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">[</span>A<span class="token punctuation">,</span>B<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175533427.png" alt="题目八输出结果"></p>
+<h3 id="题目九-唯一值与排序"><a href="#题目九-唯一值与排序" class="headerlink" title="题目九:唯一值与排序"></a>题目九:唯一值与排序</h3><p>给定数组[2,1,2,3,1,4,3]</p>
+<ul>
+<li>找出数组中的唯一值并排序</li>
+<li>计算每个唯一值出现的次数</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">arr <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+u_arr<span class="token punctuation">,</span>counts <span class="token operator">=</span> np<span class="token punctuation">.</span>unique<span class="token punctuation">(</span>arr<span class="token punctuation">,</span>return_counts<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"去重并排序的结果为:"</span><span class="token punctuation">,</span>u_arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"唯一值个数为:"</span><span class="token punctuation">,</span>counts<span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175631895.png" alt="题目九输出结果"></p>
+<h3 id="题目十-缺失值处理"><a href="#题目十-缺失值处理" class="headerlink" title="题目十:缺失值处理"></a>题目十:缺失值处理</h3><p>给定数组[1,np.nan,3,np.nan,5]</p>
+<ul>
+<li>计算数组中缺失值的数量</li>
+<li>将缺失值替换为0</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python">arr <span class="token operator">=</span> np<span class="token punctuation">.</span>array<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>nan<span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>nan<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"数组缺失值数量为:"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>size<span class="token punctuation">(</span>arr<span class="token punctuation">[</span>np<span class="token punctuation">.</span>isnan<span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'替换后数组结果为:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>np<span class="token punctuation">.</span>isnan<span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175721037.png" alt="题目十输出结果"></p>
+<h3 id="题目十一-三角函数计算"><a href="#题目十一-三角函数计算" class="headerlink" title="题目十一:三角函数计算"></a>题目十一:三角函数计算</h3><p>生成一个包含 0 到 Π 的等间隔数组(包含五个数)</p>
+<ul>
+<li>计算数组中每个数的正弦值和余弦值</li>
+<li>将结果保存为一个二位数组，第一列为正弦值，第二列为余弦值</li>
+</ul>
+<p>解题代码如下:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> math
+arr <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>math<span class="token punctuation">.</span>pi<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+s_arr <span class="token operator">=</span> np<span class="token punctuation">.</span>sin<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+c_arr <span class="token operator">=</span> np<span class="token punctuation">.</span>cos<span class="token punctuation">(</span>arr<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'保存答案的二维数组为:\n'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>column_stack<span class="token punctuation">(</span><span class="token punctuation">(</span>s_arr<span class="token punctuation">,</span>c_arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+
+<p>输出结果如下:</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175805110.png" alt="题目十一输出结果"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><strong>Numpy</strong>是一个极其强大的库，合理运用上文中的方法，可以极大提高数据运算与统计的效率。</p>
 
                 
             </div>
