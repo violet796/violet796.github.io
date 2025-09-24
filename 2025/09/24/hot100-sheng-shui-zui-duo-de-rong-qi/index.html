@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hot100:三数之和, ‘学习’">
+    <meta name="keywords" content="Hot100-盛水最多的容器, ‘学习’">
     <meta name="description" content="欢迎一起交流">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hot100:三数之和 | Knight Zhou 的博客</title>
+    <title>Hot100-盛水最多的容器 | Knight Zhou 的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -344,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://c-ssl.duitang.com/uploads/item/202008/14/20200814195015_ofoic.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hot100:三数之和</h1>
+                    <h1 class="description center-align post-title">Hot100-盛水最多的容器</h1>
                 </div>
             </div>
         </div>
@@ -494,7 +494,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-09-14
+                    2025-09-24
                 </div>
                 
 
@@ -503,7 +503,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    1.3k
                 </div>
                 
 
@@ -528,118 +528,98 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>题目链接:<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/3sum/" title="三数之和">Hot100 - LeetCode15:三数之和</a></p>
-<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>给你一个整数数组 <code>nums</code> ，判断是否存在三元组 <code>[nums[i], nums[j], nums[k]]</code> 满足 <code>i != j</code>、<code>i != k</code> 且 <code>j != k</code> ，同时还满足 <code>nums[i] + nums[j] + nums[k] == 0</code> 。请你返回所有和为 <code>0</code> 且不重复的三元组。</p>
-<p>**注意：**答案中不可以包含重复的三元组。</p>
+                <p>题目链接:<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/description/?envType=study-plan-v2&amp;envId=top-100-liked" title="盛水最多的容器">Hot100 - LeetCode11:盛水最多的容器</a></p>
+<h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>
+<p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p>返回容器可以储存的最大水量。</p>
+<p>**说明：**你不能倾斜容器。</p>
 <h2 id="输入输出示例"><a href="#输入输出示例" class="headerlink" title="输入输出示例"></a>输入输出示例</h2><p><strong>示例 1：</strong></p>
-<pre class="language-none"><code class="language-none">输入：nums = [-1,0,1,2,-1,-4]
-输出：[[-1,-1,2],[-1,0,1]]
-解释：
-nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0 。
-nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0 。
-nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
-不同的三元组是 [-1,0,1] 和 [-1,-1,2] 。
-注意，输出的顺序和三元组的顺序并不重要。</code></pre>
+<p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt="示例一说明图"></p>
+<pre class="language-none"><code class="language-none">输入：[1,8,6,2,5,4,8,3,7]
+输出：49 
+解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</code></pre>
 
 <p><strong>示例 2：</strong></p>
-<pre class="language-none"><code class="language-none">输入：nums = [0,1,1]
-输出：[]
-解释：唯一可能的三元组和不为 0 。</code></pre>
-
-<p><strong>示例 3：</strong></p>
-<pre class="language-none"><code class="language-none">输入：nums = [0,0,0]
-输出：[[0,0,0]]
-解释：唯一可能的三元组和为 0 。</code></pre>
+<pre class="language-none"><code class="language-none">输入：height = [1,1]
+输出：1</code></pre>
 
 <h2 id="题目规模"><a href="#题目规模" class="headerlink" title="题目规模"></a>题目规模</h2><ul>
-<li>3 &lt;= nums.length &lt;= 3000</li>
-<li>-10^5 &lt;= nums[i] &lt;= 10^5</li>
+<li><code>n == height.length</code></li>
+<li><code>2 &lt;= n &lt;= 10^5</code></li>
+<li><code>0 &lt;= height[i] &lt;= 10^4</code></li>
 </ul>
-<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>题目要找的是满足条件的三元组，且三元组当中为具体的值，故数组的下标并不重要，排序不会影响最后的结果，可以先排序。</p>
-<p>要找三个数组下标i,j,k，使得：<br>$$<br>nums[i] + nums[j] + nums[k] = 0<br>$$<br>可以依次固定数组中的每一个数，再从该数的右边找到两个数，使其相加满足条件，这样就将题目转换成了target为nums[i]的两数之和，如图所示:</p>
-<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250914224213937.png" alt="演示图片"></p>
-<p>具体的实现思路如下:</p>
+<h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p><strong>一、暴力法</strong></p>
+<p>易知，两根柱子<strong>left</strong>，<strong>right</strong>组成的容器能盛多少水取决于<code>较短的柱子的高度</code>和<code>两根柱子之间的距离</code>，具体的计算公式为:<br>$$<br>water = min(height[left],height[right])) * (right - left)<br>$$<br>暴力法的思路是找到所有可能的组合数，计算每对组合组成的容器能盛的水量，并找到最大值。时间复杂度是<strong>O（n²）</strong>。</p>
+<p><strong>二、双指针法</strong></p>
+<p>定义两个指针<strong>left</strong>、<strong>right</strong>，在开始时分别指向<strong>height数组</strong>最左的和最右的元素，当<strong>left &lt; right</strong>时，循环以下步骤:</p>
 <ul>
-<li><p>从左往右遍历排序后的数组，将当前遍历到的值固定，记指针为<strong>i</strong></p>
-</li>
-<li><p>从子数组[i + 1,len(nums) - 1]中找到两个指针<strong>j</strong>、<strong>k</strong>,使得:<br>$$<br>nums[j] + nums[k]  = -nums[i]<br>$$</p>
-</li>
+<li>找到指向元素更小的指针</li>
+<li>向内移动该指针</li>
+<li>计算新的答案并与原答案比较，取更大值</li>
 </ul>
-<p>排序后的数组具有单调性：</p>
+<p>方法可行性证明如下:</p>
+<p>假设当前指向更小元素的指针是<strong>left</strong>，那么此时容器盛水的容量<strong>water1</strong>为:<br>$$<br>water1 = height[left] * (right - left)<br>$$<br>此时如果向内移动得到新的<strong>right</strong>，在<code>right - left</code>的值减小的前提，又有以下两种情况:</p>
 <ul>
-<li>当<em>nums[i] + nums[j] + nums[k] &lt; 0</em>时，需要整体值增加，右移<strong>j指针</strong></li>
-<li>当<em>nums[i] + nums[j] + nums[k] &gt; 0</em>时，需要整体值减小，左移<strong>k指针</strong></li>
-<li>当<em>nums[i] + nums[j] + nums[k]  = 0</em>时，找到了一组可行的答案，进入下列步骤</li>
+<li>height[right]的值小于height[left]。此时容器<strong>更短的柱子高度·<strong>和</strong>right - left</strong>均减小，答案一定减小。</li>
+<li>height[right]的值大于等于height[left]。此时容器<strong>更短的柱子高度</strong>不变，依然是<strong>height[left]</strong>，但是<strong>right - left</strong>减小，答案也一定减小。</li>
 </ul>
-<p>由于题目要求答案中不可以包含重复的三元组，故<strong>每一次遍历前</strong>和<strong>找到符合题意的解后</strong>还需要将指针移动到特定的位置，具体的步骤如下:</p>
+<p>换言之，如果<strong>left</strong>指向的元素更短，那么无论怎么移动<strong>right</strong>，结果都只可能更小。由<strong>left</strong>和**[left + 1……right]**组成的容器均不会是最优解。</p>
+<p>但此时如果向内移动得到新的<strong>left</strong>，<code>right - left</code>的值依然减小，但是如果height[left]的值变大，由于较小值增大，计算盛水容量公式当中的其中一个因子增大。那么此时的盛水的容量<strong>warter2</strong>是有可能比<strong>warter1</strong>更大的。</p>
+<p>也就是说，要想找到盛水量更多方法。向内移动<code>指向元素更大的指针</code>是<strong>完全无效的</strong>。但是向内移动``指向元素更小的指针`是<strong>可以找到更优的解的</strong>。这就证明了思路的可行性。</p>
+<p>若当前指向更小元素的指针是<strong>right</strong>也同理。</p>
+<h2 id="思路补充"><a href="#思路补充" class="headerlink" title="思路补充"></a>思路补充</h2><p>Q：如果此时left和right指针指向的元素相等怎么办?</p>
+<p>A：此时任意移动其中一个指针即可，理由如下:</p>
 <ul>
-<li>在遍历前，若当前固定值和上一个固定值相同，可以直接跳过这次遍历</li>
-<li>找到符合题意的答案后，将<strong>j</strong>和<strong>k</strong>分别移动到与当前指向元素不同的的第一个元素</li>
+<li>如果两个指针<strong>left</strong>和<strong>right</strong>所指向的指针就是最优解，那么无论移动哪一个指针，答案都不会再更新。</li>
+<li>如果再<strong>left</strong>和<strong>right</strong>中间存在更优解<code>（i,j）</code>，那么一定有:</li>
 </ul>
-<p>总结排序后的两步:</p>
-<p>1.依次固定每个值，将题目转换为两数之和，从当前固定值之后找到两个元素，使其形成符合题意的三元组</p>
-<p>2.通过移动指针进行去重操作</p>
-<p>循环上述两步即可找到所有答案。</p>
-<h2 id="思路补充"><a href="#思路补充" class="headerlink" title="思路补充"></a>思路补充</h2><p>Q：<strong>为什么只用从当前固定值的右边找两个元素，而不用再从左边找了?</strong></p>
-<p>A：因为在之前的遍历中就已经把所有包含左边元素的解加入到了答案列表。</p>
-<p>Q：<strong>为什么找到符合题意的答案后，要将<em>j</em>和<em>k</em>分别移动到与当前指向元素不同的的第一个元素？</strong></p>
-<p>A：对于数组[a,b,b,c,e,d,d]，设有 <strong>a + b + d  = 0</strong>，若仅仅只是简单移动两个指针，将会重复加入答案[a,b,d]，故需要将两个指针分别移动到c和e，以确保不会重复。</p>
-<p>Q：<strong>在遍历前，若当前固定值和上一个固定值相同，可以直接跳过这次遍历？</strong></p>
-<p>A：由于数组已经排序完毕，故相同的元素将会挨在一起。假设存在重复元素<strong>a</strong>，当固定到第一个<strong>a</strong>时，由于是从其之后找剩下两个符合题意的元素，此时分为两种情况：</p>
-<ul>
-<li><p>三元组只包含一个a。</p>
-</li>
-<li><p>三元组包含多个a。若a不等于0，则三元组最多包含两个a</p>
-</li>
-</ul>
-<p>对于第一种情况，将第一个a之后的其它a当作固定值，得到的答案和第一个a当作固定值的答案是完全相同的。</p>
-<p>对于第二种情况，将第一个a之后的其它a当作固定值，得到的答案可能会因为在它之后a的数量不够，而少了一种或两种解。</p>
-<p>换言之，无论是哪种情况，<strong>将之后的a当作固定值得到的答案的集合</strong>只不过是<strong>将第一个a当作固定值得到的答案的集合</strong>的子集罢了，故可以直接跳过重复值的遍历。</p>
-<h2 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h2><pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
-    <span class="token keyword">def</span> <span class="token function">threeSum</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> nums<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-        nums<span class="token punctuation">.</span>sort<span class="token punctuation">(</span><span class="token punctuation">)</span>
-        <span class="token comment">#如果最小的三个数的和都大于0，那么无解</span>
-        <span class="token keyword">if</span> nums<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token comment">#如果最大的三个数的和都小于0，那么无解</span>
-        <span class="token keyword">if</span> nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span><span class="token operator">-</span><span class="token number">3</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-            <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        ans <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token comment">#固定到len(nums) - 2，因为最后两个元素凑不出三元组</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            <span class="token comment">#重复元素直接跳过判断</span>
-            <span class="token keyword">if</span> i <span class="token operator">&gt;</span> <span class="token number">0</span> <span class="token keyword">and</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">:</span>
-                <span class="token keyword">continue</span>
-            j <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span>
-            k <span class="token operator">=</span> <span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
-            <span class="token comment">#转为两数之和</span>
-            <span class="token keyword">while</span> j <span class="token operator">&lt;</span> k<span class="token punctuation">:</span>
-                <span class="token comment">#说明小了</span>
-                <span class="token keyword">if</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                    j <span class="token operator">+=</span> <span class="token number">1</span>
-                <span class="token comment">#说明大了</span>
-                <span class="token keyword">elif</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">+</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
-                    k <span class="token operator">-=</span> <span class="token number">1</span>
-                <span class="token keyword">else</span><span class="token punctuation">:</span>
-                    ans<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">[</span>nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span>nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-                    <span class="token comment">#找到和左指针相同的最后一个元素</span>
-                    <span class="token keyword">while</span> j <span class="token operator">&lt;</span> k <span class="token keyword">and</span> nums<span class="token punctuation">[</span>j <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                        j <span class="token operator">+=</span> <span class="token number">1</span>
-                    <span class="token comment">#找到和右指针相同的最后一个元素</span>
-                    <span class="token keyword">while</span> j <span class="token operator">&lt;</span> k <span class="token keyword">and</span> nums<span class="token punctuation">[</span>k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> nums<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">:</span>
-                        k <span class="token operator">-=</span> <span class="token number">1</span>
-                    <span class="token comment">#移动到不同元素的位置</span>
-                    j <span class="token operator">+=</span> <span class="token number">1</span>
-                    k <span class="token operator">-=</span> <span class="token number">1</span>
-        <span class="token keyword">return</span> ans
-    </code></pre>
+<p>$$<br>height[i] &gt; height[left]<br>$$</p>
+<p>​		和：<br>$$<br>height[j] &gt;height[right]<br>$$<br>​		反证法:上述条件有一个不满足的话，此时更短的边只能是<strong>A = height[left] = height[right]<strong>或</strong>某个小于A的值</strong>，但无论是哪种情况，<code>right - left</code>的值减小，答案均减小。</p>
+<p>​		当满足上述两个条件后，无论先移动<strong>left</strong>或是先移动<strong>right</strong>，第一个移动指针都会停留在第一个比<strong>A</strong>更高的元素，随后再去移动另一个指针。使得<code>（i,j）</code>这个最优解被找到。</p>
+<p>Q：为什么是计算<code>right - left</code>而不是<code>right - left + 1</code>?</p>
+<p>A：<code>right - left + 1</code>计算的是元素个数，但实际上构成容器的底是这些元素构成的区间长度（每个区间长度为1），故一共有:<br>$$<br>right - left + 1 - 1 = right -left<br>$$<br>个区间，计算<code>right-left</code>。</p>
+<h2 id="具体代码"><a href="#具体代码" class="headerlink" title="具体代码"></a>具体代码</h2><p><strong>一、暴力法</strong></p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxArea_Bruteforce</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> height<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token comment">#记录答案</span>
+        res <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token comment">#要构成容器至少需要两根柱子，故遍历到 -1即可</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span>i <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+                x <span class="token operator">=</span> <span class="token builtin">min</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>j <span class="token operator">-</span> i<span class="token punctuation">)</span>
+                res <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span>res<span class="token punctuation">)</span>
+        <span class="token keyword">return</span> res</code></pre>
 
-<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a>复杂度分析</h2><ul>
-<li><strong>时间复杂度</strong>：O（n²）。每次循环遍历的长度和为<br>$$<br>（n - 1） +（ n - 2） +（ n - 3） +…. + 2，<br>$$</li>
-</ul>
-<p>故时间复杂度为O（n²）。</p>
+<p><strong>二、双指针法</strong></p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">maxArea_Twopoints</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> height<span class="token punctuation">:</span> List<span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token comment">#记录答案</span>
+        res <span class="token operator">=</span> <span class="token number">0</span>
+        <span class="token comment">#定义指针</span>
+        left<span class="token punctuation">,</span>right <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span><span class="token builtin">len</span><span class="token punctuation">(</span>height<span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span>
+        <span class="token comment">#当两指针还能构成容器时循环</span>
+        <span class="token keyword">while</span> left <span class="token operator">&lt;</span> right<span class="token punctuation">:</span>
+            <span class="token comment">#计算当前两指针构成容器的盛水量</span>
+            x <span class="token operator">=</span> <span class="token builtin">min</span><span class="token punctuation">(</span>height<span class="token punctuation">[</span>left<span class="token punctuation">]</span><span class="token punctuation">,</span>height<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>right <span class="token operator">-</span> left<span class="token punctuation">)</span>
+            <span class="token comment">#当答案更大时才更新</span>
+            res <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span>x<span class="token punctuation">)</span>
+            <span class="token comment">#移动指向更小元素的指针</span>
+            <span class="token keyword">if</span> height<span class="token punctuation">[</span>left<span class="token punctuation">]</span> <span class="token operator">&lt;</span> height<span class="token punctuation">[</span>right<span class="token punctuation">]</span><span class="token punctuation">:</span>
+                left <span class="token operator">+=</span> <span class="token number">1</span>
+            <span class="token comment">#包括了相等的情况</span>
+            <span class="token keyword">else</span><span class="token punctuation">:</span>
+                right <span class="token operator">-=</span> <span class="token number">1</span>
+        <span class="token keyword">return</span> res</code></pre>
+
+<h2 id="复杂度分析"><a href="#复杂度分析" class="headerlink" title="复杂度分析"></a><strong>复杂度分析</strong></h2><p><strong>一、暴力法</strong></p>
 <ul>
-<li><strong>空间复杂度</strong>：O（1）</li>
+<li><strong>空间复杂度</strong>：<code>O（1）</code>。</li>
+<li><strong>时间复杂度</strong>：<code>O（n²）</code>。</li>
+</ul>
+<p><strong>二、双指针法</strong></p>
+<ul>
+<li><strong>空间复杂度</strong>：<code>O（1）</code>。只用了常数级变量。</li>
+<li><strong>时间复杂度</strong>：<code>O（n）</code>。当left和right相遇时，算法结束。right和left的移动过程刚好遍历了一遍数组。</li>
 </ul>
 
                 
@@ -667,7 +647,7 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://violet796.github.io/2025/09/14/hot100-san-shu-zhi-he/">https://violet796.github.io/2025/09/14/hot100-san-shu-zhi-he/</a>
+                    <a href="https://violet796.github.io/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/">https://violet796.github.io/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1017,9 +997,63 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/">
+                    <div class="card-image">
+                        
+                        <img src="https://c-ssl.duitang.com/uploads/item/202008/14/20200814195015_ofoic.jpg" class="responsive-img" alt="Hot100-盛水最多的容器">
+                        
+                        <span class="card-title">Hot100-盛水最多的容器</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Hot100 盛水最多的容器
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-24
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Hot100/" class="post-category">
+                                    Hot100
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hot100/">
+                        <span class="chip bg-color">Hot100</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/">
+                        <span class="chip bg-color">算法题</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2025/09/21/shu-ju-fen-xi-ku-numpy-de-shi-yong/">
                     <div class="card-image">
@@ -1036,9 +1070,9 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-09-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1060,58 +1094,6 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
                     
                     <a href="/tags/Numpy/">
                         <span class="chip bg-color">Numpy</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">
-                    <div class="card-image">
-                        
-                        <img src="https://pic2.zhimg.com/v2-3aecfb4a857585d6eb2796902a565956_r.jpg?source=172ae18b" class="responsive-img" alt="算法:滑动窗口类型题目总结">
-                        
-                        <span class="card-title">算法:滑动窗口类型题目总结</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            总结滑动窗口类型题目
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-08-26
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                        <span class="chip bg-color">滑动窗口</span>
                     </a>
                     
                 </div>
