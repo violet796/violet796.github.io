@@ -1935,11 +1935,26 @@ i，i + 1 ，...，j  表示子数组中的下标。对于所有满足 i &lt;= i
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      // 启用$和$$定界符，匹配你的写法
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true, // 允许反斜杠转义，避免\被吃掉
+      processEnvironments: true,
+      // 禁止在这些标签里解析公式
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreClass: "escape-mathjax"
+    },
+    TeX: {
+      // 加载数学符号扩展，支持\overline等所有常用命令
+      extensions: ["AMSmath.js", "AMSsymbols.js"]
+    }
+  });
+  // 强制渲染页面所有公式，解决pjax/异步加载不渲染问题
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 </script>
 
 
@@ -1950,7 +1965,7 @@ i，i + 1 ，...，j  表示子数组中的下标。对于所有满足 i &lt;= i
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
             
-                <span id="year">2025</span>
+                <span id="year">2025-2026</span>
             
             <span id="year">2025</span>
             <a href="/about" target="_blank">Knight Zhou</a>
