@@ -503,7 +503,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    700
+                    699
                 </div>
                 
 
@@ -542,7 +542,23 @@
 <p>正如前文所说，我们要找的是由一系列大小为k的连续元素构成的窗口，那么第二个窗口和第一个窗口实际上只有一个元素不同，即第一个窗口的最左边元素和第二个窗口的最右边元素。后面的窗口以此类推。<br></p>
 <p>如果我们已知第一个窗口(由列表最开始的k个元素构成)的信息,比如:“第一个窗口内有多少个元音字母”,“第一个窗口的元素和是多少”。此时我们想要知道第二个窗口的信息，那么只需要判断第一个窗口最左边的元素是否也被纳入了计算或者统计当中，如果是，那么就用第一个窗口得到的值减去最左边元素对该值的贡献，再将第二个窗口最右边的值的贡献加入，即可得到第二个窗口的值。<br></p>
 <p>这样的一个过程便是三部曲的体现。具体模板代码如下。<br></p>
-<p>```python class Solution: def funcname(self,nums:list[int],k:int) -&gt; int: """ nums:为待处理的列表 k:为题目规定的窗口大小 """ ans = res = 0 #定义两个值，分别用来存放全局结果和局部结构 for i in range(len(nums)): #1.构建窗口 ans += nums[i] if i &lt; k - 1: continue #2.更新结果 res = max(res,ans) #3.拆除窗口 ans -= nums[i - k + 1] return res</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">:</span>
+    <span class="token keyword">def</span> <span class="token function">funcname</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>nums<span class="token punctuation">:</span><span class="token builtin">list</span><span class="token punctuation">[</span><span class="token builtin">int</span><span class="token punctuation">]</span><span class="token punctuation">,</span>k<span class="token punctuation">:</span><span class="token builtin">int</span><span class="token punctuation">)</span> <span class="token operator">-</span><span class="token operator">&gt;</span> <span class="token builtin">int</span><span class="token punctuation">:</span>
+        <span class="token triple-quoted-string string">"""
+        nums:为待处理的列表
+        k:为题目规定的窗口大小
+        """</span>
+        ans <span class="token operator">=</span> res <span class="token operator">=</span> <span class="token number">0</span> <span class="token comment">#定义两个值，分别用来存放全局结果和局部结构</span>
+        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>nums<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+            <span class="token comment">#1.构建窗口</span>
+            ans <span class="token operator">+=</span> nums<span class="token punctuation">[</span>i<span class="token punctuation">]</span>
+            <span class="token keyword">if</span> i <span class="token operator">&lt;</span> k <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
+                <span class="token keyword">continue</span>
+            <span class="token comment">#2.更新结果</span>
+            res <span class="token operator">=</span> <span class="token builtin">max</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span>ans<span class="token punctuation">)</span>
+            <span class="token comment">#3.拆除窗口</span>
+            ans <span class="token operator">-=</span> nums<span class="token punctuation">[</span>i <span class="token operator">-</span> k <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">]</span>
+        <span class="token keyword">return</span> res</code></pre>
 
                 
             </div>
