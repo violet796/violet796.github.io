@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs, ‘学习’">
+    <meta name="keywords" content="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs, ‘学习’">
     <meta name="description" content="欢迎一起交流">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs | Knight Zhou 的博客</title>
+    <title>【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs | Knight Zhou 的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -344,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs</h1>
+                    <h1 class="description center-align post-title">【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</h1>
                 </div>
             </div>
         </div>
@@ -507,14 +507,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    4.9k
+                    3.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    18 分
+                    13 分
                 </div>
                 
 
@@ -533,177 +533,183 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li>论文全称：<strong>Know-Evolve: Deep Temporal Reasoning for Dynamic Knowledge Graphs</strong></li>
-<li>论文作者：Rakshit Trivedi、Hanjun Dai、Yichen Wang、Le Song（均来自佐治亚理工学院）</li>
-<li>发表信息：2017 年第 34 届国际机器学习顶会 <strong>ICML 2017</strong>（Proceedings of the 34th International Conference on Machine Learning），收录于 PMLR 第 70 卷，页码 3462–3471</li>
-<li>领域定位：时序动态知识图谱（Temporal Knowledge Graph, TKG）链接预测领域的经典开创性工作</li>
-<li>代码仓库：<a target="_blank" rel="noopener" href="https://github.com/rstriv/Know-Evolve?utm_source=chatgpt.com">仓库链接</a></li>
+<li><p>论文全称：<strong>Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</strong></p></li>
+<li><p>论文作者：Woojeong Jin¹、Meng Qu²³、Xisen Jin¹、Xiang Ren¹</p>
+<p>南加州大学（University of Southern California）计算机科学系；² MILA - Quebec AI Institute；³ 蒙特利尔大学（University of Montréal）</p></li>
+<li><p>发表信息：2020 年自然语言处理顶会 <strong>EMNLP 2020</strong>（Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing），页码 6669–6683，会议举办时间 2020 年 11 月 16 日 - 20 日</p></li>
+<li><p>领域定位：<strong>时序动态知识图谱（Temporal Knowledge Graph, TKG）外推推理（未来事件预测）</strong>领域的经典开创性工作，是首个为 TKG 多步未来预测设计的自回归生成式架构，也是该领域后续研究广泛使用的标杆性基线模型</p></li>
+<li><p>代码仓库：<a target="_blank" rel="noopener" href="https://github.com/INK-USC/RE-Net">INK-USC/RE-Net: Recurrent Event Network: Autoregressive Structure Inference over Temporal Knowledge Graphs (EMNLP 2020)</a></p></li>
 </ul>
 <h2 id="论文背景">论文背景</h2>
-<p>传统的知识图谱是静态、固定的，在做预测任务中忽略了时间对其的影响。如果两国之间在之前是交好的，但由于种种原因使得其现在处于非友好状态，静态的知识图谱无法很好的捕捉到这类随着时间的变化，故引入<strong>时序知识图谱（Temporal Knowledge graph）</strong>。</p>
-<p>传统的知识图谱由（实体1，关系，实体2）这样的三元组构成，而时序知识图谱由（实体1，关系，实体2，关系发生的时间）这样的四元组构成。时序知识图谱的每一条边上都有一个与该事件关联的时间信息，如下图所示:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260317135552655.png" title="时序知识图谱示例" alt="时序知识图谱">
-
-<p>对于传统的预测模型，如<strong>TransE、TransR、ER-NLP</strong>等等，在训练完成后，模型的参数和知识图谱中对应的实体嵌入将不再更改，这同样会忽略时间带来的影响，这有违真实世界的规律。基于此，提出一种新的模型<strong>Know-Evolve</strong>用于补全时序知识图谱。</p>
-<p>论文主要有如下几个贡献:</p>
+<p><strong>知识图谱(Knowledge Graph,KG)</strong>反应了真实世界中实体和之间的关系，在各个领域都发挥着作用。但由于知识图谱本身的性质，其中会存在很多缺失信息，故，知识图谱的补全成为了一个研究问题。但在现实生活中，实体之间的关系会发生变化，故诞生了<strong>时序知识图谱(Temporal Knowledge Graph,TKG)</strong>。针对时序知识图谱补全的方法目前存在如下几个问题:</p>
 <ul>
-<li>该工作提出了<strong>事件驱动的连续时间动态实体嵌入更新机制</strong>，当有新事件发生时，事件中的主客体嵌入将被更新。</li>
-<li>该架构可以同时预测<strong>缺失的事件</strong>以及<strong>事件发生的时间</strong>，这在之前的所有模型中都是做不到的。</li>
-<li>由于实体的动态嵌入，该模型能够预测<strong>真实世界中将要发生的事情</strong>。</li>
-<li>大规模的实验证明，该模型的性能远超不依赖于时序信息的静态模型。</li>
+<li>预测某一时刻的真实事件时，必须知道该时刻上一时刻的真实事件，因此，其不能<strong>做连续的预测</strong></li>
+<li>过去的方法不能处理同一时刻发生的事件，只能假设同一时刻只有一个事件发生</li>
 </ul>
+<p>基于上述两点，本文提出了一种<strong>能建模并发事件、能无标签连续预测未来</strong>的时序图谱模型<strong>RE-Net</strong>。</p>
+<p>下图为一个时序知识图谱随着事件的变化发生变化的示例图：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325182920881.png" alt="TKG示意图">
+
 <h2 id="论文方法">论文方法</h2>
-<h3 id="知识网络演化">知识网络演化</h3>
-<p>实体的动态嵌入由以下三个组件完成：</p>
-<ul>
-<li>采用时序点过程这一强大的数学工具对发生的事件建模</li>
-<li>一种捕捉并调节实体间多关系交互的双线关系得分器</li>
-<li>一种基于实体随着时间在多关系空间之中的交互而来的新型深度循环网络</li>
-</ul>
-<h3 id="时序点过程">时序点过程</h3>
-<p>时序点过程的原生定义，就是<strong>专门用来建模连续时间轴上离散事件发生规律的数学模型，它的核心输出就是「事件在未来某个时间点发生的条件强度」，天然就能推导并预测事件最可能发生的时间点 / 时间区间</strong>。</p>
-<p>在该篇论文中，时序点过程的建模专门针对除发生时间不同以外，其余<strong>(主体、客体、关系)</strong>均相同的事件。比如对于下列四元组：(张三，合作，李四，2022年6月)、(张三，合作，李四，2023年7月)、(张三，合作，李四，2024年8月)，它们会被当作本篇论文当中<strong>时序点过程的输入</strong>，专门针对(张三，合作，李四)这个事件。时序点过程的<strong>条件强度函数如下</strong>: <span class="math display">\[
-\lambda^{e^s,e^o}_{r}(t|\overline{t})=f(g^{e^s,e^o}_{r}(\overline{t}))*(t-\overline{t})
-\]</span> 其中<span class="math inline">\(e^s,e^o,r\)</span>分别代表一个三元组中的主体实体，客体实体和关系 。<span class="math inline">\(t\)</span>代表要预测的事件，<strong><span class="math inline">\(\overline{t}\)</span></strong>代表当前三元组中的两个实体，最近一次参加事件的时间。<span class="math inline">\(g^{e^s,e^o}_{r}(\overline{t})\)</span>是第二个组件中的双线关系得分器，具体的公式在之后给出。<span class="math inline">\(f(.)\)</span>是指数函数，具体表达式为<span class="math inline">\(exp(.)\)</span>。</p>
+<p>复发事件编码器总结过去事件序列的信息，邻居聚合器聚合同一个窗口内重复发生事件的信息</p>
+<p>四元组表示为<span class="math inline">\((s,r,o,t)\)</span>，或<span class="math inline">\((s_t,r_t,o_t)\)</span>。一个时序知识图谱基于事件四元组的时间戳升序建模，目标是根据观察到的事件集合<span class="math inline">\({G_1,…,G_t}\)</span>，学习事件的总体分布<span class="math inline">\(p(G)\)</span>。</p>
+<p>方法的核心理念是从序列图中学习时序依赖，从邻居中学习局部结构依赖。</p>
+<p>RE-Net定义并发事件的条件概率，其依赖于所有先前的事件。</p>
+<p>定义所有事件的联合分布<span class="math inline">\(G={G_1,…,G_T}\)</span>。推测当前时间步<span class="math inline">\(G_t\)</span>的概率依赖于前<span class="math inline">\(m\)</span>个时间步<span class="math inline">\(G_{t-m,t-1}\)</span>，故把联合分布拆分为一序列的条件分布<span class="math inline">\(p(G_t|G_{t-m:t-1})\)</span>。又推测时间步<span class="math inline">\(G_t\)</span>中的事件都是相互独立的，故联合分布可以被写为: <span class="math display">\[
+p(G)=\prod_t\prod_{(s_t,r_t,o_t)\in G_t}p(s_t,r_t,o_t|G_{t-m:t-1})
+\]</span></p>
 <blockquote>
-<p>对公式的理解:<span class="math inline">\(\lambda\)</span>代表的是时序点过程，它输出的是某个事件在未来某个时间点发生的条件强度。乘积的第一项是两个实体之间的匹配程度，分别由实体的嵌入，两个实体之间关系的嵌入得到。其中，实体的嵌入随着时间变化，故该项得到的是实体在当下的匹配程度，<span class="math inline">\(f(.)\)</span>确保其不为负。第二项指的是当前时间到实体上一次参与事件的时间差大小。综合来看，如果两个实体在当下的匹配度越高，且两个实体越久没有参与过事件，则认为该事件在<span class="math inline">\(t\)</span>发生的可能性越高。</p>
+<p>如果事件之间相互独立，那么各事件的联合概率分布等于各事件的条件概率分布之积。</p>
 </blockquote>
-<h3 id="生存分析理论">生存分析理论</h3>
-<p>生存分析是对<strong>事件发生的规律进行研究</strong>的一套理论，通过<strong>风险函数（Hazard Function）</strong>和<strong>生存函数（Survival Function）</strong>刻画事件发生的瞬时风险和生存概率随时间的动态变化。生存分析理论主要有以下四个公式: <span class="math display">\[
-S(t) = P(T&gt;t)
-\]</span> <span class="math inline">\(S(t)\)</span>是生存函数，指的是到<span class="math inline">\(t\)</span>时刻为止，事件还没有发生的概率，这随着时间的增大而减小。具体可以理解为，如果一个事件刚刚发生，那么它在接下来一段时间内将不太可能发生，对应的<span class="math inline">\(S(t)\)</span>值大。随着时间的增大，该事件越来越有可能发生，故对应<span class="math inline">\(S(t)\)</span>减小。 <span class="math display">\[
-f(t)=-\frac{dS(t)}{dt}
-\]</span> 该公式是事件在t时刻刚好发生的<strong>瞬时概率密度</strong>，也是用来预测的关键公式。 <span class="math display">\[
-h(t)=\frac{f(t)}{S(t)}
-\]</span> <span class="math inline">\(h(t)\)</span>是风险函数，核心定义为，<strong>事件在之前一直没发生的前提下，在此刻发生的瞬时风险\强度</strong>。这和时序点过程的强度函数一致，故在本文中<span class="math inline">\(h(t)=\lambda^{e^s,e^o}_r(t|\overline t)\)</span>。 <span class="math display">\[
-\land(t)=\int_0^th(\tau)d\tau
-\]</span> <span class="math inline">\(\land(t)\)</span>是累积风险函数，用来计算在一段时间内事件的累积发生风险。生存函数<span class="math inline">\(S(t)=exp(-\land(t))\)</span>，累积风险越大，<span class="math inline">\(\land(t)\)</span>越大，计算得到的<span class="math inline">\(S(t)\)</span>越小，事件不发生的可能性也越小。对于这篇论文，累积风险函数的积分下界为某事件上一次发生的时间<span class="math inline">\(\overline t\)</span>，具体的积分形式如下: <span class="math display">\[
-\land(t)=\int_{\overline t}^t\lambda(\tau)d\tau
-\]</span> 由该小节式3易得，<span class="math inline">\(f(t)=h(t)·S(t)=\lambda^{e^o,e^s}_r(t)·S^{e^o,e^s}_r(t)\)</span>，其中，<span class="math inline">\(\lambda^{e^o,e^s}_r(t)\)</span>为事件<strong><span class="math inline">\((e^s,r,e^o)\)</span></strong>在<span class="math inline">\(t\)</span>时刻发生的瞬时强度，<span class="math inline">\(S^{e^o,e^s}_r(t)\)</span>为事件<strong>(s,r,o)</strong>在<span class="math inline">\(t\)</span>时刻的生存函数。记<span class="math inline">\(f(t)=d(t),d(t)\)</span>则为论文中对事件在<span class="math inline">\(t\)</span>时刻发生的瞬时概率密度的定义。</p>
-<h3 id="双线关系得分器">双线关系得分器</h3>
-<p>双线关系得分器用来计算两个实体在<span class="math inline">\(t\)</span>时刻的匹配程度，具体公式如下: <span class="math display">\[
-g^{e^s,e^0}_{r}(t)=v^{e^s}(t-)^T·R_r·v^{e^o}(t-)
-\]</span> 其中<span class="math inline">\(R_r\)</span>代表关系的嵌入，关系的嵌入不随时间改变。<span class="math inline">\(v^{e^s}(t-)\)</span>代表主体实体在<span class="math inline">\(t\)</span>时刻的最新表示，<span class="math inline">\(v^{e^o}(t-)\)</span>同理。它可以从历史中影响实体嵌入的时间当中学习到累积知识。</p>
-<h3 id="动态演化实体表示">动态演化实体表示</h3>
-<p>对于一个事件<span class="math inline">\(m，m\)</span>的定义如下: <span class="math display">\[
-m=(e^s,r,e^o,t)_m∈D
-\]</span> <span class="math inline">\(m\)</span>发生在时间<span class="math inline">\(t\)</span>，假设对于主体实体<span class="math inline">\(e^s,m\)</span>是其发生的第<span class="math inline">\(p\)</span>个事件。对于客体实体<span class="math inline">\(e^o,m\)</span>是其发生的第<span class="math inline">\(q\)</span>个事件。由于每个实体参与事件的异质性，<span class="math inline">\(p=q\)</span>的概率较小，但并非没有可能。基于此，实体的嵌入更新定义为下列式子：</p>
-<p><strong>主体实体</strong> <span class="math display">\[
-v^{e^s}(t_p)=\sigma(W^s_t(t_p-t_{p-1})+W^{hh}·h^{e^s}(t_p-))
-\]</span></p>
-<p><span class="math display">\[
-h^{e^s}(t_p-)=\sigma(W^h·[v^{e^s}(t_{p-1})\oplus v^{e^o}(t_p-)\oplus r^{e^o}_{p-1}])
-\]</span></p>
-<p><strong>客体实体</strong> <span class="math display">\[
-v^{e^o}(t_q)=\sigma(W^o_t(t_q-t_{q-1})+W^{hh}·h^{e^o}(t_q-))
-\]</span></p>
-<p><span class="math display">\[
-h^{e^o}(t_q-)=\sigma(W^h·[v^{e^o}(t_{q-1})\oplus v^{e^s}(t_q-)\oplus r^{e^o}_{q-1}])
-\]</span></p>
-<p>实体嵌入的更新是由事件驱动的，只有当新事件发生，参与事件的实体嵌入才会被更新。以主体实体为例，假设<span class="math inline">\(m\)</span>是其参与的第<span class="math inline">\(p\)</span>个事件，<span class="math inline">\(t_p\)</span>代表该事件发生的事件。对于第一项<span class="math inline">\(v^{e^s}(t_p)\)</span>，<span class="math inline">\(t_p-t_{p-1}\)</span>代表两次事件发生的时间差，用一个<span class="math inline">\(d×1\)</span>维的学习数组<span class="math inline">\(W^s_t\)</span>将其转换成一个向量。其中，<span class="math inline">\(d\)</span>是实体嵌入的维度。对于第二项<span class="math inline">\(h^{e^s}(t_p-)\)</span>，<span class="math inline">\(v^{e^s}(t_{p-1})\)</span>代表主体实体上一次参与事件后更新得到的实体嵌入，<span class="math inline">\(v^{e^o}(t_q-)\)</span>代表客体实体在参与当前事件前最新的实体表示，<span class="math inline">\(r^{e^s}_{p-1}\)</span>代表主体实体上一次事件中关系的表示。将三个嵌入拼接，乘上<span class="math inline">\(l×(2d+c)\)</span>维度的<strong>共享待学习</strong>投影矩阵<span class="math inline">\(W^h\)</span>，该矩阵用于评估实体在其先前关系中的兼容性，经过激活函数<span class="math inline">\(\sigma(·)\)</span>后得到该项。将其带回第一项，乘上<span class="math inline">\(d×l\)</span>维度的<strong>共享矩阵</strong><span class="math inline">\(W^{hh}\)</span>，经过激活函数<span class="math inline">\(\sigma(·)\)</span>后得到实体的最新表示。</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318133924358.png" title="实体嵌入更新示意图" alt="实体嵌入更新示意图">
-
-<p>上图为实体嵌入更新示意图，时间戳上的<span class="math inline">\(t\)</span>为当前时刻，事件(<span class="math inline">\(e^s,r_3,e^o,t\)</span>)发生时，模型会在时间戳上找到两个实体最新的表示以及当前实体参与的上一个事件的关系表示，并按照上述公式更新。<span class="math inline">\(t\)</span>时刻事件发生的强度以及实体更新可视化公式如下图所示:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318134858927.png" title="相关示意图" alt="相关示意图">
-
-<h3 id="训练模型">训练模型</h3>
-<p>给定从(0,T]的时序窗口以及在这个时序窗口内发生的所有事件，定义损失函数如下: <span class="math display">\[
-L = -\sum^N_{p=1}log(\lambda^{e^s,e^o}_r(t_p|\overline t_p))+\sum_{r=1}^{n_r}\sum_{e^s=1}^{n_e}\sum_{e^o=1}^{n_e}\int_0^{T}\lambda^{e^s,e^o}_r(\tau|\overline\tau)d\tau
-\]</span> 模型优化的目标是使得损失函数尽可能的小。对于第一项，所有在时间戳上已发生的真实事件将会被计算，并给出一个较大的<span class="math inline">\(\lambda\)</span>值，经过对数、求和、取负的操作后，它将对损失函数起到一个减小的作用。对于第二项，它会<strong>遍历所有可能的实体 - 关系组合</strong>，对每一个组合，计算其<strong>在两次事件之间没有发生的空白时间段内的强度积分</strong>，并将所有积分累加作为惩罚项。</p>
-<p>对于第二项，由于在没有事件发生的期间，实体的嵌入均不变，故可以将第二项简化为如下形式: <span class="math display">\[
-\int_{T_0}^T\lambda^{e^s,e^o}_r(\tau|\overline\tau)d\tau
-=\sum_{p=1}^{P_{(e^s,e^o)}-1}\int_{t_p}^{t_{p+1}}\lambda^{e^s,e^o}_r(\tau|\overline\tau)d\tau
-\]</span></p>
-<p><span class="math display">\[
-=\sum_{p=1}^{P_{(e^s,e^o)}-1}(t_{p+1}^2-t_p^2)·exp(V^{e^s}(t_p)^T·R_r·v^{e^o}(t_p))
-\]</span></p>
-<p>上述公式为损失函数的最终形式。由于一段时间内所有的事件组合数量过多，故采用小批次的生存损失近似代表全局生存损失，具体的算法如下：</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318173141691.png" title="算法一" alt="算法一">
-
-<p>对于该算法的解释如下:</p>
+<p>基于这些概率，按照以下步骤生成三元组：</p>
 <ul>
-<li>输入小分支事件<span class="math inline">\(\varepsilon\)</span>、事件的规模<span class="math inline">\(s\)</span>、分支实体列表<span class="math inline">\(bl\)</span>、总损失<span class="math inline">\(loss\)</span></li>
-<li>开始遍历每个事件，找到每个事件对应的主体实体表示、客体实体表示、关系表示、事件结束的事件并记录</li>
-<li>遍历每个候选列表实体，首先将每个实体当作客体实体，如果当前客体实体正好是记录的客体实体，则跳过；否则可以判断，当前客体实体与记录的主体实体在该时刻并无此关系，并将该关系的损失加入<span class="math inline">\(subj\_surv\)</span>，遍历完所有实体后结束此次遍历</li>
-<li>继续遍历每个候选列表实体，将每个实体当作主体实体，如果当前主体实体正好是记录的主体实体，则跳过；否则可以判断，当前主体实体与记录的客体实体在该时刻并无此关系，并将该关系的损失加入<span class="math inline">\(obj\_surv\)</span>，遍历完所有实体后结束此次遍历</li>
-<li>完成对主体和客体实体的遍历后，记录<span class="math inline">\(loss=subj\_surv+obj\_surv，loss\)</span>为损失函数第二项的近似损失，完成此次对事件的循环</li>
-<li>计算总<span class="math inline">\(loss\)</span>，得到小分支的损失，并用其代替总的生存损失</li>
+<li>给定所有过去<span class="math inline">\(m\)</span>个时间步事件<span class="math inline">\(G_{t-m:t-1}\)</span></li>
+<li>首先通过<span class="math inline">\(p(s_t|G_{t-m:t-1})\)</span>对所有主体实体采样</li>
+<li>然后依据<span class="math inline">\(p(r_t|s_t,G_{t-m:t-1})\)</span>生成和主体实体有关的关系<span class="math inline">\(r_t\)</span></li>
+<li>最后凭借<span class="math inline">\(p(o_t|s_t,r_t,G_{t-m:t-1})\)</span>生成三元组对应的客体</li>
 </ul>
-<p>对于以往的时间反向传播算法，时间序列会被拆分成相互独立的序列，并基于这些序列进行小批次传播，但是在本篇论文中，时序数据之间具有关联，故采用设计的<strong>BPTT算法</strong>进行模型训练，算法伪代码如下:</p>
+<p>因此，联合分布<span class="math inline">\(P(G)\)</span>在上式的基础上又可以写作: <span class="math display">\[
+p(G)=\prod_t\prod_{(s_t,r_t,o_t)\in G_t}p(s_t|G_{t-m:t-1})·p(r_t|s_t,G_{t-m:t-1})·p(o_t|s_t,r_t,G_{t-m:t-1})
+\]</span> ### <strong>复发事件编码器(Recurrent Event Encoder)</strong></p>
+<p>为了对每个事件参数化表示，<strong>RE-Net</strong>定义了一系列全局和局部表示。</p>
+<p>全局表示<span class="math inline">\(H_t\)</span>总结了直到时间戳<span class="math inline">\(t\)</span>的全图全局信息，反应了全局对即将发生的事件的影响。局部表示<span class="math inline">\(h_t(s),h_t(s,r)\)</span>则更聚焦于和这些实体、关系有联系的实体和关系信息。</p>
+<p><strong>编码过程</strong></p>
+<p>需要对全局信息<span class="math inline">\(H_t\)</span>，局部信息<span class="math inline">\(h_t{(s,r)},h_t(s)\)</span>编码，复发事件编码器由<strong>三个独立的RNN组成</strong>，分别对两个局部信息以及一个全局信息进行编码。具体定义如下: <span class="math display">\[
+H_t=RNN^1(g(G_t),H_{t-1})
+\]</span></p>
+<p><span class="math display">\[
+h_t(s,t)=RNN^2(g(N_t^{(s)}),H_t,h_{t-1}(s,r))
+\]</span></p>
+<p><span class="math display">\[
+h_t(s)=RNN^3(g(N_t^{(s)}),H_t,h_{t-1}(s))
+\]</span></p>
+<p><span class="math inline">\(N_t^{(s)}\)</span>指的是在事件戳<span class="math inline">\(t\)</span>时刻和主体实体<span class="math inline">\(s\)</span>有关的所有事件，<span class="math inline">\(g(·)\)</span>是邻居聚合器的聚合函数，<span class="math inline">\(g(G_t)=max(\{g(N_t^{s})\})\)</span>。</p>
+<p><strong>解码过程</strong>:</p>
+<p><strong>RE-Net</strong>将<span class="math inline">\(p(o_t|s_t,r_t,G_{t-m:t-1})\)</span>参数化成： <span class="math display">\[
+exp([e_s:e_r:h_{t-1}(s,r)]^T·w_{o_t})
+\]</span> <span class="math inline">\(h_{t-1}(s,r)\)</span>是<span class="math inline">\((s,r)\)</span>在时间戳<span class="math inline">\(t-1\)</span>时刻获得的局部表示。通过将编码送入多层感知机作为一个线性<span class="math inline">\(softmax\)</span>分类器，训练参数<span class="math inline">\(w_{o_t}\)</span>，使得模型能够根据已知主体和关系，找到正确的客体。</p>
+<p>同理，定义寻找主体和关系的概率如下: <span class="math display">\[
+p(r_t|s,G_{t-m:t-1}) \propto \exp([e_s:h_{t-1}(s)]^T·w_{r_t})
+\]</span></p>
+<p><span class="math display">\[
+p(s_t|G_{t-m:t-1}) \propto \exp(H_{t-1}^T·w_{s_t})
+\]</span></p>
+<p>通过三个独立的<strong>MLP</strong>分别训练参数。</p>
+<h3 id="邻居聚合器neighborhood-aggregators"><strong>邻居聚合器(Neighborhood Aggregators)</strong></h3>
+<p>①<strong>均值池化聚合器</strong></p>
+<p>该聚合器仅仅对<span class="math inline">\(N_t^{(s,r)}\)</span>中的客体元素进行逐元素均值计算。<span class="math inline">\(N_t^{(s,r)}\)</span>是在<span class="math inline">\(t\)</span>时刻和主体实体<span class="math inline">\(s\)</span>，关系<span class="math inline">\(r\)</span>，有关系的客体元素<span class="math inline">\(o\)</span>的集合。该聚合器平等对待所有客体，忽略了每个邻居实体的不同重要性程度。</p>
+<p>②<strong>注意力池化聚合器</strong></p>
+<p>聚合函数定义为<span class="math inline">\(g(N_t^{(s,r)})=\sum_{o\in N_t^{(s,r)}}\alpha_oe_o\)</span>。其中，<span class="math inline">\(\alpha_o=softmax(v^Ttanh(W(e_s;e_r;e_o)))\)</span>，<span class="math inline">\(v,W\)</span>是可学习参数。该聚合器可以根据关联程度调整不同邻居实体的权重。</p>
+<p>③<strong>多关系图聚合器</strong></p>
+<p>该聚合器可以合并多关系和多跳实体的信息，聚合器被定义如下: <span class="math display">\[
+g(N_t^s)=h_s^{(l+1)}=\sigma(\sum_{r\in R}\sum_{o\in N_t^{(s,r)}}\frac{1}{c_s}W_r^{(l)}h_o^{(l)}+W_o^{(l)}h_s^{(l)})
+\]</span> 每个节点的初始隐藏表示<span class="math inline">\((h_o^{(0)})\)</span>被设置成可训练的嵌入向量<span class="math inline">\((e_o)\)</span>。<span class="math inline">\(c_s\)</span>是归一化因子。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319161954452.png" title="算法二" alt="算法二">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325085558755.png" alt="不同聚合器示意图">
 
-<p>对于该算法的解释如下:</p>
+<p>上图为不同聚合器的对比示意图。</p>
+<p>下图为<strong>RE-Net</strong>工作架构示意图，聚合器同时处理局部邻域结构和整体结构，局部信息和全局信息一起送入<strong>RNN单元</strong>编码，再将编码送入<strong>MLP</strong>解码，得到预测值： <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325094702659.png" alt="RE-Net工作架构图"></p>
+<p><strong>推理过程</strong></p>
+<p>元素的推理过程可以看作是一个<strong>多类别分类任务</strong>，损失函数定义如下: <span class="math display">\[
+L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s_t)
+\]</span> <span class="math inline">\(\lambda_1,\lambda_2\)</span>可以根据具体的任务需求调整大小。</p>
+<p>模型训练完毕后，假设需要预测在<span class="math inline">\(t+ \Delta t\)</span>时刻发生的事情，即计算<span class="math inline">\(p(G_{t+\Delta t}|G_t)\)</span>，可以将其看作一个分步推理的过程。具体算法如下:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325091445024.png" alt="分步推理算法">
+
+<p>输入过去时间戳的事件序列集合，以及每一步需要采样的实体个数<span class="math inline">\(M\)</span>，输出条件分布<span class="math inline">\(p(G_{t+\Delta t}|G_t)\)</span>的估计。</p>
+<p>从<span class="math inline">\(t+1\)</span>时刻开始，直到<span class="math inline">\(t+\Delta t\)</span>进行循环。每次循环有下列步骤:</p>
 <ul>
-<li>输入全局事件序列<span class="math inline">\(O\)</span>，窗口大小<span class="math inline">\(s\)</span>，迭代次数<span class="math inline">\(max\_iter\)</span>，当前事件索引<span class="math inline">\(cur\_index\)</span>，当前事件发生时间<span class="math inline">\(t\_begin\)</span></li>
-<li>进入循环，如果当前事件索引大于0，则记录当前索引的上一个事件对应的事件，当作<strong>上一个窗口的末尾时间</strong></li>
-<li>通过当前窗口的小分支计算损失</li>
-<li>移动到下一个窗口，如果当前索引加上窗口大小超出了事件序列长度，那么将索引重置为0</li>
-<li>结束循环</li>
+<li>根据<span class="math inline">\(p(s|\hat G_{t+1:\hat t-1},G_{:t})\)</span>，采样<span class="math inline">\(M\)</span>个最有可能在当前时刻发生的主体实体</li>
+<li>依据<span class="math inline">\(p(r|s,\hat G_{t+1:\hat t-1},G_{:t}),p(o|s,r,\hat G_{t+1:\hat t-1},G_{:t})\)</span>选择<span class="math inline">\(k\)</span>个最有可能在当前时刻发生的事件，作为当前时刻发生的事件集</li>
+<li>循环，直到<span class="math inline">\(t+\Delta t\)</span>时刻</li>
 </ul>
+<blockquote>
+<p><span class="math inline">\(t+1:t+\Delta t -1\)</span>时刻的事件为算法自回归预测而来</p>
+</blockquote>
+<p>此时已知<span class="math inline">\(t+\Delta t\)</span>时刻之前的所有已发生事件，可以预测该时刻单个事件发生以及整个图谱发生的概率。</p>
 <h2 id="论文实验">论文实验</h2>
-<p>首先对数据集进行预处理，去除重复四元组、单主体事件、自环事件。论文在四个数据集上进行实验，分别是<strong>Global Database of Events, Language,and Tone (GDELT)</strong>和<strong>Integrated Crisis Early Warning System (ICEWS) </strong>，以及两个数据集对应的过滤数据集。数据集的统计信息如下图所示:</p>
+<p>共在五个数据集上进行实验，其中三个是基于事件的数据集，两个是带有时间戳的数据集。在生成负三元组时，过滤掉出现在训练集、验证集和测试集的真实三元组。</p>
+<blockquote>
+<p>齐次图指的是图中只有一种关系类型、实体类型的图，如：微信好友关系图</p>
+</blockquote>
+<p>实验对比了<strong>静态模型、时序模型、用于齐次图的模型</strong>。对于静态模型，将数据集中四元组的时间戳删去，并合并相同三元组，得到一个新的数据集，在此数据集上进行补全。数据集统计图如下所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318234410521.png" title="数据集信息" alt="数据集信息">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325114925673.png" alt="数据集统计">
 
-<p><strong>Possible Entries</strong>代表所有可能的事件组合，<strong>Avaliable Entires</strong>代表可能在现实世界中发生的事件组合。</p>
-<p>对于链接预测，采用传统知识图谱补全的方法进行实验。由于没有方法能对事实发生的时间预测，故设计如下两种基线方法:</p>
+<p><strong>dyngraph2vecAE,tNodeEmbed</strong>两个模型用于处理齐次图，故在非齐次图上效果并不显著。<strong>Know-Evolve</strong>由于自身的模型问题，它无法正确预测并发事件，故表现的很差。总体实验结果图如下所示:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115318789.png" alt="总体实验结果图">
+
+<p>论文还做了在未来时间戳上链路预测的对比实验，随着时间的推移，<strong>RE-Net</strong>效果将变差，因为时间越久，假设事实就越多。<strong>ConvE</strong>是静态模型，它不考虑时间戳带来的影响，故其效果相对平稳。具体实验结构如下图所示:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115603727.png" alt="时间戳上的链路预测">
+
+<p>在带有时间戳的两个数据集<strong>WIKI和YAGO</strong>上的时序链路预测结果如下图所示:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325163525540.png" alt="带时间戳数据集实验结果">
+
+<p>以<strong>MRR</strong>为评价指标，针对不同聚合器的实验结过如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115800567.png" alt="不同聚合器实验结果">
+
+<p>论文还说明了训练<span class="math inline">\(p(s_t|G_{t-m:t-1})\)</span>和<span class="math inline">\(p(r_t|s_t,G_{t-m:t-1})\)</span>(简记为<span class="math inline">\(p(s),p(r)\)</span>)的必要性。假设实体和关系是独立的，那么<span class="math inline">\(p(s_t,r_t|G_{t-m:t-1})=p(s)p(r)\)</span>，简写等式左边为<span class="math inline">\(p(s,r)\)</span>。令<span class="math inline">\(p_e(s)\)</span>等于包含<span class="math inline">\(s\)</span>的三元组/总三元组，<span class="math inline">\(p_e(r)\)</span>等于包含<span class="math inline">\(r\)</span>的三元组除以总三元组，以<strong>MRR</strong>为评价指标，所得结果如下图:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325122601504.png" alt="对p(s)和p(s,r)的研究">
+
+<p>消融实验探索了在没有聚合器和没有多步推理情况下<strong>RE-Net</strong>的能力。另一方面，如果允许<strong>RE-Net</strong>使用<strong>Ground Truth</strong>，实验效果会提高，但这是不被允许的，具体实验结果如下图所示:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325162935969.png" alt="消融实验">
+
+<blockquote>
+<p>GT指的是在测试集中出现的事实，在预测完某个时间戳之后，将测试集中该时间戳的数据加入训练集</p>
+</blockquote>
+<p><strong>参数敏感性实验</strong></p>
+<p>实验探索了<strong>历史事件长度，截断的数量k，RGCN的层数，全局表示</strong>对最后模型性能的影响，具体实验结果如下图所示:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325165114089.png" alt="参数敏感性实验">
+
 <ul>
-<li><strong>Multi-dimensional Hawkes process (MHP)</strong>：收集每一对实体之间参与的事件及其发生时间，形成一个时间轴，在该时间轴上对事实发生的事件学习</li>
-<li><strong>Recurrent Temporal Point Process (RTPP)</strong>：把三元组的静态实体、关系嵌入拼接，加上当前的时序特征，得到输入向量，作为全局RNN的输入，得到对应的隐状态<span class="math inline">\(h_t\)</span>，用<span class="math inline">\(h_t\)</span>计算三元组在不通过时间的强度<span class="math inline">\(\lambda(t)\)</span>，找到强度最大的时刻</li>
+<li>(a)历史长度指的是，模型需要根据过去多少<strong>时间戳的数据</strong>进行新事件的预测</li>
+<li>(b)<span class="math inline">\(k\)</span>指的是<strong>算法一</strong>中截取的三元组数量</li>
+<li>(c)<span class="math inline">\(RGCN\)</span>层数指的是聚合器需要聚合<strong>目标实体周围实体和关系的跳数</strong></li>
+<li>(d)探索了<strong>全局表示</strong>对模型的影响</li>
 </ul>
-<p><strong>链路预测</strong></p>
-<p>由于研究具有时序性，为了说明模型的能力不会随着时间衰退，故将测试集分成长度为<strong>2weeks</strong>的窗口进行测试，判断模型在不同时间段的能力。对于一个四元组<span class="math inline">\((e^s,r,e^o,t)\)</span>，将客体实体替换成其它实体，根据事件在<span class="math inline">\(t\)</span>时刻发生的瞬时概率密度公式<span class="math inline">\(d(t)=\lambda^{e^o,e^s}_r(t)·S^{e^o,e^s}_r(t)\)</span>，将不同四元组的组合得分进行降序排序。同时过滤替换实体后仍然出现在训练集中的三元组，以<strong>MAR,STDEV,HITS_10</strong>作为评价指标，具体实验结果如下：</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151031263.png" title="主要平均排名" alt="主要平均排名">
-
-<p><strong>MAR</strong>是模型的主要平均排名。由正确四元组在预测序列中的排名得到。正确三元组在预测中的排名越靠前，MAR越低。<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151444017.png" title="标准差" alt="标准差"></p>
-<p><strong>STDEV</strong>是模型的标准差，用来判断模型预测能力的稳定程度，其数值越低，说明模型预测的越稳定。</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151650265.png" title="Hits_@10指标" alt="Hits_@10指标">
-
-<p><strong>Hits_<span class="citation" data-cites="10">@10</span></strong>指标由<strong>正确四元组在模型给出预测序列中前10的概率</strong>得到，数值越高，代表模型越能准确预测四元组。</p>
-<p><strong>时间预测</strong></p>
-<p>给定一个测试三元组<span class="math inline">\((e^s,r,e^o)\)</span>，根据下列式子预测该事件的下一次发生时间： <span class="math display">\[
-E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
-\]</span> 其中<span class="math inline">\(g^{e^s,e^0}_{r}(t)=v^{e^s}(t-)^T·R_r·v^{e^o}(t-)\)</span>，实验使用<strong>Mean Average Error(MAE)</strong>作为评价指标。该指标揭露了预测的发生时间和真实发生时间之间的平均误差，实验结果图如下:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319160508636.png" title="时间预测结果图" alt="时间预测结果图">
-
-<p><strong>滑动窗口实验</strong></p>
-<p>由于本论文提出的模型的实体嵌入随着时间一直在改变，为了保证实验公平，对于传统的基线模型，首先给定其一个包含六个月事件训练集，训练出初始嵌入。由于时间轴被分成了大小为两周的12个切片，在之后的测试里，为了使基线模型的嵌入也能随时间更新，在一个切片结束后，测试集的数据会被加入训练集，同时，训练集会删除最开始两周的数据，用此方法使基线模型的嵌入也能随时间变化，实验结果如图所示:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319165155590.png" title="滑动窗口实验" alt="滑动窗口实验">
-
-<p><strong>新旧事实实验</strong></p>
-<p>为了判断模型能否正确判断新发生的事实，设置对比实验。</p>
+<p><strong>案例分析</strong></p>
+<p>分析<strong>RET-Net</strong>在何种案例情况下能够准确预测。将案例分为三种情况:</p>
 <ul>
-<li>组一的测试集仅仅包含训练集中未出现过的事实</li>
-<li>组二的测试集仅仅包含训练集中出现过的事实</li>
+<li>待预测主体频繁与同一个客体交互</li>
+<li>有特定的时序模式</li>
+<li>与预测事件毫无关联</li>
 </ul>
-<p>实验结果如下图所示；</p>
+<p>对于第一种案例，因为<strong>China</strong>不断与同一客体<strong>USA</strong>交互，故<strong>RE-Net</strong>可以正确预测，而静态方法更可能预测在训练集中和关系<strong>Accuse</strong>有关系的实体。</p>
+<p>对于第二种案例，如果过往事件存在某种逻辑上的关系，那么<strong>RE-Net</strong>也可以正确的捕捉这种关系，并进行预测。</p>
+<p>对于第三种案例，待预测客体在先前的事件中完全没有任何规律，故<strong>RE-Net</strong>在预测该类客体的能力上表现较差。</p>
+<p>三个案例的示意图如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319165833265.png" title="新旧事实实验对比图" alt="新旧事实实验对比图">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325171317283.png" alt="案例分析图">
 
 <h2 id="论文结论">论文结论</h2>
 <ul>
-<li>提出了一种新型的知识演化网络，可以在多关系模型中高效的学习实体随时间的演化</li>
-<li>可以根据事件的发生动态地对实体的嵌入进行更新</li>
-<li>事件的发生由时序点过程建模，它通过事实掌握时序依赖</li>
-<li>方法在真实事件的高效表现充分证明了时序分析的重要性</li>
+<li>定义了所有事件的条件概率分布，因此可以将预测事件转换为时序推理任务</li>
+<li>如果过往事件对预测事件无帮助，效果可能会不好</li>
+<li>长时间的知识图谱预测能力较弱</li>
 </ul>
 <h2 id="论文总结">论文总结</h2>
-<p>作为第一篇时序知识图谱补全方向的论文，收获如下：</p>
+<p>论文聚焦于时序知识图谱的未来事件外推预测任务，核心设计启发为两点：</p>
 <ul>
-<li>了解了生存分析理论的强度函数<span class="math inline">\(h(t)\)</span>，生存函数<span class="math inline">\(S(t)\)</span>，事件发生的条件概率密度<span class="math inline">\(f(t)\)</span>，且<span class="math inline">\(f(t)=h(t)S(t)\)</span></li>
-<li>本论文的强度函数为<strong>时间点过程</strong>的表示函数，它们具有相同的意义，均指在时间<span class="math inline">\(t\)</span>事件发生的瞬时强度</li>
-<li>对概率密度的定义及相关含义有了更深刻的认识，概率密度指的是事件在某个点发生的密集程度，越密集，则该点附近的概率密度越高</li>
-<li>创新点为1)用<strong>时序点过程</strong>建模时序事件 2)用类似RNN的框架更新实体嵌入 3)提出算法2，该算法利用<strong>滑动窗口</strong>，降低了训练的时间复杂度 4)设计了 <strong>时间间隔驱动的强度函数</strong></li>
+<li><p>时序维度：历史发生的事件会对未来事件的发生产生关键影响；</p></li>
+<li><p>结构维度：预测目标事件时，与事件中实体、关系相关的邻域实体和关联关系，会提供关键的结构信息。</p></li>
 </ul>
+<p>基于第一点启发，论文提出了事件的自回归联合概率分布建模，刻画未来时间步事件发生的可能性；同时将联合概率拆解为「主体预测→关系预测→客体预测」的链式条件概率，从实体出发逐步生成完整三元组，天然建模了主体、关系、客体三者的依赖关系，让生成的事件语义关联性更强。基于第二点启发，论文设计了多关系邻域聚合器，用于聚合实体的邻域结构信息、区分不同关系的语义，捕捉同一时间步内并发事件的结构依赖。</p>
+<p>该方法解决了 Know-Evolve 等早期方法无法处理同一时刻并发事件、推理时必须依赖测试集真实标签、无法实现多步未来预测的核心痛点，将未来事件预测转化为可端到端学习的自回归时序结构推理任务。</p>
+<p>该方法存在两个原生局限：</p>
+<ul>
+<li><p>长时序预测效果会持续衰减：多步预测时，模型会复用前一步自主生成的伪图谱作为历史输入，生成的误差会逐步累积，预测时间步越远，效果越差；</p></li>
+<li><p>对历史弱关联 / 无关联的事件预测能力差：RE-NET 的预测完全依赖历史事件的规律，当未来事件和历史信息无强关联时，模型无法学习到有效规律，预测效果会显著下降。</p></li>
+</ul>
+<p>​ <span class="math inline">\(Fin.\)</span></p>
 
                 
             </div>
@@ -730,7 +736,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://violet796.github.io/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/">https://violet796.github.io/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/</a>
+                    <a href="https://violet796.github.io/2026/03/19/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/">https://violet796.github.io/2026/03/19/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1088,68 +1094,12 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/">
+                <a href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A22.jpg" class="responsive-img" alt="Hot100-无重复字符的最长子串">
+                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" class="responsive-img" alt="【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs">
                         
-                        <span class="card-title">Hot100-无重复字符的最长子串</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Hot100 无重复字符的最长子串
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-22
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Hot100/" class="post-category">
-                                    Hot100
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hot100/">
-                        <span class="chip bg-color">Hot100</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/">
-                        <span class="chip bg-color">算法题</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                        <span class="chip bg-color">滑动窗口</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2026/03/19/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/">
-                    <div class="card-image">
-                        
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" class="responsive-img" alt="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs">
-                        
-                        <span class="card-title">【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</span>
+                        <span class="card-title">【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1159,9 +1109,9 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-19
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-03-19
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1187,6 +1137,58 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                     
                     <a href="/tags/RNN/">
                         <span class="chip bg-color">RNN</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/">
+                    <div class="card-image">
+                        
+                        <img src="https://www.toopic.cn/public/uploads/small/1743560735324174356073588.jpg" class="responsive-img" alt="数据分析库-Pandas的使用">
+                        
+                        <span class="card-title">数据分析库-Pandas的使用</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            总结Pandas库的使用
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-09-26
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DataAnalysis/" class="post-category">
+                                    DataAnalysis
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                    <a href="/tags/Pandas/">
+                        <span class="chip bg-color">Pandas</span>
                     </a>
                     
                 </div>
