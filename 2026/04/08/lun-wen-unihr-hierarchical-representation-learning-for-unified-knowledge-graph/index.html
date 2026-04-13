@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs, ‘学习’">
+    <meta name="keywords" content="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph, ‘学习’">
     <meta name="description" content="欢迎一起交流">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs | Knight Zhou 的博客</title>
+    <title>【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph | Knight Zhou 的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -344,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</h1>
+                    <h1 class="description center-align post-title">【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</h1>
                 </div>
             </div>
         </div>
@@ -469,12 +469,12 @@
                                 <span class="chip bg-color">论文</span>
                             </a>
                         
-                            <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
-                                <span class="chip bg-color">时序知识图谱</span>
+                            <a href="/tags/%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B/">
+                                <span class="chip bg-color">链路预测</span>
                             </a>
                         
-                            <a href="/tags/RNN/">
-                                <span class="chip bg-color">RNN</span>
+                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA/">
+                                <span class="chip bg-color">知识图谱归一化表示</span>
                             </a>
                         
                     </div>
@@ -498,7 +498,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-03-25
+                    2026-04-08
                 </div>
                 
 
@@ -507,14 +507,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.7k
+                    4.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    13 分
+                    17 分
                 </div>
                 
 
@@ -533,183 +533,254 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <ul>
-<li><p>论文全称：<strong>Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</strong></p></li>
-<li><p>论文作者：Woojeong Jin¹、Meng Qu²³、Xisen Jin¹、Xiang Ren¹</p>
-<p>南加州大学（University of Southern California）计算机科学系；² MILA - Quebec AI Institute；³ 蒙特利尔大学（University of Montréal）</p></li>
-<li><p>发表信息：2020 年自然语言处理顶会 <strong>EMNLP 2020</strong>（Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing），页码 6669–6683，会议举办时间 2020 年 11 月 16 日 - 20 日</p></li>
-<li><p>领域定位：<strong>时序动态知识图谱（Temporal Knowledge Graph, TKG）外推推理（未来事件预测）</strong>领域的经典开创性工作，是首个为 TKG 多步未来预测设计的自回归生成式架构，也是该领域后续研究广泛使用的标杆性基线模型</p></li>
-<li><p>代码仓库：<a target="_blank" rel="noopener" href="https://github.com/INK-USC/RE-Net">INK-USC/RE-Net: Recurrent Event Network: Autoregressive Structure Inference over Temporal Knowledge Graphs (EMNLP 2020)</a></p></li>
+<li><p>论文全称：<strong>UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</strong></p></li>
+<li><p>作者信息：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413180804757.png" alt="作者信息">
+</li>
+<li><p>发表信息：<strong>2026 年AAAI</strong> CCFA会议</p></li>
+<li><p>领域定位：<strong>知识图谱统一化表示学习</strong></p></li>
+<li><p>代码仓库：https://github.com/zjukg/UniHR</p></li>
 </ul>
 <h2 id="论文背景">论文背景</h2>
-<p><strong>知识图谱(Knowledge Graph,KG)</strong>反应了真实世界中实体和之间的关系，在各个领域都发挥着作用。但由于知识图谱本身的性质，其中会存在很多缺失信息，故，知识图谱的补全成为了一个研究问题。但在现实生活中，实体之间的关系会发生变化，故诞生了<strong>时序知识图谱(Temporal Knowledge Graph,TKG)</strong>。针对时序知识图谱补全的方法目前存在如下几个问题:</p>
+<p>真实世界的知识图谱被广泛应用在各种领域，如问答和自然语言处理等。传统三元组不能充分表示真实世界，因此，某些包含<strong>超关系、时序知识和嵌套事实</strong>等额外信息的知识图谱被用于建模事件。</p>
 <ul>
-<li>预测某一时刻的真实事件时，必须知道该时刻上一时刻的真实事件，因此，其不能<strong>做连续的预测</strong></li>
-<li>过去的方法不能处理同一时刻发生的事件，只能假设同一时刻只有一个事件发生</li>
+<li><strong>超关系知识图谱</strong>：除了普通三元组以外，在关系上还包含一些额外信息，如:（(奥本海默，受教育于，哈佛大学)，学位：学士，专业：化学）</li>
+<li><strong>时序知识图谱</strong>：除了普通三元组外，还包含时序信息，如：(勒布朗詹姆斯，效力于，迈阿密热火，[2011-2014])</li>
+<li><strong>嵌套事实知识图谱</strong>：除了普通三元组外，还包含三元组之间的关系，如：((奥本海默，出生于，纽约)，蕴含，(奥本海默，国籍为，美国))</li>
 </ul>
-<p>基于上述两点，本文提出了一种<strong>能建模并发事件、能无标签连续预测未来</strong>的时序图谱模型<strong>RE-Net</strong>。</p>
-<p>下图为一个时序知识图谱随着事件的变化发生变化的示例图：</p>
+<p>三类知识图谱示意如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325182920881.png" alt="TKG示意图">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260408163926179.png" alt="三类知识图谱">
 
+<p>现有研究主要有以下<strong>两个问题</strong>:</p>
+<p>1）这些知识图谱不能反应有多种异构事实的真实场景，只能把它们分离，单个建模。</p>
+<p>2）先前基于三元组知识图谱嵌入的方法证明了分层事实语义建模的有效性，但是超越三元组的表示形式较为复杂，这些方法无法实现全面的层级化语义建模，无法泛化到其它事实类型。</p>
+<p>因此，提出一种针对<strong>具有多关系</strong>的真实世界知识图谱的统一的层次表示学习方法是值得研究的。</p>
+<p>本文提出<strong>UniHR</strong>，一种统一层次表示学习框架，由<strong>层次数据表示模块(HiDR)</strong>和<strong>层次结构学习模块(HiSL)</strong>组成。</p>
+<ul>
+<li><strong>HiDR</strong>负责将不同知识图谱在不丢失信息的情况下转换成统一的三元组结构</li>
+<li><strong>HiSL</strong>通过事实内消息传递捕获局部语义信息，再利用事实间消息传递丰富全局结构信息以获得更好的节点嵌入</li>
+</ul>
+<p>更新的节点嵌入将会被送入解码器用于链路预测。</p>
+<p>论文的贡献可以总结为以下三点：</p>
+<ul>
+<li>强调了不同知识图谱统一表示，统一学习的重要性</li>
+<li>提出了第一个统一的层次知识图谱表示学习框架<strong>UniHR</strong></li>
+<li>方法在不同数据集展示了良好的效果</li>
+</ul>
+<h2 id="相关工作">相关工作</h2>
+<ul>
+<li><strong>超关系知识图谱</strong>：早期的超关系知识图谱补全只针对局部信息或全局信息。方法要么只关注了事实内交互(一个事实内部的元素)、要么只关注了事实间交互（共享了实体的事实）。最新的方法尝试对该知识图谱进行多层建模，但是针对该知识图谱的分层方法很难泛化到<strong>其它类型</strong>的事实中。</li>
+<li><strong>嵌套知识图谱</strong>：23年首次被提出，但是现有的方法由于嵌套知识图谱表示的复杂性，很难掌握事实内的语义信息。</li>
+<li><strong>时序知识图谱</strong>：针对该类型图谱的方法聚焦于设计<strong>杰出的时间感知模块</strong>，如用<strong>四阶张量分解+时间正则、几何空间</strong>建模单个事实内的方法，和<strong>沿着时间轴得到实体领域子图的</strong>的建模事实间的方法。没有一个方法可以同时捕捉两个层面。</li>
+</ul>
 <h2 id="论文方法">论文方法</h2>
-<p>复发事件编码器总结过去事件序列的信息，邻居聚合器聚合同一个窗口内重复发生事件的信息</p>
-<p>四元组表示为<span class="math inline">\((s,r,o,t)\)</span>，或<span class="math inline">\((s_t,r_t,o_t)\)</span>。一个时序知识图谱基于事件四元组的时间戳升序建模，目标是根据观察到的事件集合<span class="math inline">\({G_1,…,G_t}\)</span>，学习事件的总体分布<span class="math inline">\(p(G)\)</span>。</p>
-<p>方法的核心理念是从序列图中学习时序依赖，从邻居中学习局部结构依赖。</p>
-<p>RE-Net定义并发事件的条件概率，其依赖于所有先前的事件。</p>
-<p>定义所有事件的联合分布<span class="math inline">\(G={G_1,…,G_T}\)</span>。推测当前时间步<span class="math inline">\(G_t\)</span>的概率依赖于前<span class="math inline">\(m\)</span>个时间步<span class="math inline">\(G_{t-m,t-1}\)</span>，故把联合分布拆分为一序列的条件分布<span class="math inline">\(p(G_t|G_{t-m:t-1})\)</span>。又推测时间步<span class="math inline">\(G_t\)</span>中的事件都是相互独立的，故联合分布可以被写为: <span class="math display">\[
-p(G)=\prod_t\prod_{(s_t,r_t,o_t)\in G_t}p(s_t,r_t,o_t|G_{t-m:t-1})
-\]</span></p>
-<blockquote>
-<p>如果事件之间相互独立，那么各事件的联合概率分布等于各事件的条件概率分布之积。</p>
-</blockquote>
-<p>基于这些概率，按照以下步骤生成三元组：</p>
+<p><strong>UniHR</strong>总体架构如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413003052544.png" alt="UniHR总体架构">
+
+<p>分为以下三步:</p>
 <ul>
-<li>给定所有过去<span class="math inline">\(m\)</span>个时间步事件<span class="math inline">\(G_{t-m:t-1}\)</span></li>
-<li>首先通过<span class="math inline">\(p(s_t|G_{t-m:t-1})\)</span>对所有主体实体采样</li>
-<li>然后依据<span class="math inline">\(p(r_t|s_t,G_{t-m:t-1})\)</span>生成和主体实体有关的关系<span class="math inline">\(r_t\)</span></li>
-<li>最后凭借<span class="math inline">\(p(o_t|s_t,r_t,G_{t-m:t-1})\)</span>生成三元组对应的客体</li>
+<li><p>1）给定任意类型的知识图谱，记为<span class="math inline">\(G\)</span>，通过<strong>HiDR</strong>将其转换成<span class="math inline">\(G^{HiDR}\)</span></p></li>
+<li><p>2）<span class="math inline">\(G^{HIDR}\)</span>将会被<strong>HiSL</strong>模块编码，以增加特定事实的语义信息和，和整个图中不同事实的结构信息</p></li>
+<li><p>3）解码阶段，更新后的节点和边嵌入向量被序列化后输入<strong>Transformer</strong>模块以优化模型性能</p></li>
 </ul>
-<p>因此，联合分布<span class="math inline">\(P(G)\)</span>在上式的基础上又可以写作: <span class="math display">\[
-p(G)=\prod_t\prod_{(s_t,r_t,o_t)\in G_t}p(s_t|G_{t-m:t-1})·p(r_t|s_t,G_{t-m:t-1})·p(o_t|s_t,r_t,G_{t-m:t-1})
-\]</span> ### <strong>复发事件编码器(Recurrent Event Encoder)</strong></p>
-<p>为了对每个事件参数化表示，<strong>RE-Net</strong>定义了一系列全局和局部表示。</p>
-<p>全局表示<span class="math inline">\(H_t\)</span>总结了直到时间戳<span class="math inline">\(t\)</span>的全图全局信息，反应了全局对即将发生的事件的影响。局部表示<span class="math inline">\(h_t(s),h_t(s,r)\)</span>则更聚焦于和这些实体、关系有联系的实体和关系信息。</p>
-<p><strong>编码过程</strong></p>
-<p>需要对全局信息<span class="math inline">\(H_t\)</span>，局部信息<span class="math inline">\(h_t{(s,r)},h_t(s)\)</span>编码，复发事件编码器由<strong>三个独立的RNN组成</strong>，分别对两个局部信息以及一个全局信息进行编码。具体定义如下: <span class="math display">\[
-H_t=RNN^1(g(G_t),H_{t-1})
-\]</span></p>
-<p><span class="math display">\[
-h_t(s,t)=RNN^2(g(N_t^{(s)}),H_t,h_{t-1}(s,r))
-\]</span></p>
-<p><span class="math display">\[
-h_t(s)=RNN^3(g(N_t^{(s)}),H_t,h_{t-1}(s))
-\]</span></p>
-<p><span class="math inline">\(N_t^{(s)}\)</span>指的是在事件戳<span class="math inline">\(t\)</span>时刻和主体实体<span class="math inline">\(s\)</span>有关的所有事件，<span class="math inline">\(g(·)\)</span>是邻居聚合器的聚合函数，<span class="math inline">\(g(G_t)=max(\{g(N_t^{s})\})\)</span>。</p>
-<p><strong>解码过程</strong>:</p>
-<p><strong>RE-Net</strong>将<span class="math inline">\(p(o_t|s_t,r_t,G_{t-m:t-1})\)</span>参数化成： <span class="math display">\[
-exp([e_s:e_r:h_{t-1}(s,r)]^T·w_{o_t})
-\]</span> <span class="math inline">\(h_{t-1}(s,r)\)</span>是<span class="math inline">\((s,r)\)</span>在时间戳<span class="math inline">\(t-1\)</span>时刻获得的局部表示。通过将编码送入多层感知机作为一个线性<span class="math inline">\(softmax\)</span>分类器，训练参数<span class="math inline">\(w_{o_t}\)</span>，使得模型能够根据已知主体和关系，找到正确的客体。</p>
-<p>同理，定义寻找主体和关系的概率如下: <span class="math display">\[
-p(r_t|s,G_{t-m:t-1}) \propto \exp([e_s:h_{t-1}(s)]^T·w_{r_t})
-\]</span></p>
-<p><span class="math display">\[
-p(s_t|G_{t-m:t-1}) \propto \exp(H_{t-1}^T·w_{s_t})
-\]</span></p>
-<p>通过三个独立的<strong>MLP</strong>分别训练参数。</p>
-<h3 id="邻居聚合器neighborhood-aggregators"><strong>邻居聚合器(Neighborhood Aggregators)</strong></h3>
-<p>①<strong>均值池化聚合器</strong></p>
-<p>该聚合器仅仅对<span class="math inline">\(N_t^{(s,r)}\)</span>中的客体元素进行逐元素均值计算。<span class="math inline">\(N_t^{(s,r)}\)</span>是在<span class="math inline">\(t\)</span>时刻和主体实体<span class="math inline">\(s\)</span>，关系<span class="math inline">\(r\)</span>，有关系的客体元素<span class="math inline">\(o\)</span>的集合。该聚合器平等对待所有客体，忽略了每个邻居实体的不同重要性程度。</p>
-<p>②<strong>注意力池化聚合器</strong></p>
-<p>聚合函数定义为<span class="math inline">\(g(N_t^{(s,r)})=\sum_{o\in N_t^{(s,r)}}\alpha_oe_o\)</span>。其中，<span class="math inline">\(\alpha_o=softmax(v^Ttanh(W(e_s;e_r;e_o)))\)</span>，<span class="math inline">\(v,W\)</span>是可学习参数。该聚合器可以根据关联程度调整不同邻居实体的权重。</p>
-<p>③<strong>多关系图聚合器</strong></p>
-<p>该聚合器可以合并多关系和多跳实体的信息，聚合器被定义如下: <span class="math display">\[
-g(N_t^s)=h_s^{(l+1)}=\sigma(\sum_{r\in R}\sum_{o\in N_t^{(s,r)}}\frac{1}{c_s}W_r^{(l)}h_o^{(l)}+W_o^{(l)}h_s^{(l)})
-\]</span> 每个节点的初始隐藏表示<span class="math inline">\((h_o^{(0)})\)</span>被设置成可训练的嵌入向量<span class="math inline">\((e_o)\)</span>。<span class="math inline">\(c_s\)</span>是归一化因子。</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325085558755.png" alt="不同聚合器示意图">
-
-<p>上图为不同聚合器的对比示意图。</p>
-<p>下图为<strong>RE-Net</strong>工作架构示意图，聚合器同时处理局部邻域结构和整体结构，局部信息和全局信息一起送入<strong>RNN单元</strong>编码，再将编码送入<strong>MLP</strong>解码，得到预测值： <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325094702659.png" alt="RE-Net工作架构图"></p>
-<p><strong>推理过程</strong></p>
-<p>元素的推理过程可以看作是一个<strong>多类别分类任务</strong>，损失函数定义如下: <span class="math display">\[
-L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s_t)
-\]</span> <span class="math inline">\(\lambda_1,\lambda_2\)</span>可以根据具体的任务需求调整大小。</p>
-<p>模型训练完毕后，假设需要预测在<span class="math inline">\(t+ \Delta t\)</span>时刻发生的事情，即计算<span class="math inline">\(p(G_{t+\Delta t}|G_t)\)</span>，可以将其看作一个分步推理的过程。具体算法如下:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325091445024.png" alt="分步推理算法">
-
-<p>输入过去时间戳的事件序列集合，以及每一步需要采样的实体个数<span class="math inline">\(M\)</span>，输出条件分布<span class="math inline">\(p(G_{t+\Delta t}|G_t)\)</span>的估计。</p>
-<p>从<span class="math inline">\(t+1\)</span>时刻开始，直到<span class="math inline">\(t+\Delta t\)</span>进行循环。每次循环有下列步骤:</p>
+<h3 id="hierarchical-data-representationhidr模块">Hierarchical Data Representation（HiDR）模块</h3>
+<p>把实体和关系全都划分成<strong>三个类型</strong>。</p>
+<p>节点的三个类型包含:</p>
 <ul>
-<li>根据<span class="math inline">\(p(s|\hat G_{t+1:\hat t-1},G_{:t})\)</span>，采样<span class="math inline">\(M\)</span>个最有可能在当前时刻发生的主体实体</li>
-<li>依据<span class="math inline">\(p(r|s,\hat G_{t+1:\hat t-1},G_{:t}),p(o|s,r,\hat G_{t+1:\hat t-1},G_{:t})\)</span>选择<span class="math inline">\(k\)</span>个最有可能在当前时刻发生的事件，作为当前时刻发生的事件集</li>
-<li>循环，直到<span class="math inline">\(t+\Delta t\)</span>时刻</li>
+<li><strong>原子节点</strong>：本身存在于知识图谱中的实体节点，记作<span class="math inline">\(V_a\)</span></li>
+<li><strong>关系节点</strong>：将关系抽象成节点，记作<span class="math inline">\(V_r\)</span></li>
+<li><strong>事实节点</strong>：将三元组事实抽象成节点，记作<span class="math inline">\(V_f\)</span></li>
 </ul>
+<p>关系的三个类型包含：</p>
+<ul>
+<li><strong>原子关系</strong>：本身存在于知识图谱中的关系和<strong>HKG</strong>中的<strong>value</strong>，记作<span class="math inline">\(R_a\)</span></li>
+<li><strong>连接关系</strong>：<strong>HiDR</strong>定义的专属关系，对应关系<strong>{has relation,has head entity,has tail entity}</strong>，记作<span class="math inline">\(R_c\)</span></li>
+<li><strong>嵌套关系</strong>：两个事实之间的关系，记作<span class="math inline">\(R_n\)</span></li>
+</ul>
+<p>由此衍生出来的三种事实类型包含:</p>
+<ul>
+<li><strong>原子事实</strong>：本就存在于知识图谱中的事实，记作<span class="math inline">\(F_a\)</span></li>
+<li><strong>连接事实</strong>：对应三元组<strong>(f,has relation,r)，(f,has head entity,h)，(f,has tail entity,t)</strong>，记作<span class="math inline">\(F_c\)</span></li>
+<li><strong>嵌套事实</strong>：两个原子事实<span class="math inline">\(\alpha,\beta\)</span>之间存在某种关系<span class="math inline">\(r\)</span>，<span class="math inline">\((\alpha,r,\beta)\)</span>即为嵌套事实，记作<span class="math inline">\(F_n\)</span></li>
+</ul>
+<p>定义<span class="math inline">\(G^{HiDR}=\{V^{HiDR},R^{HiDR},F^{HiDR}\}\)</span></p>
+<p>其中，<span class="math inline">\(V^{HiDR}=V_a \cup V_r \cup V_f,R^{HiDR}=R_a \cup R_c \cup R_n,F^{HiDR}=F_a \cup F_c \cup F_n\)</span>。</p>
+<p>①对于<strong>超关系知识图谱</strong>:</p>
+<p><span class="math inline">\(F_c\)</span>除了上述连接事实以外，还包含由事实，及事实上的键值对构成的三元组。具体为<strong>(f,k,v)</strong>。<span class="math inline">\(F_n=\varnothing\)</span>，因为该类型知识图谱<strong>事实之间没有嵌套关系</strong>。</p>
+<p>②对于<strong>嵌套知识图谱</strong>：</p>
+<p><span class="math inline">\(F_c,F_a\)</span>同定义，<span class="math inline">\(Fn=\{(f_1,R,f_2)|f_i\in F_{NKG}\}\)</span>。</p>
+<p>③对于<strong>时序知识图谱</strong>：</p>
+<p>将时序知识图谱转换成<strong>特殊的超关系知识图谱</strong>，对于每个四元组<span class="math inline">\((h,r,t,[t_1,t_2])\)</span>，先将其转换为<span class="math inline">\((h,r,t,begin:t_1,end:t_2)\)</span>的<strong>类HKG</strong>形式，再按照<strong>HKG</strong>的模式转换成<span class="math inline">\(G^{HiDR}\)</span>。</p>
+<p>各知识图谱转换方式如下图所示:</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260409174530878.png" alt="各知识图谱转换方式">
+
+<h3 id="hierarchical-structure-learning-hisl模块">Hierarchical Structure Learning (HiSL)模块</h3>
+<p><strong>HiDR</strong>定义了大量的额外节点，为了避免引入大量的训练参数，论文设计一个<strong>层级结构学习模块（HiSL）</strong>，分成三个步骤实现:</p>
+<h4 id="表示初始化">表示初始化</h4>
 <blockquote>
-<p><span class="math inline">\(t+1:t+\Delta t -1\)</span>时刻的事件为算法自回归预测而来</p>
+<p>对于HKG，事实上的键值对k:v，key作为连接关系,value作为原子关系</p>
 </blockquote>
-<p>此时已知<span class="math inline">\(t+\Delta t\)</span>时刻之前的所有已发生事件，可以预测该时刻单个事件发生以及整个图谱发生的概率。</p>
+<p>初始化<strong>所有原子实体</strong>的嵌入<span class="math inline">\(H_a\in R^{|v_a| ×d}\)</span>以及<strong>所有关系（包含连接关系、嵌套关系）</strong>的嵌入<span class="math inline">\(E\in R^{|R^{HiDR}| ×d}\)</span>，再初始化<strong>原子关系节点嵌入</strong><span class="math inline">\(H_r\in R^{|v_r| ×d}\)</span>，该嵌入由原子关系嵌入<span class="math inline">\(E_a\)</span>经过可学习的投影矩阵<span class="math inline">\(W_r\)</span>变化而来，其中<span class="math inline">\(E_a\in E\)</span>，具体表达式为<span class="math inline">\(H_r=E_a·W_r\)</span>。</p>
+<p>初始化<strong>事实节点</strong>嵌入<span class="math inline">\(H_f\)</span>以学习事实内的关键信息，具体公式为: <span class="math display">\[
+h_f=f_m([h_h;h_r;h_t])
+\]</span> <span class="math inline">\(h_h,h_r,h_t\)</span>是一个事实内头尾实体和关系的嵌入，通过连接操作变成一个维度为<span class="math inline">\(3d\)</span>的向量。<span class="math inline">\(f_m\)</span>是一个一层的多层感知机，将该向量维度转换为<span class="math inline">\(d\)</span>。</p>
+<p>对于<strong>时序知识图谱</strong>的时间节点<strong>t</strong>，使用<strong>Time2Vec</strong>将其编码，具体公式为： <span class="math display">\[
+h_{\tau}=w_psin(f_p(\tau))+f_{np}(\tau)
+\]</span> <span class="math inline">\(f_p,f_{np}\)</span>均是一个一层的多层感知机，分别作为<strong>周期函数和非周期函数</strong>，将一个时间标量转换为<span class="math inline">\(d\)</span>维向量。<span class="math inline">\(w_P\)</span>是一个一维的可学习参数，用于缩放周期特征。</p>
+<h4 id="事实内消息传递">事实内消息传递</h4>
+<p>针对每一个事实，构建一个子图，子图只包含<strong>事实节点、在该事实内与事实相连的原子节点、连接的边</strong>，旨在学习完整的事实成立条件。</p>
+<p>给定初始嵌入，逐层次学习，在学习的过程中，通过注意力机制不断更新事实节点和原子节点：</p>
+<ul>
+<li>事实节点的更新可以理解成：把各个原子节点打包，聚合所有组成元素的信息，更新完整的事实语义</li>
+<li>原子节点的更新可以理解成：让各个原子节点获得在该事实下的表示</li>
+</ul>
+<p>注意力权重的计算公式为： <span class="math display">\[
+\alpha_{i,j}^l=\frac{exp(W^l(\sigma(W^l_{in}h^l_i+W^l_{out}h_j^l)))}{\sum\limits_{j'\in N_i}exp(W^l(\sigma(W^l_{in}h_i^l+W^l_{out}h^l_{j'})))}
+\]</span> <span class="math inline">\(h_i^l,h_j^l\)</span>为中心实体<span class="math inline">\(i\)</span>和邻居实体<span class="math inline">\(j\)</span>在第<span class="math inline">\(l\)</span>层的嵌入。<span class="math inline">\(W_{in}^l\)</span>为第<span class="math inline">\(l\)</span>层的可学习矩阵，类似于<strong>Transfomer</strong>中将嵌入转换为Q向量的矩阵，<span class="math inline">\(W_{out}^l\)</span>的作用则是将嵌入转换为K，V向量的聚合。<span class="math inline">\(W^l\)</span>则是第<span class="math inline">\(l\)</span>层的一个评分矩阵，用于学习组合的合理性。</p>
+<blockquote>
+<p>个人理解：尽管论文当中子图的所有结点均能当作中心结点，但是对于非事实结点而言，其邻居节点只有事实结点一个结点，故注意力权重得分只有一项且为1，更新的时候也是只考虑该事实带来的语义</p>
+</blockquote>
+<p>注意力得分的计算过程可以理解成：</p>
+<p>从中心实体出发，通过两个可学习矩阵，进行向量的变换，得到一个类似于<strong>我的身份是xx，我的邻居能给我提供的信息是xx，它的信息是xx</strong>的向量，通过<span class="math inline">\(W^l\)</span>给出评价，再经过<span class="math inline">\(Softmax\)</span>进行归一化，得到最后的注意力分数。</p>
+<p>得到注意力权重后，更新结点表示，公式如下： <span class="math display">\[
+h_i^l=h_i^l+\sum_{i\in N_i}\alpha^l_{i,j}·W^l_{out}h^l_j
+\]</span></p>
+<h4 id="事实间消息传递">事实间消息传递</h4>
+<p>目的是学习全局结构，丰富结点语义信息，消息传递将会在整张图<span class="math inline">\(G^{HIDR}\)</span>上执行。</p>
+<p>为了不增加要训练的参数，并更好的融合关系和实体信息，使用非参数循环算子<span class="math inline">\(\phi(·)\)</span>，它可以将两个<span class="math inline">\(d\)</span>维的向量转换为一个<span class="math inline">\(d\)</span>维向量，公式如下: <span class="math display">\[
+\phi(h_j,e_r)=h_j\star e_r=F^{-1}((Fh_j)\odot(\overline{Fe_r}))
+\]</span> <span class="math inline">\(F,F^{-1}\)</span>分别代表傅里叶变化矩阵及其逆矩阵。通过该操作，可以把关系+实体变成连贯的语义。</p>
+<p>为了更好的掌握图的异质性，将边从两个维度进行分类，并分别设置可学习参数：</p>
+<ul>
+<li><p><strong>方向维度：</strong>包含两个方向<span class="math inline">\(\lambda(r)\in\{forward,reverse\}\)</span>。<strong>GNN</strong>消息传递的方向是从邻居节点到中心节点，如果<strong>图谱中关系方向和消息传递方向不一致</strong>，即，图谱中的关系方向是中心节点到消息节点，那么该关系对应的方向为<span class="math inline">\(reverse\)</span></p></li>
+<li><p><strong>类型维度</strong>：包含三种类型<span class="math inline">\(\tau(r) \in\{connected\;relation,atomic\;relation,nested\;relation\}\)</span>，分别对应了关系的三种类型。</p></li>
+</ul>
+<p>对于<strong>方向维度</strong>，设置两个可学习参数<span class="math inline">\(W_{\lambda(r)}\in R^{d×d}\)</span>，分别代表正向和逆向，用于学习不同方向关系的贡献；对于<strong>类型维度</strong>，设置三个可学习参数<span class="math inline">\(w_t(r)\in R^1\)</span>，用于学习三种类型关系的贡献。</p>
+<p>通过下式更新实体表示: <span class="math display">\[
+h_i^{l+1}=\sum_{(r,j)\in N(i)}\sigma(w_{\tau(r)}^l)W^l_{\lambda(r)}\phi(h_j^l,e^l_r)+W^l_{self}h^l_i
+\]</span> <span class="math inline">\(N(i)\)</span>是所有与<span class="math inline">\(i\)</span>相连的节点，<span class="math inline">\((r,j)\)</span>是对应的关系及节点，<span class="math inline">\(\sigma\)</span>是<span class="math inline">\(sigmoid\)</span>函数。通过聚合周围所有实体及关系的信息，再加上自环项保留自身语义信息，实现对节点嵌入的更新。</p>
+<p>对于关系表示，每一层也会按照下式更新: <span class="math display">\[
+e^{l+1}_r=W^l_{rel}e^l_r
+\]</span> <span class="math inline">\(W_{rel},W_{self}\)</span>学习的是<strong>自己的信息应该保留多少、自己应该怎么变</strong>。</p>
+<h3 id="链路预测解码器">链路预测解码器</h3>
+<p>采用<strong>TransFomer</strong>的解码器，将更新好的嵌入，用<span class="math inline">\([M]\)</span>掩盖需要预测的部分，获得最后一层输出的<span class="math inline">\([M]\)</span>向量，记作<span class="math inline">\(h_{pre}\)</span>，并计算所有候选答案的<strong>概率分布</strong>。 <span class="math display">\[
+P=Softmax(f(h_{pre}[E;H])^T)\in R^{|R|+|V|}
+\]</span> <span class="math inline">\(P\)</span>代表所有候选实体的分数，<span class="math inline">\(f()\)</span>是一个一层感知机，用于映射预测向量，<span class="math inline">\([E;H]\)</span>是所有候选的边和实体的矩阵。</p>
+<p>损失函数使用交叉熵函数，具体如下： <span class="math display">\[
+L=\sum_{t=0}^{|R|+|V|}y_tlogP_t
+\]</span> <span class="math inline">\(y_t,p_t\)</span>分别代表第<span class="math inline">\(t\)</span>类的真实标签和概率。</p>
 <h2 id="论文实验">论文实验</h2>
-<p>共在五个数据集上进行实验，其中三个是基于事件的数据集，两个是带有时间戳的数据集。在生成负三元组时，过滤掉出现在训练集、验证集和测试集的真实三元组。</p>
 <blockquote>
-<p>齐次图指的是图中只有一种关系类型、实体类型的图，如：微信好友关系图</p>
+<p>* 代表作者复现所得结果，加粗代表效果最好的模型，下划线代表效果第二好的模型</p>
 </blockquote>
-<p>实验对比了<strong>静态模型、时序模型、用于齐次图的模型</strong>。对于静态模型，将数据集中四元组的时间戳删去，并合并相同三元组，得到一个新的数据集，在此数据集上进行补全。数据集统计图如下所示:</p>
+<p>实验涉及到的数据集统计如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325114925673.png" alt="数据集统计">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413141402855.png" alt="数据集统计">
 
-<p><strong>dyngraph2vecAE,tNodeEmbed</strong>两个模型用于处理齐次图，故在非齐次图上效果并不显著。<strong>Know-Evolve</strong>由于自身的模型问题，它无法正确预测并发事件，故表现的很差。总体实验结果图如下所示:</p>
+<p><strong>With Q</strong>指包含超关系的事实占比；<strong>Arity</strong>是元数数量，大于2则代表超关系；<strong>N-Fact</strong>是嵌套进其它事实中的事实数量；<strong>N-Rela</strong>是嵌套事实的类型；<strong>AF</strong>指的是嵌套事实拆开后，原子事实的个数。如：<strong>F1 =（周杰伦，创作了，F2），F2 =（晴天，收录于，叶惠美）</strong>，这样嵌套事实就只有<strong>F2</strong>一条，<strong>AF</strong>有<strong>（周杰伦，创作了，晴天），（晴天，收录于，叶惠美）</strong>两条。</p>
+<p>实验设置超参数如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115318789.png" alt="总体实验结果图">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413143455008.png" alt="超参数设置">
 
-<p>论文还做了在未来时间戳上链路预测的对比实验，随着时间的推移，<strong>RE-Net</strong>效果将变差，因为时间越久，假设事实就越多。<strong>ConvE</strong>是静态模型，它不考虑时间戳带来的影响，故其效果相对平稳。具体实验结构如下图所示:</p>
+<h3 id="在hkg上的链路预测">在HKG上的链路预测</h3>
+<p>在<strong>HKG</strong>上的预测结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115603727.png" alt="时间戳上的链路预测">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413164558477.png" alt="HKG链路预测结果">
 
-<p>在带有时间戳的两个数据集<strong>WIKI和YAGO</strong>上的时序链路预测结果如下图所示:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325163525540.png" alt="带时间戳数据集实验结果">
-
-<p>以<strong>MRR</strong>为评价指标，针对不同聚合器的实验结过如下图所示：</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115800567.png" alt="不同聚合器实验结果">
-
-<p>论文还说明了训练<span class="math inline">\(p(s_t|G_{t-m:t-1})\)</span>和<span class="math inline">\(p(r_t|s_t,G_{t-m:t-1})\)</span>(简记为<span class="math inline">\(p(s),p(r)\)</span>)的必要性。假设实体和关系是独立的，那么<span class="math inline">\(p(s_t,r_t|G_{t-m:t-1})=p(s)p(r)\)</span>，简写等式左边为<span class="math inline">\(p(s,r)\)</span>。令<span class="math inline">\(p_e(s)\)</span>等于包含<span class="math inline">\(s\)</span>的三元组/总三元组，<span class="math inline">\(p_e(r)\)</span>等于包含<span class="math inline">\(r\)</span>的三元组除以总三元组，以<strong>MRR</strong>为评价指标，所得结果如下图:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325122601504.png" alt="对p(s)和p(s,r)的研究">
-
-<p>消融实验探索了在没有聚合器和没有多步推理情况下<strong>RE-Net</strong>的能力。另一方面，如果允许<strong>RE-Net</strong>使用<strong>Ground Truth</strong>，实验效果会提高，但这是不被允许的，具体实验结果如下图所示:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325162935969.png" alt="消融实验">
-
-<blockquote>
-<p>GT指的是在测试集中出现的事实，在预测完某个时间戳之后，将测试集中该时间戳的数据加入训练集</p>
-</blockquote>
-<p><strong>参数敏感性实验</strong></p>
-<p>实验探索了<strong>历史事件长度，截断的数量k，RGCN的层数，全局表示</strong>对最后模型性能的影响，具体实验结果如下图所示:</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325165114089.png" alt="参数敏感性实验">
-
+<p><strong>HKG</strong>是超关系知识图谱，某些事实包含额外的键值对，任务包括<strong>预测传统三元组实体、预测键值对实体</strong>。</p>
 <ul>
-<li>(a)历史长度指的是，模型需要根据过去多少<strong>时间戳的数据</strong>进行新事件的预测</li>
-<li>(b)<span class="math inline">\(k\)</span>指的是<strong>算法一</strong>中截取的三元组数量</li>
-<li>(c)<span class="math inline">\(RGCN\)</span>层数指的是聚合器需要聚合<strong>目标实体周围实体和关系的跳数</strong></li>
-<li>(d)探索了<strong>全局表示</strong>对模型的影响</li>
+<li><p><strong>StarE</strong>构建专门的<strong>GNN</strong>，将键值对当作辅助语料信息，故天生不支持键值对实体的预测。</p></li>
+<li><p><strong>ShrinkE</strong>则将目标实体限定在一个框内，键值对的作用仅仅是用来缩框，故也不支持键值对实体的预测。</p></li>
 </ul>
-<p><strong>案例分析</strong></p>
-<p>分析<strong>RET-Net</strong>在何种案例情况下能够准确预测。将案例分为三种情况:</p>
-<ul>
-<li>待预测主体频繁与同一个客体交互</li>
-<li>有特定的时序模式</li>
-<li>与预测事件毫无关联</li>
-</ul>
-<p>对于第一种案例，因为<strong>China</strong>不断与同一客体<strong>USA</strong>交互，故<strong>RE-Net</strong>可以正确预测，而静态方法更可能预测在训练集中和关系<strong>Accuse</strong>有关系的实体。</p>
-<p>对于第二种案例，如果过往事件存在某种逻辑上的关系，那么<strong>RE-Net</strong>也可以正确的捕捉这种关系，并进行预测。</p>
-<p>对于第三种案例，待预测客体在先前的事件中完全没有任何规律，故<strong>RE-Net</strong>在预测该类客体的能力上表现较差。</p>
-<p>三个案例的示意图如下图所示:</p>
+<h3 id="在nkg上的链路预测">在NKG上的链路预测</h3>
+<p>在<strong>NKG</strong>上的预测结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325171317283.png" alt="案例分析图">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413163739973.png" alt="NKG链路预测结果">
+
+<p><strong>NKG</strong>是嵌套知识图谱，某些事实中包含额外的<strong>嵌套事实</strong>，任务包括<strong>预测传统三元组、预测缺失的嵌套三元组</strong>。</p>
+<p><strong>QuatE和BiQUE</strong>面向标准三元组，故在<strong>带有嵌套事实的知识图谱</strong>的三元组预测任务中的<strong>MR</strong>极高，该任务需要预测的对象包括一整条三元组。</p>
+<p><strong>HOKE和GRADATE</strong>则是聚焦于将嵌套知识图谱进行原子拆分，再进行链路预测，而非针对预测缺失的嵌套三元组。</p>
+<h3 id="在tkg上的链路预测">在TKG上的链路预测</h3>
+<p>在<strong>TKG</strong>上的预测结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413165626075.png" alt="TKG链路预测结果">
+
+<p><strong>TKG</strong>是时序知识图谱，过去的方法侧重于将时间戳融入实体的嵌入，让实体掌握一定的时序信息。<strong>UniHR</strong>则是直接将时间信息也作为一个实体进行嵌入，说明<strong>结构信息</strong>对于时序知识图谱而言也很重要。</p>
+<h3 id="消融实验">消融实验</h3>
+<p>消融实验探讨了<strong>不把事实初始化为可学习节点、不把关系初始化为可学习节点、不做事实内学习、不考虑关系类型权重、不考虑方向权重、不做事实间学习</strong>这五种情况，具体实验结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413170126301.png" alt="消融实验结果">
+
+<p>可以看到，关系节点的实体化仅仅起到一个辅助作用，但是事实节点的初始化对<strong>NKG</strong>的预测影响较大，因为<strong>NKG</strong>的预测任务中包括<strong>完整的三元组预测</strong>。</p>
+<h3 id="其它实验">其它实验</h3>
+<p>①<strong>在HTKG上的链路预测</strong></p>
+<p>论文提出的方法由于具有较强的统一化表示能力，故在混合知识图谱<strong>WiKi-hy和YAGO-by</strong>对模型进行测试。这两个知识图谱的事实包含<strong>时序以及键值对</strong>，具体的实验结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171239176.png" alt="在HTKG上的链路预测">
+
+<p><strong>UniHR</strong>也具有可竞争的表现</p>
+<p>②<strong>联合学习</strong></p>
+<ul>
+<li><p><strong>对NKG的两个任务进行联合学习</strong>：相比于分任务单独计算损失函数并更新模型参数，此方式让模型两种任务的损失函数合并，并更新参数，实验结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171745345.png" alt="对任务进行联合学习">
+</li>
+<li><p><strong>对知识图谱进行联合学习</strong>：让模型直接在混合知识图谱上学习，该图谱包含<strong>基本三元组事实、带时序事实、带超关系的事实等</strong>。实验结果如下图所示：</p></li>
+</ul>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171949878.png" alt="对知识图谱进行联合学习">
+
+<p>相较于单独学习，联合学习对模型的能力有所提高，直观表现图如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172244759.png" alt="两种训练方式对比图">
+
+<p>橙色代表联合学习比单个学习多出来的效果。</p>
+<p>同时，联合学习可以<strong>使相同类型的实体嵌入更紧凑，使不同类型的实体嵌入簇边界更明显</strong>，这使得模型能够更好的学习实体的表示，实体嵌入可视化图如下：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172716364.png" alt="实体嵌入可视化图">
+
+<p>③<strong>模型效率分析</strong></p>
+<p><strong>UniHR</strong>的参数量和训练时间相较于其它模型都更少，具体对比图如下：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172848518.png" alt="模型效率图">
+
+<p>④<strong>解码器分析</strong></p>
+<p>采用ConVE的解码器，对嵌套知识图谱采用两种输入模式的打分函数，打分函数公式如下： <span class="math display">\[
+vec(\sigma([\tilde{h_h};\tilde{e_r}]*\varphi))
+\]</span></p>
+<ul>
+<li><span class="math inline">\(s_f\)</span>代表输入的三元组为传统的<strong>（h,r,t）</strong>形式，对底层三元组打分</li>
+<li><span class="math inline">\(s_h\)</span>代表输入的三元组为<strong>（f,has head entity,h）,（f,has tail entity,t）</strong>形式，可以对嵌套三元组打分</li>
+</ul>
+<p>如果不设置专门的打分函数，<strong>ConVE</strong>无法理解嵌套事实。如需要打分的三元组为<span class="math inline">\(f = (F_1,r,F_2)\)</span>，<span class="math inline">\(F_1,F_2\)</span>为两个嵌套事实，<span class="math inline">\(F_2\)</span>为预测的补全项。那么：</p>
+<ul>
+<li><span class="math inline">\(s_f\)</span>可以对<span class="math inline">\((F_1,r,F_2)\)</span>进行打分</li>
+<li><span class="math inline">\(s_h\)</span>可以对<span class="math inline">\((f,has\;tail\;entity,F_2)\)</span>打分。</li>
+</ul>
+<p>具体实验结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413175654045.png" alt="替换解码器用于NKG">
+
+<p>不同解码器对比及消融实验结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413175753046.png" alt="解码器及消融实验横向对比">
 
 <h2 id="论文结论">论文结论</h2>
 <ul>
-<li>定义了所有事件的条件概率分布，因此可以将预测事件转换为时序推理任务</li>
-<li>如果过往事件对预测事件无帮助，效果可能会不好</li>
-<li>长时间的知识图谱预测能力较弱</li>
+<li>提出一种统一的分层知识图谱表示框架，该框架由<strong>HiDR、HiSL</strong>组成</li>
+<li>实验表明在不同数据集以及复杂场景下，该模型均有可竞争性的表现</li>
 </ul>
 <h2 id="论文总结">论文总结</h2>
-<p>论文聚焦于时序知识图谱的未来事件外推预测任务，核心设计启发为两点：</p>
+<p>论文主要聚焦于多维度知识图谱统一表示，下一步工作：</p>
 <ul>
-<li><p>时序维度：历史发生的事件会对未来事件的发生产生关键影响；</p></li>
-<li><p>结构维度：预测目标事件时，与事件中实体、关系相关的邻域实体和关联关系，会提供关键的结构信息。</p></li>
+<li><p>复现该论文，尤其是事实内消息传递的框架</p></li>
+<li><p>考虑将结构间加结构内事实融入时序知识图谱结构中，借鉴这篇论文的事实间传递规则，使得时序知识图谱能够学到事实内语义，下一篇论文聚焦于事实间传递的时序知识图谱，看看能否做融合</p>
+<p>​ <span class="math inline">\(Fin.\)</span></p></li>
 </ul>
-<p>基于第一点启发，论文提出了事件的自回归联合概率分布建模，刻画未来时间步事件发生的可能性；同时将联合概率拆解为「主体预测→关系预测→客体预测」的链式条件概率，从实体出发逐步生成完整三元组，天然建模了主体、关系、客体三者的依赖关系，让生成的事件语义关联性更强。基于第二点启发，论文设计了多关系邻域聚合器，用于聚合实体的邻域结构信息、区分不同关系的语义，捕捉同一时间步内并发事件的结构依赖。</p>
-<p>该方法解决了 Know-Evolve 等早期方法无法处理同一时刻并发事件、推理时必须依赖测试集真实标签、无法实现多步未来预测的核心痛点，将未来事件预测转化为可端到端学习的自回归时序结构推理任务。</p>
-<p>该方法存在两个原生局限：</p>
-<ul>
-<li><p>长时序预测效果会持续衰减：多步预测时，模型会复用前一步自主生成的伪图谱作为历史输入，生成的误差会逐步累积，预测时间步越远，效果越差；</p></li>
-<li><p>对历史弱关联 / 无关联的事件预测能力差：RE-NET 的预测完全依赖历史事件的规律，当未来事件和历史信息无强关联时，模型无法学习到有效规律，预测效果会显著下降。</p></li>
-</ul>
-<p>​ <span class="math inline">\(Fin.\)</span></p>
 
                 
             </div>
@@ -736,7 +807,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://violet796.github.io/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/">https://violet796.github.io/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/</a>
+                    <a href="https://violet796.github.io/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">https://violet796.github.io/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -778,12 +849,12 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                                     <span class="chip bg-color">论文</span>
                                 </a>
                             
-                                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
-                                    <span class="chip bg-color">时序知识图谱</span>
+                                <a href="/tags/%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B/">
+                                    <span class="chip bg-color">链路预测</span>
                                 </a>
                             
-                                <a href="/tags/RNN/">
-                                    <span class="chip bg-color">RNN</span>
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA/">
+                                    <span class="chip bg-color">知识图谱归一化表示</span>
                                 </a>
                             
                         </div>
@@ -1090,9 +1161,10 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">
                     <div class="card-image">
@@ -1109,9 +1181,9 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-04-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1124,6 +1196,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1150,30 +1223,30 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/">
+                <a href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A23.jpg" class="responsive-img" alt="Hot100-找到字符串中所有字母异位词">
+                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" class="responsive-img" alt="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs">
                         
-                        <span class="card-title">Hot100-找到字符串中所有字母异位词</span>
+                        <span class="card-title">【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Hot100 找到字符串中所有字母异位词
+                            阅读标题论文的总结
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-03-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hot100/" class="post-category">
-                                    Hot100
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
                                 </a>
                             
                             
@@ -1183,16 +1256,16 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hot100/">
-                        <span class="chip bg-color">Hot100</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/">
-                        <span class="chip bg-color">算法题</span>
+                    <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">时序知识图谱</span>
                     </a>
                     
-                    <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/">
-                        <span class="chip bg-color">滑动窗口</span>
+                    <a href="/tags/RNN/">
+                        <span class="chip bg-color">RNN</span>
                     </a>
                     
                 </div>
