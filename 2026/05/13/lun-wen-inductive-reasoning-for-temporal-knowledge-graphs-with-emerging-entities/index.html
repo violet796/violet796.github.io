@@ -1,0 +1,1589 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<!-- APlayer + Meting -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities, ‘学习’">
+    <meta name="description" content="欢迎一起交流">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities | Knight Zhou 的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/comment_bg.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Knight Zhou 的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="" class="waves-effect waves-light">
+
+      
+      <i class="fas fa-list" style="zoom: 0.6;"></i>
+      
+      <span>爱好</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
+    </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/musics">
+          
+          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>音乐</span>
+        </a>
+      </li>
+      
+    </ul>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/comment_bg.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Knight Zhou 的博客</div>
+        <div class="logo-desc">
+            
+            欢迎一起交流
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="javascript:;">
+			
+				<i class="fa-fw fas fa-list"></i>
+			
+			爱好
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
+		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/musics " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
+			      
+		          <span>音乐</span>
+                  </a>
+                </li>
+              
+            </ul>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/violet796" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/violet796" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                <span class="chip bg-color">论文</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                <span class="chip bg-color">时序知识图谱</span>
+                            </a>
+                        
+                            <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">迁移学习</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/Paper/" class="post-category">
+                                Paper
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2026-05-13
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.4k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    8 分
+                </div>
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <ul>
+<li>论文全称：<strong>Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</strong></li>
+<li>论文作者：<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513233143360.png" alt="作者信息"></li>
+<li>发表信息：ICLR 2026 Poster</li>
+<li>领域定位：Temporal Knowledge Graph, Inductive Learning</li>
+<li>代码仓库：<a target="_blank" rel="noopener" href="https://github.com/zhaodazhuang2333/TransFIR">仓库链接</a></li>
+</ul>
+<h2 id="论文背景">论文背景</h2>
+<p>时序知识图谱可以定义如下：</p>
+<p>假设有一条<strong>时间轴<span class="math inline">\(\tau\)</span></strong>，沿着时间轴有<strong>一系列时间刻度<span class="math inline">\(t\)</span></strong>，对于每个<span class="math inline">\(t\)</span>，都存在由多条三元组构成的<strong>知识图谱<span class="math inline">\(G_t\)</span></strong>，由所有<span class="math inline">\(G_t\)</span>组成的图谱则称作在<strong>跨度为<span class="math inline">\(\tau\)</span>的时序知识图谱。</strong>传统的时序知识图谱存在以下问题：真实世界在图谱中被当作是闭合的，即，在进行预测时，会默认测试集的实体在训练的过程中出现过，但是<strong>这与真实世界是不符合的</strong>。如，当有一个国家选取产生了新的总统，这个总统在时序知识图谱过去的信息中是不存在的，换言之，该实体在训练过程中由于<strong>缺乏历史交互监督信号</strong>，因此没有得到很好的嵌入表示，导致最后在<strong>预测、推理</strong>涉及到这些实体的四元组时，传统模型效果会大打折扣。如下例，当奥巴马首次就任美国总统时，由于不存在其历史交互，故预测其第一次国事访问将会边的非常困难，上述提到的实体为本文提出的<strong>新兴实体</strong>中的一部分。</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230159820.png" alt="新兴实体实体预测示意图">
+
+<p>对新兴实体的定义如下：</p>
+<p>在<strong>时间轴<span class="math inline">\(\tau\)</span>上的时刻<span class="math inline">\(t\)</span></strong>，如果某个<strong>实体<span class="math inline">\(\epsilon\)</span></strong>在<span class="math inline">\(t\)</span>时刻之前没有参与任何事件，即，该实体在<span class="math inline">\(t\)</span>时刻第一次出现，则称<span class="math inline">\(\epsilon\)</span>为<span class="math inline">\(t\)</span>时刻的新兴实体。</p>
+<p>论文需要解决的问题为：当一个实体为新兴实体，即过去不存在与该实体有关的事件，模型应该如何在这种情况下对涉及到的事实进行很好的预测。</p>
+<p>作者认为该研究是极其必要的，因为按照定义，时序知识图谱中的新兴实体数量占所有实体数量的比例高达25%。作者提出一个叫做<strong>表示坍缩</strong>的概念，用于描述不同实体间的向量区分度。表示坍缩的值越低，代表实体之间越不存在区分度；表示坍缩的值越高，代表实体之间越存在区分度。下图代表已见实体和新兴实体经过训练后在向量空间中表示的区分度：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260512200448793.png" alt="实体区分度">
+
+<ul>
+<li>对于经过训练的实体，其嵌入在向量空间中往往呈更分散的趋势</li>
+<li>对于新兴实体，由于缺乏历史交互监督信号，无法对齐进行训练，故其嵌入在向量空间中往往呈更为紧凑的趋势</li>
+</ul>
+<h2 id="论文方法">论文方法</h2>
+<p><strong>模型总体架构如下</strong>：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260512200721010.png" alt="模型总体架构">
+
+<p>作者提出三个模块：</p>
+<p>1）<strong>码本映射</strong>：将实体映射到对应的簇，每个簇都有一个中心表示向量。损失函数的优化目标在于拉近实体和簇中心表示之间的距离。</p>
+<p>2）<strong>交互链编码</strong>：抽取<strong>待预测的query</strong>的历史交互链，形成编码。这个编码的作用在于从<strong>当前时刻之前</strong>抽取和当前时刻待预测四元组中关系相似的事实。编码可以直观理解为，在面对类似的事实时，实体过去是怎么做的。再将这些编码在簇内做平均，最后得到的编码可以类似理解为，在面对不同事实时，这个簇是怎么做的。</p>
+<p>3）<strong>时序模式迁移</strong>：让新兴实体学到每个簇的时序模式，使得新兴实体在没有历史监督信号的前提下获得时序表示</p>
+<h3 id="码本映射模块">码本映射模块</h3>
+<p><strong>codebook</strong>自动将实体分为k个簇，每个簇都有一个中心嵌入，这个中心嵌入是可学习的。对于每一个实体<strong>e</strong>，根据下式将其分配到对应的簇中： <span class="math display">\[
+\pi(e)=argmin_k||h_e-c_k||{_2^2}
+\]</span> 对于每一个簇，训练的目的是为了让簇中心和实体之间的向量距离更接近，故分两部分进行优化。</p>
+<p>第一部分，固定簇中心的向量，让簇中的实体尽可能靠近簇中心，对应下式： <span class="math display">\[
+L_{cb}=||sg[h_e]-c_{\pi(e)}||{_2^2}
+\]</span> 第二部分，固定实体的向量，让簇中心尽可能靠近簇中的各个实体，对应下式： <span class="math display">\[
+L_{commit}=||h_e-sg[c_{\pi(e)}]||{_2^2}
+\]</span> 码本映射模块的<strong>总损失函数</strong>为： <span class="math display">\[
+L_{codebook}=\alpha L_{cb}+\beta L_{commit}
+\]</span></p>
+<h3 id="交互链编码模块">交互链编码模块</h3>
+<p>对于每一个待查询四元组<span class="math inline">\(q = (e_q,r_q,?,t_q)\)</span>，首先根据四元组中的实体<strong><span class="math inline">\(e_q\)</span></strong>获得其历史交互链，步骤如下：</p>
+<p>① 查询过去T个时间步内，<span class="math inline">\(e_q\)</span>参与的所有历史事件，无论作为主体或者客体</p>
+<p>② 从这些历史事件中选择K个拥有和<strong><span class="math inline">\(r_q\)</span>最相似的关系的事实</strong>，公式如下： <span class="math display">\[
+C{_q^{(k)}}=TOPK_i(sim(h_{r_q},h_{r_i}),C_q)
+\]</span> <span class="math inline">\(C{_q^{(k)}}\)</span>是一系列的四元组。</p>
+<p>③ 将这些四元组中的<strong>主体、关系、客体、事实发生距今的时间</strong>进行拼接，得到每个四元组对应的事实序列。</p>
+<p>④ 将事实序列送入<strong>Transformer</strong>编码器，获得每个事实对交互链的权重，公式如下： <span class="math display">\[
+\alpha_i=\frac{exp(w^Ttanh(W_hh_i+W_qh_{r_q}))}{\sum_jexp(w^Ttanh(W_hh_j+W_qh_{r_q}))}
+\]</span> 最后得到的单个待查询四元组的交互链编码如下： <span class="math display">\[
+h_{eq}^{IC}=\sum_{i=1}^n\alpha_ih_i
+\]</span></p>
+<h3 id="时序模式迁移模块">时序模式迁移模块</h3>
+<p>这一步主要运用到了迁移学习的思想，对于新兴实体，由于<strong>缺乏历史交互监督信号</strong>，故无法对齐进行训练，获得很好的表示。尽管每个实体在最开始时会给一个基本的初始嵌入，但该嵌入不足以将新兴实体进行区分。此模块的主要目的就是将<strong>富历史的同类实体</strong>行为模式迁移到新兴实体，帮助新兴实体获得更好的表示，具体步骤如下：</p>
+<p>① 对于每个簇，将每个实体的交互链做平均，得到簇的动态原型，公式如下： <span class="math display">\[
+c_k^{dyn} = \frac{1}{|Q_k|}\sum_{e\in Q_k}h_e^{IC}
+\]</span> ② 每一个实体都会将其静态嵌入（由一个<strong>bert</strong>文本编码器给出）和簇的动态原型链接，得到一个类似于包含簇和实体信息的向量<span class="math inline">\(Z_e\)</span>，公式如下： <span class="math display">\[
+z_e=[h_e||c_{\pi(e)}^{dyn}]
+\]</span> ③ 通过一个类似评分器的映射函数<span class="math inline">\(\Psi(·)\)</span>，得到迁移向量，该向量作用类似于反映<strong>应该将簇的多少信息迁移到实体的嵌入中</strong>，公式如下： <span class="math display">\[
+w_e=\Psi(z_e),\tilde h_e =h_e+w_e·c_{\pi(e)}^{dyn}
+\]</span></p>
+<h3 id="评分和优化部分">评分和优化部分</h3>
+<p>本文采用了<strong>ConvTransE</strong>的打分函数，给出对每一个候选四元组的评价，公式如下： <span class="math display">\[
+\phi(e_q,r_q,e_o,t) = \sigma(f(\tilde h_{e_q},h_{r_q},\tilde h_{e_o}))
+\]</span> 预测部分的损失函数为： <span class="math display">\[
+L_{lp}=-\sum^T_{t=1}\sum_{(e_q,r_q,e_o,t_q)\in F_t}\sum_{e\in \epsilon}y_{t_q}^elog\phi(e_q,r_q,e,t)
+\]</span> 最后的总损失函数为： <span class="math display">\[
+L = L_{lp}+\lambda L_{codebook}
+\]</span> 模型的优化目标为<strong>每个实体最后的嵌入、迁移向量、codebook的分类能力</strong>等相关指标。</p>
+<h2 id="论文实验">论文实验</h2>
+<p>涉及到<strong>新兴实体</strong>的四元组推理结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230056108.png" alt="涉及到未见实体的推理">
+
+<p>经过训练后，模型的<strong>表示坍缩</strong>如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230536418.png" alt="表示坍缩效果">
+
+<p>可以发现在向量空间中，不同类型的实体在经过训练后被聚合在了一起，说明达到了分类器要求的<strong>让每个簇和簇内实体表示更接近</strong>的效果。</p>
+<p><strong>消融实验</strong>结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513231020863.png" alt="消融实验结果">
+
+<p>有些实体可能在训练集中没出现过，在训练集中却多次出现。该类实体从第二次在测试集中出现起，就已经具备了一定的信息，将这类实体定义为<strong>未知实体</strong>，针对<strong>未知实体</strong>和<strong>新兴实体</strong>的实验结果如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513231317861.png" alt="针对两种实体的对比">
+
+<h2 id="论文总结">论文总结</h2>
+<p>论文提出了一种针对新兴实体的嵌入的方法，通过迁移学习的方式，让新兴实体也能获得一定的语义表示。但是目前论文存在以下缺陷：</p>
+<ul>
+<li><p>论文在进行簇的交互链聚合时，仅仅只是做了一个简单的平均，没有考虑到不同交互链类别的情况。</p>
+<p>如：对于某个时刻<strong>t</strong>，簇A中的<strong>实体a对应的query与政治相关</strong>，故其根据规则得到的交互链也理应与政治相关；簇内另一个<strong>实体b对应的query与娱乐相关</strong>，论文中的方法不加区分的进行平均，效果可能不会那么好。</p>
+<p>这一部分可以考虑<strong>根据实体簇的中心向量</strong>加上<strong>Transformer</strong>判断哪些交互链更应该被保存。</p>
+<p>如：簇A对应的是政治任务，那么和政治相关的交互链在嵌入时更应该占大头。</p></li>
+<li><p>论文目前只对实体进行了分簇，也许可以考虑再针对关系进行分簇。</p></li>
+</ul>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">Knight Zhou</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="https://violet796.github.io/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/">https://violet796.github.io/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">Knight Zhou</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%AE%BA%E6%96%87/">
+                                    <span class="chip bg-color">论文</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                                    <span class="chip bg-color">时序知识图谱</span>
+                                </a>
+                            
+                                <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">迁移学习</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '65ulVupTEigsehinzJwXu3Ki-gzGzoHsz',
+        appKey: 'THLBSWh25yJFFusQFuFluC6x',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'wavatar',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: '不好的话我会删~~~'
+    });
+</script>
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/">
+                    <div class="card-image">
+                        
+                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" class="responsive-img" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
+                        
+                        <span class="card-title">【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            阅读标题论文的总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-13
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">时序知识图谱</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">迁移学习</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">
+                    <div class="card-image">
+                        
+                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
+                        
+                        <span class="card-title">【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            阅读标题论文的总结
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-08
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
+                    </a>
+                    
+                    <a href="/tags/%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B/">
+                        <span class="chip bg-color">链路预测</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA/">
+                        <span class="chip bg-color">知识图谱归一化表示</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: Knight Zhou 的博客<br />'
+            + '文章作者: Knight Zhou<br />'
+            + '文章链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h1, h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h1, h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      // 启用$和$$定界符，匹配你的写法
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+      processEscapes: true, // 允许反斜杠转义，避免\被吃掉
+      processEnvironments: true,
+      // 禁止在这些标签里解析公式
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+      ignoreClass: "escape-mathjax"
+    },
+    TeX: {
+      // 加载数学符号扩展，支持\overline等所有常用命令
+      extensions: ["AMSmath.js", "AMSsymbols.js"]
+    }
+  });
+  // 强制渲染页面所有公式，解决pjax/异步加载不渲染问题
+  MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+</script>
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025-2026</span>
+            
+            <span id="year">2025</span>
+            <a href="/about" target="_blank">Knight Zhou</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2025";
+                    var startMonth = "7";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/violet796" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1904354135@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1904354135" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1904354135" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+   <script type="text/javascript">
+    //只在桌面版网页启用特效
+    document.write('<script type="text/javascript" src="/js/sakura.js"><\/script>');
+    </script>
+</body>
+</html>
