@@ -573,7 +573,7 @@ S=\begin{bmatrix}s_x,0,0\\0,s_y,0\\0,0,1\end{bmatrix}
 </ul>
 <p><strong>TCompoundE(Ying et al.,2024)</strong>将上述几何操作应用到了关系和时间之间的融合中，如： <span class="math display">\[
 s_{r,\tau}=(S_r+T_\tau)\odot S_\tau
-\]</span> 其中<span class="math inline">\(S_r\)</span>代表关系的嵌入，<span class="math inline">\(T\tau\)</span>代表时间轴的嵌入，<span class="math inline">\(S_\tau\)</span>代表带有时间信息的关系。<span class="math inline">\(+\)</span>代表平移操作，<span class="math inline">\(\odot\)</span>代表缩放操作。</p>
+\]</span> 其中<span class="math inline">\(S_r\)</span>代表关系的嵌入，<span class="math inline">\(T\tau\)</span>代表时间轴的嵌入，<span class="math inline">\(S_\tau\)</span>代表用于缩放的时间戳嵌入。<span class="math inline">\(+\)</span>代表平移操作，<span class="math inline">\(\odot\)</span>代表缩放操作。</p>
 <p>该式可直观理解为，先将关系平移，使其具有时间特征，再利用带有时间信息的关系缩放，使其在当前时间轴下突出某些特征。</p>
 <p>另一式子 <span class="math display">\[
 e_s^{r,\tau}=（e_s+T_{r,\tau})\odot S_{r,\tau}
@@ -583,7 +583,7 @@ e_s^{r,\tau}=（e_s+T_{r,\tau})\odot S_{r,\tau}
 
 <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520093214016.png" alt="方法总体架构图">
 
-<p>主体嵌入经过时间嵌入的平移，得到一个带有时间关系的主体嵌入。时序依赖关系嵌入经过快速傅里叶变换，将其从<strong>时域转换到频域</strong>，关系的频域经过分解，可以分成高频和低频部分，两个部分经过快速傅里叶变换的逆变换，重新回到时域。将两个时域关系融合<strong>时间信息后再聚合</strong>，得到一个区分<strong>高频、低频</strong>信息的关系嵌入，再将该关系嵌入用于主体缩放，最后得到待预测的客体。</p>
+<p>主体嵌入经过时间不变关系嵌入的平移，得到一个带有时间关系的主体嵌入。时序依赖关系嵌入经过快速傅里叶变换，将其从<strong>时域转换到频域</strong>，关系的频域经过分解，可以分成高频和低频部分，两个部分经过快速傅里叶变换的逆变换，重新回到时域。将两个时域关系融合<strong>时间信息后再聚合</strong>，得到一个区分<strong>高频、低频</strong>信息的关系嵌入，再将该关系嵌入用于主体缩放，最后得到待预测的客体。</p>
 <h3 id="基于频率关系的分解">基于频率关系的分解</h3>
 <p>通过快速傅里叶变换将时域信息转换到频域，具体公式如下： <span class="math display">\[
 F_{raw}=\mathcal{F}(s_r)
