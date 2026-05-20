@@ -563,10 +563,10 @@
 <ul>
 <li><p><strong>平移</strong>： <span class="math display">\[
 T=\begin{bmatrix}1,0,{t_x}\\0,1,{t_y}\\0,0,1\end{bmatrix}
-\]</span> <span class="math inline">\(T*a= \begin {bmatrix}x+t_x\\x+t_y\\1\end{bmatrix}\)</span>，从几何上看像是坐标沿着X轴移动<span class="math inline">\(t_y\)</span>，沿着Y轴移动了<span class="math inline">\(t_y\)</span>的距离。</p></li>
+\]</span> <span class="math inline">\(T*a= \begin {bmatrix}x+t_x\\y+t_y\\1\end{bmatrix}\)</span>，从几何上看像是坐标沿着X轴移动<span class="math inline">\(t_y\)</span>，沿着Y轴移动了<span class="math inline">\(t_y\)</span>的距离。</p></li>
 <li><p><strong>旋转</strong>： <span class="math display">\[
 R=\begin{bmatrix}cos\theta,-sin\theta,0\\sin\theta,cos\theta,0\\0,0,1\end{bmatrix}
-\]</span> <span class="math inline">\(R*a= \begin {bmatrix}xcos\theta-ysin\theta\\xsin\theta+ycos\theta\\1\end{bmatrix}\)</span>，从几何上看像是沿着坐标原点移动了<span class="math inline">\(\theta\)</span>度。</p></li>
+\]</span> <span class="math inline">\(R*a= \begin {bmatrix}xcos\theta-ysin\theta\\xsin\theta+ycos\theta\\1\end{bmatrix}\)</span>，从几何上看像是绕着坐标原点移动了<span class="math inline">\(\theta\)</span>度。</p></li>
 <li><p><strong>缩放</strong>: <span class="math display">\[
 S=\begin{bmatrix}s_x,0,0\\0,s_y,0\\0,0,1\end{bmatrix}
 \]</span> <span class="math inline">\(S*a= \begin {bmatrix}xs_x\\ys_y\\1\end{bmatrix}\)</span>，从几何上看像是原坐标在X轴上放大了<span class="math inline">\(s_x\)</span>倍，在Y轴上放大了<span class="math inline">\(s_y\)</span>倍。</p></li>
@@ -576,7 +576,7 @@ s_{r,\tau}=(S_r+T_\tau)\odot S_\tau
 \]</span> 其中<span class="math inline">\(S_r\)</span>代表关系的嵌入，<span class="math inline">\(T\tau\)</span>代表时间轴的嵌入，<span class="math inline">\(S_\tau\)</span>代表带有时间信息的关系。<span class="math inline">\(+\)</span>代表平移操作，<span class="math inline">\(\odot\)</span>代表缩放操作。</p>
 <p>该式可直观理解为，先将关系平移，使其具有时间特征，再利用带有时间信息的关系缩放，使其在当前时间轴下突出某些特征。</p>
 <p>另一式子 <span class="math display">\[
-e_s^{r,\tau}=（e_s,T_{r,\tau})\odot S_{r,\tau}
+e_s^{r,\tau}=（e_s+T_{r,\tau})\odot S_{r,\tau}
 \]</span> 同理，目的是使得实体的嵌入具备在当前时间轴下特定的时间关系。</p>
 <h2 id="论文方法">论文方法</h2>
 <p>方法的总体架构图如下：</p>
@@ -600,8 +600,8 @@ S_{lt}=\mathcal{F}^{-1}(F_{low}),S_{st}=\mathcal{F}^{-1}(F_{high})
 \]</span> 其中，<span class="math inline">\(\mathcal{F}^{-1}\)</span>代表快速傅里叶变换的逆变换。</p>
 <p>基于上述公式，可获得时域下关系的<strong>长期时序动态性</strong>和<strong>短期时序动态性</strong>部分。</p>
 <ul>
-<li>关系的低频部分说明发生的次数少，<strong>关系更稳定</strong>，对应关系的<strong>长期时序动态性</strong></li>
-<li>关系的高频部分说明发生的次数多，<strong>关系更不稳定</strong>，对应关系的<strong>短期时序动态性</strong></li>
+<li>关系的低频部分表示关系嵌入中变化较平缓、较稳定的部分，对应关系的<strong>长期时序动态性</strong></li>
+<li>关系的高频部分表面关系嵌入中变换较剧烈、波动较快的部分，对应关系的<strong>短期时序动态性</strong></li>
 </ul>
 <h3 id="长时关系和短时关系的融合">长时关系和短时关系的融合</h3>
 <p>假设对于某时刻的时间戳，其嵌入如下： <span class="math display">\[
@@ -634,7 +634,7 @@ L_\tau=\frac{1}{N_\tau-1}\sum_{i=1}^{N_\tau-1}||T_{\tau(i+1)}-T_{\tau(i)}||_3^3
 \]</span> 该项用于控制相邻时间轴之间的表示不会具备很大的差距，否则这不符合时间轴连续的特征。</p>
 <p>对于第三项<span class="math inline">\(\mathcal{L}_f\)</span>，其具体形式如下式所示： <span class="math display">\[
 \mathcal{L_f}=-||F_{low}-F_{high}||_2+||F_{high}||_2
-\]</span> 该项用于控制频率之间过大的差异，同时限制过高的高频强度。</p>
+\]</span> 该项用于控制频率的差异，使得高频和低频关系能够彼此区分，同时限制过高的高频强度。</p>
 <h2 id="论文实验">论文实验</h2>
 <h3 id="实验设置">实验设置</h3>
 <p>论文在三个数据集上进行实验，三个数据集的统计信息如下图所示：</p>
@@ -665,7 +665,7 @@ L_\tau=\frac{1}{N_\tau-1}\sum_{i=1}^{N_\tau-1}||T_{\tau(i+1)}-T_{\tau(i)}||_3^3
 <tr class="even">
 <td style="text-align: center;">ICEWS14</td>
 <td style="text-align: center;">0.02</td>
-<td style="text-align: center;">4000</td>
+<td style="text-align: center;">6000</td>
 <td style="text-align: center;">4000</td>
 <td style="text-align: center;">100</td>
 <td style="text-align: center;">(5e-3, 5e-3, 5e-4, 10)</td>
@@ -713,7 +713,7 @@ L_\tau=\frac{1}{N_\tau-1}\sum_{i=1}^{N_\tau-1}||T_{\tau(i+1)}-T_{\tau(i)}||_3^3
 
 <p>论文一共取六个案例，每个案例对应的关系都有其更突出的特性。</p>
 <ul>
-<li><p>在180天及以上的时间里，只发生了三次的关系被定义为<strong>LTTD</strong>关系，其更能体现关系的<strong>长期时序动态性</strong></p></li>
+<li><p>在180天及以上的时间里，发生了三次及以上的关系被定义为<strong>LTTD</strong>关系，其更能体现关系的<strong>长期时序动态性</strong></p></li>
 <li><p>在30天内便发生超过三次及以上的关系被定义为<strong>STTD</strong>关系，其更能体现关系的<strong>短期时序动态性</strong></p></li>
 </ul>
 <p>对于这六个案例，分别用对应的<strong>时间平滑</strong>和<strong>时间梯度</strong>对其进行处理，有如下发现：</p>
@@ -744,7 +744,7 @@ L_\tau=\frac{1}{N_\tau-1}\sum_{i=1}^{N_\tau-1}||T_{\tau(i+1)}-T_{\tau(i)}||_3^3
 S_{r,\tau}=w _lS_{lt,\tau}+w _sS_{st,\tau}
 \]</span> 其中，<span class="math inline">\(w_l\)</span>代表关系的长期动态性占比，<span class="math inline">\(w_s\)</span>代表关系的短期动态性占比。两个参数作为超参数，<span class="math inline">\(w_l,w_s\in R^1\)</span>,且有: <span class="math display">\[
 w_l = 1 - w_s
-\]</span> 对于被分类为高频关系的关系，<span class="math inline">\(w_l\)</span>将占比更大；对于被分类为低频关系的关系，<span class="math inline">\(w_s\)</span>将占比更大。</p>
+\]</span> 对于被分类为高频关系的关系，<span class="math inline">\(w_s\)</span>将占比更大；对于被分类为低频关系的关系，<span class="math inline">\(w_l\)</span>将占比更大。</p>
 <p>以上是对这篇论文的总结以及思考。</p>
 <p>​ <span class="math inline">\(Fin.\)</span></p>
 
