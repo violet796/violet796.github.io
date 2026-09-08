@@ -8,7 +8,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="【笔记】智能医学影像与知识图谱补全结课论文梳理, ‘学习’">
+    <meta name="keywords" content="【笔记】Git的基本概念及相关使用, ‘学习’">
     <meta name="description" content="欢迎一起交流">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -20,7 +20,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>【笔记】智能医学影像与知识图谱补全结课论文梳理 | Knight Zhou 的博客</title>
+    <title>【笔记】Git的基本概念及相关使用 | Knight Zhou 的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -344,12 +344,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">【笔记】智能医学影像与知识图谱补全结课论文梳理</h1>
+                    <h1 class="description center-align post-title">【笔记】Git的基本概念及相关使用</h1>
                 </div>
             </div>
         </div>
@@ -469,12 +469,8 @@
                                 <span class="chip bg-color">笔记</span>
                             </a>
                         
-                            <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/">
-                                <span class="chip bg-color">医学影像</span>
-                            </a>
-                        
-                            <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/">
-                                <span class="chip bg-color">跨学科融合</span>
+                            <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                                <span class="chip bg-color">开发工具</span>
                             </a>
                         
                     </div>
@@ -498,7 +494,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2026-09-06
+                    2026-09-08
                 </div>
                 
 
@@ -507,14 +503,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.8k
+                    3.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    12 分
+                    11 分
                 </div>
                 
 
@@ -532,79 +528,270 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>从一篇基于知识图谱的医学影响分析推理的综述入手：</p>
-<p><strong>Knowledge Graph Based Reasoning in Medical Image Analysis: A Scoping Review</strong>，发表于2024年，作者单位为<strong>西北工业大学</strong>。</p>
-<p>综述主要从<strong>知识图谱(Knowledge Graph,KG)</strong>入手，说明<strong>KG</strong>在该领域的作用，并回顾医学影响分析在过去的发展以及未来的可研究方向</p>
-<p>背景：<strong>电脑硬件和人工智能</strong>不断的发展使得计算机辅助诊断(Automated Computer-aided diagnosis,CAD)变得越来越重要，<strong>KG</strong>在过去已经在各个领域上发挥了至关重要的作用，因此，尝试将<strong>KG</strong>和<strong>CAD</strong>联合有助于解决相关的<strong>医学类问题</strong>。</p>
-<h2 id="引言及背景介绍">引言及背景介绍</h2>
-<p><strong>专家系统的诞生</strong></p>
-<p>专家系统(Expert System)指的是通过不断学习领域的相关知识，从而达到该<strong>领域专家</strong>的一种系统。依赖于机器学习和深度学习以及大量数据集训练出来的模型具备很强的<strong>黑盒性</strong>，<strong>专家系统</strong>相较于模型能更好的按照逻辑输出一条答案链，因此，对于<strong>CAD</strong>来说，专家系统是更具有<strong>逻辑性、可解释性</strong>的。</p>
-<p><strong>图像扫描设备</strong></p>
-<p>图像扫描主流有三个设备，分别是：</p>
+                <h2 id="git概念以及仓库">Git概念以及仓库</h2>
+<p>Git是一个<strong>版本控制工具</strong>，可以将所有代码开发过程中的版本进行托管，可以形象地类比为<strong>代码存放的仓库</strong>。仓库分为两种，分别是<strong>本地仓库(Local Repository)</strong>和<strong>远端仓库(Remote Repository)</strong>。具体而言：</p>
 <ul>
-<li><strong>ultrasound(US)</strong>：该设备的成像效果依赖于设备的质量以及扫描医生的技术，但是门槛是最低的</li>
-<li><strong>X-ray,computed tomography(CT)</strong>：该设备生成的图像质量更稳固且精准，但是该设备更为昂贵且含有辐射</li>
-<li><strong>Magnetic Reso nance Imaging (MRI)</strong>：该设备生成的图像质量更高，且没有辐射，但是该设备十分昂贵</li>
+<li><strong>本地仓库</strong>即为存储在自己电脑上的一个版本管理仓库，对于进行了版本控制的文件夹而言，通常会在其子目录下存在一个<strong>.git</strong>文件以代表该文件夹进入了一个<strong>仓库</strong></li>
+<li><strong>远程仓库</strong>则提供了代码备份，以及多人协作开发等功能。通过将代码上传到类似于<strong>Gitee,Github</strong>等远程仓库，可以实现代码的开源</li>
 </ul>
-<p>从扫描来的图像中提取公共特点并做分类是计算机视觉中<strong>图像处理的任务</strong>。因此，出现了很多利用<strong>机器学习</strong>的方法来对<strong>医学图像进行处理</strong>，如<strong>迁移学习、多模态</strong>等等，但是这些方法在本质上都具有黑盒的特性，无法很好解释答案从何而来，于是，<strong>领域专家系统</strong>被应用，该系统可以基于<strong>语义网络，知识图谱</strong>等。</p>
-<p><strong>知识图谱</strong>于2012年被<strong>Google</strong>重新定义，其目标是组织全世界产生的大规模数据。随着人工只能以及电脑硬件的不断发展，知识图谱也迎来了黄金发展期，因此，本综述尝试探索<strong>知识图谱</strong>与<strong>智能医学图像</strong>的结合。</p>
-<h2 id="知识图谱的发展">知识图谱的发展</h2>
-<p>知识图谱指的是<strong>由多个三元组</strong>（或更复杂的元组）组成的图结构，一条三元组由头实体、尾实体以及关系构成。由于知识图谱天生存在<strong>内容的不准确性、内容的缺失</strong>等问题，故如何构造一个准确、完整的知识图谱成为了一个研究方向，该方向被称为<strong>知识图谱补全(Knowledge Graph Completion,KGC)</strong>或<strong>链路预测（Link Prediction）</strong>。</p>
-<p>实现<strong>KGC</strong>最基本的方法为基于规则的方法，通过两条甚至更多条规则的约束，得到一个缺失的三元组。如：</p>
-<p><strong>(肿瘤，边界，不清晰) ∧ (肿瘤，形状，不规则) ⇒ (肿瘤，病理性质，恶性)</strong></p>
-<p>规则可以通过专家系统构建。</p>
-<p><strong>KGC</strong> 的主要任务是基于知识图谱中已有实体、关系和结构信息，预测图谱中缺失或未知的事实。</p>
-<p><strong>KGC</strong>经历了如下几个阶段。</p>
+<p>Git有许多的命令，每一次执行<strong>git commit、git revert等命令时都会生成SHA编码</strong>，该编码在同一个仓库内是唯一的。</p>
+<p>Git可以将涉及的区域分为四个部分，分别为工作区，暂存区，本地仓库，以及远程仓库。<span class="math inline">\(git\ add\)</span> 负责将代码加入暂存区，<span class="math inline">\(git\ commit\)</span>负责将代码加入到本地仓库，<span class="math inline">\(git\ push\)</span>负责将代码推送到远端仓库。四部分关系具体示意图如下：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907133908142.png" alt="git 四部分区域关系">
+
+<h2 id="git本地仓库中的基础命令">Git本地仓库中的基础命令</h2>
+<blockquote>
+<p>对于大部分的Git命令，若想对所有文件进行操作，一般形式为 git command .；若想对单个文件进行操作，一般形式为git command filename</p>
+</blockquote>
+<h3 id="git-的增删">git 的“增、删”</h3>
+<p>若想要为某个文件夹创建一个仓库，需要在对应的文件夹当中输入<span class="math inline">\(git\ init\)</span>命令，此时文件夹内部会出现<span class="math inline">\(.git\)</span>文件夹，视为仓库创建成功，具体如下：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907141427632.png" alt="git仓库">
+
+<p>创建仓库后，需要先将<strong>工作区的代码添加到暂存区</strong>，才能够将代码进行提交。将代码添加到暂存区的命令为<span class="math inline">\(git\ add\)</span>。</p>
+<p>Git最基本的命令是<strong>commit</strong>，翻译过来是提交，它负责将<strong>暂存区中的所有文件</strong>上传到本地仓库中。当Commit的次数足够多时，就会在一个分支下形成一个<strong>commit</strong>链。如上所述，每一次<strong>commit</strong>都会生成一个仓库内唯一的<strong>SHA</strong>编码，该编码则对应文件当前状态下的快照。编码也被称作为修订号，修订号具体示意图如下：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907113619742.png" alt="修订号示意图">
+
+<p>一个完整的修订号<strong>是一串很长的字符</strong>，如上图完整修订号为204c5970b47703b9573eccea27ef4084ae1bd3ac，框中的圈起的修订号为完整修订号的前七位，已经足够唯一表示一次修改。</p>
+<p><strong>commit </strong>的完整写法为<span class="math inline">\(git\ \ commit -m \text{“content"}\)</span>，此外，在提交过程中有一套<strong>约定式提交(Conventional Commits)</strong>，常见格式为:</p>
+<pre class="language-python" data-language="python"><code class="language-python"><span class="token operator">&lt;</span><span class="token builtin">type</span><span class="token operator">&gt;</span><span class="token punctuation">:</span> <span class="token operator">&lt;</span>description<span class="token operator">&gt;</span></code></pre>
+<p>其中，<strong>type</strong>为这次提交的类型，<strong>description</strong>为这次提交的描述。常见的类型分为如下几种：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">类型</th>
+<th style="text-align: center;">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">feat</td>
+<td style="text-align: center;">新增功能</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">fix</td>
+<td style="text-align: center;">修复bug</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">docs</td>
+<td style="text-align: center;">只修改文档</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">style</td>
+<td style="text-align: center;">不影响代码逻辑的风格式修改，如缩进、空格</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">refactor</td>
+<td style="text-align: center;">对代码进行重构</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">perf</td>
+<td style="text-align: center;">性能优化</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>revert</strong></td>
+<td style="text-align: center;">回滚提交</td>
+</tr>
+</tbody>
+</table>
+<p>如，博客在某次修改中添加了一个音乐播放器，提交代码的命令应写成<span class="math inline">\(git\ \ commit\ \ -m\text{“feat: 新增音乐播放器”}\)</span>。</p>
+<p>Git在提交后有几种方法可以撤销，分为以下几种情况：</p>
 <ul>
-<li><p>第一阶段：以<strong>TransE</strong>为代表的平移模型</p>
-<p>该类模型通过在空间中表示<strong>头实体</strong>和<strong>关系</strong>，利用<span class="math inline">\(h+r = t\)</span>来预测尾实体。数据集中本就存在的三元组被称作<strong>正三元组</strong>，为现实世界中真实发生的事实，为了让模型能够正确区分<strong>真实事件和虚假事件</strong>，数据集会被人为替换头尾实体，以构建一个个<strong>负三元组</strong>，模型在学习的过程中需要让<strong>正三元组</strong>的得分尽可能高，让<strong>负三元组</strong>的得分尽可能低。后续的平移模型通过将实体、关系映射到两个不同的空间后再进行平移，以实现对<strong>实体和关系的区分</strong>。</p></li>
-<li><p>第二阶段：以<strong>RESCAL</strong>为代表的张量分解模型</p>
-<p>平移模型更像是从头实体经过平移得到尾实体，张量分解模型将整个知识图谱看作由“头实体 × 关系 × 尾实体”构成的三维张量，每一个<strong>候选三元组对应张量中的一个元素或格子</strong>，不同的模型通过不同的打分函数以区分<strong>新预测事实</strong>的标签是否应该为1，即预测的事实是否成立。</p></li>
-<li><p>第三阶段：<strong>图神经网络</strong>模型</p>
-<p><strong>图神经网络(Graph Neural Network, GNN)</strong>更注重图的结构信息，实体和关系在每一层中通过学习结构信息以更新嵌入，到最后图中的嵌入更具有<strong>全局性</strong>。但是图中不同部分对实体和关系的影响可能不一致，因此在<strong>GNN</strong>中引入卷积操作可以得到<strong>图卷积网络(Graph Convolutional Network, GCN)</strong>。普通 GCN 主要是根据邻接矩阵和度矩阵进行归一化聚合，再通过共享的权重矩阵更新节点表示，但是在<strong>GCN</strong>中，不同的关系并未被区分，于是引入<strong>多关系图卷积网络(R-GCN)</strong>。R-GCN 在聚合邻居节点信息时，为不同关系类型引入关系特定的权重矩阵，从而区分不同关系语义对节点表示更新的影响。</p></li>
-<li><p>第四阶段：<strong>大语言模型(Large Language Model,LLM)</strong>阶段（发展中）</p>
-<p>利用<strong>LLM</strong>强大的自然语言处理能力，通过类似于问答，路径推理等形式，让大语言模型给出预测的答案。基于<strong>LLM</strong>的KGC在形式上分为两种，第一种是<strong>微调</strong>，通过微调大语言模型，让其更加适配某项任务；第二种是不微调，而是<strong>更为</strong>专注于提示词，通过提示词让大语言模型直接输出问题的答案。</p></li>
+<li><strong>情况一：</strong>如果在工作区中改坏了某代码，但是该代码还未提交，使用<span class="math inline">\(git\ restore\)</span>可以回退到最近的版本，或在<strong>IDE</strong>中点击<strong>discard</strong>将代码回退到最近的提交版本。</li>
+<li><strong>情况二：</strong> 如果在工作区中已经提交代码至暂存区，想要删除某个版本之后所有的修改，并将代码回退到该版本，可以使用<span class="math inline">\(git\ reset\ SHA\)</span>，该操作又可分为以下三种情况，每种情况均假设需要删除最近的版本：</li>
 </ul>
-<h2 id="知识图谱与医学影像结合的方法以及不足">知识图谱与医学影像结合的方法以及不足</h2>
-<p>由于<strong>CAD</strong>的快速发展，将现有医学知识以可嵌入的形式辅助<strong>计算机</strong>诊断是极为重要的。知识图谱作为一种结构化知识的表达方式，可以很好承担这一项任务。但在医学领域中，核心数据大多是以图像的形式出现的，如各种<strong>CT扫描图像，这类数据并非结构化数据，因此在处理前还需要利用</strong>深度学习模型**提取其中的一些特征，再将其转换为结构化数据。</p>
-<p>知识图谱与医学影像结合的方式主要分为三种，分别是<strong>融入先验知识图谱、医学标注知识图谱、非语义特征知识图谱</strong>。近年来各论文的方法如下表所示：</p>
-
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612144051251.png" alt="知识图谱和医学影像结合统计">
-
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">情况</th>
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">发现commit的信息写错了</td>
+<td style="text-align: center;">git reset –soft HEAD~1</td>
+<td style="text-align: center;">只有commit被撤销，代码的修改还在且依然存放在暂存区</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">需要对代码进行重新修改</td>
+<td style="text-align: center;">git reset –mixed HEAD~1</td>
+<td style="text-align: center;">commit被撤销，代码被移除出暂存区，但是对其的修改还存在于工作区</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">完全舍弃该快照</td>
+<td style="text-align: center;">git reset –hard HEAD~1</td>
+<td style="text-align: center;">commit，工作区，代码的修改全部回退到指定的版本</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>git reset 有丢失代码的风险，故应该谨慎使用，尤其是在多人合作中更应谨慎！</p>
+</blockquote>
 <ul>
-<li><p><strong>融入先验知识图谱</strong>：</p>
-<p>该方向中的知识图谱为提前构建，且可能经过预训练，模型仅仅将知识图谱当作一个辅助信息用于协助自身判断。例如：模型事先知道<strong>（边界不清，提示，恶性风险高），（形状不规则，提示，恶性风险高），（纵横比大于1，提示，恶性风险高）</strong>，如果此时有一个经过模型提取信息的病例提示，<strong>图像中存在一个边界不清、形状不规则、纵横比大于1</strong>的结节，那么模型会根据借助知识图谱对该病例进行判断。该方法相比之下可能不那么黑箱，但是其可解释性依旧较弱。</p></li>
-<li><p><strong>医学标注知识图谱：</strong></p>
-<p>该方法的知识图谱为人工构建，医生先通过<strong>标注的方法</strong>，对某些医学图像或者病例进行标注，如对于乳腺超声BI-RADS，医生会先标注病灶的<strong>大小、边界、形状、回声</strong>等特性，再利用这些标注构建一个知识图谱。如：<strong>（患者A，具有，病灶1），（病灶1，形状，不规则），（病灶1，回声，低回声）</strong>等等。当有新的患者也具有病灶，且知道病灶的一些特性，那么模型就可以根据<strong>标注得来的知识图谱</strong>进行推理，判断该病灶属于恶性或是良性。</p></li>
-<li><p><strong>非语义特征知识图谱</strong>：</p>
-<p>这一类知识图谱和传统的知识图谱不一致，相比于每一个节点和关系都具有清晰语义的知识图谱，这类知识图谱的节点可能由<strong>经过CNN后图像的每一个Patch、图像嵌入的每一个维度</strong>等构成，关系则可能是<strong>每一个维度之间的相关性</strong>等等。这类方法将病例的一些更细粒度的特征抽象成图结构，利用<strong>GCN</strong>等学习该类病例的特征，当有新的病例出现时，模型可以根据已学到的知识判断其属于哪一种病状。</p></li>
+<li><strong>情况三：</strong>如果工作区中已经提交代码至暂存区，发现之前某个版本的修改出现了问题，不再需要该版本的快照，但同时需要保留其它版本的快照，可以使用<span class="math inline">\(git \ revert\ SHA\)</span>，该操作被称作回滚提交，回滚提交的原理为：<strong>通过提交一个与需要回滚的快照完全相反的快照，以抵消上一次提交</strong>。</li>
 </ul>
-<p>三类方法的大致流程图如下图所示：</p>
+<h3 id="git-diff">git diff</h3>
+<blockquote>
+<p>git diff 后按q可以退出该模式</p>
+</blockquote>
+<p>要想比较不同文件、工作区域之间的差异，可以使用<span class="math inline">\(git\ diff\)</span>命令，该命令分为以下几种情形，具体为：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">需求</th>
+<th style="text-align: center;">命令</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">查看所有未暂存的文件，即未git add的文件</td>
+<td style="text-align: center;">git diff</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">查看当前工作区的代码和某一次提交的代码的区别</td>
+<td style="text-align: center;">git diff SHA – filename</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">比较两个提交之间某个文件的区别</td>
+<td style="text-align: center;">git diff SHA1 SHA2 – filename</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">只想看两次提交或者工作区和暂存区中哪些文件发生了变化</td>
+<td style="text-align: center;">git diff –name-only</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">想查看不同分支中某文件的变化</td>
+<td style="text-align: center;">git diff 分支1 分支2 – filename</td>
+</tr>
+</tbody>
+</table>
+<p>如当前需要比较SHA分别为<em>0daeq21</em>和<em>daqe14r</em>的两次提交中<strong>QCPR.py</strong>文件的区别，可以使用命令： <span class="math display">\[
+git\ diff\ 0daeq21\ daqe14r\ -- QCPR.py
+\]</span> <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907145357413.png" alt="git diff示意图"></p>
+<p>以该图为例，第一行代表正在对比两次提交的./idea/.gitignore文件，其中<em>a</em>代表旧版本，<em>b</em>代表新版本；第二行代表当前两次对比下来，新版本新增了一个文件，具体为<strong>./idea/.gitignore</strong>，该文件在<em>a</em>中没有，在<em>b</em>中有。</p>
+<pre class="language-python" data-language="python"><code class="language-python">@@ <span class="token operator">-</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span>@@</code></pre>
+<p>代表两份文件有差异部分的起始行号，由于旧版本没有，故差异起始和结尾行号均为0；新版本则是从第一行至第八行存在差异。</p>
+<p>后面的内容则为文件具体新增的内容。</p>
+<h2 id="git-分支">Git 分支</h2>
+<p>Git在一个分支下的多次commit会形成一条commit链，而<strong>每一次commit就是链的其中节点</strong>，Git支持从任意commit中分离出一条单独的分支，并在分支中进行独立的开发。分支从某个节点分离，形成两条路径，两条路径共同保有<strong>分离节点及前序节点的所有内容</strong>，但在之后分支内部的开发中互不干扰，具体可表示为：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612150420006.png" alt="三类方法的图示说明">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908153207321.png" alt="Git分支示意图">
 
-<p>这三类方法各有各的缺点，对于第三类<strong>非语义特征知识图谱</strong>，具体流程是人为定义一种<strong>构图方式</strong>，模型通过这种方式提取图中的特征以构建一个非传统意义上的知识图谱，并通过学习该图来实现对新病例的泛化。但是这种方法具有<strong>非常强的黑盒性</strong>，模型通过提取到的特征学习，但是无法解释到底学到了什么信息，这对于医学这种需要<strong>极强可解释性</strong>兜底的领域来说是没那么容易接受的。</p>
-<p>对于<strong>融入先验知识图谱和医学标注知识图谱</strong>，这两类方法的思想其实都是通过知识图谱辅助模型进行判断。但是这类方法存在几个问题：</p>
-<p><strong>第一</strong>：这些方法用到的知识图谱大多是静态的图谱，没有处理<strong>患者的多次检查、病灶的随访变化、疾病进展</strong>等时间信息，因此可以引入<strong>将时序知识图谱与智能医学图像结合</strong>以用于计算机辅助诊断的方向。</p>
-<p><strong>第二</strong>：这些方法的可泛化能力较弱，仅仅能某些特定的领域。如在<strong>肺部领域</strong>构建了知识图谱并用于辅助模型诊断后，如需在<strong>脑部领域</strong>辅助模型诊断，则需要重新构建知识图谱。</p>
-<p><strong>第三</strong>：这些方法对数据质量的要求极高，如果数据中存在某些明显的噪声，那么会在极大的程度下影响构建的图谱的质量，从而影响模型的判断。</p>
-<p>三类方法的优缺点对比分别如下图所示：</p>
+<p>如图所示，当前共有三条分支，分别为<strong>main、Branch1、Branch2</strong>，两条支线分支从主分支的commit4分离出来，并在各自的分支上独自创建新的提交，此时三条分支实现了并行开发。</p>
+<p>当<strong>主分支</strong>进行了commit5后，位于独立分支的Branch1和Branch2将无法看到主分支提交的内容；同理，两分支在进行<strong>自己分支上的commit5</strong>后，其它分支也无法看到这个commit5，但是这三条分支却能共同看到<strong>主分支上的commit1至commit4</strong>。从分支当中继续创建分支也是可行的。</p>
+<p>当一个分支开发完毕后，需要合并到另一个分支，此时分为两种情况：</p>
+<ul>
+<li><p><strong>情况一：</strong>若两分支在分离后均产生了提交，则可以使用<span class="math inline">\(git\ merge\ Branch\)</span>命令将需要合并的分支合并到当前位于的分支上，但是该种操作会产生新的提交分支，如上图所示，两个<span class="math inline">\(commit\ M\)</span>分支即为合并产生的提交记录。</p></li>
+<li><p><strong>情况二：</strong>若某一分支在分离后没有新的提交，则可以使用快速合并，将未提交分支的头节点直接移动到<strong>有提交分支的最新一次提交</strong>，但是快速分支并不会产生提交记录。</p></li>
+</ul>
+<p>分支的快速合并示意如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612154458107.png" alt="三类方法优缺点对比">
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908155652904.png" alt="快速合并分支示意图">
 
-<p><strong>可解释性</strong>表示模型推理过程和结果能够被人类理解的程度；<strong>可扩展性</strong>表示模型整合新数据的能力；<strong>特异性</strong>表示模型在特定任务上的表现，通常指某篇研究论文中针对目标疾病诊断任务的性能；<strong>泛化性</strong>表示模型迁移到其他数据来源或其他疾病类型数据集时的表现；<strong>可用性</strong>表示除原研究者之外的其他用户，例如其他研究团队或工业界用户，使用和部署该模型所需付出的努力。</p>
-<h2 id="对研究未来的展望">对研究未来的展望</h2>
-<p>作者认为研究可以分为四个方向，分别针对<strong>可解释性、小规模知识图谱、跨语义通用知识图谱、与大语言模型结合</strong>。四个方向可以分别从如下方式入手：</p>
-<p><strong>可解释性</strong>：当前方法的上游任务为从医学图像或是其它医学相关知识中提取特征，下游任务为利用知识图谱辅助模型进行推理训练。<strong>下游任务</strong>在知识图谱的帮助下具有一定的可解释性，但是上游任务的特征提取可解释性较弱，如果可以让知识图谱介入上游任务，那么方法的<strong>可解释性</strong>将更强。</p>
-<p><strong>小规模知识图谱</strong>：<strong>数据的不足</strong>一直为医学领域的一大痛点，相比于需要大规模数据集进行训练的<strong>深度学习模型</strong>，小规模数据集构建的知识图谱具有更强的可解释性和语义性，从而降低对大规模数据集的依赖。但是现在仍然缺乏一种通用的构建<strong>小规模知识图谱的范式</strong>，且由于知识图谱规模过小，极有可能存在<strong>过拟合或欠拟合</strong>的问题。如果可以将知识图谱用于上游任务中，那么模型的性能也会变得更好。</p>
-<p><strong>跨语义通用知识图谱</strong>：当前知识图谱聚焦于某一个领域，而非跨语义的，如前文提到的<strong>肺部知识图谱</strong>和<strong>脑部知识图谱</strong>，两者之间会存在一些共性，但是区分到具体的细节病灶上又略有不同，因此需要构建一个<strong>跨语义通用的知识图谱</strong>，该知识图谱目标是结合多领域的知识，以具有极强的泛化能力。</p>
-<p><strong>与大语言模型结合</strong>：利用大语言模型强大的<strong>自然语言处理</strong>能力以及<strong>推理能力</strong>，对知识图谱进行<strong>嵌入、补全</strong>，使得知识图谱的具有更高的质量。同时，大语言模型也可用作多模态，同时处理<strong>图像、文本</strong>等信息。</p>
-<h2 id="论文写作框架">论文写作框架</h2>
-<p><strong>第一部分</strong>：介绍现有医学方法，说明当前一共有哪三种<strong>医学影像和知识图谱</strong>结合的方法，列出不同方法的缺陷，重点强调知识图谱是静态的，没有将患者病情动态的变换纳入进知识图谱的考虑中，从而引出<strong>时序知识图谱（Temporal Knowledge Graph，TKG）</strong>的概念。</p>
-<p><strong>第二部分</strong>：介绍<strong>TKG</strong>的发展脉络，类似于这篇综述，系统介绍TKG旨在解决什么问题，当前一共有哪些<strong>TKG</strong>方法，<strong>TKG</strong>的任务种类，并主要将<strong>外推</strong>部分带入，说明<strong>外推</strong>任务为更适合和医学图像结合的一类任务。</p>
-<p><strong>第三部分</strong>：系统介绍将<strong>TKG</strong>引入医学影像可以解决什么问题，针对文中提到的两类方法，用<strong>TKG</strong>进行改良可以带来什么效果，并提出一种大致框架（此处补一个提取的流程图），以构建时序知识图谱。</p>
-<p><strong>第四部分</strong>：总结与展望。</p>
-<p>​ <span class="math inline">\(Fin.\)</span></p>
+<p>git常见的分支命令分为以下几种：</p>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">命令</th>
+<th style="text-align: center;">效果</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">git branch</td>
+<td style="text-align: center;">查看本地分支</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">git branch -a</td>
+<td style="text-align: center;">查看所有分支、包括远程分支（多人开发下）</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">git branch “分支名“ SHA</td>
+<td style="text-align: center;">从节点SHA创造一个新的分支但不切换，若不带SHA则从当前分支的头节点创造</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">git switch “分支名”</td>
+<td style="text-align: center;">切换到某个分支，可以根据git branch进行确认</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">git switch -c ”分支名“ SHA</td>
+<td style="text-align: center;">从节点SHA创造一个新的分支并切换，不带SHA则从当前分支的头节点创造</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">git branch -d “分支名”</td>
+<td style="text-align: center;">删除某分支，但是若该分支有未合并的内容，分支将不会被删除</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">git branch -D “分支名”</td>
+<td style="text-align: center;">强制删除某个分支，哪怕存在未合并内容</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">git brach -m “分支名”</td>
+<td style="text-align: center;">给当前分支重命名</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">git branch -m “旧分支名” ”新分支名“</td>
+<td style="text-align: center;">给指定的旧分支名命名</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">git merge ”分支名“</td>
+<td style="text-align: center;">将某分支合并到当前分支</td>
+</tr>
+</tbody>
+</table>
+<p>若两个分支在合并时同时对一个文件进行了修改，此时Git会提示文件冲突，需要决定具体保留哪个文件的分支。首先创建Master分支，并创建文件<strong>GitTest.py</strong>，输入内容后提交，并创建新的分支<strong>branch1</strong>。在<strong>branch1</strong>对<strong>GitTest.py</strong>修改并提交，切换回<strong>Master</strong>分支。在<strong>Master</strong>分支对<strong>GitTest.py</strong>进行修改，提交后输入命令<span class="math inline">\(git\ merge\ branch1\)</span>，如下图所示，git提示两版本冲突：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908162438637.png" alt="合并时冲突示意图">
+
+<p>更细致地，git会指出冲突文件具体不一致的地方，如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908162557524.png" alt="分支冲突位置示意图">
+
+<p>手动修改冲突文件至最终想要合并的版本，并将修改后的该文件使用<span class="math inline">\(git\ add\)</span>添加进暂存区后，使用<span class="math inline">\(git\ commit\)</span>添加进本地仓库，此时<span class="math inline">\(merge\)</span>已经完成，合并后的<strong>Git树如下图所示：</strong></p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908165128312.png" alt="合并后的git树">
+
+<h2 id="git与远程仓库">Git与远程仓库</h2>
+<p>上述所有操作针对的都是本地仓库，要想真正实现开源以及多人合作，需要用到类似于<strong>Github、Gitlab、Gitee</strong>等远程仓库。以<strong>Github</strong>为例，首先在Github中创建一个远程仓库，如下图所示：</p>
+<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908170012971.png" alt="创建一个Github仓库" style="zoom:50%;"></p>
+<p><strong>Github</strong>仓库的链接通常为:<strong>https//(git@)github/用户名/仓库名.git</strong>。如刚才创建的仓库即为<strong>https//(git@)github/violet796/GitTest.git</strong>。</p>
+<p>创建好远程仓库后，需要用本地仓库和远程仓库取得连接，具体命令为： <span class="math display">\[
+git\ remote\ add\ origin\ Reporsitoryname
+\]</span> 取得连接后，即可往远程仓库推送本地仓库的内容，具体命令为： <span class="math display">\[
+git\ push\ -u\ origin\ 分支名
+\]</span> 其中<span class="math inline">\(-u\)</span>指的是$ –set-upstream<span class="math inline">\(，即建立跟踪关系，在第一次push时使用\)</span>-u<span class="math inline">\(，可以将本地仓库的某一分支和远程仓库某分支绑定，形成**跟踪关系**，这样后续推送该分支时可以直接使用\)</span>git&nbsp;push$命令。</p>
+<p>关于推送到远程仓库的一些注意事项：</p>
+<ul>
+<li><p><strong>一：</strong>push 命令后的分支名指的是<strong>需要推送的分支名</strong>，不一定是当前分支；若直接使用<span class="math inline">\(git\ push\)</span>命令，则默认将当前分支推送到远程仓库，前提是当前分支绑定了远程仓库的某分支</p></li>
+<li><p><strong>二：</strong>若推送的分支名在远程仓库中不存在，则<strong>远程仓库会创造一个同名的分支</strong></p></li>
+<li><p><strong>三：</strong>若不想本地仓库的分支对应到远程仓库的同名分支，在建立跟踪关系时可以使用命令： <span class="math display">\[
+git\ push\ -u\ origin\ 本地分支名：远程分支名
+\]</span></p></li>
+</ul>
+<p>​ 以建立不同分支名的跟踪，但这基本上用不到</p>
+<ul>
+<li><p><strong>四：</strong>可以使用<span class="math inline">\(git\ branch\ -vv\)</span>命令查看本地仓库和远程仓库的跟踪项</p></li>
+<li><p><strong>五：</strong>判断本地仓库和远程仓库是否产生连接可以使用<span class="math inline">\(git\ remote\ -v\)</span>命令</p></li>
+</ul>
+<p>要将本地仓库的文件上传到远程的某个仓库，通常需要公钥和私钥文件，具体而言，在powershell中输入如下命令： <span class="math display">\[
+ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
+\]</span> 具体如下图所示，命令行后会提示密钥生成到了哪个文件当中：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E6%88%AA%E5%9B%BE.png" alt="输入对应命令">
+
+<p>找到对应的文件，发现已经生成公钥以及私钥，私钥保存在自己的电脑上。点开<span class="math inline">\(.pub\)</span>后缀的文件夹，复制里面的内容，如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908175011035.png" alt="公钥和私钥">
+
+<p>打开Github，在settings的<strong>SSH and GPG keys</strong>中输入密钥的名字，并粘贴复制的公钥，点击<strong>Add SSH Key</strong>，即可完成公钥的添加，具体如下图所示：</p>
+
+<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908175140011.png" alt="在github上添加公钥">
+
+<p>添加公钥后，本机可以通过 SSH 被 GitHub 识别为对应账号；是否能 push 到某个仓库，还取决于该账号是否拥有该仓库的写权限。</p>
+<p><span class="math inline">\(Fin.\)</span></p>
 
                 
             </div>
@@ -631,7 +818,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://violet796.github.io/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/">https://violet796.github.io/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/</a>
+                    <a href="https://violet796.github.io/2026/09/08/bi-ji-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/">https://violet796.github.io/2026/09/08/bi-ji-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -673,12 +860,8 @@
                                     <span class="chip bg-color">笔记</span>
                                 </a>
                             
-                                <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/">
-                                    <span class="chip bg-color">医学影像</span>
-                                </a>
-                            
-                                <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/">
-                                    <span class="chip bg-color">跨学科融合</span>
+                                <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">
+                                    <span class="chip bg-color">开发工具</span>
                                 </a>
                             
                         </div>
@@ -985,9 +1168,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2026/09/08/bi-ji-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/">
                     <div class="card-image">
@@ -1004,9 +1188,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2026-09-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1019,6 +1203,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1041,30 +1226,30 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/">
+                <a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" class="responsive-img" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
+                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
                         
-                        <span class="card-title">【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning</span>
+                        <span class="card-title">【笔记】智能医学影像与知识图谱补全结课论文梳理</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            2026 Information Fusion 考虑不同路径对推理的帮助不同
+                            智能医学影像结课论文写作梳理笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-05-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-06
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Paper/" class="post-category">
-                                    Paper
+                            <a href="/categories/Notes/" class="post-category">
+                                    Notes
                                 </a>
                             
                             
@@ -1074,16 +1259,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%AE%BA%E6%96%87/">
-                        <span class="chip bg-color">论文</span>
+                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
+                        <span class="chip bg-color">笔记</span>
                     </a>
                     
-                    <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
-                        <span class="chip bg-color">时序知识图谱</span>
+                    <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/">
+                        <span class="chip bg-color">医学影像</span>
                     </a>
                     
-                    <a href="/tags/%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F/">
-                        <span class="chip bg-color">时序衰减</span>
+                    <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/">
+                        <span class="chip bg-color">跨学科融合</span>
                     </a>
                     
                 </div>
