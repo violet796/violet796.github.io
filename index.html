@@ -273,8 +273,7 @@
 
 </header>
 
-    
-<section class="forum-hero" aria-label="首页介绍">
+    <section class="forum-hero" aria-label="首页介绍">
     <div class="container forum-hero__inner">
         <div class="forum-hero__eyebrow">
             <span class="forum-hero__dot"></span>
@@ -287,9 +286,9 @@
         </div>
 
         <div class="forum-hero__actions">
-            <a href="#articles" class="forum-btn forum-btn--primary">
-                <i class="fas fa-compass"></i>
-                <span>开始阅读</span>
+            <a href="#" id="dailyRecommendation" class="forum-btn forum-btn--primary" aria-label="随机推荐一篇文章">
+                <i class="fas fa-random"></i>
+                <span>每日推荐</span>
             </a>
             <a href="#searchModal" class="modal-trigger forum-btn forum-btn--ghost">
                 <i class="fas fa-search"></i>
@@ -305,7 +304,6 @@
 
     </div>
 </section>
-
 
 
 <main class="content home-content">
@@ -334,548 +332,824 @@
 
     
 
-    <article id="articles" class="container articles forum-article-grid">
-        <div class="row article-row">
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/09/08/bi-ji-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" class="responsive-img" alt="【笔记】Git的基本概念及相关使用">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-09-08</span>
-                            
-                            <a href="/categories/Notes/"><i class="far fa-folder"></i>Notes</a>
-                            
-                        </div>
-
-                        <a href="/2026/09/08/bi-ji-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/" class="forum-post-card__title">
-                            <h3>【笔记】Git的基本概念及相关使用</h3>
+    <article id="articles" class="container articles forum-article-grid" data-initial-page="1">
+        
+        <section class="forum-feed-page is-active"
+                 data-feed-page="1"
+                 >
+            <div class="row article-row">
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/09/08/gong-ju-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" class="responsive-img" alt="【工具】Git的基本概念及相关使用">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            介绍Git的相关使用方法
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-09-08</span>
+                                
+                                <a href="/categories/Tools/"><i class="far fa-folder"></i>Tools</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/09/08/gong-ju-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/" class="forum-post-card__title">
+                                <h3>【工具】Git的基本概念及相关使用</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                介绍Git的相关使用方法
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/"><span class="chip">笔记</span></a>
-                            
-                            <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="chip">开发工具</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/"><span class="chip">笔记</span></a>
+                                
+                                <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/"><span class="chip">开发工具</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-09-06</span>
-                            
-                            <a href="/categories/Notes/"><i class="far fa-folder"></i>Notes</a>
-                            
-                        </div>
-
-                        <a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/" class="forum-post-card__title">
-                            <h3>【笔记】智能医学影像与知识图谱补全结课论文梳理</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            智能医学影像结课论文写作梳理笔记
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-09-06</span>
+                                
+                                <a href="/categories/Notes/"><i class="far fa-folder"></i>Notes</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/" class="forum-post-card__title">
+                                <h3>【笔记】智能医学影像与知识图谱补全结课论文梳理</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                智能医学影像结课论文写作梳理笔记
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E7%AC%94%E8%AE%B0/"><span class="chip">笔记</span></a>
-                            
-                            <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/"><span class="chip">医学影像</span></a>
-                            
-                            <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/"><span class="chip">跨学科融合</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E7%AC%94%E8%AE%B0/"><span class="chip">笔记</span></a>
+                                
+                                <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/"><span class="chip">医学影像</span></a>
+                                
+                                <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/"><span class="chip">跨学科融合</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" class="responsive-img" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-05-28</span>
-                            
-                            <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
-                            
-                        </div>
-
-                        <a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/" class="forum-post-card__title">
-                            <h3>【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" class="responsive-img" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            2026 Information Fusion 考虑不同路径对推理的帮助不同
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-05-28</span>
+                                
+                                <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/" class="forum-post-card__title">
+                                <h3>【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                2026 Information Fusion 考虑不同路径对推理的帮助不同
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
-                            
-                            <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
-                            
-                            <a href="/tags/%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F/"><span class="chip">时序衰减</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
+                                
+                                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
+                                
+                                <a href="/tags/%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F/"><span class="chip">时序衰减</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" class="responsive-img" alt="【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-05-20</span>
-                            
-                            <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
-                            
-                        </div>
-
-                        <a href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/" class="forum-post-card__title">
-                            <h3>【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" class="responsive-img" alt="【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            2025ACL 从频率角度考虑关系的三个特性
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-05-20</span>
+                                
+                                <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/" class="forum-post-card__title">
+                                <h3>【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                2025ACL 从频率角度考虑关系的三个特性
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
-                            
-                            <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
-                            
-                            <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"><span class="chip">快速傅里叶变换</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
+                                
+                                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
+                                
+                                <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/"><span class="chip">快速傅里叶变换</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" class="responsive-img" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-05-13</span>
-                            
-                            <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
-                            
-                        </div>
-
-                        <a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/" class="forum-post-card__title">
-                            <h3>【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" class="responsive-img" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            阅读标题论文的总结
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-05-13</span>
+                                
+                                <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/" class="forum-post-card__title">
+                                <h3>【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                阅读标题论文的总结
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
-                            
-                            <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
-                            
-                            <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><span class="chip">迁移学习</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
+                                
+                                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
+                                
+                                <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/"><span class="chip">迁移学习</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-04-08</span>
-                            
-                            <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
-                            
-                        </div>
-
-                        <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/" class="forum-post-card__title">
-                            <h3>【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            阅读标题论文的总结
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-04-08</span>
+                                
+                                <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/" class="forum-post-card__title">
+                                <h3>【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                阅读标题论文的总结
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
-                            
-                            <a href="/tags/%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B/"><span class="chip">链路预测</span></a>
-                            
-                            <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA/"><span class="chip">知识图谱归一化表示</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
+                                
+                                <a href="/tags/%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B/"><span class="chip">链路预测</span></a>
+                                
+                                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA/"><span class="chip">知识图谱归一化表示</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" class="responsive-img" alt="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-03-25</span>
-                            
-                            <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
-                            
-                        </div>
-
-                        <a href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/" class="forum-post-card__title">
-                            <h3>【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" class="responsive-img" alt="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            阅读标题论文的总结
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-03-25</span>
+                                
+                                <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/" class="forum-post-card__title">
+                                <h3>【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                阅读标题论文的总结
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
-                            
-                            <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
-                            
-                            <a href="/tags/RNN/"><span class="chip">RNN</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
+                                
+                                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
+                                
+                                <a href="/tags/RNN/"><span class="chip">RNN</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A23.jpg" class="responsive-img" alt="Hot100-找到字符串中所有字母异位词">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-03-22</span>
-                            
-                            <a href="/categories/Hot100/"><i class="far fa-folder"></i>Hot100</a>
-                            
-                        </div>
-
-                        <a href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/" class="forum-post-card__title">
-                            <h3>Hot100-找到字符串中所有字母异位词</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A23.jpg" class="responsive-img" alt="Hot100-找到字符串中所有字母异位词">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            Hot100 找到字符串中所有字母异位词
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-03-22</span>
+                                
+                                <a href="/categories/Hot100/"><i class="far fa-folder"></i>Hot100</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/" class="forum-post-card__title">
+                                <h3>Hot100-找到字符串中所有字母异位词</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                Hot100 找到字符串中所有字母异位词
+                                
+                            </div>
+
                             
-                            <a href="/tags/Hot100/"><span class="chip">Hot100</span></a>
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip">算法题</span></a>
-                            
-                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip">滑动窗口</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/Hot100/"><span class="chip">Hot100</span></a>
+                                
+                                <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip">算法题</span></a>
+                                
+                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip">滑动窗口</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A22.jpg" class="responsive-img" alt="Hot100-无重复字符的最长子串">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-03-22</span>
-                            
-                            <a href="/categories/Hot100/"><i class="far fa-folder"></i>Hot100</a>
-                            
-                        </div>
-
-                        <a href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/" class="forum-post-card__title">
-                            <h3>Hot100-无重复字符的最长子串</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A22.jpg" class="responsive-img" alt="Hot100-无重复字符的最长子串">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            Hot100 无重复字符的最长子串
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-03-22</span>
+                                
+                                <a href="/categories/Hot100/"><i class="far fa-folder"></i>Hot100</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/" class="forum-post-card__title">
+                                <h3>Hot100-无重复字符的最长子串</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                Hot100 无重复字符的最长子串
+                                
+                            </div>
+
                             
-                            <a href="/tags/Hot100/"><span class="chip">Hot100</span></a>
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip">算法题</span></a>
-                            
-                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip">滑动窗口</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/Hot100/"><span class="chip">Hot100</span></a>
+                                
+                                <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip">算法题</span></a>
+                                
+                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip">滑动窗口</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" class="responsive-img" alt="【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2026-03-19</span>
-                            
-                            <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
-                            
-                        </div>
-
-                        <a href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/" class="forum-post-card__title">
-                            <h3>【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" class="responsive-img" alt="【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            阅读标题论文的总结
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2026-03-19</span>
+                                
+                                <a href="/categories/Paper/"><i class="far fa-folder"></i>Paper</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/" class="forum-post-card__title">
+                                <h3>【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                阅读标题论文的总结
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
-                            
-                            <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
-                            
-                            <a href="/tags/RNN/"><span class="chip">RNN</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E8%AE%BA%E6%96%87/"><span class="chip">论文</span></a>
+                                
+                                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/"><span class="chip">时序知识图谱</span></a>
+                                
+                                <a href="/tags/RNN/"><span class="chip">RNN</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A-%E5%A4%AA%E9%98%B3.jpg" class="responsive-img" alt="数据分析库-Pandas的使用">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2025-09-26</span>
-                            
-                            <a href="/categories/DataAnalysis/"><i class="far fa-folder"></i>DataAnalysis</a>
-                            
-                        </div>
-
-                        <a href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/" class="forum-post-card__title">
-                            <h3>数据分析库-Pandas的使用</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A-%E5%A4%AA%E9%98%B3.jpg" class="responsive-img" alt="数据分析库-Pandas的使用">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            总结Pandas库的使用
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2025-09-26</span>
+                                
+                                <a href="/categories/DataAnalysis/"><i class="far fa-folder"></i>DataAnalysis</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/" class="forum-post-card__title">
+                                <h3>数据分析库-Pandas的使用</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                总结Pandas库的使用
+                                
+                            </div>
+
                             
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><span class="chip">数据分析</span></a>
-                            
-                            <a href="/tags/Pandas/"><span class="chip">Pandas</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><span class="chip">数据分析</span></a>
+                                
+                                <a href="/tags/Pandas/"><span class="chip">Pandas</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
-            </div>
-            
-            <div class="article col s12 m6 l4" data-aos="fade-up">
-                <div class="card forum-post-card">
-                    <a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/" class="forum-post-card__cover">
-                        <div class="card-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E4%BA%91%E6%9C%B5-%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A.jpg" class="responsive-img" alt="Hot100-盛水最多的容器">
-                            
-                        </div>
-                    </a>
-
-                    <div class="card-content article-content">
-                        <div class="forum-post-card__meta">
-                            <span><i class="far fa-calendar"></i>2025-09-24</span>
-                            
-                            <a href="/categories/Hot100/"><i class="far fa-folder"></i>Hot100</a>
-                            
-                        </div>
-
-                        <a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/" class="forum-post-card__title">
-                            <h3>Hot100-盛水最多的容器</h3>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E4%BA%91%E6%9C%B5-%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A.jpg" class="responsive-img" alt="Hot100-盛水最多的容器">
+                                
+                            </div>
                         </a>
 
-                        <div class="summary block-with-text">
-                            
-                            Hot100 盛水最多的容器
-                            
-                        </div>
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2025-09-24</span>
+                                
+                                <a href="/categories/Hot100/"><i class="far fa-folder"></i>Hot100</a>
+                                
+                            </div>
 
-                        
-                        <div class="article-tags forum-post-card__tags">
+                            <a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/" class="forum-post-card__title">
+                                <h3>Hot100-盛水最多的容器</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                Hot100 盛水最多的容器
+                                
+                            </div>
+
                             
-                            <a href="/tags/Hot100/"><span class="chip">Hot100</span></a>
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip">算法题</span></a>
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/Hot100/"><span class="chip">Hot100</span></a>
+                                
+                                <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip">算法题</span></a>
+                                
+                            </div>
                             
                         </div>
-                        
                     </div>
                 </div>
+                
             </div>
-            
-        </div>
+        </section>
+        
+        <section class="forum-feed-page"
+                 data-feed-page="2"
+                 hidden>
+            <div class="row article-row">
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2025/09/21/shu-ju-fen-xi-ku-numpy-de-shi-yong/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://pic3.zhimg.com/v2-6fab134c3621df30c3d5b032ebf883ba_r.jpg?source=1940ef5c" class="responsive-img" alt="数据分析库:Numpy的使用">
+                                
+                            </div>
+                        </a>
+
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2025-09-21</span>
+                                
+                                <a href="/categories/DataAnalysis/"><i class="far fa-folder"></i>DataAnalysis</a>
+                                
+                            </div>
+
+                            <a href="/2025/09/21/shu-ju-fen-xi-ku-numpy-de-shi-yong/" class="forum-post-card__title">
+                                <h3>数据分析库:Numpy的使用</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                总结Numpy库的使用
+                                
+                            </div>
+
+                            
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><span class="chip">数据分析</span></a>
+                                
+                                <a href="/tags/Numpy/"><span class="chip">Numpy</span></a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2025/09/14/hot100-san-shu-zhi-he/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0" class="responsive-img" alt="Hot100:三数之和">
+                                
+                            </div>
+                        </a>
+
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2025-09-14</span>
+                                
+                                <a href="/categories/Hot100/"><i class="far fa-folder"></i>Hot100</a>
+                                
+                            </div>
+
+                            <a href="/2025/09/14/hot100-san-shu-zhi-he/" class="forum-post-card__title">
+                                <h3>Hot100:三数之和</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                Hot100 三数之和
+                                
+                            </div>
+
+                            
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/Hot100/"><span class="chip">Hot100</span></a>
+                                
+                                <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip">算法题</span></a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://pic2.zhimg.com/v2-3aecfb4a857585d6eb2796902a565956_r.jpg?source=172ae18b" class="responsive-img" alt="算法:滑动窗口类型题目总结">
+                                
+                            </div>
+                        </a>
+
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2025-08-26</span>
+                                
+                                <a href="/categories/Algorithm/"><i class="far fa-folder"></i>Algorithm</a>
+                                
+                            </div>
+
+                            <a href="/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/" class="forum-post-card__title">
+                                <h3>算法:滑动窗口类型题目总结</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                总结滑动窗口类型题目
+                                
+                            </div>
+
+                            
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip">滑动窗口</span></a>
+                                
+                                <a href="/tags/%E7%AE%97%E6%B3%95/"><span class="chip">算法</span></a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2025/08/12/gong-ju-node.js-yu-javascript-de-xiang-guan-gai-nian/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://images.wallpaperscraft.com/image/single/piano_silhouette_space_156662_1280x720.jpg" class="responsive-img" alt="【工具】Node.js与JavaScript的相关概念">
+                                
+                            </div>
+                        </a>
+
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2025-08-12</span>
+                                
+                                <a href="/categories/Tools/"><i class="far fa-folder"></i>Tools</a>
+                                
+                            </div>
+
+                            <a href="/2025/08/12/gong-ju-node.js-yu-javascript-de-xiang-guan-gai-nian/" class="forum-post-card__title">
+                                <h3>【工具】Node.js与JavaScript的相关概念</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                讲述Node.JS和JavaScript的关系以及发展历史
+                                
+                            </div>
+
+                            
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E5%B7%A5%E5%85%B7/"><span class="chip">工具</span></a>
+                                
+                                <a href="/tags/Node-js/"><span class="chip">Node.js</span></a>
+                                
+                                <a href="/tags/%E5%BC%80%E5%8F%91/"><span class="chip">开发</span></a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="article col s12 m6 l4">
+                    <div class="card forum-post-card">
+                        <a href="/2025/07/29/suan-fa-ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/" class="forum-post-card__cover">
+                            <div class="card-image">
+                                
+                                <img src="https://picb.zhimg.com/v2-d38a4fecd744664a4c8cfe6c786aecc9_r.jpg?source=1940ef5c" class="responsive-img" alt="算法:定长滑动窗口类型题目总结">
+                                
+                            </div>
+                        </a>
+
+                        <div class="card-content article-content">
+                            <div class="forum-post-card__meta">
+                                <span><i class="far fa-calendar"></i>2025-07-29</span>
+                                
+                                <a href="/categories/Algorithm/"><i class="far fa-folder"></i>Algorithm</a>
+                                
+                            </div>
+
+                            <a href="/2025/07/29/suan-fa-ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/" class="forum-post-card__title">
+                                <h3>算法:定长滑动窗口类型题目总结</h3>
+                            </a>
+
+                            <div class="summary block-with-text">
+                                
+                                总结定长滑动窗口类型题目的模板
+                                
+                            </div>
+
+                            
+                            <div class="article-tags forum-post-card__tags">
+                                
+                                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip">滑动窗口</span></a>
+                                
+                                <a href="/tags/%E7%AE%97%E6%B3%95/"><span class="chip">算法</span></a>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        
     </article>
+
+    
+    <div class="container forum-feed-pagination" role="navigation" aria-label="首页文章分页">
+        <button type="button" class="forum-feed-pagination__btn forum-feed-pagination__btn--prev" data-feed-prev aria-label="上一页">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+        </button>
+        <div class="forum-feed-pagination__pages" data-feed-pages></div>
+        <button type="button" class="forum-feed-pagination__btn forum-feed-pagination__btn--next" data-feed-next aria-label="下一页">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>
+        </button>
+    </div>
+    
 </main>
 
+<script>
+(function () {
+    var articleRoot = document.getElementById('articles');
+    if (!articleRoot) return;
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a class="left btn-floating btn-large disabled">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a href="/page/2/"
-               class="right btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
+    var feedPages = Array.prototype.slice.call(articleRoot.querySelectorAll('[data-feed-page]'));
+    var totalPages = Math.max(1, feedPages.length);
+    var currentPage = Math.min(Math.max(parseInt(articleRoot.getAttribute('data-initial-page'), 10) || 1, 1), totalPages);
+    var prevBtn = document.querySelector('[data-feed-prev]');
+    var nextBtn = document.querySelector('[data-feed-next]');
+    var pagesRoot = document.querySelector('[data-feed-pages]');
+    var feedHeading = document.querySelector('.forum-feed-heading');
 
+    function renderPage(pageNumber, shouldScroll) {
+        currentPage = Math.min(Math.max(pageNumber, 1), totalPages);
 
+        feedPages.forEach(function (feedPage, index) {
+            var visible = index === currentPage - 1;
+            feedPage.classList.toggle('is-active', visible);
+            if (visible) {
+                feedPage.removeAttribute('hidden');
+                feedPage.setAttribute('aria-hidden', 'false');
+            } else {
+                feedPage.setAttribute('hidden', 'hidden');
+                feedPage.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        if (prevBtn) prevBtn.disabled = currentPage <= 1;
+        if (nextBtn) nextBtn.disabled = currentPage >= totalPages;
+
+        if (pagesRoot) {
+            pagesRoot.innerHTML = '';
+            for (var i = 1; i <= totalPages; i++) {
+                var btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = 'forum-feed-pagination__page' + (i === currentPage ? ' is-active' : '');
+                btn.textContent = i;
+                btn.setAttribute('aria-label', '第 ' + i + ' 页');
+                if (i === currentPage) btn.setAttribute('aria-current', 'page');
+                (function (targetPage) {
+                    btn.addEventListener('click', function () { renderPage(targetPage, true); });
+                })(i);
+                pagesRoot.appendChild(btn);
+            }
+        }
+
+        if (shouldScroll && feedHeading) {
+            var top = feedHeading.getBoundingClientRect().top + window.pageYOffset - 88;
+            window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+        }
+    }
+
+    if (prevBtn) prevBtn.addEventListener('click', function () { renderPage(currentPage - 1, true); });
+    if (nextBtn) nextBtn.addEventListener('click', function () { renderPage(currentPage + 1, true); });
+    renderPage(currentPage, false);
+
+    var recommendation = document.getElementById('dailyRecommendation');
+    var recommendationUrls = ["/2026/09/08/gong-ju-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/","/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/","/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/","/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/","/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/","/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/","/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/","/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/","/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/","/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/","/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/","/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/","/2025/09/21/shu-ju-fen-xi-ku-numpy-de-shi-yong/","/2025/09/14/hot100-san-shu-zhi-he/","/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/","/2025/08/12/gong-ju-node.js-yu-javascript-de-xiang-guan-gai-nian/","/2025/07/29/suan-fa-ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/"];
+    if (recommendation && recommendationUrls.length) {
+        recommendation.addEventListener('click', function (event) {
+            event.preventDefault();
+            var target = recommendationUrls[Math.floor(Math.random() * recommendationUrls.length)];
+            if (target) window.location.href = target;
+        });
+    }
+})();
+</script>
 
 
     <footer class="page-footer bg-color">

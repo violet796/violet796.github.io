@@ -57,10 +57,14 @@ $(function () {
         fixStyles();
     });
 
-    /*初始化瀑布流布局*/
-    $('#articles').masonry({
-        itemSelector: '.article'
-    });
+    /*初始化瀑布流布局。首页使用自己的稳定分页/四列布局，不能让 Masonry
+     * 在隐藏的第 2 页卡片上提前计算坐标，否则切页后会产生巨大空白和错位。*/
+    let $articles = $('#articles');
+    if ($articles.length && !$articles.hasClass('forum-article-grid')) {
+        $articles.masonry({
+            itemSelector: '.article'
+        });
+    }
 
     AOS.init({
         easing: 'ease-in-out-sine',
