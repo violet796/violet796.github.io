@@ -1,11 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<!-- APlayer + Meting -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="标签: 知识图谱归一化表示, ‘学习’">
@@ -30,6 +25,15 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -68,22 +72,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="/taxonomy/" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-compass" style="zoom: 0.6;"></i>
       
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
+      <span>文章导航</span>
     </a>
     
   </li>
@@ -118,31 +111,6 @@
       
       <span>留言板</span>
     </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="" class="waves-effect waves-light">
-
-      
-      <i class="fas fa-list" style="zoom: 0.6;"></i>
-      
-      <span>爱好</span>
-      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
-    </a>
-    <ul class="sub-nav menus_item_child ">
-      
-      <li>
-        <a href="/musics">
-          
-          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>音乐</span>
-        </a>
-      </li>
-      
-    </ul>
     
   </li>
   
@@ -183,22 +151,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="/taxonomy/" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+			    <i class="fa-fw fas fa-compass"></i>
 			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
+			文章导航
 		</a>
           
         </li>
@@ -236,31 +193,6 @@
           
         </li>
         
-        <li class="m-nav-item">
-	  
-		<a href="javascript:;">
-			
-				<i class="fa-fw fas fa-list"></i>
-			
-			爱好
-			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
-		</a>
-            <ul  style="background:  ;" >
-              
-                <li>
-
-                  <a href="/musics " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
-			      
-		          <span>音乐</span>
-                  </a>
-                </li>
-              
-            </ul>
-          
-        </li>
-        
         
     </ul>
 </div>
@@ -273,7 +205,8 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover inner-cover">
+    <div id="knight-page-shell">
+        <div class="bg-cover pd-header about-cover inner-cover">
     <div class="inner-cover__media" aria-hidden="true">
         <div class="inner-cover__backdrop"></div>
         <img class="inner-cover__image" src="" alt="" draggable="false">
@@ -301,9 +234,227 @@
 </div>
 
 
-<main class="content">
+<main class="content taxonomy-page-content">
+    
+
+<div id="taxonomy-hub" class="taxonomy-hub container"
+     data-initial-kind="tag"
+     data-initial-name="%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA"
+     data-page-size="9">
+
+    <section class="taxonomy-overview card" data-aos="fade-up">
+        <div class="taxonomy-overview__eyebrow">ARTICLE NAVIGATION</div>
+        <div class="taxonomy-overview__main">
+            <div>
+                <h1>文章导航</h1>
+                <p>在此快速寻找你感兴趣的文章</p>
+            </div>
+            <div class="taxonomy-overview__stats" aria-label="taxonomy statistics">
+                <span><strong>6</strong> 分类</span>
+                <span><strong>22</strong> 标签</span>
+                <span><strong>17</strong> 文章</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="taxonomy-categories" class="taxonomy-section taxonomy-section--categories">
+        <div class="taxonomy-section__heading">
+            <div>
+                <span class="taxonomy-section__eyebrow">CATEGORIES</span>
+                <h2>分类目录</h2>
+            </div>
+            <a class="taxonomy-section__jump" href="#taxonomy-tags">查看标签 <i class="fas fa-arrow-down"></i></a>
+        </div>
+        <div class="taxonomy-pair">
+            
+
+<div id="category-cloud" class="container chip-container">
+    <div class="card">
+        <div class="card-content">
+            <div class="tag-title center-align">
+                <i class="fas fa-bookmark"></i>&nbsp;&nbsp;文章分类
+            </div>
+            <div class="tag-chips">
+                
+                
+                
+                <a href="/categories/Hot100/" title="Hot100: 4" data-taxonomy-filter="category" data-taxonomy-name="Hot100">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">Hot100
+                        <span class="tag-length">4</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Tools/" title="Tools: 2" data-taxonomy-filter="category" data-taxonomy-name="Tools">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F5EEF8;">Tools
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Notes/" title="Notes: 1" data-taxonomy-filter="category" data-taxonomy-name="Notes">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #D5F5E3;">Notes
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Paper/" title="Paper: 6" data-taxonomy-filter="category" data-taxonomy-name="Paper">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #E8F8F5;">Paper
+                        <span class="tag-length">6</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/DataAnalysis/" title="DataAnalysis: 2" data-taxonomy-filter="category" data-taxonomy-name="DataAnalysis">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">DataAnalysis
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Algorithm/" title="Algorithm: 2" data-taxonomy-filter="category" data-taxonomy-name="Algorithm">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">Algorithm
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+            
+            <style type="text/css">
+    #category-radar {
+        width: 100%;
+        height: 360px;
+    }
+</style>
+
+<div class="container category-radar-wrap" data-aos="fade-up">
+    <div class="card">
+        <div id="category-radar" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript">
+(function () {
+    var el = document.getElementById('category-radar');
+    if (!el || !window.echarts) return;
+
+    var oldInstance = echarts.getInstanceByDom(el);
+    if (oldInstance) oldInstance.dispose();
+
+    var radarChart = echarts.init(el);
 
     
+
+    var option = {
+        backgroundColor: 'transparent',
+        title: {
+            left: 'center',
+            text: '文章分类雷达图',
+            textStyle: {
+                color: '#e4edf9',
+                fontWeight: 600,
+                fontSize: 20
+            }
+        },
+        tooltip: {
+            backgroundColor: 'rgba(10, 16, 26, .96)',
+            borderColor: 'rgba(116, 163, 236, .26)',
+            borderWidth: 1,
+            textStyle: { color: '#c7d4e7' }
+        },
+        radar: {
+            name: {
+                textStyle: {
+                    color: '#879ab6',
+                    fontSize: 12
+                }
+            },
+            indicator: [{"name":"Hot100","max":7},{"name":"Tools","max":7},{"name":"Notes","max":7},{"name":"Paper","max":7},{"name":"DataAnalysis","max":7},{"name":"Algorithm","max":7}],
+            nameGap: 7,
+            center: ['50%','55%'],
+            radius: '64%',
+            splitNumber: 5,
+            axisLine: {
+                lineStyle: { color: 'rgba(109, 158, 232, .18)' }
+            },
+            splitLine: {
+                lineStyle: { color: 'rgba(109, 158, 232, .13)' }
+            },
+            splitArea: {
+                areaStyle: {
+                    color: ['rgba(77, 141, 255, .025)', 'rgba(139, 125, 255, .018)']
+                }
+            }
+        },
+        series: [{
+            type: 'radar',
+            symbol: 'circle',
+            symbolSize: 5,
+            lineStyle: {
+                color: '#6aa2ff',
+                width: 2
+            },
+            itemStyle: {
+                color: '#8cb8ff'
+            },
+            areaStyle: {
+                color: 'rgba(84, 145, 255, .16)'
+            },
+            data : [{
+                value : [4,2,1,6,2,2],
+                name : '文章分类数量'
+            }]
+        }]
+    };
+
+    radarChart.setOption(option);
+    requestAnimationFrame(function () { if (!radarChart.isDisposed()) radarChart.resize(); });
+
+    var resizeHandler = function () {
+        if (!document.body.contains(el)) {
+            window.removeEventListener('resize', resizeHandler);
+            try { radarChart.dispose(); } catch (e) {}
+            return;
+        }
+        if (!radarChart.isDisposed()) radarChart.resize();
+    };
+    window.addEventListener('resize', resizeHandler);
+})();
+</script>
+
+            
+        </div>
+    </section>
+
+    <section id="taxonomy-tags" class="taxonomy-section taxonomy-section--tags">
+        <div class="taxonomy-section__heading">
+            <div>
+                <span class="taxonomy-section__eyebrow">TAGS</span>
+                <h2>标签索引</h2>
+            </div>
+            <a class="taxonomy-section__jump" href="#taxonomy-results">查看文章 <i class="fas fa-arrow-down"></i></a>
+        </div>
+        <div class="taxonomy-pair">
+            
 
 <div id="tags" class="container chip-container">
     <div class="card">
@@ -314,7 +465,7 @@
             <div class="tag-chips">
                 
                 
-                <a href="/tags/Hot100/" title="Hot100: 4">
+                <a href="/tags/Hot100/" title="Hot100: 4" data-taxonomy-filter="tag" data-taxonomy-name="Hot100">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Hot100" style="background-color: #F9EBEA;">Hot100
@@ -323,7 +474,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/" title="算法题: 4">
+                <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/" title="算法题: 4" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95%E9%A2%98">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="算法题" style="background-color: #F5EEF8;">算法题
@@ -332,7 +483,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" title="滑动窗口: 4">
+                <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" title="滑动窗口: 4" data-taxonomy-filter="tag" data-taxonomy-name="%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="滑动窗口" style="background-color: #D5F5E3;">滑动窗口
@@ -341,7 +492,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%B7%A5%E5%85%B7/" title="工具: 1">
+                <a href="/tags/%E5%B7%A5%E5%85%B7/" title="工具: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%B7%A5%E5%85%B7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="工具" style="background-color: #E8F8F5;">工具
@@ -350,7 +501,7 @@
                 </a>
                 
                 
-                <a href="/tags/Node-js/" title="Node.js: 1">
+                <a href="/tags/Node-js/" title="Node.js: 1" data-taxonomy-filter="tag" data-taxonomy-name="Node.js">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Node.js" style="background-color: #FEF9E7;">Node.js
@@ -359,7 +510,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%BC%80%E5%8F%91/" title="开发: 1">
+                <a href="/tags/%E5%BC%80%E5%8F%91/" title="开发: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BC%80%E5%8F%91">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="开发" style="background-color: #F8F9F9;">开发
@@ -368,7 +519,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%AC%94%E8%AE%B0/" title="笔记: 2">
+                <a href="/tags/%E7%AC%94%E8%AE%B0/" title="笔记: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AC%94%E8%AE%B0">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="笔记" style="background-color: #82E0AA;">笔记
@@ -377,7 +528,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="开发工具: 1">
+                <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="开发工具: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="开发工具" style="background-color: #D7BDE2;">开发工具
@@ -386,52 +537,52 @@
                 </a>
                 
                 
-                <a href="/tags/%E8%AE%BA%E6%96%87/" title="论文: 6">
+                <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/" title="医学影像: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="论文" style="background-color: #A3E4D7;">论文
+                            data-tagname="医学影像" style="background-color: #A3E4D7;">医学影像
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/" title="跨学科融合: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="跨学科融合" style="background-color: #85C1E9;">跨学科融合
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%AE%BA%E6%96%87/" title="论文: 6" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="论文" style="background-color: #F8C471;">论文
                         <span class="tag-length">6</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" title="时序知识图谱: 5">
+                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" title="时序知识图谱: 5" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="时序知识图谱" style="background-color: #85C1E9;">时序知识图谱
+                            data-tagname="时序知识图谱" style="background-color: #F9E79F;">时序知识图谱
                         <span class="tag-length">5</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F/" title="时序衰减: 1">
+                <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/" title="迁移学习: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="时序衰减" style="background-color: #F8C471;">时序衰减
+                            data-tagname="迁移学习" style="background-color: #FEF9E7;">迁移学习
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0/" title="迁移学习: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="迁移学习" style="background-color: #F9E79F;">迁移学习
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/RNN/" title="RNN: 2">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="RNN" style="background-color: #85C1E9;">RNN
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="快速傅里叶变换: 1">
+                <a href="/tags/%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2/" title="快速傅里叶变换: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="快速傅里叶变换" style="background-color: #85C1E9;">快速傅里叶变换
@@ -440,25 +591,16 @@
                 </a>
                 
                 
-                <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/" title="医学影像: 1">
+                <a href="/tags/RNN/" title="RNN: 2" data-taxonomy-filter="tag" data-taxonomy-name="RNN">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="医学影像" style="background-color: #F8C471;">医学影像
-                        <span class="tag-length">1</span>
+                            data-tagname="RNN" style="background-color: #85C1E9;">RNN
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/" title="跨学科融合: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="跨学科融合" style="background-color: #F9E79F;">跨学科融合
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="数据分析: 2">
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="数据分析: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="数据分析" style="background-color: #F9E79F;">数据分析
@@ -467,7 +609,7 @@
                 </a>
                 
                 
-                <a href="/tags/Numpy/" title="Numpy: 1">
+                <a href="/tags/Numpy/" title="Numpy: 1" data-taxonomy-filter="tag" data-taxonomy-name="Numpy">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Numpy" style="background-color: #F9EBEA;">Numpy
@@ -476,7 +618,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B/" title="链路预测: 1">
+                <a href="/tags/%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B/" title="链路预测: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="链路预测" style="background-color: #D5F5E3;">链路预测
@@ -485,7 +627,7 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA/" title="知识图谱归一化表示: 1">
+                <a href="/tags/%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA/" title="知识图谱归一化表示: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             data-tagname="知识图谱归一化表示" style="background-color: #F8F9F9;">知识图谱归一化表示
@@ -494,7 +636,16 @@
                 </a>
                 
                 
-                <a href="/tags/Pandas/" title="Pandas: 1">
+                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="算法" style="background-color: #F9EBEA;">算法
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Pandas/" title="Pandas: 1" data-taxonomy-filter="tag" data-taxonomy-name="Pandas">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="Pandas" style="background-color: #FEF9E7;">Pandas
@@ -503,11 +654,11 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 2">
+                <a href="/tags/%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F/" title="时序衰减: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="算法" style="background-color: #F9EBEA;">算法
-                        <span class="tag-length">2</span>
+                            data-tagname="时序衰减" style="background-color: #D7BDE2;">时序衰减
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -515,52 +666,700 @@
         </div>
     </div>
 </div>
+            
+            <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
+<style type="text/css">
+    #tag-wordcloud {
+        width: 100%;
+        height: 300px;
+    }
+</style>
+
+<div class="container tag-wordcloud-wrap" data-aos="fade-up">
+    <div class="card">
+        <div id="tag-wordcloud" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
+<script type="text/javascript">
+(function () {
+    var el = document.getElementById('tag-wordcloud');
+    if (!el || !window.jQuery || !jQuery.fn || !jQuery.fn.jQCloud) return;
 
     
 
-    <article id="articles" class="container articles">
-        <div class="row tags-posts">
-            
-            
-            <div class="article tag-post col s12 m6 l4" data-tags="论文, 链路预测, 知识图谱归一化表示" data-aos="fade-up">
-                <div class="card">
-                    <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">
-                        <div class="card-image tag-image">
-                            
-                            <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
-                            
-                            <span class="card-title">【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-04-08
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/Paper/" class="post-category">
-                                Paper
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    var $el = jQuery(el);
+    $el.empty();
+    requestAnimationFrame(function () {
+        if (!document.body.contains(el)) return;
+        try {
+            $el.jQCloud([{"text":"Hot100","weight":4,"link":"/tags/Hot100/"},{"text":"算法题","weight":4,"link":"/tags/算法题/"},{"text":"滑动窗口","weight":4,"link":"/tags/滑动窗口/"},{"text":"工具","weight":1,"link":"/tags/工具/"},{"text":"Node.js","weight":1,"link":"/tags/Node-js/"},{"text":"开发","weight":1,"link":"/tags/开发/"},{"text":"笔记","weight":2,"link":"/tags/笔记/"},{"text":"开发工具","weight":1,"link":"/tags/开发工具/"},{"text":"医学影像","weight":1,"link":"/tags/医学影像/"},{"text":"跨学科融合","weight":1,"link":"/tags/跨学科融合/"},{"text":"论文","weight":6,"link":"/tags/论文/"},{"text":"时序知识图谱","weight":5,"link":"/tags/时序知识图谱/"},{"text":"迁移学习","weight":1,"link":"/tags/迁移学习/"},{"text":"快速傅里叶变换","weight":1,"link":"/tags/快速傅里叶变换/"},{"text":"RNN","weight":2,"link":"/tags/RNN/"},{"text":"数据分析","weight":2,"link":"/tags/数据分析/"},{"text":"Numpy","weight":1,"link":"/tags/Numpy/"},{"text":"链路预测","weight":1,"link":"/tags/链路预测/"},{"text":"知识图谱归一化表示","weight":1,"link":"/tags/知识图谱归一化表示/"},{"text":"算法","weight":2,"link":"/tags/算法/"},{"text":"Pandas","weight":1,"link":"/tags/Pandas/"},{"text":"时序衰减","weight":1,"link":"/tags/时序衰减/"}], { autoResize: true });
+        } catch (e) {
+            console.warn('[KnightTaxonomy] tag wordcloud init failed:', e);
+        }
+    });
+})();
+</script>
+
             
         </div>
-    </article>
+    </section>
+
+    <section id="taxonomy-results" class="taxonomy-results">
+        <div class="taxonomy-results__heading">
+            <div>
+                <span class="taxonomy-section__eyebrow">ARTICLE DIRECTORY</span>
+                <h2 data-taxonomy-result-title>全部文章</h2>
+            </div>
+            <button type="button" class="taxonomy-clear" data-taxonomy-clear hidden>
+                <i class="fas fa-times"></i><span>清除筛选</span>
+            </button>
+        </div>
+
+        <div class="taxonomy-post-grid" data-taxonomy-grid>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Tools%22%5D"
+                     data-tags="%5B%22%E7%AC%94%E8%AE%B0%22%2C%22%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/09/08/gong-ju-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" alt="【工具】Git的基本概念及相关使用">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-09-08</span>
+                        
+                        <span><i class="far fa-folder"></i>Tools</span>
+                        
+                    </div>
+                    <h3><a href="/2026/09/08/gong-ju-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/">【工具】Git的基本概念及相关使用</a></h3>
+                    <p>
+                        
+                        介绍Git的相关使用方法
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AC%94%E8%AE%B0">笔记</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">开发工具</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Notes%22%5D"
+                     data-tags="%5B%22%E7%AC%94%E8%AE%B0%22%2C%22%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F%22%2C%22%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-09-06</span>
+                        
+                        <span><i class="far fa-folder"></i>Notes</span>
+                        
+                    </div>
+                    <h3><a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/">【笔记】智能医学影像与知识图谱补全结课论文梳理</a></h3>
+                    <p>
+                        
+                        智能医学影像结课论文写作梳理笔记
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AC%94%E8%AE%B0">笔记</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F">医学影像</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88">跨学科融合</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Paper%22%5D"
+                     data-tags="%5B%22%E8%AE%BA%E6%96%87%22%2C%22%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%22%2C%22%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-05-28</span>
+                        
+                        <span><i class="far fa-folder"></i>Paper</span>
+                        
+                    </div>
+                    <h3><a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/">【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning</a></h3>
+                    <p>
+                        
+                        2026 Information Fusion 考虑不同路径对推理的帮助不同
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">论文</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">时序知识图谱</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F">时序衰减</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Paper%22%5D"
+                     data-tags="%5B%22%E8%AE%BA%E6%96%87%22%2C%22%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%22%2C%22%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" alt="【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-05-20</span>
+                        
+                        <span><i class="far fa-folder"></i>Paper</span>
+                        
+                    </div>
+                    <h3><a href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/">【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion</a></h3>
+                    <p>
+                        
+                        2025ACL 从频率角度考虑关系的三个特性
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">论文</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">时序知识图谱</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BF%AB%E9%80%9F%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2">快速傅里叶变换</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Paper%22%5D"
+                     data-tags="%5B%22%E8%AE%BA%E6%96%87%22%2C%22%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%22%2C%22%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-05-13</span>
+                        
+                        <span><i class="far fa-folder"></i>Paper</span>
+                        
+                    </div>
+                    <h3><a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/">【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</a></h3>
+                    <p>
+                        
+                        阅读标题论文的总结
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">论文</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">时序知识图谱</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%BF%81%E7%A7%BB%E5%AD%A6%E4%B9%A0">迁移学习</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Paper%22%5D"
+                     data-tags="%5B%22%E8%AE%BA%E6%96%87%22%2C%22%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B%22%2C%22%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-04-08</span>
+                        
+                        <span><i class="far fa-folder"></i>Paper</span>
+                        
+                    </div>
+                    <h3><a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</a></h3>
+                    <p>
+                        
+                        阅读标题论文的总结
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">论文</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E9%93%BE%E8%B7%AF%E9%A2%84%E6%B5%8B">链路预测</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%E5%BD%92%E4%B8%80%E5%8C%96%E8%A1%A8%E7%A4%BA">知识图谱归一化表示</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Paper%22%5D"
+                     data-tags="%5B%22%E8%AE%BA%E6%96%87%22%2C%22%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%22%2C%22RNN%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" alt="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-03-25</span>
+                        
+                        <span><i class="far fa-folder"></i>Paper</span>
+                        
+                    </div>
+                    <h3><a href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/">【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</a></h3>
+                    <p>
+                        
+                        阅读标题论文的总结
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">论文</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">时序知识图谱</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="RNN">RNN</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Hot100%22%5D"
+                     data-tags="%5B%22Hot100%22%2C%22%E7%AE%97%E6%B3%95%E9%A2%98%22%2C%22%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A23.jpg" alt="Hot100-找到字符串中所有字母异位词">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-03-22</span>
+                        
+                        <span><i class="far fa-folder"></i>Hot100</span>
+                        
+                    </div>
+                    <h3><a href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/">Hot100-找到字符串中所有字母异位词</a></h3>
+                    <p>
+                        
+                        Hot100 找到字符串中所有字母异位词
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="Hot100">Hot100</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95%E9%A2%98">算法题</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">滑动窗口</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Hot100%22%5D"
+                     data-tags="%5B%22Hot100%22%2C%22%E7%AE%97%E6%B3%95%E9%A2%98%22%2C%22%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A22.jpg" alt="Hot100-无重复字符的最长子串">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-03-22</span>
+                        
+                        <span><i class="far fa-folder"></i>Hot100</span>
+                        
+                    </div>
+                    <h3><a href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/">Hot100-无重复字符的最长子串</a></h3>
+                    <p>
+                        
+                        Hot100 无重复字符的最长子串
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="Hot100">Hot100</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95%E9%A2%98">算法题</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">滑动窗口</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Paper%22%5D"
+                     data-tags="%5B%22%E8%AE%BA%E6%96%87%22%2C%22%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1%22%2C%22RNN%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" alt="【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2026-03-19</span>
+                        
+                        <span><i class="far fa-folder"></i>Paper</span>
+                        
+                    </div>
+                    <h3><a href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/">【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs</a></h3>
+                    <p>
+                        
+                        阅读标题论文的总结
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">论文</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">时序知识图谱</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="RNN">RNN</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22DataAnalysis%22%5D"
+                     data-tags="%5B%22%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%22%2C%22Pandas%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A-%E5%A4%AA%E9%98%B3.jpg" alt="数据分析库-Pandas的使用">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2025-09-26</span>
+                        
+                        <span><i class="far fa-folder"></i>DataAnalysis</span>
+                        
+                    </div>
+                    <h3><a href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/">数据分析库-Pandas的使用</a></h3>
+                    <p>
+                        
+                        总结Pandas库的使用
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">数据分析</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="Pandas">Pandas</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Hot100%22%5D"
+                     data-tags="%5B%22Hot100%22%2C%22%E7%AE%97%E6%B3%95%E9%A2%98%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/">
+                    
+                    <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E4%BA%91%E6%9C%B5-%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A.jpg" alt="Hot100-盛水最多的容器">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2025-09-24</span>
+                        
+                        <span><i class="far fa-folder"></i>Hot100</span>
+                        
+                    </div>
+                    <h3><a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/">Hot100-盛水最多的容器</a></h3>
+                    <p>
+                        
+                        Hot100 盛水最多的容器
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="Hot100">Hot100</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95%E9%A2%98">算法题</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22DataAnalysis%22%5D"
+                     data-tags="%5B%22%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%22%2C%22Numpy%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2025/09/21/shu-ju-fen-xi-ku-numpy-de-shi-yong/">
+                    
+                    <img src="https://pic3.zhimg.com/v2-6fab134c3621df30c3d5b032ebf883ba_r.jpg?source=1940ef5c" alt="数据分析库:Numpy的使用">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2025-09-21</span>
+                        
+                        <span><i class="far fa-folder"></i>DataAnalysis</span>
+                        
+                    </div>
+                    <h3><a href="/2025/09/21/shu-ju-fen-xi-ku-numpy-de-shi-yong/">数据分析库:Numpy的使用</a></h3>
+                    <p>
+                        
+                        总结Numpy库的使用
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">数据分析</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="Numpy">Numpy</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Hot100%22%5D"
+                     data-tags="%5B%22Hot100%22%2C%22%E7%AE%97%E6%B3%95%E9%A2%98%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2025/09/14/hot100-san-shu-zhi-he/">
+                    
+                    <img src="https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0" alt="Hot100:三数之和">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2025-09-14</span>
+                        
+                        <span><i class="far fa-folder"></i>Hot100</span>
+                        
+                    </div>
+                    <h3><a href="/2025/09/14/hot100-san-shu-zhi-he/">Hot100:三数之和</a></h3>
+                    <p>
+                        
+                        Hot100 三数之和
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="Hot100">Hot100</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95%E9%A2%98">算法题</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Algorithm%22%5D"
+                     data-tags="%5B%22%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%22%2C%22%E7%AE%97%E6%B3%95%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">
+                    
+                    <img src="https://pic2.zhimg.com/v2-3aecfb4a857585d6eb2796902a565956_r.jpg?source=172ae18b" alt="算法:滑动窗口类型题目总结">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2025-08-26</span>
+                        
+                        <span><i class="far fa-folder"></i>Algorithm</span>
+                        
+                    </div>
+                    <h3><a href="/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">算法:滑动窗口类型题目总结</a></h3>
+                    <p>
+                        
+                        总结滑动窗口类型题目
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">滑动窗口</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95">算法</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Tools%22%5D"
+                     data-tags="%5B%22%E5%B7%A5%E5%85%B7%22%2C%22Node.js%22%2C%22%E5%BC%80%E5%8F%91%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2025/08/12/gong-ju-node.js-yu-javascript-de-xiang-guan-gai-nian/">
+                    
+                    <img src="https://images.wallpaperscraft.com/image/single/piano_silhouette_space_156662_1280x720.jpg" alt="【工具】Node.js与JavaScript的相关概念">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2025-08-12</span>
+                        
+                        <span><i class="far fa-folder"></i>Tools</span>
+                        
+                    </div>
+                    <h3><a href="/2025/08/12/gong-ju-node.js-yu-javascript-de-xiang-guan-gai-nian/">【工具】Node.js与JavaScript的相关概念</a></h3>
+                    <p>
+                        
+                        讲述Node.JS和JavaScript的关系以及发展历史
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E5%B7%A5%E5%85%B7">工具</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="Node.js">Node.js</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BC%80%E5%8F%91">开发</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+            
+            <article class="taxonomy-post-card"
+                     data-taxonomy-post
+                     data-categories="%5B%22Algorithm%22%5D"
+                     data-tags="%5B%22%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%22%2C%22%E7%AE%97%E6%B3%95%22%5D">
+                <a class="taxonomy-post-card__cover" href="/2025/07/29/suan-fa-ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">
+                    
+                    <img src="https://picb.zhimg.com/v2-d38a4fecd744664a4c8cfe6c786aecc9_r.jpg?source=1940ef5c" alt="算法:定长滑动窗口类型题目总结">
+                    
+                </a>
+                <div class="taxonomy-post-card__body">
+                    <div class="taxonomy-post-card__meta">
+                        <span><i class="far fa-calendar-alt"></i>2025-07-29</span>
+                        
+                        <span><i class="far fa-folder"></i>Algorithm</span>
+                        
+                    </div>
+                    <h3><a href="/2025/07/29/suan-fa-ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">算法:定长滑动窗口类型题目总结</a></h3>
+                    <p>
+                        
+                        总结定长滑动窗口类型题目的模板
+                        
+                    </p>
+                    
+                    <div class="taxonomy-post-card__tags">
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3">滑动窗口</button>
+                        
+                        <button type="button" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95">算法</button>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        </div>
+
+        <div class="taxonomy-empty" data-taxonomy-empty hidden>
+            <i class="far fa-folder-open"></i>
+            <span>没有找到对应文章。</span>
+        </div>
+
+        <div class="forum-feed-pagination taxonomy-results-pagination" data-taxonomy-pagination role="navigation" aria-label="文章导航分页">
+            <button type="button" class="forum-feed-pagination__btn" data-taxonomy-prev aria-label="上一页">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg>
+            </button>
+            <div class="forum-feed-pagination__pages" data-taxonomy-pages></div>
+            <button type="button" class="forum-feed-pagination__btn" data-taxonomy-next aria-label="下一页">
+                <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg>
+            </button>
+        </div>
+    </section>
+</div>
+
+<script src="/js/taxonomy-hub.js"></script>
+
 </main>
 
-
-
+    </div>
 
     <footer class="page-footer bg-color">
-    
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -671,6 +1470,127 @@
 
 <div class="progress-bar"></div>
 
+
+    
+        <div id="knightMusicRoot"
+     class="knight-music"
+     data-remember-state="true"
+     data-default-open="false"
+     data-music-server="netease"
+     data-music-type="playlist"
+     data-music-id="14060001796"
+     data-music-api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
+     data-music-api-fallbacks="https://meting.mikus.ink/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r|KM|https://meting.naihee.com/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r">
+    <meting-js data-km-engine
+               class="knight-music-engine"
+               server="netease"
+               type="playlist"
+               id="14060001796"
+               api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
+               fixed="false"
+               mini="false"
+               autoplay="false"
+               mutex="false"
+               theme="#42b983"
+               loop="all"
+               order="random"
+               preload="auto"
+               volume="0.7"
+               list-folded="true"
+               lrc-type="3"></meting-js>
+
+    <div class="km-dock" data-km-dock>
+        <button type="button" class="km-dock-main" data-km-toggle aria-label="展开音乐播放器" aria-expanded="false">
+            <span class="km-dock-cover-wrap">
+                <img class="km-dock-cover" data-km-cover-mini alt="当前歌曲封面">
+                <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
+            </span>
+            <span class="km-dock-meta">
+                <strong data-km-title-mini>音乐加载中</strong>
+                <small data-km-artist-mini>NetEase Playlist</small>
+            </span>
+            <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <div class="km-dock-controls" aria-label="迷你播放控制">
+            <button type="button" class="km-dock-control" data-km-prev-mini aria-label="上一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 9.5 12 18 17.5z"/></svg>
+            </button>
+            <button type="button" class="km-dock-control km-dock-play" data-km-play-mini aria-label="播放音乐">
+                <svg class="km-icon km-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+                <svg class="km-icon km-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+            </button>
+            <button type="button" class="km-dock-control" data-km-next-mini aria-label="下一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14.5 12 6 17.5z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <section class="km-panel" data-km-panel aria-label="音乐播放器" aria-hidden="true">
+        <div class="km-panel-glow" aria-hidden="true"></div>
+        <header class="km-panel-header">
+            <div>
+                <span class="km-eyebrow">KNIGHT MUSIC</span>
+                <h3>正在播放</h3>
+            </div>
+            <button type="button" class="km-icon-button km-close" data-km-close aria-label="收起播放器">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg>
+            </button>
+        </header>
+
+        <div class="km-hero">
+            <div class="km-cover-shell">
+                <img class="km-cover" data-km-cover alt="当前歌曲封面">
+                <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
+            </div>
+            <div class="km-track-meta">
+                <h4 data-km-title>音乐加载中</h4>
+                <p data-km-artist>正在读取网易云歌单</p>
+            </div>
+        </div>
+
+        <div class="km-progress-block">
+            <input type="range" class="km-range km-progress" data-km-progress min="0" max="1000" value="0" aria-label="播放进度">
+            <div class="km-time-row"><span data-km-current>00:00</span><span data-km-duration>00:00</span></div>
+        </div>
+
+        <div class="km-main-controls">
+            <button type="button" class="km-icon-button" data-km-prev aria-label="上一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 9.5 12 18 17.5z"/></svg>
+            </button>
+            <button type="button" class="km-play-main" data-km-play aria-label="播放">
+                <svg class="km-icon km-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+                <svg class="km-icon km-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+            </button>
+            <button type="button" class="km-icon-button" data-km-next aria-label="下一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14.5 12 6 17.5z"/></svg>
+            </button>
+        </div>
+
+        <div class="km-secondary-controls">
+            <button type="button" class="km-chip" data-km-order aria-label="切换播放顺序">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3c5 0 5 10 10 10h3m-3-3 3 3-3 3M4 17h3c2.5 0 3.8-2.5 5-5 1.2-2.5 2.5-5 5-5h3m-3-3 3 3-3 3"/></svg>
+                <span data-km-order-label>随机</span>
+            </button>
+            <div class="km-volume-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h3l4 4V6L8 10zm10.5-1.5a5 5 0 0 1 0 7M17.8 6.2a8 8 0 0 1 0 11.6"/></svg>
+                <input type="range" class="km-range km-volume" data-km-volume min="0" max="100" value="70" aria-label="音量">
+            </div>
+        </div>
+
+        <div class="km-playlist-head">
+            <div>
+                <span class="km-eyebrow">PLAYLIST</span>
+                <strong data-km-count>0 TRACKS</strong>
+            </div>
+            <span class="km-playlist-source">网易云 · 14060001796</span>
+        </div>
+        <div class="km-playlist" data-km-playlist>
+            <div class="km-loading" data-km-loading><span></span><span></span><span></span>正在读取歌单</div>
+        </div>
+    </section>
+</div>
+
+    
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -826,7 +1746,12 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+
+    
+    <script src="/js/knight-music.js"></script>
+    
+    <script src="/js/knight-pjax.js"></script>
+    
     
 
 </body>

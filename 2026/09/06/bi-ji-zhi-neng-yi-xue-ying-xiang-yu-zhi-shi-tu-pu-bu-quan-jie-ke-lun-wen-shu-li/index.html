@@ -1,11 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
 
-<!-- APlayer + Meting -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
-<script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="【笔记】智能医学影像与知识图谱补全结课论文梳理, ‘学习’">
@@ -30,6 +25,15 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
@@ -68,22 +72,11 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/tags" class="waves-effect waves-light">
+    <a href="/taxonomy/" class="waves-effect waves-light">
       
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      <i class="fas fa-compass" style="zoom: 0.6;"></i>
       
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
+      <span>文章导航</span>
     </a>
     
   </li>
@@ -118,31 +111,6 @@
       
       <span>留言板</span>
     </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="" class="waves-effect waves-light">
-
-      
-      <i class="fas fa-list" style="zoom: 0.6;"></i>
-      
-      <span>爱好</span>
-      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
-    </a>
-    <ul class="sub-nav menus_item_child ">
-      
-      <li>
-        <a href="/musics">
-          
-          <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
-          
-          <span>音乐</span>
-        </a>
-      </li>
-      
-    </ul>
     
   </li>
   
@@ -183,22 +151,11 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/tags" class="waves-effect waves-light">
+		<a href="/taxonomy/" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+			    <i class="fa-fw fas fa-compass"></i>
 			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
+			文章导航
 		</a>
           
         </li>
@@ -236,31 +193,6 @@
           
         </li>
         
-        <li class="m-nav-item">
-	  
-		<a href="javascript:;">
-			
-				<i class="fa-fw fas fa-list"></i>
-			
-			爱好
-			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
-		</a>
-            <ul  style="background:  ;" >
-              
-                <li>
-
-                  <a href="/musics " style="margin-left:75px">
-				  
-				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
-			      
-		          <span>音乐</span>
-                  </a>
-                </li>
-              
-            </ul>
-          
-        </li>
-        
         
     </ul>
 </div>
@@ -273,7 +205,8 @@
 
 </header>
 
-    
+    <div id="knight-page-shell">
+        
 
 
 
@@ -1211,9 +1144,9 @@
 </script>
 
 
+    </div>
 
     <footer class="page-footer bg-color">
-    
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
             Copyright&nbsp;&copy;
@@ -1324,6 +1257,127 @@
 
 <div class="progress-bar"></div>
 
+
+    
+        <div id="knightMusicRoot"
+     class="knight-music"
+     data-remember-state="true"
+     data-default-open="false"
+     data-music-server="netease"
+     data-music-type="playlist"
+     data-music-id="14060001796"
+     data-music-api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
+     data-music-api-fallbacks="https://meting.mikus.ink/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r|KM|https://meting.naihee.com/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r">
+    <meting-js data-km-engine
+               class="knight-music-engine"
+               server="netease"
+               type="playlist"
+               id="14060001796"
+               api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
+               fixed="false"
+               mini="false"
+               autoplay="false"
+               mutex="false"
+               theme="#42b983"
+               loop="all"
+               order="random"
+               preload="auto"
+               volume="0.7"
+               list-folded="true"
+               lrc-type="3"></meting-js>
+
+    <div class="km-dock" data-km-dock>
+        <button type="button" class="km-dock-main" data-km-toggle aria-label="展开音乐播放器" aria-expanded="false">
+            <span class="km-dock-cover-wrap">
+                <img class="km-dock-cover" data-km-cover-mini alt="当前歌曲封面">
+                <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
+            </span>
+            <span class="km-dock-meta">
+                <strong data-km-title-mini>音乐加载中</strong>
+                <small data-km-artist-mini>NetEase Playlist</small>
+            </span>
+            <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
+        </button>
+        <div class="km-dock-controls" aria-label="迷你播放控制">
+            <button type="button" class="km-dock-control" data-km-prev-mini aria-label="上一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 9.5 12 18 17.5z"/></svg>
+            </button>
+            <button type="button" class="km-dock-control km-dock-play" data-km-play-mini aria-label="播放音乐">
+                <svg class="km-icon km-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+                <svg class="km-icon km-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+            </button>
+            <button type="button" class="km-dock-control" data-km-next-mini aria-label="下一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14.5 12 6 17.5z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <section class="km-panel" data-km-panel aria-label="音乐播放器" aria-hidden="true">
+        <div class="km-panel-glow" aria-hidden="true"></div>
+        <header class="km-panel-header">
+            <div>
+                <span class="km-eyebrow">KNIGHT MUSIC</span>
+                <h3>正在播放</h3>
+            </div>
+            <button type="button" class="km-icon-button km-close" data-km-close aria-label="收起播放器">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg>
+            </button>
+        </header>
+
+        <div class="km-hero">
+            <div class="km-cover-shell">
+                <img class="km-cover" data-km-cover alt="当前歌曲封面">
+                <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
+            </div>
+            <div class="km-track-meta">
+                <h4 data-km-title>音乐加载中</h4>
+                <p data-km-artist>正在读取网易云歌单</p>
+            </div>
+        </div>
+
+        <div class="km-progress-block">
+            <input type="range" class="km-range km-progress" data-km-progress min="0" max="1000" value="0" aria-label="播放进度">
+            <div class="km-time-row"><span data-km-current>00:00</span><span data-km-duration>00:00</span></div>
+        </div>
+
+        <div class="km-main-controls">
+            <button type="button" class="km-icon-button" data-km-prev aria-label="上一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 9.5 12 18 17.5z"/></svg>
+            </button>
+            <button type="button" class="km-play-main" data-km-play aria-label="播放">
+                <svg class="km-icon km-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+                <svg class="km-icon km-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+            </button>
+            <button type="button" class="km-icon-button" data-km-next aria-label="下一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14.5 12 6 17.5z"/></svg>
+            </button>
+        </div>
+
+        <div class="km-secondary-controls">
+            <button type="button" class="km-chip" data-km-order aria-label="切换播放顺序">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3c5 0 5 10 10 10h3m-3-3 3 3-3 3M4 17h3c2.5 0 3.8-2.5 5-5 1.2-2.5 2.5-5 5-5h3m-3-3 3 3-3 3"/></svg>
+                <span data-km-order-label>随机</span>
+            </button>
+            <div class="km-volume-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h3l4 4V6L8 10zm10.5-1.5a5 5 0 0 1 0 7M17.8 6.2a8 8 0 0 1 0 11.6"/></svg>
+                <input type="range" class="km-range km-volume" data-km-volume min="0" max="100" value="70" aria-label="音量">
+            </div>
+        </div>
+
+        <div class="km-playlist-head">
+            <div>
+                <span class="km-eyebrow">PLAYLIST</span>
+                <strong data-km-count>0 TRACKS</strong>
+            </div>
+            <span class="km-playlist-source">网易云 · 14060001796</span>
+        </div>
+        <div class="km-playlist" data-km-playlist>
+            <div class="km-loading" data-km-loading><span></span><span></span><span></span>正在读取歌单</div>
+        </div>
+    </section>
+</div>
+
+    
 
     <!-- 搜索遮罩框 -->
 <div id="searchModal" class="modal">
@@ -1479,7 +1533,12 @@ $(function () {
     
 
     
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+
+    
+    <script src="/js/knight-music.js"></script>
+    
+    <script src="/js/knight-pjax.js"></script>
+    
     
 
 </body>

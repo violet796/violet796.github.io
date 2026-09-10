@@ -1,0 +1,914 @@
+/* Knight Music - custom UI over APlayer/MetingJS */
+.knight-music {
+    --km-bg: rgba(8, 14, 24, .88);
+    --km-bg-strong: rgba(7, 12, 21, .96);
+    --km-surface: rgba(17, 27, 44, .82);
+    --km-line: rgba(115, 164, 255, .18);
+    --km-line-strong: rgba(115, 164, 255, .35);
+    --km-text: #f4f7ff;
+    --km-muted: #92a0b8;
+    --km-primary: #6ea7ff;
+    --km-primary-2: #9a82ff;
+    --km-shadow: 0 24px 80px rgba(0, 0, 0, .48);
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 1200;
+    color: var(--km-text);
+    font-family: inherit;
+}
+
+.knight-music-engine {
+    position: fixed !important;
+    width: 1px !important;
+    height: 1px !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.knight-music-engine .aplayer {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+.km-dock {
+    display: flex;
+    align-items: stretch;
+    width: min(360px, calc(100vw - 48px));
+    height: 58px;
+    overflow: hidden;
+    border: 1px solid var(--km-line);
+    border-radius: 17px;
+    background:
+        linear-gradient(145deg, rgba(19, 30, 49, .94), rgba(8, 14, 24, .92));
+    box-shadow: 0 14px 46px rgba(0, 0, 0, .34), inset 0 1px rgba(255, 255, 255, .025);
+    backdrop-filter: blur(20px) saturate(130%);
+    -webkit-backdrop-filter: blur(20px) saturate(130%);
+    transition: opacity .25s ease, transform .25s ease, border-color .25s ease;
+}
+
+.knight-music.is-open .km-dock {
+    opacity: 0;
+    transform: translateY(8px) scale(.96);
+    pointer-events: none;
+}
+
+.km-dock:hover {
+    border-color: var(--km-line-strong);
+    transform: translateY(-2px);
+}
+
+.km-dock-main,
+.km-dock-play,
+.km-icon-button,
+.km-play-main,
+.km-chip {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    font: inherit;
+    cursor: pointer;
+}
+
+.km-dock-main {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 7px 8px 7px 9px;
+    text-align: left;
+}
+
+.km-dock-cover-wrap {
+    position: relative;
+    width: 43px;
+    height: 43px;
+    flex: 0 0 43px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: linear-gradient(145deg, #17243a, #0d1422);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+}
+
+.km-dock-cover,
+.km-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.km-dock-cover:not([src]),
+.km-cover:not([src]),
+.km-dock-cover[src=""],
+.km-cover[src=""] {
+    display: none;
+}
+
+.km-dock-cover-fallback,
+.km-cover-fallback {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    color: #c9d9ff;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(97, 157, 255, .34), transparent 45%),
+        radial-gradient(circle at 75% 80%, rgba(151, 111, 255, .24), transparent 42%),
+        #111a2a;
+    font-size: 19px;
+}
+
+.km-dock-meta {
+    min-width: 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.15;
+}
+
+.km-dock-meta strong,
+.km-dock-meta small {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.km-dock-meta strong {
+    color: #f3f7ff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.km-dock-meta small {
+    margin-top: 5px;
+    color: #8493ac;
+    font-size: 10px;
+    letter-spacing: .02em;
+}
+
+.km-dock-equalizer {
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    opacity: .55;
+}
+
+.km-dock-equalizer i {
+    display: block;
+    width: 2px;
+    height: 5px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, var(--km-primary), var(--km-primary-2));
+}
+
+.knight-music.is-playing .km-dock-equalizer i {
+    animation: kmEqualizer .8s ease-in-out infinite alternate;
+}
+
+.knight-music.is-playing .km-dock-equalizer i:nth-child(2) { animation-delay: -.35s; }
+.knight-music.is-playing .km-dock-equalizer i:nth-child(3) { animation-delay: -.6s; }
+
+@keyframes kmEqualizer {
+    from { height: 4px; opacity: .55; }
+    to { height: 15px; opacity: 1; }
+}
+
+.km-dock-play {
+    width: 56px;
+    flex: 0 0 56px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 1px solid rgba(255, 255, 255, .05);
+    background: rgba(255,255,255,.018);
+}
+
+.km-dock-play:hover { background: rgba(103, 157, 255, .09); }
+
+.km-icon {
+    width: 19px;
+    height: 19px;
+    fill: currentColor;
+}
+
+.km-icon-pause { display: none; }
+.knight-music.is-playing .km-icon-play { display: none; }
+.knight-music.is-playing .km-icon-pause { display: block; }
+
+.km-panel {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: min(390px, calc(100vw - 32px));
+    max-height: min(720px, calc(100vh - 36px));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid rgba(113, 162, 255, .22);
+    border-radius: 26px;
+    background:
+        linear-gradient(155deg, rgba(14, 23, 38, .96), rgba(6, 11, 20, .95));
+    box-shadow: var(--km-shadow), inset 0 1px rgba(255,255,255,.04);
+    backdrop-filter: blur(28px) saturate(135%);
+    -webkit-backdrop-filter: blur(28px) saturate(135%);
+    opacity: 0;
+    transform: translateY(14px) scale(.97);
+    transform-origin: 100% 100%;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+}
+
+.knight-music.is-open .km-panel {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    visibility: visible;
+}
+
+.km-panel-glow {
+    position: absolute;
+    top: -110px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(77, 137, 255, .12);
+    filter: blur(65px);
+    pointer-events: none;
+}
+
+.km-panel-header,
+.km-hero,
+.km-progress-block,
+.km-main-controls,
+.km-secondary-controls,
+.km-playlist-head,
+.km-playlist {
+    position: relative;
+    z-index: 1;
+}
+
+.km-panel-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 21px 22px 7px;
+}
+
+.km-panel-header h3 {
+    margin: 3px 0 0;
+    color: var(--km-text);
+    font-size: 20px;
+    font-weight: 760;
+    letter-spacing: -.02em;
+}
+
+.km-eyebrow {
+    display: block;
+    color: #7594c6;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .19em;
+}
+
+.km-icon-button {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(111, 154, 230, .14);
+    border-radius: 12px;
+    background: rgba(255,255,255,.025);
+    transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.km-icon-button:hover {
+    transform: translateY(-1px);
+    border-color: rgba(111, 163, 255, .32);
+    background: rgba(95, 150, 255, .08);
+}
+
+.km-icon-button svg,
+.km-chip svg,
+.km-volume-wrap svg {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.km-close svg { width: 17px; height: 17px; }
+
+.km-hero {
+    display: grid;
+    grid-template-columns: 104px minmax(0, 1fr);
+    align-items: center;
+    gap: 18px;
+    padding: 11px 22px 17px;
+}
+
+.km-cover-shell {
+    position: relative;
+    width: 104px;
+    height: 104px;
+    overflow: hidden;
+    border-radius: 22px;
+    background: #111a2a;
+    box-shadow:
+        0 14px 35px rgba(0,0,0,.36),
+        0 0 0 1px rgba(137, 177, 255, .1);
+}
+
+.km-cover {
+    position: relative;
+    z-index: 2;
+}
+
+.km-cover-fallback--large {
+    z-index: 1;
+    font-size: 32px;
+}
+
+.knight-music.is-playing .km-cover-shell::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    border: 1px solid rgba(119, 168, 255, .28);
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.km-track-meta { min-width: 0; }
+.km-track-meta h4 {
+    margin: 0;
+    color: var(--km-text);
+    font-size: 19px;
+    font-weight: 760;
+    line-height: 1.32;
+    letter-spacing: -.02em;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.km-track-meta p {
+    margin: 9px 0 0;
+    color: var(--km-muted);
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.km-progress-block { padding: 3px 22px 0; }
+
+.km-range {
+    --km-range: 0%;
+    width: 100%;
+    height: 3px;
+    margin: 0;
+    border: 0;
+    outline: none;
+    border-radius: 99px;
+    background: linear-gradient(90deg, var(--km-primary) 0 var(--km-range), rgba(137,159,198,.22) var(--km-range) 100%);
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.km-range::-webkit-slider-thumb {
+    width: 11px;
+    height: 11px;
+    border: 2px solid #e9f2ff;
+    border-radius: 50%;
+    background: var(--km-primary);
+    box-shadow: 0 0 0 4px rgba(78, 141, 255, .14);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.km-range::-moz-range-thumb {
+    width: 9px;
+    height: 9px;
+    border: 2px solid #e9f2ff;
+    border-radius: 50%;
+    background: var(--km-primary);
+}
+
+.km-time-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #697990;
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+}
+
+.km-main-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px 22px 8px;
+}
+
+.km-main-controls .km-icon-button {
+    width: 43px;
+    height: 43px;
+    border-radius: 14px;
+}
+
+.km-play-main {
+    width: 62px;
+    height: 62px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 21px;
+    color: #fff;
+    background: linear-gradient(140deg, #4d8dff, #756cff 68%, #9b75ff);
+    box-shadow: 0 10px 28px rgba(77, 116, 255, .28);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.km-play-main:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 14px 34px rgba(77, 116, 255, .37);
+}
+
+.km-play-main .km-icon { width: 25px; height: 25px; }
+
+.km-secondary-controls {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 15px;
+    padding: 7px 22px 17px;
+}
+
+.km-chip {
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 11px;
+    border: 1px solid rgba(117, 157, 226, .13);
+    border-radius: 11px;
+    color: #aab8cf;
+    background: rgba(255,255,255,.024);
+    font-size: 10px;
+}
+
+.km-chip:hover { color: #dce8ff; border-color: rgba(117, 166, 255, .3); }
+.km-chip svg { width: 15px; height: 15px; }
+
+.km-volume-wrap {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    align-items: center;
+    gap: 9px;
+    color: #8090aa;
+}
+
+.km-volume-wrap svg { width: 16px; height: 16px; }
+.km-volume { height: 2px; }
+.km-volume::-webkit-slider-thumb { width: 9px; height: 9px; box-shadow: none; }
+
+.km-playlist-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 13px 22px 10px;
+    border-top: 1px solid rgba(255,255,255,.045);
+}
+
+.km-playlist-head strong {
+    display: block;
+    margin-top: 4px;
+    color: #dce8ff;
+    font-size: 10px;
+    letter-spacing: .06em;
+}
+
+.km-playlist-source {
+    color: #64748d;
+    font-size: 9px;
+}
+
+.km-playlist {
+    min-height: 98px;
+    max-height: 218px;
+    overflow-y: auto;
+    padding: 0 12px 14px;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(104, 151, 233, .3) transparent;
+}
+
+.km-playlist::-webkit-scrollbar { width: 5px; }
+.km-playlist::-webkit-scrollbar-thumb { background: rgba(104,151,233,.28); border-radius: 10px; }
+
+.km-track {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 28px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 9px;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: 12px;
+    color: #aab7cb;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition: background .16s ease, color .16s ease;
+}
+
+.km-track:hover { background: rgba(92, 143, 231, .07); color: #e7efff; }
+.km-track.is-active { color: #eef4ff; background: rgba(92, 143, 231, .11); }
+
+.km-track-index {
+    color: #5d6d85;
+    font-size: 10px;
+    font-variant-numeric: tabular-nums;
+    text-align: center;
+}
+
+.km-track.is-active .km-track-index { color: var(--km-primary); }
+
+.km-track-text { min-width: 0; }
+.km-track-title,
+.km-track-artist {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.km-track-title { font-size: 11px; font-weight: 650; }
+.km-track-artist { margin-top: 3px; color: #66768f; font-size: 9px; }
+.km-track-state { color: var(--km-primary); font-size: 11px; opacity: 0; }
+.km-track.is-active .km-track-state { opacity: 1; }
+
+.km-loading {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    color: #6f8098;
+    font-size: 10px;
+}
+
+.km-loading span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #679cff;
+    animation: kmLoad .85s ease-in-out infinite alternate;
+}
+.km-loading span:nth-child(2) { animation-delay: .15s; }
+.km-loading span:nth-child(3) { animation-delay: .3s; margin-right: 5px; }
+
+@keyframes kmLoad { to { transform: translateY(-5px); opacity: .45; } }
+
+.knight-pjax-loading::after {
+    content: '';
+    position: fixed;
+    z-index: 1500;
+    top: 0;
+    left: 0;
+    width: 32%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #6ea7ff 45%, #9a82ff, transparent);
+    animation: kmPjax 1s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes kmPjax {
+    from { transform: translateX(-110%); }
+    to { transform: translateX(420%); }
+}
+
+@media only screen and (max-width: 600px) {
+    .knight-music {
+        right: 12px;
+        bottom: 14px;
+    }
+    .km-dock {
+        width: min(320px, calc(100vw - 24px));
+        height: 54px;
+        border-radius: 16px;
+    }
+    .km-dock-cover-wrap { width: 39px; height: 39px; flex-basis: 39px; border-radius: 11px; }
+    .km-dock-play { width: 50px; flex-basis: 50px; }
+    .km-panel {
+        width: calc(100vw - 24px);
+        max-height: calc(100vh - 28px);
+        border-radius: 22px;
+    }
+    .km-panel-header { padding: 18px 17px 6px; }
+    .km-hero {
+        grid-template-columns: 86px minmax(0, 1fr);
+        gap: 14px;
+        padding: 8px 17px 14px;
+    }
+    .km-cover-shell { width: 86px; height: 86px; border-radius: 19px; }
+    .km-track-meta h4 { font-size: 17px; }
+    .km-progress-block,
+    .km-main-controls,
+    .km-secondary-controls { padding-left: 17px; padding-right: 17px; }
+    .km-playlist-head { padding-left: 17px; padding-right: 17px; }
+    .km-playlist { max-height: 180px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .knight-music *,
+    .knight-music *::before,
+    .knight-music *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .001ms !important;
+    }
+}
+
+/* Knight Music v1.1: left-edge three-stage interaction.
+ * Resting: compact tab attached to the left edge.
+ * Hover: mini player slides open.
+ * Click: full player panel opens.
+ */
+.knight-music {
+    left: 0;
+    right: auto;
+    bottom: 24px;
+}
+
+.km-dock {
+    width: 58px;
+    margin-left: -7px;
+    border-radius: 0 17px 17px 0;
+    transition:
+        width .32s cubic-bezier(.22, .8, .28, 1),
+        margin-left .24s ease,
+        opacity .25s ease,
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+}
+
+/* Keep the internal mini player at its full width; the dock simply clips it
+ * while resting, which avoids layout jumps during hover expansion. */
+.km-dock-main {
+    width: 292px;
+    flex: 0 0 292px;
+}
+
+.km-dock-play {
+    width: 56px;
+    flex: 0 0 56px;
+}
+
+.knight-music:not(.is-open) .km-dock:hover,
+.knight-music:not(.is-open) .km-dock:focus-within {
+    width: 348px;
+    margin-left: 0;
+    border-color: var(--km-line-strong);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, .42), inset 0 1px rgba(255,255,255,.03);
+    transform: translateY(-2px);
+}
+
+.km-panel {
+    left: 12px;
+    right: auto;
+    bottom: 0;
+    transform-origin: 0 100%;
+}
+
+.km-load-error {
+    min-height: 104px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 18px 22px;
+    color: #7e8da6;
+    text-align: center;
+    line-height: 1.55;
+}
+
+.km-load-error strong {
+    color: #dce7fb;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.km-load-error span {
+    max-width: 270px;
+    font-size: 10px;
+}
+
+.knight-music.is-load-failed .km-dock-cover-fallback {
+    color: #9eb8e8;
+    background:
+        radial-gradient(circle at 30% 25%, rgba(90, 132, 203, .25), transparent 45%),
+        #111a2a;
+}
+
+@media only screen and (max-width: 600px) {
+    .knight-music {
+        left: 0;
+        right: auto;
+        bottom: 14px;
+    }
+
+    .km-dock {
+        width: 54px;
+        margin-left: -6px;
+        border-radius: 0 16px 16px 0;
+    }
+
+    /* Touch screens have no reliable hover. Tapping the compact tab opens
+     * the complete panel directly. */
+    .knight-music:not(.is-open) .km-dock:hover {
+        width: 54px;
+        margin-left: -6px;
+        transform: none;
+    }
+
+    .km-dock-main {
+        width: 270px;
+        flex-basis: 270px;
+    }
+
+    .km-panel {
+        left: 8px;
+        right: auto;
+        width: calc(100vw - 16px);
+        max-height: calc(100vh - 28px);
+    }
+}
+
+/* Knight Music v1.2: circular record artwork + hover transport controls. */
+.km-dock-cover-wrap,
+.km-cover-shell {
+    border-radius: 50% !important;
+}
+
+.km-dock-cover,
+.km-cover {
+    border-radius: 50%;
+    animation: kmRecordSpin 10s linear infinite;
+    animation-play-state: paused;
+    transform-origin: 50% 50%;
+    will-change: transform;
+}
+
+.knight-music.is-playing .km-dock-cover,
+.knight-music.is-playing .km-cover {
+    animation-play-state: running;
+}
+
+@keyframes kmRecordSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* A subtle spindle makes the circular cover read more like a record while
+ * keeping the artwork itself fully visible. */
+.km-dock-cover-wrap::after,
+.km-cover-shell::before {
+    content: '';
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(7, 12, 21, .82);
+    border: 1px solid rgba(221, 234, 255, .52);
+    box-shadow: 0 0 0 3px rgba(6, 11, 20, .16);
+    pointer-events: none;
+}
+
+.km-cover-shell::before {
+    width: 12px;
+    height: 12px;
+    box-shadow: 0 0 0 4px rgba(6, 11, 20, .16);
+}
+
+.km-dock-controls {
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    flex: 0 0 auto;
+    border-left: 1px solid rgba(255,255,255,.05);
+    background: rgba(255,255,255,.012);
+}
+
+.km-dock-control {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 48px;
+    height: 100%;
+    flex: 0 0 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    border-left: 1px solid rgba(255,255,255,.035);
+    color: #aebbd1;
+    background: transparent;
+    cursor: pointer;
+    transition: color .18s ease, background .18s ease;
+}
+
+.km-dock-control:first-child { border-left: 0; }
+.km-dock-control:hover {
+    color: #eef4ff;
+    background: rgba(103, 157, 255, .09);
+}
+
+.km-dock-control svg {
+    width: 17px;
+    height: 17px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.km-dock-control.km-dock-play {
+    width: 50px;
+    flex-basis: 50px;
+    border-left: 1px solid rgba(255,255,255,.035);
+    background: rgba(95, 150, 255, .035);
+}
+
+.km-dock-control.km-dock-play .km-icon {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    stroke: none;
+}
+
+/* Keep the resting tab compact. Hover reveals metadata plus all three
+ * transport buttons: previous / play-pause / next. */
+.km-dock-main {
+    width: 246px;
+    flex-basis: 246px;
+}
+
+.knight-music:not(.is-open) .km-dock:hover,
+.knight-music:not(.is-open) .km-dock:focus-within {
+    width: 394px;
+}
+
+/* Older v1.1 rules target .km-dock-play directly. Reset the properties that
+ * no longer belong to the grouped transport control. */
+.km-dock-controls .km-dock-play {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .km-dock-main {
+        width: 230px;
+        flex-basis: 230px;
+    }
+
+    /* Touch screens keep the compact-tab -> full-panel interaction. The
+     * hover-only transport strip stays clipped inside the compact dock. */
+    .knight-music:not(.is-open) .km-dock:hover,
+    .knight-music:not(.is-open) .km-dock:focus-within {
+        width: 54px;
+        margin-left: -6px;
+        transform: none;
+    }
+}

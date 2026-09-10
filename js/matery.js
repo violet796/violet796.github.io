@@ -173,4 +173,35 @@ $(function () {
 
     // 初始化加载 tooltipped.
     $('.tooltipped').tooltip();
+
+    // Re-initialize only page-scoped behavior after Knight PJAX swaps the
+    // content shell. Header/footer/music remain mounted, so they must not be
+    // bound a second time.
+    window.KnightMateryPageInit = function () {
+        try { articleCardHover(); } catch (e) {}
+        try { fixStyles(); } catch (e) {}
+
+        try {
+            let $pageArticles = $('#articles');
+            if ($pageArticles.length && !$pageArticles.hasClass('forum-article-grid')) {
+                if ($pageArticles.data('masonry')) {
+                    $pageArticles.masonry('reloadItems');
+                    $pageArticles.masonry('layout');
+                } else {
+                    $pageArticles.masonry({ itemSelector: '.article' });
+                }
+            }
+        } catch (e) {}
+
+        try {
+            if (window.AOS && typeof window.AOS.refreshHard === 'function') {
+                window.AOS.refreshHard();
+            }
+        } catch (e) {}
+
+        try { articleInit(); } catch (e) {}
+        try { $('.modal').modal(); } catch (e) {}
+        try { $('.tooltipped').tooltip(); } catch (e) {}
+        try { showOrHideNavBg($(window).scrollTop()); } catch (e) {}
+    };
 });

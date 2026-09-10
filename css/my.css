@@ -2996,3 +2996,515 @@ body {
         font-size: clamp(27px, 7.5vw, 38px) !important;
     }
 }
+
+/* ========================================================================== */
+/* V5 taxonomy hub + PJAX-safe visualization layout                           */
+/* ========================================================================== */
+.taxonomy-page-content {
+    padding-bottom: 64px;
+}
+
+.taxonomy-hub {
+    width: min(92%, 1160px) !important;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.taxonomy-hub [hidden] {
+    display: none !important;
+}
+
+.taxonomy-overview {
+    margin: 0 0 42px;
+    overflow: hidden;
+    border: 1px solid rgba(116, 163, 236, .17) !important;
+    border-radius: 16px !important;
+    background:
+        radial-gradient(circle at 8% 0%, rgba(76, 141, 255, .12), transparent 32%),
+        radial-gradient(circle at 92% 15%, rgba(132, 103, 240, .08), transparent 30%),
+        linear-gradient(145deg, rgba(17, 27, 43, .94), rgba(9, 15, 25, .96)) !important;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, .19) !important;
+}
+
+.taxonomy-overview .card-content,
+.taxonomy-overview {
+    color: var(--kz-text-soft);
+}
+
+.taxonomy-overview {
+    padding: 30px 34px 32px;
+}
+
+.taxonomy-overview__eyebrow,
+.taxonomy-section__eyebrow {
+    display: block;
+    margin-bottom: 7px;
+    color: #6f9ce4;
+    font-size: 10px;
+    font-weight: 750;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+.taxonomy-overview__main {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+}
+
+.taxonomy-overview h1,
+.taxonomy-section__heading h2,
+.taxonomy-results__heading h2 {
+    margin: 0;
+    color: #e7eef9;
+    font-weight: 720;
+    letter-spacing: -.025em;
+}
+
+.taxonomy-overview h1 {
+    font-size: 28px;
+}
+
+.taxonomy-overview p {
+    max-width: 680px;
+    margin: 10px 0 0;
+    color: #8393aa;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.taxonomy-overview__stats {
+    display: flex;
+    gap: 10px;
+    flex: 0 0 auto;
+}
+
+.taxonomy-overview__stats span {
+    min-width: 72px;
+    padding: 10px 12px;
+    border: 1px solid rgba(112, 158, 230, .14);
+    border-radius: 10px;
+    color: #71849f;
+    background: rgba(64, 108, 175, .055);
+    text-align: center;
+    font-size: 11px;
+}
+
+.taxonomy-overview__stats strong {
+    display: block;
+    margin-bottom: 2px;
+    color: #a9c8fa;
+    font-size: 18px;
+    font-weight: 720;
+}
+
+.taxonomy-section,
+.taxonomy-results {
+    scroll-margin-top: 94px;
+}
+
+.taxonomy-section {
+    margin-bottom: 46px;
+}
+
+.taxonomy-section__heading,
+.taxonomy-results__heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 22px;
+    margin: 0 4px 16px;
+}
+
+.taxonomy-section__heading h2,
+.taxonomy-results__heading h2 {
+    font-size: 22px;
+}
+
+.taxonomy-section__jump {
+    padding-bottom: 2px;
+    color: #6f829e !important;
+    font-size: 12px;
+}
+
+.taxonomy-section__jump:hover {
+    color: #9ebfff !important;
+}
+
+.taxonomy-section__jump i {
+    margin-left: 5px;
+    font-size: 10px;
+}
+
+.taxonomy-pair {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 18px;
+    align-items: stretch;
+}
+
+.taxonomy-hub .taxonomy-pair > .container,
+.taxonomy-hub .taxonomy-pair > #category-cloud,
+.taxonomy-hub .taxonomy-pair > #tags {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+}
+
+.taxonomy-hub .taxonomy-pair > .container > .card,
+.taxonomy-hub .taxonomy-pair > #category-cloud > .card,
+.taxonomy-hub .taxonomy-pair > #tags > .card {
+    height: 100%;
+    margin: 0 !important;
+}
+
+.taxonomy-hub #category-cloud .card-content,
+.taxonomy-hub #tags .card-content {
+    height: 100%;
+    padding: 24px 26px !important;
+}
+
+.taxonomy-hub #category-cloud .tag-title,
+.taxonomy-hub #tags .tag-title {
+    margin-bottom: 18px;
+    text-align: left !important;
+    font-size: 18px;
+}
+
+.taxonomy-hub .tag-chips {
+    justify-content: flex-start;
+}
+
+.taxonomy-hub #category-radar,
+.taxonomy-hub #tag-wordcloud {
+    height: 320px;
+}
+
+.taxonomy-hub .category-radar-wrap .card,
+.taxonomy-hub .tag-wordcloud-wrap .card {
+    overflow: hidden;
+    border: 1px solid rgba(116, 163, 236, .15) !important;
+    background:
+        radial-gradient(circle at 88% 0%, rgba(116, 94, 225, .07), transparent 30%),
+        linear-gradient(145deg, rgba(16, 25, 40, .93), rgba(9, 15, 25, .95)) !important;
+}
+
+.taxonomy-hub [data-taxonomy-filter].taxonomy-filter-active .chip,
+.taxonomy-hub .taxonomy-post-card__tags .taxonomy-filter-active,
+.taxonomy-hub #tag-wordcloud a.taxonomy-filter-active {
+    border-color: rgba(112, 165, 247, .48) !important;
+    color: #dbe9ff !important;
+    background: linear-gradient(135deg, rgba(66, 126, 232, .26), rgba(105, 79, 199, .13)) !important;
+    box-shadow: 0 8px 24px rgba(34, 83, 158, .14);
+}
+
+.taxonomy-results {
+    margin-top: 52px;
+}
+
+.taxonomy-results__heading {
+    margin-bottom: 18px;
+}
+
+.taxonomy-results__heading p {
+    margin: 5px 0 0;
+    color: #687b96;
+    font-size: 12px;
+}
+
+.taxonomy-clear {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    padding: 0 12px;
+    border: 1px solid rgba(112, 159, 232, .16);
+    border-radius: 9px;
+    color: #8699b5;
+    background: rgba(61, 101, 163, .07);
+    cursor: pointer;
+}
+
+.taxonomy-clear:hover {
+    border-color: rgba(112, 165, 247, .34);
+    color: #bad1f7;
+    background: rgba(65, 119, 211, .11);
+}
+
+.taxonomy-post-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.taxonomy-post-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid rgba(113, 158, 227, .14);
+    border-radius: 14px;
+    background:
+        linear-gradient(150deg, rgba(17, 27, 43, .92), rgba(9, 15, 25, .96));
+    box-shadow: 0 16px 42px rgba(0, 0, 0, .14);
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.taxonomy-post-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(112, 165, 247, .28);
+    box-shadow: 0 22px 50px rgba(0, 0, 0, .20);
+}
+
+.taxonomy-post-card__cover {
+    display: block;
+    height: 174px;
+    overflow: hidden;
+    background: #0b111b;
+}
+
+.taxonomy-post-card__cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: .82;
+    transition: transform .32s ease, opacity .32s ease;
+}
+
+.taxonomy-post-card:hover .taxonomy-post-card__cover img {
+    transform: scale(1.035);
+    opacity: .9;
+}
+
+.taxonomy-post-card__body {
+    padding: 17px 18px 18px;
+}
+
+.taxonomy-post-card__meta {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    color: #637691;
+    font-size: 10px;
+}
+
+.taxonomy-post-card__meta span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.taxonomy-post-card__meta i {
+    margin-right: 5px;
+    color: #7089ad;
+}
+
+.taxonomy-post-card h3 {
+    min-height: 47px;
+    margin: 12px 0 8px;
+    font-size: 16px;
+    font-weight: 680;
+    line-height: 1.45;
+}
+
+.taxonomy-post-card h3 a {
+    color: #dce7f7 !important;
+}
+
+.taxonomy-post-card h3 a:hover {
+    color: #9ec1ff !important;
+}
+
+.taxonomy-post-card p {
+    min-height: 40px;
+    margin: 0;
+    overflow: hidden;
+    color: #71829a;
+    font-size: 12px;
+    line-height: 1.68;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.taxonomy-post-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 14px;
+}
+
+.taxonomy-post-card__tags button {
+    max-width: 120px;
+    height: 25px;
+    padding: 0 9px;
+    overflow: hidden;
+    border: 1px solid rgba(112, 159, 232, .13);
+    border-radius: 999px;
+    color: #6f84a2;
+    background: rgba(63, 105, 169, .06);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.taxonomy-post-card__tags button:hover {
+    color: #a8c5f4;
+    border-color: rgba(112, 165, 247, .28);
+}
+
+.taxonomy-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 130px;
+    border: 1px dashed rgba(112, 159, 232, .15);
+    border-radius: 13px;
+    color: #687b96;
+    background: rgba(13, 21, 34, .48);
+}
+
+@media only screen and (max-width: 992px) {
+    .taxonomy-pair {
+        grid-template-columns: 1fr;
+    }
+
+    .taxonomy-post-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .taxonomy-overview__main {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .taxonomy-hub {
+        width: 92% !important;
+    }
+
+    .taxonomy-overview {
+        padding: 24px 20px;
+    }
+
+    .taxonomy-overview h1 {
+        font-size: 24px;
+    }
+
+    .taxonomy-overview__stats {
+        width: 100%;
+    }
+
+    .taxonomy-overview__stats span {
+        flex: 1 1 0;
+        min-width: 0;
+    }
+
+    .taxonomy-section__heading,
+    .taxonomy-results__heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .taxonomy-section__jump {
+        display: none;
+    }
+
+    .taxonomy-post-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .taxonomy-post-card__cover {
+        height: 200px;
+    }
+}
+
+/* Taxonomy hub pagination: three desktop rows per page (9 cards) without page reload. */
+.taxonomy-results-pagination {
+    width: 100% !important;
+    max-width: none !important;
+    margin-top: 30px !important;
+    margin-bottom: 0 !important;
+}
+
+.taxonomy-results-pagination[hidden] {
+    display: none !important;
+}
+
+/* Keep the article-directory heading intentionally clean: no secondary copy below “全部文章”. */
+.taxonomy-results__heading [data-taxonomy-result-meta] {
+    display: none !important;
+}
+
+/* =========================================================
+ * Reusable heat scale - article word count / future learning heatmaps
+ * Shared palette: 0 = empty, 1 -> 4 = increasing intensity.
+ * Article and future daily-note heatmaps can reuse the same colors with
+ * different numeric thresholds; see scripts/heat_scale.js.
+ * Palette intentionally matches the archive calendar intensity system.
+ * ========================================================= */
+:root {
+    --kz-heat-0: #111a29;
+    --kz-heat-1: #1d3151;
+    --kz-heat-2: #295189;
+    --kz-heat-3: #3675c7;
+    --kz-heat-4: #68a5ff;
+}
+
+.kz-heat-cell {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    flex: 0 0 11px;
+    border: 1px solid rgba(112, 159, 232, .18);
+    border-radius: 2px;
+    background: var(--kz-heat-0);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, .12) inset;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+.kz-heat-level-0 { background: var(--kz-heat-0); }
+.kz-heat-level-1 { background: var(--kz-heat-1); }
+.kz-heat-level-2 { background: var(--kz-heat-2); }
+.kz-heat-level-3 { background: var(--kz-heat-3); }
+.kz-heat-level-4 {
+    background: var(--kz-heat-4);
+    border-color: rgba(118, 176, 255, .34);
+    box-shadow: 0 0 9px rgba(75, 139, 238, .16);
+}
+
+.forum-post-card__summary-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    min-height: 60px;
+    margin-bottom: 14px;
+}
+
+.forum-post-card__summary-row .summary {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-bottom: 0 !important;
+}
+
+/* Matery's legacy multiline-ellipsis trick created the white square seen on
+ * home cards. The feed already uses line-clamp, so these pseudo elements are
+ * unnecessary here and are replaced by the explicit heat cell above. */
+.forum-post-card__summary-row .block-with-text::before,
+.forum-post-card__summary-row .block-with-text::after {
+    display: none !important;
+    content: none !important;
+}
+
+.forum-post-card__heat {
+    margin-top: 5px;
+    cursor: help;
+}
+
+.forum-post-card:hover .forum-post-card__heat {
+    transform: scale(1.12);
+    border-color: rgba(127, 181, 255, .42);
+}
