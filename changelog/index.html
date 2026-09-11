@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="归档, ‘学习’">
+    <meta name="keywords" content="更新日志, ‘学习’">
     <meta name="description" content="欢迎一起交流">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -15,7 +15,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>归档 | Knight Zhou 的博客</title>
+    <title>更新日志 | Knight Zhou 的博客</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -228,7 +228,9 @@
 </header>
 
     <div id="knight-page-shell">
-        <div class="bg-cover pd-header about-cover inner-cover">
+        <link rel="stylesheet" href="/css/changelog.css">
+
+<div class="bg-cover pd-header about-cover inner-cover">
     <div class="inner-cover__media" aria-hidden="true">
         <div class="inner-cover__backdrop"></div>
         <img class="inner-cover__image" src="" alt="" draggable="false">
@@ -256,469 +258,441 @@
 </div>
 
 
-<main class="content">
+<main class="content changelog-page-content">
+    <div class="container changelog-shell" id="changelogPage" data-page-date="2026-09-10">
+        <section class="changelog-intro-card">
+            <div class="changelog-intro-copy">
+                <span class="changelog-eyebrow">CHANGELOG</span>
+                <h1>更新日志</h1>
+                <p>以主版本记录年度阶段，以次版本与修订版本记录这一阶段内的持续更新。</p>
+            </div>
 
-    
-    <div class="container archive-calendar">
-    <div class="card">
-        <div id="post-calendar" class="card-content"></div>
+            <div class="changelog-current" aria-label="当前版本">
+                <span class="changelog-current__label">CURRENT VERSION</span>
+                <strong class="changelog-current__version" data-changelog-current>--</strong>
+                <div class="changelog-current__meta">
+                    <span data-changelog-series>--</span>
+                    <span class="changelog-current__dot">•</span>
+                    <span><b data-changelog-total>0</b> version records</span>
+                    <span class="changelog-current__dot">•</span>
+                    <span>Updated <b data-changelog-date>--</b></span>
+                </div>
+                <div class="changelog-current__breakdown" aria-label="版本层级统计">
+                    <span><b data-changelog-major>0</b> 主版本</span>
+                    <span><b data-changelog-minor>0</b> 次版本</span>
+                    <span><b data-changelog-patch>0</b> 修订</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="changelog-history" aria-label="版本历史">
+            <div class="changelog-history-head">
+                <span class="changelog-eyebrow">VERSION ARCHIVE</span>
+                <span class="changelog-history-note">主版本 / 次版本 / 修订版本</span>
+                <div class="changelog-history-head__line"></div>
+            </div>
+
+            <div class="changelog-markdown" data-changelog-content>
+                <h2 id="v1.0.0-2026-07-30">V1.0.0 · 2026-07-30</h2>
+<p><strong>版本概述：</strong>网站运行一周年，年限内计划对网站整体架构升级，新增网站功能，优化网站的视觉效果以及阅读体验</p>
+<h3 id="v1.1.0-更新日志-2026-09-10">V1.1.0 更新日志· 2026-09-10</h3>
+<p><strong>重构</strong></p>
+<ul>
+<li>对网站整体页面进行重构，网站风格从原先的绿白色风格变成黑蓝色风格，且优化部分架构</li>
+<li>合并<strong>导航栏</strong>中的<strong>标签</strong>与<strong>种类</strong>为<strong>文章导航</strong>，合并两部分重构功能</li>
+</ul>
+<p><strong>删除</strong></p>
+<ul>
+<li>删除网站中的樱花元素以优化阅读体验</li>
+<li>删除网站中的<strong>点击生成爱心</strong>以优化阅读体验</li>
+<li>删除网站中爱好部分的音乐界面</li>
+</ul>
+<p><strong>新增</strong></p>
+<ul>
+<li>新增音乐播放器，当前音乐播放器可实现跨页播放功能</li>
+<li>新增<strong>更新日志</strong>栏，将博客的更新日志展示在网站首页</li>
+</ul>
+<h4 id="v1.1.1-更新日志-2026-09-11">v1.1.1 更新日志· 2026-09-11</h4>
+<p><strong>修复</strong></p>
+<ul>
+<li>修复<strong>文章导航</strong>页面仅有部分组件有上浮动画的问题</li>
+<li>修复<strong>网站留言板</strong>显示错误的问题</li>
+<li>修复<strong>音乐播放器</strong>与网易云歌单不同步的问题，现可在音乐播放器中点击刷新按钮以同步歌单</li>
+<li>修复<strong>归档</strong>页面最后一篇文章图片被异常放大的问题</li>
+<li>修复<strong>文章导航</strong>中文章雷达组件加载异常的问题</li>
+<li>修复<strong>归档</strong>中热力图组件加载异常的问题</li>
+</ul>
+<p><strong>重构</strong></p>
+<ul>
+<li>重构更新日志布局，以获得更好的视觉体验</li>
+</ul>
+<h2 id="v0.0.0-2025-07-30">v0.0.0 · 2025-07-30</h2>
+<p><strong>版本概述：</strong> 网站正式上线，定位为记录个人日常博客，包括但不限于<strong>科研、笔记、生活、游戏</strong>。网站基于hexo + matery，初始版本保留该模板所有页面</p>
+<p><strong>版本号说明：</strong>以主版本号作为网站存在的年份；次版本号作为网站功能的更新，作用类似于网站在该年限内的主版本号；修订号作为网站日常维护的记录。</p>
+<h3 id="v0.1.0-更新日志">V0.1.0 更新日志</h3>
+<p><strong>新增</strong></p>
+<ul>
+<li>新增网站特效，网站在常态下会加入樱花飘落的特效</li>
+<li>新增网站留言板，现在可在网站下留言</li>
+<li>新增背景轮播图，网站根据每周的日期自动生成不同的轮播图</li>
+<li>新增音乐播放器，可在网站中实现听音乐功能</li>
+</ul>
+<h3 id="v0.2.0-更新日志">v0.2.0 更新日志</h3>
+<p><strong>删除</strong></p>
+<ul>
+<li>由于<strong>音乐播放器无法跨页播放</strong>，故删除原先的音乐播放器功能</li>
+<li>删除网站中友情链接页面</li>
+</ul>
+<p><strong>新增</strong></p>
+<ul>
+<li>导航栏新增<strong>爱好</strong>，并设有音乐子界面，替代原有音乐播放器功能，可在该界面中选择网站歌单中的歌曲并播放</li>
+</ul>
+<h4 id="v0.2.1-更新日志">v0.2.1 更新日志</h4>
+<p><strong>修复</strong></p>
+<ul>
+<li>修复<strong>留言板</strong>评论无法加载的问题</li>
+<li>修复<strong>博客封面图片</strong>偶有的加载失败问题</li>
+</ul>
+<h4 id="v0.2.2-更新日志">v0.2.2 更新日志</h4>
+<p><strong>修复</strong></p>
+<ul>
+<li>修复<strong>音乐播放器</strong>无法正确加载音乐的问题</li>
+</ul>
+<h3 id="v0.3.0-更新日志">v0.3.0 更新日志</h3>
+<p><strong>重构</strong></p>
+<ul>
+<li>重构网站的底层框架，使得博客页面能够正确显示数学公式</li>
+</ul>
+
+            </div>
+        </section>
     </div>
-</div>
-
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-(function () {
-    var el = document.getElementById('post-calendar');
-    if (!el || !window.echarts) return;
-
-    var oldInstance = echarts.getInstanceByDom(el);
-    if (oldInstance) oldInstance.dispose();
-    var calendarChart = echarts.init(el);
-
-    
-
-    var option = {
-        backgroundColor: 'transparent',
-        title: {
-            top: 0,
-            text: '文章日历',
-            left: 'center',
-            textStyle: {
-                color: '#e4edf9',
-                fontWeight: 600,
-                fontSize: 20
-            }
-        },
-        tooltip: {
-            padding: 10,
-            backgroundColor: 'rgba(10, 16, 26, .96)',
-            borderColor: 'rgba(116, 163, 236, .26)',
-            borderWidth: 1,
-            textStyle: { color: '#c7d4e7' },
-            formatter: function (obj) {
-                var value = obj.value;
-                return '<div style="font-size: 13px;">' + value[0] + '：' + value[1] + '</div>';
-            }
-        },
-        visualMap: {
-            show: true,
-            showLabel: true,
-            categories: [0, 1, 2, 3, 4],
-            calculable: true,
-            inRange: {
-                symbol: 'rect',
-                color: ['#111a29', '#1d3151', '#295189', '#3675c7', '#68a5ff']
-            },
-            textStyle: { color: '#71829b' },
-            itemWidth: 12,
-            itemHeight: 12,
-            orient: 'horizontal',
-            left: 'center',
-            bottom: 0
-        },
-        calendar: [{
-            left: 'center',
-            range: ["2025-09-11", "2026-09-11"],
-            cellSize: [13, 13],
-            splitLine: { show: false },
-            itemStyle: {
-                color: '#111a29',
-                borderColor: '#0c121d',
-                borderWidth: 2
-            },
-            yearLabel: { show: false },
-            monthLabel: {
-                nameMap: 'cn',
-                color: '#7588a3',
-                fontSize: 11
-            },
-            dayLabel: {
-                formatter: '{start}  1st',
-                nameMap: 'cn',
-                color: '#657892',
-                fontSize: 11
-            }
-        }],
-        series: [{
-            type: 'heatmap',
-            coordinateSystem: 'calendar',
-            calendarIndex: 0,
-            data: [["2025-09-11",0],["2025-09-12",0],["2025-09-13",0],["2025-09-14",1],["2025-09-15",0],["2025-09-16",0],["2025-09-17",0],["2025-09-18",0],["2025-09-19",0],["2025-09-20",0],["2025-09-21",1],["2025-09-22",0],["2025-09-23",0],["2025-09-24",1],["2025-09-25",0],["2025-09-26",1],["2025-09-27",0],["2025-09-28",0],["2025-09-29",0],["2025-09-30",0],["2025-10-01",0],["2025-10-02",0],["2025-10-03",0],["2025-10-04",0],["2025-10-05",0],["2025-10-06",0],["2025-10-07",0],["2025-10-08",0],["2025-10-09",0],["2025-10-10",0],["2025-10-11",0],["2025-10-12",0],["2025-10-13",0],["2025-10-14",0],["2025-10-15",0],["2025-10-16",0],["2025-10-17",0],["2025-10-18",0],["2025-10-19",0],["2025-10-20",0],["2025-10-21",0],["2025-10-22",0],["2025-10-23",0],["2025-10-24",0],["2025-10-25",0],["2025-10-26",0],["2025-10-27",0],["2025-10-28",0],["2025-10-29",0],["2025-10-30",0],["2025-10-31",0],["2025-11-01",0],["2025-11-02",0],["2025-11-03",0],["2025-11-04",0],["2025-11-05",0],["2025-11-06",0],["2025-11-07",0],["2025-11-08",0],["2025-11-09",0],["2025-11-10",0],["2025-11-11",0],["2025-11-12",0],["2025-11-13",0],["2025-11-14",0],["2025-11-15",0],["2025-11-16",0],["2025-11-17",0],["2025-11-18",0],["2025-11-19",0],["2025-11-20",0],["2025-11-21",0],["2025-11-22",0],["2025-11-23",0],["2025-11-24",0],["2025-11-25",0],["2025-11-26",0],["2025-11-27",0],["2025-11-28",0],["2025-11-29",0],["2025-11-30",0],["2025-12-01",0],["2025-12-02",0],["2025-12-03",0],["2025-12-04",0],["2025-12-05",0],["2025-12-06",0],["2025-12-07",0],["2025-12-08",0],["2025-12-09",0],["2025-12-10",0],["2025-12-11",0],["2025-12-12",0],["2025-12-13",0],["2025-12-14",0],["2025-12-15",0],["2025-12-16",0],["2025-12-17",0],["2025-12-18",0],["2025-12-19",0],["2025-12-20",0],["2025-12-21",0],["2025-12-22",0],["2025-12-23",0],["2025-12-24",0],["2025-12-25",0],["2025-12-26",0],["2025-12-27",0],["2025-12-28",0],["2025-12-29",0],["2025-12-30",0],["2025-12-31",0],["2026-01-01",0],["2026-01-02",0],["2026-01-03",0],["2026-01-04",0],["2026-01-05",0],["2026-01-06",0],["2026-01-07",0],["2026-01-08",0],["2026-01-09",0],["2026-01-10",0],["2026-01-11",0],["2026-01-12",0],["2026-01-13",0],["2026-01-14",0],["2026-01-15",0],["2026-01-16",0],["2026-01-17",0],["2026-01-18",0],["2026-01-19",0],["2026-01-20",0],["2026-01-21",0],["2026-01-22",0],["2026-01-23",0],["2026-01-24",0],["2026-01-25",0],["2026-01-26",0],["2026-01-27",0],["2026-01-28",0],["2026-01-29",0],["2026-01-30",0],["2026-01-31",0],["2026-02-01",0],["2026-02-02",0],["2026-02-03",0],["2026-02-04",0],["2026-02-05",0],["2026-02-06",0],["2026-02-07",0],["2026-02-08",0],["2026-02-09",0],["2026-02-10",0],["2026-02-11",0],["2026-02-12",0],["2026-02-13",0],["2026-02-14",0],["2026-02-15",0],["2026-02-16",0],["2026-02-17",0],["2026-02-18",0],["2026-02-19",0],["2026-02-20",0],["2026-02-21",0],["2026-02-22",0],["2026-02-23",0],["2026-02-24",0],["2026-02-25",0],["2026-02-26",0],["2026-02-27",0],["2026-02-28",0],["2026-03-01",0],["2026-03-02",0],["2026-03-03",0],["2026-03-04",0],["2026-03-05",0],["2026-03-06",0],["2026-03-07",0],["2026-03-08",0],["2026-03-09",0],["2026-03-10",0],["2026-03-11",0],["2026-03-12",0],["2026-03-13",0],["2026-03-14",0],["2026-03-15",0],["2026-03-16",0],["2026-03-17",0],["2026-03-18",0],["2026-03-19",1],["2026-03-20",0],["2026-03-21",0],["2026-03-22",2],["2026-03-23",0],["2026-03-24",0],["2026-03-25",1],["2026-03-26",0],["2026-03-27",0],["2026-03-28",0],["2026-03-29",0],["2026-03-30",0],["2026-03-31",0],["2026-04-01",0],["2026-04-02",0],["2026-04-03",0],["2026-04-04",0],["2026-04-05",0],["2026-04-06",0],["2026-04-07",0],["2026-04-08",1],["2026-04-09",0],["2026-04-10",0],["2026-04-11",0],["2026-04-12",0],["2026-04-13",0],["2026-04-14",0],["2026-04-15",0],["2026-04-16",0],["2026-04-17",0],["2026-04-18",0],["2026-04-19",0],["2026-04-20",0],["2026-04-21",0],["2026-04-22",0],["2026-04-23",0],["2026-04-24",0],["2026-04-25",0],["2026-04-26",0],["2026-04-27",0],["2026-04-28",0],["2026-04-29",0],["2026-04-30",0],["2026-05-01",0],["2026-05-02",0],["2026-05-03",0],["2026-05-04",0],["2026-05-05",0],["2026-05-06",0],["2026-05-07",0],["2026-05-08",0],["2026-05-09",0],["2026-05-10",0],["2026-05-11",0],["2026-05-12",0],["2026-05-13",1],["2026-05-14",0],["2026-05-15",0],["2026-05-16",0],["2026-05-17",0],["2026-05-18",0],["2026-05-19",0],["2026-05-20",1],["2026-05-21",0],["2026-05-22",0],["2026-05-23",0],["2026-05-24",0],["2026-05-25",0],["2026-05-26",0],["2026-05-27",0],["2026-05-28",1],["2026-05-29",0],["2026-05-30",0],["2026-05-31",0],["2026-06-01",0],["2026-06-02",0],["2026-06-03",0],["2026-06-04",0],["2026-06-05",0],["2026-06-06",0],["2026-06-07",0],["2026-06-08",0],["2026-06-09",0],["2026-06-10",0],["2026-06-11",0],["2026-06-12",0],["2026-06-13",0],["2026-06-14",0],["2026-06-15",0],["2026-06-16",0],["2026-06-17",0],["2026-06-18",0],["2026-06-19",0],["2026-06-20",0],["2026-06-21",0],["2026-06-22",0],["2026-06-23",0],["2026-06-24",0],["2026-06-25",0],["2026-06-26",0],["2026-06-27",0],["2026-06-28",0],["2026-06-29",0],["2026-06-30",0],["2026-07-01",0],["2026-07-02",0],["2026-07-03",0],["2026-07-04",0],["2026-07-05",0],["2026-07-06",0],["2026-07-07",0],["2026-07-08",0],["2026-07-09",0],["2026-07-10",0],["2026-07-11",0],["2026-07-12",0],["2026-07-13",0],["2026-07-14",0],["2026-07-15",0],["2026-07-16",0],["2026-07-17",0],["2026-07-18",0],["2026-07-19",0],["2026-07-20",0],["2026-07-21",0],["2026-07-22",0],["2026-07-23",0],["2026-07-24",0],["2026-07-25",0],["2026-07-26",0],["2026-07-27",0],["2026-07-28",0],["2026-07-29",0],["2026-07-30",0],["2026-07-31",0],["2026-08-01",0],["2026-08-02",0],["2026-08-03",0],["2026-08-04",0],["2026-08-05",0],["2026-08-06",0],["2026-08-07",0],["2026-08-08",0],["2026-08-09",0],["2026-08-10",0],["2026-08-11",0],["2026-08-12",0],["2026-08-13",0],["2026-08-14",0],["2026-08-15",0],["2026-08-16",0],["2026-08-17",0],["2026-08-18",0],["2026-08-19",0],["2026-08-20",0],["2026-08-21",0],["2026-08-22",0],["2026-08-23",0],["2026-08-24",0],["2026-08-25",0],["2026-08-26",0],["2026-08-27",0],["2026-08-28",0],["2026-08-29",0],["2026-08-30",0],["2026-08-31",0],["2026-09-01",0],["2026-09-02",0],["2026-09-03",0],["2026-09-04",0],["2026-09-05",0],["2026-09-06",1],["2026-09-07",0],["2026-09-08",1],["2026-09-09",0],["2026-09-10",0],["2026-09-11",0]]
-        }]
-    };
-
-    calendarChart.setOption(option);
-    requestAnimationFrame(function () { if (!calendarChart.isDisposed()) calendarChart.resize(); });
-
-    var resizeHandler = function () {
-        if (!document.body.contains(el)) {
-            window.removeEventListener('resize', resizeHandler);
-            try { calendarChart.dispose(); } catch (e) {}
-            return;
-        }
-        if (!calendarChart.isDisposed()) calendarChart.resize();
-    };
-    window.addEventListener('resize', resizeHandler);
-})();
-</script>
-
-    
-
-    
-
-    <div id="cd-timeline" class="container">
-        
-        <div class="cd-timeline-block">
-
-            
-            
-            
-            <div class="cd-timeline-img year" data-aos="zoom-in-up">
-                <a href="/archives/2025">2025</a>
-            </div>
-            
-
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2025/09">09</a>
-            </div>
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>21</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article archive-article">
-                    <div class="card">
-                        <a href="/2025/09/21/shu-ju-fen-xi-ku-numpy-de-shi-yong/">
-                            <div class="card-image">
-                                
-                                <img src="https://pic3.zhimg.com/v2-6fab134c3621df30c3d5b032ebf883ba_r.jpg?source=1940ef5c" class="responsive-img" alt="数据分析库:Numpy的使用">
-                                
-                                <span class="card-title">数据分析库:Numpy的使用</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    总结Numpy库的使用
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2025-09-21
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/DataAnalysis/" class="post-category">
-                                    DataAnalysis
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/"><span class="chip bg-color">数据分析</span></a>
-                            
-                            <a href="/tags/Numpy/"><span class="chip bg-color">Numpy</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>14</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article archive-article">
-                    <div class="card">
-                        <a href="/2025/09/14/hot100-san-shu-zhi-he/">
-                            <div class="card-image">
-                                
-                                <img src="https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0" class="responsive-img" alt="Hot100:三数之和">
-                                
-                                <span class="card-title">Hot100:三数之和</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    Hot100 三数之和
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2025-09-14
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Hot100/" class="post-category">
-                                    Hot100
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/Hot100/"><span class="chip bg-color">Hot100</span></a>
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95%E9%A2%98/"><span class="chip bg-color">算法题</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2025/08">08</a>
-            </div>
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>26</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article archive-article">
-                    <div class="card">
-                        <a href="/2025/08/26/suan-fa-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">
-                            <div class="card-image">
-                                
-                                <img src="https://pic2.zhimg.com/v2-3aecfb4a857585d6eb2796902a565956_r.jpg?source=172ae18b" class="responsive-img" alt="算法:滑动窗口类型题目总结">
-                                
-                                <span class="card-title">算法:滑动窗口类型题目总结</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    总结滑动窗口类型题目
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2025-08-26
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip bg-color">滑动窗口</span></a>
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95/"><span class="chip bg-color">算法</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>12</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article archive-article">
-                    <div class="card">
-                        <a href="/2025/08/12/gong-ju-node.js-yu-javascript-de-xiang-guan-gai-nian/">
-                            <div class="card-image">
-                                
-                                <img src="https://images.wallpaperscraft.com/image/single/piano_silhouette_space_156662_1280x720.jpg" class="responsive-img" alt="【工具】Node.js与JavaScript的相关概念">
-                                
-                                <span class="card-title">【工具】Node.js与JavaScript的相关概念</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    讲述Node.JS和JavaScript的关系以及发展历史
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2025-08-12
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Tools/" class="post-category">
-                                    Tools
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/%E5%B7%A5%E5%85%B7/"><span class="chip bg-color">工具</span></a>
-                            
-                            <a href="/tags/Node-js/"><span class="chip bg-color">Node.js</span></a>
-                            
-                            <a href="/tags/%E5%BC%80%E5%8F%91/"><span class="chip bg-color">开发</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-        <div class="cd-timeline-block">
-
-            
-            
-
-            
-            
-            
-            <div class="cd-timeline-img month" data-aos="zoom-in-up">
-                <a href="/archives/2025/07">07</a>
-            </div>
-            
-
-            
-            <div class="cd-timeline-img day" data-aos="zoom-in-up">
-                <span>29</span>
-            </div>
-            <article class="cd-timeline-content" data-aos="fade-up">
-                <div class="article archive-article">
-                    <div class="card">
-                        <a href="/2025/07/29/suan-fa-ding-chang-hua-dong-chuang-kou-lei-xing-ti-mu-zong-jie/">
-                            <div class="card-image">
-                                
-                                <img src="https://picb.zhimg.com/v2-d38a4fecd744664a4c8cfe6c786aecc9_r.jpg?source=1940ef5c" class="responsive-img" alt="算法:定长滑动窗口类型题目总结">
-                                
-                                <span class="card-title">算法:定长滑动窗口类型题目总结</span>
-                            </div>
-                        </a>
-                        <div class="card-content article-content">
-                            <div class="summary block-with-text">
-                                
-                                    总结定长滑动窗口类型题目的模板
-                                
-                            </div>
-                            <div class="publish-info">
-                                <span class="publish-date">
-                                    <i class="far fa-clock fa-fw icon-date"></i>2025-07-29
-                                </span>
-                                <span class="publish-author">
-                                    
-                                    <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                    
-                                    <a href="/categories/Algorithm/" class="post-category">
-                                    Algorithm
-                                    </a>
-                                    
-                                    
-                                </span>
-                            </div>
-                        </div>
-
-                        
-                        <div class="card-action article-tags">
-                            
-                            <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/"><span class="chip bg-color">滑动窗口</span></a>
-                            
-                            <a href="/tags/%E7%AE%97%E6%B3%95/"><span class="chip bg-color">算法</span></a>
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </article>
-        </div>
-        
-    </div>
-
 </main>
 
+<script>
+(function () {
+    var page = document.getElementById('changelogPage');
+    if (!page || page.dataset.changelogReady === 'true') return;
+    page.dataset.changelogReady = 'true';
 
-<div class="container paging">
-    <div class="row">
-        <div class="col s6 m4 l4">
-            
-            <a href="/archives/"
-               class="left btn-floating btn-large waves-effect waves-light bg-color">
-                <i class="fas fa-angle-left"></i>
-            </a>
-            
-        </div>
-        <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">2 / 2</div>
-        </div>
-        <div class="col s6 m4 l4">
-            
-            <a class="right btn-floating btn-large disabled">
-                <i class="fas fa-angle-right"></i>
-            </a>
-            
-        </div>
-    </div>
-</div>
+    var content = page.querySelector('[data-changelog-content]');
+    if (!content) return;
 
+    function parseVersion(text) {
+        var raw = String(text || '').trim();
+        var match = raw.match(/\bv\s*(\d+)\.(\d+)\.(\d+)\b/i);
+        if (!match) return null;
 
+        var major = parseInt(match[1], 10);
+        var minor = parseInt(match[2], 10);
+        var patch = parseInt(match[3], 10);
+        var dateMatch = raw.match(/(20\d{2}[-/.]\d{1,2}[-/.]\d{1,2})/);
+
+        return {
+            major: major,
+            minor: minor,
+            patch: patch,
+            version: 'v' + major + '.' + minor + '.' + patch,
+            date: dateMatch ? dateMatch[1].replace(/[/.]/g, '-') : '',
+            raw: raw
+        };
+    }
+
+    function compareVersion(a, b) {
+        if (a.major !== b.major) return a.major - b.major;
+        if (a.minor !== b.minor) return a.minor - b.minor;
+        return a.patch - b.patch;
+    }
+
+    function slugVersion(parsed, fallback) {
+        if (!parsed) return 'version-' + fallback;
+        return 'version-' + parsed.major + '-' + parsed.minor + '-' + parsed.patch;
+    }
+
+    function isVersionHeading(node, level) {
+        if (!node || !node.tagName) return false;
+        if (node.tagName.toLowerCase() !== 'h' + level) return false;
+        return !!parseVersion(node.textContent);
+    }
+
+    function styleContent(root) {
+        if (!root) return;
+
+        Array.prototype.slice.call(root.querySelectorAll('p')).forEach(function (p) {
+            var strong = p.querySelector(':scope > strong:only-child');
+            if (strong && p.textContent.trim() === strong.textContent.trim()) {
+                p.classList.add('changelog-content-label');
+            }
+        });
+
+        Array.prototype.slice.call(root.querySelectorAll('ul')).forEach(function (list) {
+            list.classList.add('changelog-bullet-list');
+        });
+    }
+
+    function createVersionHeader(parsed, levelLabel, compact) {
+        var header = document.createElement('header');
+        header.className = compact ? 'changelog-version-head is-compact' : 'changelog-version-head';
+
+        var left = document.createElement('div');
+        left.className = 'changelog-version-head__main';
+
+        var eyebrow = document.createElement('span');
+        eyebrow.className = 'changelog-version-type';
+        eyebrow.textContent = levelLabel;
+
+        var title = document.createElement(compact ? 'h4' : 'h3');
+        title.className = 'changelog-version-title';
+        title.textContent = parsed.version;
+
+        left.appendChild(eyebrow);
+        left.appendChild(title);
+        header.appendChild(left);
+
+        if (parsed.date) {
+            var time = document.createElement('time');
+            time.className = 'changelog-version-date';
+            time.textContent = parsed.date;
+            time.setAttribute('datetime', parsed.date);
+            header.appendChild(time);
+        }
+
+        return header;
+    }
+
+    var sourceNodes = Array.prototype.slice.call(content.children);
+    var majors = [];
+    var allVersions = [];
+    var currentMajor = null;
+    var currentMinor = null;
+    var currentPatch = null;
+
+    sourceNodes.forEach(function (node) {
+        if (isVersionHeading(node, 2)) {
+            var majorParsed = parseVersion(node.textContent);
+            currentMajor = {
+                parsed: majorParsed,
+                id: node.id || slugVersion(majorParsed, majors.length + 1),
+                introNodes: [],
+                minors: [],
+                loosePatches: []
+            };
+            majors.push(currentMajor);
+            allVersions.push({ parsed: majorParsed, level: 'major' });
+            currentMinor = null;
+            currentPatch = null;
+            return;
+        }
+
+        if (!currentMajor) return;
+
+        if (isVersionHeading(node, 3)) {
+            var minorParsed = parseVersion(node.textContent);
+            currentMinor = {
+                parsed: minorParsed,
+                id: node.id || slugVersion(minorParsed, allVersions.length + 1),
+                nodes: [],
+                patches: []
+            };
+            currentMajor.minors.push(currentMinor);
+            allVersions.push({ parsed: minorParsed, level: 'minor' });
+            currentPatch = null;
+            return;
+        }
+
+        if (isVersionHeading(node, 4)) {
+            var patchParsed = parseVersion(node.textContent);
+            currentPatch = {
+                parsed: patchParsed,
+                id: node.id || slugVersion(patchParsed, allVersions.length + 1),
+                nodes: []
+            };
+            if (currentMinor) currentMinor.patches.push(currentPatch);
+            else currentMajor.loosePatches.push(currentPatch);
+            allVersions.push({ parsed: patchParsed, level: 'patch' });
+            return;
+        }
+
+        if (currentPatch) currentPatch.nodes.push(node);
+        else if (currentMinor) currentMinor.nodes.push(node);
+        else currentMajor.introNodes.push(node);
+    });
+
+    if (!majors.length) return;
+
+    var archive = document.createElement('div');
+    archive.className = 'changelog-era-list';
+
+    majors.forEach(function (majorGroup, majorIndex) {
+        var era = document.createElement('section');
+        era.className = 'changelog-era';
+        era.id = majorGroup.id;
+
+        var rail = document.createElement('div');
+        rail.className = 'changelog-era__rail';
+        rail.innerHTML = '<span class="changelog-era__node" aria-hidden="true"></span>';
+
+        var panel = document.createElement('article');
+        panel.className = 'changelog-era__panel';
+
+        var hero = document.createElement('header');
+        hero.className = 'changelog-era__header';
+
+        var heroMain = document.createElement('div');
+        heroMain.className = 'changelog-era__header-main';
+
+        var series = document.createElement('span');
+        series.className = 'changelog-era__series';
+        series.textContent = majorGroup.parsed.major === 0 ? 'INITIAL SERIES' : 'MAJOR SERIES · V' + majorGroup.parsed.major;
+
+        var majorTitle = document.createElement('h2');
+        majorTitle.className = 'changelog-era__version';
+        majorTitle.textContent = majorGroup.parsed.version;
+
+        heroMain.appendChild(series);
+        heroMain.appendChild(majorTitle);
+
+        var releaseCount = document.createElement('div');
+        releaseCount.className = 'changelog-era__count';
+        var childCount = majorGroup.minors.length + majorGroup.loosePatches.length;
+        releaseCount.innerHTML = '<strong>' + childCount + '</strong><span>updates in this series</span>';
+
+        hero.appendChild(heroMain);
+        hero.appendChild(releaseCount);
+        panel.appendChild(hero);
+
+        if (majorGroup.introNodes.length) {
+            var intro = document.createElement('div');
+            intro.className = 'changelog-era__intro';
+            majorGroup.introNodes.forEach(function (node) { intro.appendChild(node); });
+            styleContent(intro);
+            panel.appendChild(intro);
+        }
+
+        var releases = document.createElement('div');
+        releases.className = 'changelog-era__releases';
+
+        majorGroup.minors.forEach(function (minor) {
+            var minorCard = document.createElement('section');
+            minorCard.className = 'changelog-minor-release';
+            minorCard.id = minor.id;
+            minorCard.appendChild(createVersionHeader(minor.parsed, 'MINOR VERSION', false));
+
+            if (minor.nodes.length) {
+                var minorBody = document.createElement('div');
+                minorBody.className = 'changelog-version-body';
+                minor.nodes.forEach(function (node) { minorBody.appendChild(node); });
+                styleContent(minorBody);
+                minorCard.appendChild(minorBody);
+            }
+
+            if (minor.patches.length) {
+                var patchWrap = document.createElement('div');
+                patchWrap.className = 'changelog-patch-list';
+
+                minor.patches.forEach(function (patch) {
+                    var patchCard = document.createElement('section');
+                    patchCard.className = 'changelog-patch-release';
+                    patchCard.id = patch.id;
+                    patchCard.appendChild(createVersionHeader(patch.parsed, 'PATCH', true));
+
+                    if (patch.nodes.length) {
+                        var patchBody = document.createElement('div');
+                        patchBody.className = 'changelog-version-body is-patch';
+                        patch.nodes.forEach(function (node) { patchBody.appendChild(node); });
+                        styleContent(patchBody);
+                        patchCard.appendChild(patchBody);
+                    }
+
+                    patchWrap.appendChild(patchCard);
+                });
+
+                minorCard.appendChild(patchWrap);
+            }
+
+            releases.appendChild(minorCard);
+        });
+
+        majorGroup.loosePatches.forEach(function (patch) {
+            var patchCard = document.createElement('section');
+            patchCard.className = 'changelog-patch-release is-loose';
+            patchCard.id = patch.id;
+            patchCard.appendChild(createVersionHeader(patch.parsed, 'PATCH', true));
+
+            if (patch.nodes.length) {
+                var patchBody = document.createElement('div');
+                patchBody.className = 'changelog-version-body is-patch';
+                patch.nodes.forEach(function (node) { patchBody.appendChild(node); });
+                styleContent(patchBody);
+                patchCard.appendChild(patchBody);
+            }
+            releases.appendChild(patchCard);
+        });
+
+        if (releases.children.length) panel.appendChild(releases);
+        else {
+            var empty = document.createElement('div');
+            empty.className = 'changelog-era__empty';
+            empty.textContent = '该主版本暂未记录后续次版本。';
+            panel.appendChild(empty);
+        }
+
+        era.appendChild(rail);
+        era.appendChild(panel);
+        archive.appendChild(era);
+    });
+
+    content.innerHTML = '';
+    content.appendChild(archive);
+
+    var latest = allVersions.reduce(function (best, item) {
+        return !best || compareVersion(item.parsed, best.parsed) > 0 ? item : best;
+    }, null);
+
+    var majorCount = allVersions.filter(function (item) { return item.level === 'major'; }).length;
+    var minorCount = allVersions.filter(function (item) { return item.level === 'minor'; }).length;
+    var patchCount = allVersions.filter(function (item) { return item.level === 'patch'; }).length;
+
+    var currentEl = page.querySelector('[data-changelog-current]');
+    var seriesEl = page.querySelector('[data-changelog-series]');
+    var totalEl = page.querySelector('[data-changelog-total]');
+    var dateEl = page.querySelector('[data-changelog-date]');
+    var majorEl = page.querySelector('[data-changelog-major]');
+    var minorEl = page.querySelector('[data-changelog-minor]');
+    var patchEl = page.querySelector('[data-changelog-patch]');
+
+    if (currentEl) currentEl.textContent = latest ? latest.parsed.version : '--';
+    if (seriesEl) seriesEl.textContent = latest ? ('Series V' + latest.parsed.major) : '--';
+    if (totalEl) totalEl.textContent = allVersions.length;
+    if (majorEl) majorEl.textContent = majorCount;
+    if (minorEl) minorEl.textContent = minorCount;
+    if (patchEl) patchEl.textContent = patchCount;
+
+    var fallbackDate = page.getAttribute('data-page-date') || '--';
+    if (dateEl) dateEl.textContent = latest && latest.parsed.date ? latest.parsed.date : fallbackDate;
+
+    var readable = Array.prototype.slice.call(page.querySelectorAll('.changelog-era, .changelog-minor-release, .changelog-patch-release'));
+    if ('IntersectionObserver' in window && readable.length) {
+        var observer = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+                readable.forEach(function (item) { item.classList.remove('is-reading'); });
+                entry.target.classList.add('is-reading');
+            });
+        }, { rootMargin: '-18% 0px -68% 0px', threshold: 0 });
+        readable.forEach(function (item) { observer.observe(item); });
+    }
+
+    if (location.hash) {
+        var target = document.querySelector(location.hash);
+        if (target && page.contains(target)) {
+            requestAnimationFrame(function () {
+                target.scrollIntoView({ block: 'start' });
+            });
+        }
+    }
+})();
+</script>
 
     </div>
 

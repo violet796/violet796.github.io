@@ -1,0 +1,722 @@
+/* Knight Changelog v4 — hierarchical release archive. */
+.changelog-page-content {
+    position: relative;
+    z-index: 2;
+    margin-top: -68px !important;
+    padding-top: 0 !important;
+}
+
+.changelog-shell {
+    width: 90% !important;
+    max-width: 1240px !important;
+}
+
+.changelog-intro-card,
+.changelog-era__panel,
+.changelog-minor-release,
+.changelog-patch-release {
+    border: 1px solid rgba(102, 153, 235, .15);
+    background: linear-gradient(145deg, rgba(17, 27, 44, .92), rgba(8, 14, 24, .96));
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .24), inset 0 1px rgba(255,255,255,.025);
+    backdrop-filter: blur(18px) saturate(120%);
+    -webkit-backdrop-filter: blur(18px) saturate(120%);
+}
+
+.changelog-eyebrow {
+    display: block;
+    color: #78a9f5;
+    font-size: 10px;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: .21em;
+}
+
+/* ---------- Intro ---------- */
+.changelog-intro-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(300px, .55fr);
+    align-items: center;
+    gap: 54px;
+    margin-bottom: 36px;
+    padding: 34px 40px;
+    overflow: hidden;
+    border-radius: 22px;
+}
+
+.changelog-intro-card::after {
+    content: '';
+    position: absolute;
+    right: -110px;
+    top: -130px;
+    width: 340px;
+    height: 340px;
+    pointer-events: none;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(77,141,255,.14), rgba(77,141,255,0) 68%);
+    filter: blur(8px);
+}
+
+.changelog-intro-copy,
+.changelog-current {
+    position: relative;
+    z-index: 1;
+}
+
+.changelog-intro-copy h1 {
+    margin: 8px 0 0;
+    color: #f3f7ff;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 900;
+    line-height: 1.04;
+    letter-spacing: -.05em;
+}
+
+.changelog-intro-copy p {
+    max-width: 620px;
+    margin: 12px 0 0;
+    color: #8798b4;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.changelog-current {
+    padding-left: 36px;
+    border-left: 1px solid rgba(107, 158, 238, .14);
+}
+
+.changelog-current__label {
+    display: block;
+    margin-bottom: 8px;
+    color: #687b99;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .17em;
+}
+
+.changelog-current__version {
+    display: block;
+    color: #edf4ff;
+    font-size: clamp(32px, 3.4vw, 48px);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -.045em;
+    text-shadow: 0 0 28px rgba(78, 143, 255, .12);
+}
+
+.changelog-current__meta,
+.changelog-current__breakdown {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 11px;
+    color: #7486a3;
+    font-size: 10px;
+    letter-spacing: .02em;
+}
+
+.changelog-current__meta b,
+.changelog-current__breakdown b {
+    color: #a9bddc;
+    font-weight: 750;
+}
+
+.changelog-current__dot {
+    color: #35567f;
+}
+
+.changelog-current__breakdown {
+    gap: 9px;
+    margin-top: 14px;
+}
+
+.changelog-current__breakdown span {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 8px;
+    border: 1px solid rgba(93,145,226,.10);
+    border-radius: 999px;
+    background: rgba(69,115,184,.045);
+    color: #7285a2;
+}
+
+/* ---------- History heading ---------- */
+.changelog-history {
+    position: relative;
+    padding-bottom: 54px;
+}
+
+.changelog-history-head {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    margin: 0 0 24px 78px;
+}
+
+.changelog-history-note {
+    color: #5f718d;
+    font-size: 10px;
+    letter-spacing: .04em;
+}
+
+.changelog-history-head__line {
+    height: 1px;
+    flex: 1;
+    background: linear-gradient(90deg, rgba(92,147,230,.18), rgba(92,147,230,0));
+}
+
+/* ---------- Major era / yearly series ---------- */
+.changelog-markdown {
+    color: #aebbd0;
+    font-size: 14px;
+    line-height: 1.82;
+}
+
+.changelog-era-list {
+    position: relative;
+}
+
+.changelog-era-list::before {
+    content: '';
+    position: absolute;
+    left: 38px;
+    top: 34px;
+    bottom: 48px;
+    width: 2px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgba(105,165,255,.78), rgba(75,122,193,.22) 66%, rgba(75,122,193,.04));
+    box-shadow: 0 0 22px rgba(71,132,226,.08);
+}
+
+.changelog-era {
+    position: relative;
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    align-items: start;
+    scroll-margin-top: 92px;
+}
+
+.changelog-era + .changelog-era {
+    margin-top: 34px;
+}
+
+.changelog-era__rail {
+    position: relative;
+    min-height: 100%;
+}
+
+.changelog-era__node {
+    position: absolute;
+    z-index: 3;
+    left: 38px;
+    top: 38px;
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%);
+    border: 3px solid #0b1422;
+    border-radius: 50%;
+    background: #6ba8ff;
+    box-shadow: 0 0 0 7px rgba(77,141,255,.10), 0 0 30px rgba(77,141,255,.18);
+    transition: transform .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+.changelog-era.is-reading .changelog-era__node {
+    background: #9bc7ff;
+    transform: translate(-50%, -50%) scale(1.08);
+    box-shadow: 0 0 0 8px rgba(77,141,255,.14), 0 0 34px rgba(77,141,255,.27);
+}
+
+.changelog-era__panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 22px;
+}
+
+.changelog-era__panel::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 1px;
+    background: linear-gradient(180deg, rgba(106,169,255,.58), rgba(106,169,255,.03));
+    opacity: .52;
+}
+
+.changelog-era__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 28px;
+    padding: 28px 32px 24px;
+    border-bottom: 1px solid rgba(100,151,232,.10);
+    background:
+        radial-gradient(circle at 90% 0%, rgba(73,137,238,.085), transparent 30%),
+        linear-gradient(180deg, rgba(26,42,67,.28), rgba(13,22,37,0));
+}
+
+.changelog-era__series {
+    display: inline-flex;
+    align-items: center;
+    min-height: 23px;
+    margin-bottom: 9px;
+    padding: 0 9px;
+    border: 1px solid rgba(106,169,255,.20);
+    border-radius: 999px;
+    color: #8ebcff;
+    background: rgba(72,134,229,.09);
+    font-size: 8px;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: .14em;
+}
+
+.changelog-era__version {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: #eef5ff !important;
+    font-size: clamp(34px, 4vw, 50px) !important;
+    font-weight: 900 !important;
+    line-height: .98 !important;
+    letter-spacing: -.045em !important;
+}
+
+.changelog-era__version::before,
+.changelog-era__version::after {
+    display: none !important;
+}
+
+.changelog-era__count {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 2px;
+    color: #667b9a;
+    font-size: 9px;
+    line-height: 1.35;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+}
+
+.changelog-era__count strong {
+    margin-bottom: 3px;
+    color: #a9c6ef;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.changelog-era__intro {
+    padding: 25px 32px 6px;
+    color: #a8b6ca;
+}
+
+.changelog-era__intro > p:first-child {
+    margin-top: 0;
+}
+
+.changelog-era__releases {
+    display: grid;
+    gap: 16px;
+    padding: 20px 24px 26px;
+}
+
+.changelog-era__empty {
+    margin: 20px 26px 26px;
+    padding: 16px 18px;
+    border: 1px dashed rgba(99,149,224,.14);
+    border-radius: 14px;
+    color: #657892;
+    background: rgba(10,17,29,.42);
+    font-size: 12px;
+}
+
+/* ---------- Minor version cards ---------- */
+.changelog-minor-release {
+    position: relative;
+    overflow: hidden;
+    border-radius: 17px;
+    background: linear-gradient(145deg, rgba(15,25,41,.80), rgba(8,14,24,.88));
+    box-shadow: none;
+    scroll-margin-top: 92px;
+}
+
+.changelog-minor-release::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(81,147,244,.78), rgba(81,147,244,.10));
+    opacity: .72;
+}
+
+.changelog-version-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px 22px 17px 24px;
+    border-bottom: 1px solid rgba(100,151,232,.08);
+}
+
+.changelog-version-head__main {
+    min-width: 0;
+}
+
+.changelog-version-type {
+    display: block;
+    margin-bottom: 5px;
+    color: #5f83b5;
+    font-size: 8px;
+    font-weight: 850;
+    line-height: 1;
+    letter-spacing: .14em;
+}
+
+.changelog-version-title {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: #dce9fb !important;
+    font-size: clamp(23px, 2.6vw, 31px) !important;
+    font-weight: 850 !important;
+    line-height: 1.08 !important;
+    letter-spacing: -.025em !important;
+}
+
+.changelog-version-title::before,
+.changelog-version-title::after {
+    display: none !important;
+}
+
+.changelog-version-date {
+    flex: 0 0 auto;
+    color: #687c9b;
+    font-size: 10px;
+    font-weight: 650;
+    letter-spacing: .04em;
+}
+
+.changelog-version-body {
+    padding: 18px 24px 22px;
+}
+
+/* ---------- Patch releases ---------- */
+.changelog-patch-list {
+    display: grid;
+    gap: 10px;
+    padding: 0 14px 14px;
+}
+
+.changelog-patch-release {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(98,145,213,.09);
+    border-radius: 14px;
+    background: rgba(9,16,27,.62);
+    box-shadow: none;
+    scroll-margin-top: 92px;
+}
+
+.changelog-patch-release::before {
+    content: '';
+    position: absolute;
+    left: 16px;
+    top: 21px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #638fcd;
+    box-shadow: 0 0 0 4px rgba(76,132,211,.08);
+}
+
+.changelog-version-head.is-compact {
+    padding: 14px 17px 12px 34px;
+    border-bottom-color: rgba(99,147,216,.065);
+}
+
+.changelog-version-head.is-compact .changelog-version-type {
+    margin-bottom: 4px;
+    color: #536f96;
+}
+
+.changelog-version-head.is-compact .changelog-version-title {
+    color: #b8c9df !important;
+    font-size: 17px !important;
+    font-weight: 800 !important;
+}
+
+.changelog-version-body.is-patch {
+    padding: 13px 17px 16px 34px;
+}
+
+.changelog-patch-release.is-reading {
+    border-color: rgba(104,162,244,.18);
+    background: rgba(12,21,35,.78);
+}
+
+/* ---------- Markdown content ---------- */
+.changelog-era__intro p,
+.changelog-version-body p {
+    margin: 0 0 12px;
+    color: #9fadc2;
+    line-height: 1.82;
+}
+
+.changelog-era__intro strong,
+.changelog-version-body strong {
+    color: #c7d5e8;
+    font-weight: 760;
+}
+
+.changelog-content-label {
+    display: inline-flex !important;
+    align-items: center;
+    min-height: 24px;
+    margin: 2px 0 8px !important;
+    padding: 0 9px;
+    border: 1px solid rgba(89,145,229,.13);
+    border-radius: 999px;
+    color: #8ab6f4 !important;
+    background: rgba(65,121,206,.07);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: .04em;
+}
+
+.changelog-content-label strong {
+    color: inherit !important;
+}
+
+.changelog-era__intro ul,
+.changelog-version-body ul,
+.changelog-bullet-list {
+    display: block !important;
+    margin: 7px 0 17px !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+.changelog-era__intro ul li,
+.changelog-version-body ul li,
+.changelog-bullet-list li {
+    position: relative;
+    display: list-item !important;
+    margin: 7px 0 !important;
+    padding: 0 0 0 22px !important;
+    color: #a8b6ca;
+    line-height: 1.72;
+    list-style: none !important;
+}
+
+.changelog-era__intro ul li::before,
+.changelog-version-body ul li::before,
+.changelog-bullet-list li::before {
+    content: '' !important;
+    position: absolute;
+    left: 3px;
+    top: .72em;
+    width: 6px;
+    height: 6px;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    background: #5e9cf1;
+    box-shadow: 0 0 0 4px rgba(79,145,235,.07);
+}
+
+.changelog-era__intro ol,
+.changelog-version-body ol {
+    margin: 8px 0 18px 24px;
+    padding-left: 8px;
+}
+
+.changelog-era__intro ol li,
+.changelog-version-body ol li {
+    margin: 7px 0;
+    padding-left: 4px;
+    color: #a8b6ca;
+}
+
+.changelog-era__intro a,
+.changelog-version-body a {
+    color: #79aefe;
+    border-bottom: 1px solid rgba(121,174,254,.22);
+}
+
+.changelog-era__intro code,
+.changelog-version-body code {
+    padding: 2px 6px;
+    border: 1px solid rgba(99,148,219,.12);
+    border-radius: 6px;
+    color: #a8c7f2;
+    background: rgba(24,43,68,.55);
+}
+
+.changelog-era__intro blockquote,
+.changelog-version-body blockquote {
+    margin: 12px 0 18px;
+    padding: 10px 15px;
+    border-left: 3px solid rgba(88,153,245,.58);
+    border-radius: 0 10px 10px 0;
+    color: #9badc5;
+    background: rgba(43,83,139,.065);
+}
+
+/* ---------- Reading focus ---------- */
+.changelog-minor-release.is-reading {
+    border-color: rgba(106,169,255,.22);
+    box-shadow: 0 18px 42px rgba(0,0,0,.16), 0 0 0 1px rgba(75,139,239,.025);
+}
+
+.changelog-era.is-reading > .changelog-era__panel {
+    border-color: rgba(106,169,255,.22);
+}
+
+/* ---------- Responsive ---------- */
+@media only screen and (max-width: 992px) {
+    .changelog-intro-card {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .changelog-current {
+        padding: 18px 0 0;
+        border-left: 0;
+        border-top: 1px solid rgba(107,158,238,.12);
+    }
+
+    .changelog-history-head {
+        margin-left: 58px;
+    }
+
+    .changelog-era-list::before {
+        left: 26px;
+    }
+
+    .changelog-era {
+        grid-template-columns: 54px minmax(0,1fr);
+    }
+
+    .changelog-era__node {
+        left: 26px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .changelog-page-content {
+        margin-top: -38px !important;
+    }
+
+    .changelog-shell {
+        width: 94% !important;
+    }
+
+    .changelog-intro-card {
+        margin-bottom: 28px;
+        padding: 25px 22px;
+        border-radius: 18px;
+    }
+
+    .changelog-intro-copy h1 {
+        font-size: 34px;
+    }
+
+    .changelog-current__version {
+        font-size: 34px;
+    }
+
+    .changelog-current__meta {
+        gap: 6px;
+    }
+
+    .changelog-history-head {
+        margin: 0 0 18px 0;
+    }
+
+    .changelog-history-note,
+    .changelog-history-head__line {
+        display: none;
+    }
+
+    .changelog-era-list::before {
+        left: 12px;
+        top: 28px;
+    }
+
+    .changelog-era {
+        grid-template-columns: 24px minmax(0,1fr);
+    }
+
+    .changelog-era__node {
+        left: 12px;
+        top: 31px;
+        width: 17px;
+        height: 17px;
+        border-width: 2px;
+    }
+
+    .changelog-era + .changelog-era {
+        margin-top: 24px;
+    }
+
+    .changelog-era__panel {
+        border-radius: 17px;
+    }
+
+    .changelog-era__header {
+        align-items: flex-start;
+        padding: 22px 20px 18px;
+    }
+
+    .changelog-era__version {
+        font-size: 34px !important;
+    }
+
+    .changelog-era__count {
+        display: none;
+    }
+
+    .changelog-era__intro {
+        padding: 20px 20px 4px;
+    }
+
+    .changelog-era__releases {
+        gap: 12px;
+        padding: 15px 13px 16px;
+    }
+
+    .changelog-version-head {
+        align-items: flex-start;
+        padding: 17px 17px 14px 20px;
+    }
+
+    .changelog-version-title {
+        font-size: 22px !important;
+    }
+
+    .changelog-version-date {
+        padding-top: 2px;
+        font-size: 9px;
+    }
+
+    .changelog-version-body {
+        padding: 15px 19px 18px;
+    }
+
+    .changelog-version-head.is-compact {
+        padding-left: 31px;
+    }
+
+    .changelog-version-body.is-patch {
+        padding-left: 31px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .changelog-era__node,
+    .changelog-minor-release {
+        transition: none !important;
+    }
+}

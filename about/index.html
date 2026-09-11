@@ -114,6 +114,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/changelog" class="waves-effect waves-light">
+      
+      <i class="fas fa-code-branch" style="zoom: 0.6;"></i>
+      
+      <span>更新日志</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -189,6 +200,17 @@
 			    <i class="fa-fw fas fa-comments"></i>
 			
 			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/changelog" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-code-branch"></i>
+			
+			更新日志
 		</a>
           
         </li>
@@ -506,7 +528,7 @@
             color: ['#5f9cf5', '#788bf0', '#6676c9', '#7f6fc5', '#477fbd', '#74a8e5', '#535f9f', '#8a80d4', '#4f92c4'],
             label: { color: '#8394ad', fontSize: 10 },
             labelLine: { lineStyle: { color: 'rgba(122, 158, 209, .25)' } },
-            data: [{"name":"Hot100","value":4},{"name":"Tools","value":2},{"name":"Notes","value":1},{"name":"Paper","value":6},{"name":"DataAnalysis","value":2},{"name":"Algorithm","value":2}],
+            data: [{"name":"Hot100","value":4},{"name":"Tools","value":2},{"name":"Paper","value":6},{"name":"Notes","value":1},{"name":"Algorithm","value":2},{"name":"DataAnalysis","value":2}],
             itemStyle: {
                 borderColor: '#0d1521',
                 borderWidth: 2,
@@ -534,7 +556,7 @@
         grid: { left: 42, right: 18, top: 48, bottom: 55 },
         xAxis: [{
             type: 'category',
-            data: ["论文","时序知识图谱","Hot100","算法题","滑动窗口","笔记","RNN","数据分析","算法","工具"],
+            data: ["论文","时序知识图谱","Hot100","算法题","滑动窗口","笔记","RNN","算法","数据分析","开发工具"],
             axisLine: { lineStyle: { color: kzChartLine } },
             axisTick: { show: false },
             axisLabel: { color: '#6f829d', fontSize: 9, rotate: 28 }
@@ -809,6 +831,7 @@
      data-music-server="netease"
      data-music-type="playlist"
      data-music-id="14060001796"
+     data-music-sync-minutes="15"
      data-music-api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
      data-music-api-fallbacks="https://meting.mikus.ink/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r|KM|https://meting.naihee.com/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r">
     <meting-js data-km-engine
@@ -912,7 +935,12 @@
                 <span class="km-eyebrow">PLAYLIST</span>
                 <strong data-km-count>0 TRACKS</strong>
             </div>
-            <span class="km-playlist-source">网易云 · 14060001796</span>
+            <div class="km-playlist-source-wrap">
+                <span class="km-playlist-source">网易云 · 14060001796</span>
+                <button type="button" class="km-sync-button" data-km-refresh title="重新同步网易云歌单" aria-label="重新同步网易云歌单">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6.1 8.2A7 7 0 0 1 18.6 7M17.9 15.8A7 7 0 0 1 5.4 17"/></svg>
+                </button>
+            </div>
         </div>
         <div class="km-playlist" data-km-playlist>
             <div class="km-loading" data-km-loading><span></span><span></span><span></span>正在读取歌单</div>

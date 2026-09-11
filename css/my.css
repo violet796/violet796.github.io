@@ -865,7 +865,7 @@ textarea:focus {
 }
 
 /* ---------- comments ---------- */
-#vcomments,
+.valine-thread,
 .vwrap,
 .vcard,
 .vcontent,
@@ -3152,11 +3152,33 @@ body {
     margin: 0 !important;
 }
 
-.taxonomy-hub .taxonomy-pair > .container > .card,
-.taxonomy-hub .taxonomy-pair > #category-cloud > .card,
-.taxonomy-hub .taxonomy-pair > #tags > .card {
+/* Unified taxonomy widget motion: all four cards use the exact same inner-card hover
+   animation. The wrapper keeps AOS on a separate element, so AOS and hover never
+   compete for the same transform property. */
+.taxonomy-hub .taxonomy-widget-wrap > .taxonomy-widget-card {
     height: 100%;
     margin: 0 !important;
+    position: relative;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition:
+        transform .24s cubic-bezier(.2, .75, .25, 1),
+        border-color .24s ease,
+        background .24s ease,
+        box-shadow .24s ease !important;
+    will-change: transform;
+}
+
+.taxonomy-hub .taxonomy-widget-wrap > .taxonomy-widget-card:hover {
+    transform: translate3d(0, -5px, 0) !important;
+    border-color: rgba(112, 165, 247, .30) !important;
+    background:
+        radial-gradient(circle at 88% 0%, rgba(116, 94, 225, .09), transparent 30%),
+        linear-gradient(145deg, rgba(21, 33, 52, .95), rgba(10, 17, 28, .97)) !important;
+    box-shadow:
+        0 24px 58px rgba(0, 0, 0, .22),
+        0 0 32px rgba(63, 119, 226, .055) !important;
 }
 
 .taxonomy-hub #category-cloud .card-content,

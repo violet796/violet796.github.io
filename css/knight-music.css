@@ -912,3 +912,53 @@
         transform: none;
     }
 }
+
+/* Knight Music v1.3: remote playlist re-sync without recreating the UI. */
+.km-playlist-source-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+}
+
+.km-sync-button {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 28px;
+    height: 28px;
+    flex: 0 0 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 1px solid rgba(111, 163, 255, .14);
+    border-radius: 9px;
+    color: #91a7c9;
+    background: rgba(255,255,255,.018);
+    cursor: pointer;
+    transition: color .18s ease, border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.km-sync-button:hover {
+    color: #eaf2ff;
+    border-color: rgba(111, 163, 255, .34);
+    background: rgba(94, 149, 255, .08);
+    transform: translateY(-1px);
+}
+
+.km-sync-button:disabled { cursor: wait; opacity: .72; }
+.km-sync-button svg {
+    width: 14px;
+    height: 14px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.knight-music.is-syncing-playlist .km-sync-button svg {
+    animation: kmPlaylistSyncSpin .8s linear infinite;
+}
+
+@keyframes kmPlaylistSyncSpin { to { transform: rotate(360deg); } }

@@ -114,6 +114,17 @@
     
   </li>
   
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/changelog" class="waves-effect waves-light">
+      
+      <i class="fas fa-code-branch" style="zoom: 0.6;"></i>
+      
+      <span>更新日志</span>
+    </a>
+    
+  </li>
+  
   <li>
     <a href="#searchModal" class="modal-trigger waves-effect waves-light">
       <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
@@ -193,6 +204,17 @@
           
         </li>
         
+        <li class="m-nav-item">
+	  
+		<a href="/changelog" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-code-branch"></i>
+			
+			更新日志
+		</a>
+          
+        </li>
+        
         
     </ul>
 </div>
@@ -254,7 +276,9 @@
             
 
             
-            <style>
+            
+
+<style>
     .valine-card {
         margin: 1.5rem auto;
     }
@@ -263,129 +287,129 @@
         padding: 20px 20px 5px 20px;
     }
 
-    #vcomments textarea {
+    .valine-thread textarea {
         box-sizing: border-box;
         background: url("/medias/comment_bg.png") 100% 100% no-repeat;
     }
 
-    #vcomments p {
+    .valine-thread p {
         margin: 2px 2px 10px;
         font-size: 1.05rem;
         line-height: 1.78rem;
     }
 
-    #vcomments blockquote p {
+    .valine-thread blockquote p {
         text-indent: 0.2rem;
     }
 
-    #vcomments a {
+    .valine-thread a {
         padding: 0 2px;
         color: #4cbf30;
         font-weight: 500;
         text-decoration: none;
     }
 
-    #vcomments img {
+    .valine-thread img {
         max-width: 100%;
         height: auto;
         cursor: pointer;
     }
 
-    #vcomments ol li {
+    .valine-thread ol li {
         list-style-type: decimal;
     }
 
-    #vcomments ol,
-    ul {
+    .valine-thread ol,
+    .valine-thread ul {
         display: block;
         padding-left: 2em;
         word-spacing: 0.05rem;
     }
 
-    #vcomments ul li,
-    ol li {
+    .valine-thread ul li,
+    .valine-thread ol li {
         display: list-item;
         line-height: 1.8rem;
         font-size: 1rem;
     }
 
-    #vcomments ul li {
+    .valine-thread ul li {
         list-style-type: disc;
     }
 
-    #vcomments ul ul li {
+    .valine-thread ul ul li {
         list-style-type: circle;
     }
 
-    #vcomments table, th, td {
+    .valine-thread table, .valine-thread th, .valine-thread td {
         padding: 12px 13px;
         border: 1px solid #dfe2e5;
     }
 
-    #vcomments table, th, td {
+    .valine-thread table, .valine-thread th, .valine-thread td {
         border: 0;
     }
 
-    table tr:nth-child(2n), thead {
+    .valine-thread table tr:nth-child(2n), .valine-thread thead {
         background-color: #fafafa;
     }
 
-    #vcomments table th {
+    .valine-thread table th {
         background-color: #f2f2f2;
         min-width: 80px;
     }
 
-    #vcomments table td {
+    .valine-thread table td {
         min-width: 80px;
     }
 
-    #vcomments h1 {
+    .valine-thread h1 {
         font-size: 1.85rem;
         font-weight: bold;
         line-height: 2.2rem;
     }
 
-    #vcomments h2 {
+    .valine-thread h2 {
         font-size: 1.65rem;
         font-weight: bold;
         line-height: 1.9rem;
     }
 
-    #vcomments h3 {
+    .valine-thread h3 {
         font-size: 1.45rem;
         font-weight: bold;
         line-height: 1.7rem;
     }
 
-    #vcomments h4 {
+    .valine-thread h4 {
         font-size: 1.25rem;
         font-weight: bold;
         line-height: 1.5rem;
     }
 
-    #vcomments h5 {
+    .valine-thread h5 {
         font-size: 1.1rem;
         font-weight: bold;
         line-height: 1.4rem;
     }
 
-    #vcomments h6 {
+    .valine-thread h6 {
         font-size: 1rem;
         line-height: 1.3rem;
     }
 
-    #vcomments p {
+    .valine-thread p {
         font-size: 1rem;
         line-height: 1.5rem;
     }
 
-    #vcomments hr {
+    .valine-thread hr {
         margin: 12px 0;
         border: 0;
         border-top: 1px solid #ccc;
     }
 
-    #vcomments blockquote {
+    .valine-thread blockquote {
         margin: 15px 0;
         border-left: 5px solid #42b983;
         padding: 1rem 0.8rem 0.3rem 0.8rem;
@@ -393,7 +417,7 @@
         background-color: rgba(66, 185, 131, .1);
     }
 
-    #vcomments pre {
+    .valine-thread pre {
         font-family: monospace, monospace;
         padding: 1.2em;
         margin: .5em 0;
@@ -403,7 +427,7 @@
         tab-size: 4;
     }
 
-    #vcomments code {
+    .valine-thread code {
         font-family: monospace, monospace;
         padding: 1px 3px;
         font-size: 0.92rem;
@@ -412,24 +436,24 @@
         border-radius: 2px;
     }
 
-    #vcomments pre code {
+    .valine-thread pre code {
         font-family: monospace, monospace;
         padding: 0;
         color: #e8eaf6;
         background-color: #272822;
     }
 
-    #vcomments pre[class*="language-"] {
+    .valine-thread pre[class*="language-"] {
         padding: 1.2em;
         margin: .5em 0;
     }
 
-    #vcomments code[class*="language-"],
-    pre[class*="language-"] {
+    .valine-thread code[class*="language-"],
+    .valine-thread pre[class*="language-"] {
         color: #e8eaf6;
     }
 
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    .valine-thread [type="checkbox"]:not(:checked), .valine-thread [type="checkbox"]:checked {
         position: inherit;
         margin-left: -1.3rem;
         margin-right: 0.4rem;
@@ -439,47 +463,47 @@
         visibility: visible;
     }
 
-    #vcomments b,
-    strong {
+    .valine-thread b,
+    .valine-thread strong {
         font-weight: bold;
     }
 
-    #vcomments dfn {
+    .valine-thread dfn {
         font-style: italic;
     }
 
-    #vcomments small {
+    .valine-thread small {
         font-size: 85%;
     }
 
-    #vcomments cite {
+    .valine-thread cite {
         font-style: normal;
     }
 
-    #vcomments mark {
+    .valine-thread mark {
         background-color: #fcf8e3;
         padding: .2em;
     }
 
-    #vcomments table, th, td {
+    .valine-thread table, .valine-thread th, .valine-thread td {
         padding: 12px 13px;
         border: 1px solid #dfe2e5;
     }
 
-    table tr:nth-child(2n), thead {
+    .valine-thread table tr:nth-child(2n), .valine-thread thead {
         background-color: #fafafa;
     }
 
-    #vcomments table th {
+    .valine-thread table th {
         background-color: #f2f2f2;
         min-width: 80px;
     }
 
-    #vcomments table td {
+    .valine-thread table td {
         min-width: 80px;
     }
 
-    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+    .valine-thread [type="checkbox"]:not(:checked), .valine-thread [type="checkbox"]:checked {
         position: inherit;
         margin-left: -1.3rem;
         margin-right: 0.4rem;
@@ -493,9 +517,9 @@
 <div class="card valine-card" data-aos="fade-up">
     <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
         <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
-        <span>评论</span>
+        <span>留言板</span>
     </div>
-    <div id="vcomments" class="card-content" style="display: grid">
+    <div id="vcomments-381534526" class="card-content valine-thread" data-valine-path="/contact/" style="display: grid">
     </div>
 </div>
 
@@ -503,7 +527,7 @@
 <script src="/libs/valine/Valine.min.js"></script>
 <script>
     new Valine({
-        el: '#vcomments',
+        el: '#vcomments-381534526',
         appId: '65ulVupTEigsehinzJwXu3Ki-gzGzoHsz',
         appKey: 'THLBSWh25yJFFusQFuFluC6x',
         notify: 'false' === 'true',
@@ -512,7 +536,12 @@
         avatar: 'wavatar',
         pageSize: '10',
         lang: 'zh-cn',
-        placeholder: '不好的话我会删~~~'
+        placeholder: '不好的话我会删~~~',
+        // Valine stores its default pathname in a module-level variable when the
+        // library first loads. PJAX keeps that library alive, so every page must
+        // provide an explicit path or comments from the first page can leak into
+        // later pages.
+        path: "/contact/"
     });
 </script>
 
@@ -648,6 +677,7 @@
      data-music-server="netease"
      data-music-type="playlist"
      data-music-id="14060001796"
+     data-music-sync-minutes="15"
      data-music-api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
      data-music-api-fallbacks="https://meting.mikus.ink/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r|KM|https://meting.naihee.com/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r">
     <meting-js data-km-engine
@@ -751,7 +781,12 @@
                 <span class="km-eyebrow">PLAYLIST</span>
                 <strong data-km-count>0 TRACKS</strong>
             </div>
-            <span class="km-playlist-source">网易云 · 14060001796</span>
+            <div class="km-playlist-source-wrap">
+                <span class="km-playlist-source">网易云 · 14060001796</span>
+                <button type="button" class="km-sync-button" data-km-refresh title="重新同步网易云歌单" aria-label="重新同步网易云歌单">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6.1 8.2A7 7 0 0 1 18.6 7M17.9 15.8A7 7 0 0 1 5.4 17"/></svg>
+                </button>
+            </div>
         </div>
         <div class="km-playlist" data-km-playlist>
             <div class="km-loading" data-km-loading><span></span><span></span><span></span>正在读取歌单</div>

@@ -140,12 +140,19 @@
             var incomingShell = doc.getElementById(SHELL_ID);
             if (!incomingShell) throw new Error('PJAX shell missing');
 
+            // fetch() follows redirects. Use the final canonical URL before running
+            // page scripts so path-sensitive widgets (notably Valine) use the same
+            // key as a direct page load, e.g. /contact/ instead of /contact.
+            var finalTarget = response.url ? new URL(response.url, location.href) : target;
+            if (target.hash) finalTarget.hash = target.hash;
+
             pageCleanup();
             updateHead(doc);
             currentShell.innerHTML = incomingShell.innerHTML;
 
-            if (options.push !== false) history.pushState({ knightPjax: true }, '', target.href);
-            else history.replaceState({ knightPjax: true }, '', target.href);
+            if (options.push !== false) history.pushState({ knightPjax: true }, '', finalTarget.href);
+            else history.replaceState({ knightPjax: true }, '', finalTarget.href);
+            target = finalTarget;
 
             await executeShellScripts(currentShell);
             postLoadInit();

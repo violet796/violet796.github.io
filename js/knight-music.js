@@ -32,7 +32,8 @@
         coverFallback: root.querySelector('[data-km-cover-fallback]'),
         coverFallbackLarge: root.querySelector('[data-km-cover-fallback-large]'),
         playlist: root.querySelector('[data-km-playlist]'),
-        count: root.querySelector('[data-km-count]')
+        count: root.querySelector('[data-km-count]'),
+        refresh: root.querySelector('[data-km-refresh]')
     };
 
     var rememberState = root.getAttribute('data-remember-state') !== 'false';
@@ -42,11 +43,15 @@
     var apiCandidates = [apiPrimary].concat(apiFallbacks).filter(function (item, index, list) {
         return item && list.indexOf(item) === index;
     });
+    var syncMinutes = Math.max(1, Number(root.getAttribute('data-music-sync-minutes')) || 15);
     var ap = null;
     var initialized = false;
     var draggingProgress = false;
     var pendingRestore = null;
     var restoreAttemptedPlay = false;
+    var playlistBound = false;
+    var playlistSyncing = false;
+    var lastPlaylistSyncAt = 0;
 
     function safeJSONParse(text) {
         try { return JSON.parse(text); } catch (e) { return null; }
@@ -184,15 +189,18 @@
                 '<span class="km-track-state">♪</span>' +
                 '</button>';
         }).join('');
-        ui.playlist.addEventListener('click', function (event) {
-            var track = event.target.closest('[data-km-track]');
-            if (!track || !ap) return;
-            var index = Number(track.getAttribute('data-km-track'));
-            if (!Number.isFinite(index)) return;
-            if (ap.list.index !== index) ap.list.switch(index);
-            var promise = ap.play();
-            if (promise && typeof promise.catch === 'function') promise.catch(function () {});
-        });
+        if (!playlistBound) {
+            playlistBound = true;
+            ui.playlist.addEventListener('click', function (event) {
+                var track = event.target.closest('[data-km-track]');
+                if (!track || !ap) return;
+                var index = Number(track.getAttribute('data-km-track'));
+                if (!Number.isFinite(index)) return;
+                if (ap.list.index !== index) ap.list.switch(index);
+                var promise = ap.play();
+                if (promise && typeof promise.catch === 'function') promise.catch(function () {});
+            });
+        }
         refreshPlaylistActive();
     }
 
@@ -251,9 +259,173 @@
         window.setTimeout(tryRestoreSeekAndPlay, 80);
     }
 
+    function audioKey(audio) {
+        if (!audio) return '';
+        return String(audio.name || audio.title || '').trim() + '\u0000' + String(audio.artist || audio.author || '').trim();
+    }
+
+    function playlistSignature(audios) {
+        return (audios || []).map(audioKey).join('\u0001');
+    }
+
+    function buildPlaylistApiUrl(template) {
+        if (!template) return '';
+        var url = template
+            .replace(':server', encodeURIComponent(root.getAttribute('data-music-server') || 'netease'))
+            .replace(':type', encodeURIComponent(root.getAttribute('data-music-type') || 'playlist'))
+            .replace(':id', encodeURIComponent(root.getAttribute('data-music-id') || ''))
+            .replace(':auth', '')
+            .replace(':r', String(Date.now()) + '-' + String(Math.random()).slice(2));
+        // Some proxies ignore :r when building their upstream cache key. The
+        // extra query value still prevents browser/CDN reuse when supported.
+        url += (url.indexOf('?') >= 0 ? '&' : '?') + '_kmts=' + Date.now();
+        return url;
+    }
+
+    function fetchPlaylist(template) {
+        var url = buildPlaylistApiUrl(template);
+        if (!url) return Promise.reject(new Error('empty api'));
+        return fetch(url, { cache: 'no-store', credentials: 'omit' })
+            .then(function (response) {
+                if (!response.ok) throw new Error('HTTP ' + response.status);
+                return response.json();
+            })
+            .then(function (data) {
+                if (!Array.isArray(data) || !data.length) throw new Error('empty playlist');
+                return data;
+            });
+    }
+
+    function setSyncState(syncing, label) {
+        playlistSyncing = !!syncing;
+        root.classList.toggle('is-syncing-playlist', playlistSyncing);
+        if (ui.refresh) {
+            ui.refresh.disabled = playlistSyncing;
+            ui.refresh.setAttribute('title', label || (playlistSyncing ? '正在同步网易云歌单' : '重新同步网易云歌单'));
+        }
+    }
+
+    function replacePlaylist(data) {
+        if (!ap || !ap.list || !Array.isArray(data) || !data.length) return;
+        var oldAudio = currentAudio();
+        var oldKey = audioKey(oldAudio);
+        var oldTime = ap.audio && Number.isFinite(ap.audio.currentTime) ? ap.audio.currentTime : 0;
+        var wasPlaying = !!(ap.audio && !ap.audio.paused);
+        var oldVolume = ap.audio && Number.isFinite(ap.audio.volume) ? ap.audio.volume : 0.7;
+        var oldOrder = ap.options && ap.options.order ? ap.options.order : 'list';
+        var targetIndex = data.map(audioKey).indexOf(oldKey);
+        if (targetIndex < 0) targetIndex = 0;
+
+        try { ap.pause(); } catch (e) {}
+        ap.list.clear();
+        ap.list.add(data);
+        if (ap.list.index !== targetIndex) ap.list.switch(targetIndex);
+        if (ap.options) ap.options.order = oldOrder;
+        try { ap.volume(oldVolume, true); } catch (e) {}
+
+        renderPlaylist();
+        refreshTrackMeta();
+        refreshOrder();
+        refreshVolume();
+
+        var canRestorePosition = oldKey && audioKey(currentAudio()) === oldKey && oldTime > 0;
+        var playlistRestoreDone = false;
+        var restore = function () {
+            if (playlistRestoreDone) return;
+            playlistRestoreDone = true;
+            if (canRestorePosition && ap.audio && Number.isFinite(ap.audio.duration) && ap.audio.duration > 0) {
+                try { ap.seek(Math.min(oldTime, Math.max(0, ap.audio.duration - 0.5))); } catch (e) {}
+            }
+            if (wasPlaying) {
+                try {
+                    var promise = ap.play();
+                    if (promise && typeof promise.catch === 'function') promise.catch(function () {});
+                } catch (e) {}
+            }
+            refreshPlayingState();
+            saveState();
+        };
+        if (ap.audio) ap.audio.addEventListener('loadedmetadata', restore, { once: true });
+        window.setTimeout(restore, 600);
+    }
+
+    function syncPlaylist(options) {
+        options = options || {};
+        if (!ap || playlistSyncing || !apiCandidates.length) return Promise.resolve(false);
+        // Automatic sync never interrupts a song that is currently playing.
+        if (!options.force && ap.audio && !ap.audio.paused) return Promise.resolve(false);
+
+        setSyncState(true, '正在同步网易云歌单');
+        var currentSig = playlistSignature(ap.list && ap.list.audios ? ap.list.audios : []);
+        var templates = options.tryFallbacks ? apiCandidates.slice() : apiCandidates.slice(0, 1);
+        var index = 0;
+        var lastData = null;
+
+        function next() {
+            if (index >= templates.length) {
+                if (lastData && playlistSignature(lastData) !== currentSig) {
+                    replacePlaylist(lastData);
+                    return true;
+                }
+                return false;
+            }
+            var template = templates[index++];
+            return fetchPlaylist(template).then(function (data) {
+                lastData = data;
+                var incomingSig = playlistSignature(data);
+                if (incomingSig !== currentSig) {
+                    replacePlaylist(data);
+                    return true;
+                }
+                return options.tryFallbacks ? next() : false;
+            }).catch(function () {
+                return next();
+            });
+        }
+
+        return Promise.resolve(next()).then(function (changed) {
+            lastPlaylistSyncAt = Date.now();
+            setSyncState(false, changed ? '歌单已同步更新' : '当前歌单已是最新');
+            if (ui.refresh) {
+                window.setTimeout(function () {
+                    if (!playlistSyncing) ui.refresh.setAttribute('title', '重新同步网易云歌单');
+                }, 2200);
+            }
+            return changed;
+        }).catch(function () {
+            lastPlaylistSyncAt = Date.now();
+            setSyncState(false, '同步失败，请稍后重试');
+            return false;
+        });
+    }
+
+    function startPlaylistSync() {
+        // MetingJS only resolves the playlist once when it creates APlayer. With
+        // PJAX the player then survives for the whole session, so the first view
+        // could keep an API-cached playlist until the user pressed refresh. Run
+        // the exact same forced/fallback sync used by the refresh button shortly
+        // after APlayer becomes ready.
+        lastPlaylistSyncAt = 0;
+        window.setTimeout(function () {
+            syncPlaylist({ force: true, tryFallbacks: true });
+        }, 450);
+
+        window.setInterval(function () {
+            syncPlaylist({ force: false, tryFallbacks: false });
+        }, syncMinutes * 60 * 1000);
+        window.addEventListener('focus', function () {
+            if (Date.now() - lastPlaylistSyncAt >= syncMinutes * 60 * 1000) {
+                syncPlaylist({ force: false, tryFallbacks: false });
+            }
+        });
+    }
+
     function bindUI() {
         if (ui.toggle) ui.toggle.addEventListener('click', function () { setOpen(true); });
         if (ui.close) ui.close.addEventListener('click', function () { setOpen(false); });
+        if (ui.refresh) ui.refresh.addEventListener('click', function () {
+            syncPlaylist({ force: true, tryFallbacks: true });
+        });
         if (ui.prevMini) ui.prevMini.addEventListener('click', function (event) {
             event.stopPropagation();
             if (ap) ap.skipBack();
@@ -352,6 +524,7 @@
         refreshOrder();
         restoreState();
         root.classList.add('is-ready');
+        startPlaylistSync();
     }
 
     function showEngineStatus(title, detail, finalFailure) {
