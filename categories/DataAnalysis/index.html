@@ -228,31 +228,67 @@
 </header>
 
     <div id="knight-page-shell">
-        <div class="bg-cover pd-header about-cover inner-cover">
+        
+
+<div class="bg-cover pd-header about-cover inner-cover inner-cover--taxonomy" data-banner-index="1">
     <div class="inner-cover__media" aria-hidden="true">
         <div class="inner-cover__backdrop"></div>
         <img class="inner-cover__image" src="" alt="" draggable="false">
     </div>
-    <div class="container">
+
+    
+    <div class="container inner-hero__container">
+        <div class="inner-hero__copy" data-aos="fade-up">
+            <div class="inner-hero__eyebrow"><span></span>ARTICLE NAVIGATION</div>
+            <h1>文章导航</h1>
+            
+            <p>在此快速寻找你感兴趣的文章</p>
+            
+            
+            <div class="inner-hero__stats" aria-label="页面统计">
+                
+                <span><strong>6</strong><em>分类</em></span>
+                
+                <span><strong>22</strong><em>标签</em></span>
+                
+                <span><strong>17</strong><em>文章</em></span>
+                
+            </div>
+            
+        </div>
+    </div>
     
 
-
+    
 <script>
-    (function () {
-        var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-        var $cover = $('.bg-cover').first();
-        if (!$cover.length) return;
+(function () {
+    var cover = document.currentScript && document.currentScript.closest('.bg-cover.inner-cover');
+    if (!cover) cover = document.querySelector('.bg-cover.inner-cover');
+    if (!cover) return;
 
-        $cover.css('background-image', 'none');
-        $cover.get(0).style.setProperty('--kz-inner-cover-image', 'url("' + bannerUrl + '")');
-        $cover.find('.inner-cover__image')
-            .attr('src', bannerUrl)
-            .on('error', function () { $(this).hide(); });
-    })();
+    var configuredIndex = parseInt(cover.getAttribute('data-banner-index'), 10);
+    var bannerIndex = Number.isFinite(configuredIndex) ? configuredIndex : new Date().getDay();
+    var bannerBase = "/medias/banner/";
+    var bannerUrl = bannerBase + bannerIndex + '.jpg';
+
+    cover.style.backgroundImage = 'none';
+    cover.style.setProperty('--kz-inner-cover-image', 'url("' + bannerUrl + '")');
+
+    var image = cover.querySelector('.inner-cover__image');
+    if (!image) return;
+    image.src = bannerUrl;
+    image.onerror = function () {
+        var fallback = bannerBase + '0.jpg';
+        if (image.src.indexOf('/0.jpg') === -1) {
+            cover.style.setProperty('--kz-inner-cover-image', 'url("' + fallback + '")');
+            image.src = fallback;
+        } else {
+            image.style.display = 'none';
+        }
+    };
+})();
 </script>
 
-
-    </div>
 </div>
 
 
@@ -264,20 +300,7 @@
      data-initial-name="DataAnalysis"
      data-page-size="9">
 
-    <section class="taxonomy-overview card" data-aos="fade-up">
-        <div class="taxonomy-overview__eyebrow">ARTICLE NAVIGATION</div>
-        <div class="taxonomy-overview__main">
-            <div>
-                <h1>文章导航</h1>
-                <p>在此快速寻找你感兴趣的文章</p>
-            </div>
-            <div class="taxonomy-overview__stats" aria-label="taxonomy statistics">
-                <span><strong>6</strong> 分类</span>
-                <span><strong>22</strong> 标签</span>
-                <span><strong>17</strong> 文章</span>
-            </div>
-        </div>
-    </section>
+
 
     <section id="taxonomy-categories" class="taxonomy-section taxonomy-section--categories">
         <div class="taxonomy-section__heading">
@@ -318,29 +341,20 @@
                 </a>
                 
                 
-                <a href="/categories/Paper/" title="Paper: 6" data-taxonomy-filter="category" data-taxonomy-name="Paper">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D5F5E3;">Paper
-                        <span class="tag-length">6</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/categories/Notes/" title="Notes: 1" data-taxonomy-filter="category" data-taxonomy-name="Notes">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">Notes
+                            style="background-color: #D5F5E3;">Notes
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Algorithm/" title="Algorithm: 2" data-taxonomy-filter="category" data-taxonomy-name="Algorithm">
+                <a href="/categories/Paper/" title="Paper: 6" data-taxonomy-filter="category" data-taxonomy-name="Paper">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">Algorithm
-                        <span class="tag-length">2</span>
+                            style="background-color: #E8F8F5;">Paper
+                        <span class="tag-length">6</span>
                     </span>
                 </a>
                 
@@ -348,7 +362,16 @@
                 <a href="/categories/DataAnalysis/" title="DataAnalysis: 2" data-taxonomy-filter="category" data-taxonomy-name="DataAnalysis">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
-                            style="background-color: #F8F9F9;">DataAnalysis
+                            style="background-color: #FEF9E7;">DataAnalysis
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/categories/Algorithm/" title="Algorithm: 2" data-taxonomy-filter="category" data-taxonomy-name="Algorithm">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F8F9F9;">Algorithm
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -410,7 +433,7 @@
                     fontSize: 12
                 }
             },
-            indicator: [{"name":"Hot100","max":7},{"name":"Tools","max":7},{"name":"Paper","max":7},{"name":"Notes","max":7},{"name":"Algorithm","max":7},{"name":"DataAnalysis","max":7}],
+            indicator: [{"name":"Hot100","max":7},{"name":"Tools","max":7},{"name":"Notes","max":7},{"name":"Paper","max":7},{"name":"DataAnalysis","max":7},{"name":"Algorithm","max":7}],
             nameGap: 7,
             center: ['50%','55%'],
             radius: '64%',
@@ -442,7 +465,7 @@
                 color: 'rgba(84, 145, 255, .16)'
             },
             data : [{
-                value : [4,2,6,1,2,2],
+                value : [4,2,1,6,2,2],
                 name : '文章分类数量'
             }]
         }]
@@ -514,28 +537,10 @@
                 </a>
                 
                 
-                <a href="/tags/%E7%AC%94%E8%AE%B0/" title="笔记: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AC%94%E8%AE%B0">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="笔记" style="background-color: #E8F8F5;">笔记
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="开发工具: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="开发工具" style="background-color: #FEF9E7;">开发工具
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
                 <a href="/tags/%E5%B7%A5%E5%85%B7/" title="工具: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%B7%A5%E5%85%B7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="工具" style="background-color: #F8F9F9;">工具
+                            data-tagname="工具" style="background-color: #E8F8F5;">工具
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -544,7 +549,7 @@
                 <a href="/tags/Node-js/" title="Node.js: 1" data-taxonomy-filter="tag" data-taxonomy-name="Node.js">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="Node.js" style="background-color: #82E0AA;">Node.js
+                            data-tagname="Node.js" style="background-color: #FEF9E7;">Node.js
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -553,34 +558,25 @@
                 <a href="/tags/%E5%BC%80%E5%8F%91/" title="开发: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BC%80%E5%8F%91">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="开发" style="background-color: #D7BDE2;">开发
+                            data-tagname="开发" style="background-color: #F8F9F9;">开发
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E8%AE%BA%E6%96%87/" title="论文: 6" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">
+                <a href="/tags/%E7%AC%94%E8%AE%B0/" title="笔记: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AC%94%E8%AE%B0">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="论文" style="background-color: #A3E4D7;">论文
-                        <span class="tag-length">6</span>
+                            data-tagname="笔记" style="background-color: #82E0AA;">笔记
+                        <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" title="时序知识图谱: 5" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">
+                <a href="/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" title="开发工具: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="时序知识图谱" style="background-color: #85C1E9;">时序知识图谱
-                        <span class="tag-length">5</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F/" title="时序衰减: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="时序衰减" style="background-color: #F8C471;">时序衰减
+                            data-tagname="开发工具" style="background-color: #D7BDE2;">开发工具
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -589,7 +585,7 @@
                 <a href="/tags/%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F/" title="医学影像: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E5%8C%BB%E5%AD%A6%E5%BD%B1%E5%83%8F">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="医学影像" style="background-color: #F9E79F;">医学影像
+                            data-tagname="医学影像" style="background-color: #A3E4D7;">医学影像
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -598,7 +594,34 @@
                 <a href="/tags/%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88/" title="跨学科融合: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E8%B7%A8%E5%AD%A6%E7%A7%91%E8%9E%8D%E5%90%88">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="跨学科融合" style="background-color: #F9E79F;">跨学科融合
+                            data-tagname="跨学科融合" style="background-color: #85C1E9;">跨学科融合
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E8%AE%BA%E6%96%87/" title="论文: 6" data-taxonomy-filter="tag" data-taxonomy-name="%E8%AE%BA%E6%96%87">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="论文" style="background-color: #F8C471;">论文
+                        <span class="tag-length">6</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/" title="时序知识图谱: 5" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="时序知识图谱" style="background-color: #F9E79F;">时序知识图谱
+                        <span class="tag-length">5</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F/" title="时序衰减: 1" data-taxonomy-filter="tag" data-taxonomy-name="%E6%97%B6%E5%BA%8F%E8%A1%B0%E5%87%8F">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="时序衰减" style="background-color: #D7BDE2;">时序衰减
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -631,6 +654,24 @@
                 </a>
                 
                 
+                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="数据分析: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="数据分析" style="background-color: #F9E79F;">数据分析
+                        <span class="tag-length">2</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Pandas/" title="Pandas: 1" data-taxonomy-filter="tag" data-taxonomy-name="Pandas">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Pandas" style="background-color: #FEF9E7;">Pandas
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/tags/%E7%AE%97%E6%B3%95/" title="算法: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E7%AE%97%E6%B3%95">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
@@ -653,24 +694,6 @@
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             data-tagname="知识图谱归一化表示" style="background-color: #F8F9F9;">知识图谱归一化表示
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/" title="数据分析: 2" data-taxonomy-filter="tag" data-taxonomy-name="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="数据分析" style="background-color: #F9E79F;">数据分析
-                        <span class="tag-length">2</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Pandas/" title="Pandas: 1" data-taxonomy-filter="tag" data-taxonomy-name="Pandas">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Pandas" style="background-color: #FEF9E7;">Pandas
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -716,7 +739,7 @@
     requestAnimationFrame(function () {
         if (!document.body.contains(el)) return;
         try {
-            $el.jQCloud([{"text":"Hot100","weight":4,"link":"/tags/Hot100/"},{"text":"算法题","weight":4,"link":"/tags/算法题/"},{"text":"滑动窗口","weight":4,"link":"/tags/滑动窗口/"},{"text":"笔记","weight":2,"link":"/tags/笔记/"},{"text":"开发工具","weight":1,"link":"/tags/开发工具/"},{"text":"工具","weight":1,"link":"/tags/工具/"},{"text":"Node.js","weight":1,"link":"/tags/Node-js/"},{"text":"开发","weight":1,"link":"/tags/开发/"},{"text":"论文","weight":6,"link":"/tags/论文/"},{"text":"时序知识图谱","weight":5,"link":"/tags/时序知识图谱/"},{"text":"时序衰减","weight":1,"link":"/tags/时序衰减/"},{"text":"医学影像","weight":1,"link":"/tags/医学影像/"},{"text":"跨学科融合","weight":1,"link":"/tags/跨学科融合/"},{"text":"迁移学习","weight":1,"link":"/tags/迁移学习/"},{"text":"RNN","weight":2,"link":"/tags/RNN/"},{"text":"快速傅里叶变换","weight":1,"link":"/tags/快速傅里叶变换/"},{"text":"算法","weight":2,"link":"/tags/算法/"},{"text":"链路预测","weight":1,"link":"/tags/链路预测/"},{"text":"知识图谱归一化表示","weight":1,"link":"/tags/知识图谱归一化表示/"},{"text":"数据分析","weight":2,"link":"/tags/数据分析/"},{"text":"Pandas","weight":1,"link":"/tags/Pandas/"},{"text":"Numpy","weight":1,"link":"/tags/Numpy/"}], { autoResize: true });
+            $el.jQCloud([{"text":"Hot100","weight":4,"link":"/tags/Hot100/"},{"text":"算法题","weight":4,"link":"/tags/算法题/"},{"text":"滑动窗口","weight":4,"link":"/tags/滑动窗口/"},{"text":"工具","weight":1,"link":"/tags/工具/"},{"text":"Node.js","weight":1,"link":"/tags/Node-js/"},{"text":"开发","weight":1,"link":"/tags/开发/"},{"text":"笔记","weight":2,"link":"/tags/笔记/"},{"text":"开发工具","weight":1,"link":"/tags/开发工具/"},{"text":"医学影像","weight":1,"link":"/tags/医学影像/"},{"text":"跨学科融合","weight":1,"link":"/tags/跨学科融合/"},{"text":"论文","weight":6,"link":"/tags/论文/"},{"text":"时序知识图谱","weight":5,"link":"/tags/时序知识图谱/"},{"text":"时序衰减","weight":1,"link":"/tags/时序衰减/"},{"text":"迁移学习","weight":1,"link":"/tags/迁移学习/"},{"text":"RNN","weight":2,"link":"/tags/RNN/"},{"text":"快速傅里叶变换","weight":1,"link":"/tags/快速傅里叶变换/"},{"text":"数据分析","weight":2,"link":"/tags/数据分析/"},{"text":"Pandas","weight":1,"link":"/tags/Pandas/"},{"text":"算法","weight":2,"link":"/tags/算法/"},{"text":"链路预测","weight":1,"link":"/tags/链路预测/"},{"text":"知识图谱归一化表示","weight":1,"link":"/tags/知识图谱归一化表示/"},{"text":"Numpy","weight":1,"link":"/tags/Numpy/"}], { autoResize: true });
         } catch (e) {
             console.warn('[KnightTaxonomy] tag wordcloud init failed:', e);
         }
@@ -1523,7 +1546,7 @@
                lrc-type="3"></meting-js>
 
     <div class="km-dock" data-km-dock>
-        <button type="button" class="km-dock-main" data-km-toggle aria-label="展开音乐播放器" aria-expanded="false">
+        <button type="button" class="km-dock-main" data-km-toggle data-km-drag-handle aria-label="展开音乐播放器，可拖动位置" aria-expanded="false" title="拖动可移动播放器，点击展开">
             <span class="km-dock-cover-wrap">
                 <img class="km-dock-cover" data-km-cover-mini alt="当前歌曲封面">
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
@@ -1533,6 +1556,7 @@
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="km-drag-grip" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         </button>
         <div class="km-dock-controls" aria-label="迷你播放控制">
             <button type="button" class="km-dock-control" data-km-prev-mini aria-label="上一首">
@@ -1549,11 +1573,13 @@
     </div>
 
     <section class="km-panel" data-km-panel aria-label="音乐播放器" aria-hidden="true">
+        <div class="km-panel-artwork" data-km-artwork aria-hidden="true"></div>
         <div class="km-panel-glow" aria-hidden="true"></div>
-        <header class="km-panel-header">
-            <div>
+        <header class="km-panel-header" data-km-drag-handle title="拖动可移动播放器">
+            <div class="km-panel-heading">
                 <span class="km-eyebrow">KNIGHT MUSIC</span>
                 <h3>正在播放</h3>
+                <span class="km-panel-drag-note">拖动此处可移动</span>
             </div>
             <button type="button" class="km-icon-button km-close" data-km-close aria-label="收起播放器">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg>
@@ -1572,7 +1598,10 @@
         </div>
 
         <div class="km-progress-block">
-            <input type="range" class="km-range km-progress" data-km-progress min="0" max="1000" value="0" aria-label="播放进度">
+            <div class="km-progress" data-km-progress role="slider" tabindex="0" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span class="km-progress-fill" data-km-progress-fill></span>
+                <span class="km-progress-thumb" data-km-progress-thumb></span>
+            </div>
             <div class="km-time-row"><span data-km-current>00:00</span><span data-km-duration>00:00</span></div>
         </div>
 

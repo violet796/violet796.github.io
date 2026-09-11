@@ -230,44 +230,75 @@
     <div id="knight-page-shell">
         <link rel="stylesheet" href="/css/changelog.css">
 
-<div class="bg-cover pd-header about-cover inner-cover">
+
+
+<div class="bg-cover pd-header about-cover inner-cover inner-cover--changelog" data-banner-index="5">
     <div class="inner-cover__media" aria-hidden="true">
         <div class="inner-cover__backdrop"></div>
         <img class="inner-cover__image" src="" alt="" draggable="false">
     </div>
-    <div class="container">
+
+    
+    <div class="container inner-hero__container">
+        <div class="inner-hero__copy" data-aos="fade-up">
+            <div class="inner-hero__eyebrow"><span></span>CHANGELOG</div>
+            <h1>更新日志</h1>
+            
+            <p>记录本站界面、功能与内容系统的持续迭代</p>
+            
+            
+        </div>
+    </div>
     
 
-
+    
 <script>
-    (function () {
-        var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-        var $cover = $('.bg-cover').first();
-        if (!$cover.length) return;
+(function () {
+    var cover = document.currentScript && document.currentScript.closest('.bg-cover.inner-cover');
+    if (!cover) cover = document.querySelector('.bg-cover.inner-cover');
+    if (!cover) return;
 
-        $cover.css('background-image', 'none');
-        $cover.get(0).style.setProperty('--kz-inner-cover-image', 'url("' + bannerUrl + '")');
-        $cover.find('.inner-cover__image')
-            .attr('src', bannerUrl)
-            .on('error', function () { $(this).hide(); });
-    })();
+    var configuredIndex = parseInt(cover.getAttribute('data-banner-index'), 10);
+    var bannerIndex = Number.isFinite(configuredIndex) ? configuredIndex : new Date().getDay();
+    var bannerBase = "/medias/banner/";
+    var bannerUrl = bannerBase + bannerIndex + '.jpg';
+
+    cover.style.backgroundImage = 'none';
+    cover.style.setProperty('--kz-inner-cover-image', 'url("' + bannerUrl + '")');
+
+    var image = cover.querySelector('.inner-cover__image');
+    if (!image) return;
+    image.src = bannerUrl;
+    image.onerror = function () {
+        var fallback = bannerBase + '0.jpg';
+        if (image.src.indexOf('/0.jpg') === -1) {
+            cover.style.setProperty('--kz-inner-cover-image', 'url("' + fallback + '")');
+            image.src = fallback;
+        } else {
+            image.style.display = 'none';
+        }
+    };
+})();
 </script>
 
-
-    </div>
 </div>
 
 
 <main class="content changelog-page-content">
     <div class="container changelog-shell" id="changelogPage" data-page-date="2026-09-10">
-        <section class="changelog-intro-card">
-            <div class="changelog-intro-copy">
-                <span class="changelog-eyebrow">CHANGELOG</span>
-                <h1>更新日志</h1>
-                <p>以主版本记录年度阶段，以次版本与修订版本记录这一阶段内的持续更新。</p>
+        <section class="changelog-release-console" aria-label="当前版本概览">
+            <div class="changelog-release-console__glow" aria-hidden="true"></div>
+            <div class="changelog-release-console__copy">
+                <div class="changelog-release-console__status">
+                    <span class="changelog-release-console__pulse" aria-hidden="true"></span>
+                    <span>LIVE CHANGELOG</span>
+                </div>
+                <span class="changelog-eyebrow">RELEASE CHANNEL</span>
+                <h2>版本演进</h2>
+                <p>主版本代表年度阶段，次版本记录功能迭代，修订版本记录日常维护。</p>
             </div>
 
-            <div class="changelog-current" aria-label="当前版本">
+            <div class="changelog-current changelog-current--console" aria-label="当前版本">
                 <span class="changelog-current__label">CURRENT VERSION</span>
                 <strong class="changelog-current__version" data-changelog-current>--</strong>
                 <div class="changelog-current__meta">
@@ -283,6 +314,10 @@
                     <span><b data-changelog-patch>0</b> 修订</span>
                 </div>
             </div>
+
+            <div class="changelog-release-console__signal" aria-hidden="true">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
         </section>
 
         <section class="changelog-history" aria-label="版本历史">
@@ -295,7 +330,7 @@
             <div class="changelog-markdown" data-changelog-content>
                 <h2 id="v1.0.0-2026-07-30">V1.0.0 · 2026-07-30</h2>
 <p><strong>版本概述：</strong>网站运行一周年，年限内计划对网站整体架构升级，新增网站功能，优化网站的视觉效果以及阅读体验</p>
-<h3 id="v1.1.0-更新日志-2026-09-10">V1.1.0 更新日志· 2026-09-10</h3>
+<h3 id="v1.1.0-更新日志-2026-09-09">V1.1.0 更新日志· 2026-09-09</h3>
 <p><strong>重构</strong></p>
 <ul>
 <li>对网站整体页面进行重构，网站风格从原先的绿白色风格变成黑蓝色风格，且优化部分架构</li>
@@ -312,7 +347,7 @@
 <li>新增音乐播放器，当前音乐播放器可实现跨页播放功能</li>
 <li>新增<strong>更新日志</strong>栏，将博客的更新日志展示在网站首页</li>
 </ul>
-<h4 id="v1.1.1-更新日志-2026-09-11">v1.1.1 更新日志· 2026-09-11</h4>
+<h4 id="v1.1.1-更新日志-2026-09-10">v1.1.1 更新日志· 2026-09-10</h4>
 <p><strong>修复</strong></p>
 <ul>
 <li>修复<strong>文章导航</strong>页面仅有部分组件有上浮动画的问题</li>
@@ -325,6 +360,20 @@
 <p><strong>重构</strong></p>
 <ul>
 <li>重构更新日志布局，以获得更好的视觉体验</li>
+</ul>
+<h4 id="v1.2.1-更新日志-2026-09-11">v1.2.1 更新日志· 2026-09-11</h4>
+<p><strong>修复</strong></p>
+<ul>
+<li>修复<strong>音乐播放器</strong>进度条显示问题，此前音乐播放器进度条显示0-1000，修复后正常显示歌曲时间</li>
+<li>修复<strong>网页留言板</strong>与<strong>文章留言板</strong>分流路径的重复问题</li>
+<li>修复<strong>音乐播放器</strong>在上一版本修改后留下的新问题，该问题导致<strong>音乐播放器</strong>必须要手动刷新才能够更新歌单</li>
+</ul>
+<p><strong>重构</strong></p>
+<ul>
+<li>网页视觉效果重构，当前页面的背景图不再<strong>按日期轮换</strong>，而是不同页面以嵌入的方式展示不同的背景图</li>
+<li><strong>音乐播放器</strong>样式重构，更切合网站风格</li>
+<li>首页文章的描述右侧增加<strong>热力方块</strong>，以文章字数决定热力方块的颜色深度</li>
+<li><strong>更新日志</strong>页面增加新的动画，以丰富该页面的视觉效果</li>
 </ul>
 <h2 id="v0.0.0-2025-07-30">v0.0.0 · 2025-07-30</h2>
 <p><strong>版本概述：</strong> 网站正式上线，定位为记录个人日常博客，包括但不限于<strong>科研、笔记、生活、游戏</strong>。网站基于hexo + matery，初始版本保留该模板所有页面</p>
@@ -838,7 +887,7 @@
                lrc-type="3"></meting-js>
 
     <div class="km-dock" data-km-dock>
-        <button type="button" class="km-dock-main" data-km-toggle aria-label="展开音乐播放器" aria-expanded="false">
+        <button type="button" class="km-dock-main" data-km-toggle data-km-drag-handle aria-label="展开音乐播放器，可拖动位置" aria-expanded="false" title="拖动可移动播放器，点击展开">
             <span class="km-dock-cover-wrap">
                 <img class="km-dock-cover" data-km-cover-mini alt="当前歌曲封面">
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
@@ -848,6 +897,7 @@
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="km-drag-grip" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
         </button>
         <div class="km-dock-controls" aria-label="迷你播放控制">
             <button type="button" class="km-dock-control" data-km-prev-mini aria-label="上一首">
@@ -864,11 +914,13 @@
     </div>
 
     <section class="km-panel" data-km-panel aria-label="音乐播放器" aria-hidden="true">
+        <div class="km-panel-artwork" data-km-artwork aria-hidden="true"></div>
         <div class="km-panel-glow" aria-hidden="true"></div>
-        <header class="km-panel-header">
-            <div>
+        <header class="km-panel-header" data-km-drag-handle title="拖动可移动播放器">
+            <div class="km-panel-heading">
                 <span class="km-eyebrow">KNIGHT MUSIC</span>
                 <h3>正在播放</h3>
+                <span class="km-panel-drag-note">拖动此处可移动</span>
             </div>
             <button type="button" class="km-icon-button km-close" data-km-close aria-label="收起播放器">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg>
@@ -887,7 +939,10 @@
         </div>
 
         <div class="km-progress-block">
-            <input type="range" class="km-range km-progress" data-km-progress min="0" max="1000" value="0" aria-label="播放进度">
+            <div class="km-progress" data-km-progress role="slider" tabindex="0" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span class="km-progress-fill" data-km-progress-fill></span>
+                <span class="km-progress-thumb" data-km-progress-thumb></span>
+            </div>
             <div class="km-time-row"><span data-km-current>00:00</span><span data-km-duration>00:00</span></div>
         </div>
 

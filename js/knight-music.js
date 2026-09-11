@@ -2,6 +2,7 @@
     'use strict';
 
     var STORAGE_KEY = 'knight-music-state-v1';
+    var POSITION_KEY = 'knight-music-position-v1';
     var root = document.getElementById('knightMusicRoot');
     var meting = root ? root.querySelector('[data-km-engine]') : null;
     if (!root || !meting) return;
@@ -21,6 +22,8 @@
         orderLabel: root.querySelector('[data-km-order-label]'),
         volume: root.querySelector('[data-km-volume]'),
         progress: root.querySelector('[data-km-progress]'),
+        progressFill: root.querySelector('[data-km-progress-fill]'),
+        progressThumb: root.querySelector('[data-km-progress-thumb]'),
         current: root.querySelector('[data-km-current]'),
         duration: root.querySelector('[data-km-duration]'),
         title: root.querySelector('[data-km-title]'),
@@ -33,7 +36,9 @@
         coverFallbackLarge: root.querySelector('[data-km-cover-fallback-large]'),
         playlist: root.querySelector('[data-km-playlist]'),
         count: root.querySelector('[data-km-count]'),
-        refresh: root.querySelector('[data-km-refresh]')
+        refresh: root.querySelector('[data-km-refresh]'),
+        artwork: root.querySelector('[data-km-artwork]'),
+        dragHandles: root.querySelectorAll('[data-km-drag-handle]')
     };
 
     var rememberState = root.getAttribute('data-remember-state') !== 'false';
@@ -52,6 +57,8 @@
     var playlistBound = false;
     var playlistSyncing = false;
     var lastPlaylistSyncAt = 0;
+    var suppressToggleClick = false;
+    var dragState = null;
 
     function safeJSONParse(text) {
         try { return JSON.parse(text); } catch (e) { return null; }
@@ -79,9 +86,12 @@
     function formatTime(seconds) {
         seconds = Number(seconds);
         if (!Number.isFinite(seconds) || seconds < 0) seconds = 0;
-        var m = Math.floor(seconds / 60);
-        var s = Math.floor(seconds % 60);
-        return String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+        var total = Math.floor(seconds);
+        var h = Math.floor(total / 3600);
+        var m = Math.floor((total % 3600) / 60);
+        var sec = total % 60;
+        if (h > 0) return h + ':' + String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
+        return String(m).padStart(2, '0') + ':' + String(sec).padStart(2, '0');
     }
 
     function setRangeFill(input, valuePercent) {
@@ -90,8 +100,178 @@
         input.style.setProperty('--km-range', pct + '%');
     }
 
+    function setProgressVisual(ratio) {
+        ratio = Math.max(0, Math.min(1, Number(ratio) || 0));
+        var pct = ratio * 100;
+        if (ui.progressFill) ui.progressFill.style.width = pct + '%';
+        if (ui.progressThumb) ui.progressThumb.style.left = pct + '%';
+        if (ui.progress) ui.progress.setAttribute('aria-valuenow', String(Math.round(pct)));
+    }
+
+    function loadPosition() {
+        try { return safeJSONParse(localStorage.getItem(POSITION_KEY)); } catch (e) { return null; }
+    }
+
+    function currentPosition() {
+        var x = parseFloat(root.style.left);
+        var y = parseFloat(root.style.top);
+        if (Number.isFinite(x) && Number.isFinite(y)) return { x: x, y: y };
+        var rect = root.getBoundingClientRect();
+        return { x: rect.left, y: rect.top };
+    }
+
+    function savePosition() {
+        if (!root.classList.contains('is-custom-position')) return;
+        var pos = currentPosition();
+        try { localStorage.setItem(POSITION_KEY, JSON.stringify({ x: Math.round(pos.x), y: Math.round(pos.y) })); } catch (e) {}
+    }
+
+    function clampPosition(x, y, usePanelBounds) {
+        var target = usePanelBounds && ui.panel ? ui.panel : (ui.dock || root);
+        var rect = target.getBoundingClientRect();
+        var width = Math.max(54, target.offsetWidth || rect.width || 54);
+        var height = Math.max(54, target.offsetHeight || rect.height || 54);
+        var pad = 10;
+        var maxX = Math.max(pad, window.innerWidth - width - pad);
+        var maxY = Math.max(pad, window.innerHeight - height - pad);
+        return {
+            x: Math.max(pad, Math.min(maxX, Number(x) || 0)),
+            y: Math.max(pad, Math.min(maxY, Number(y) || 0))
+        };
+    }
+
+    function applyPosition(x, y, persist, usePanelBounds) {
+        var panelBounds = usePanelBounds === true || (usePanelBounds !== false && root.classList.contains('is-open'));
+        root.classList.add('is-custom-position');
+        root.classList.remove('is-panel-below', 'is-panel-align-right');
+        var next = clampPosition(x, y, panelBounds);
+        root.style.left = next.x + 'px';
+        root.style.top = next.y + 'px';
+        root.style.right = 'auto';
+        root.style.bottom = 'auto';
+        if (persist !== false) savePosition();
+    }
+
+    function restorePosition() {
+        var pos = loadPosition();
+        if (!pos || !Number.isFinite(pos.x) || !Number.isFinite(pos.y)) return;
+        applyPosition(pos.x, pos.y, false, false);
+    }
+
+    function updatePanelPlacement() {
+        if (!ui.dock || !ui.panel) return;
+        // Once the player has been manually positioned, the panel is anchored
+        // directly to that viewport coordinate. Do not flip its opening side
+        // while dragging; that old behaviour was the source of visible jumps.
+        if (root.classList.contains('is-custom-position')) {
+            root.classList.remove('is-panel-below', 'is-panel-align-right');
+            return;
+        }
+        var rect = ui.dock.getBoundingClientRect();
+        root.classList.toggle('is-panel-below', rect.top < window.innerHeight * 0.46);
+        root.classList.toggle('is-panel-align-right', rect.left > window.innerWidth * 0.56);
+    }
+
+    function adoptOpenPanelPosition() {
+        if (!root.classList.contains('is-open') || root.classList.contains('is-custom-position') || !ui.panel) return;
+        // Convert the current auto-placed panel into a stable top-left viewport
+        // coordinate before the first drag frame, so the panel does not jump.
+        var panelRect = ui.panel.getBoundingClientRect();
+        root.classList.add('is-custom-position');
+        root.classList.remove('is-panel-below', 'is-panel-align-right');
+        var next = clampPosition(panelRect.left, panelRect.top, true);
+        root.style.left = next.x + 'px';
+        root.style.top = next.y + 'px';
+        root.style.right = 'auto';
+        root.style.bottom = 'auto';
+    }
+
+    function keepCustomPlayerVisible(persist) {
+        if (!root.classList.contains('is-custom-position')) return;
+        var pos = currentPosition();
+        applyPosition(pos.x, pos.y, persist, root.classList.contains('is-open'));
+    }
+
+    function bindDrag() {
+        if (!ui.dragHandles || !ui.dragHandles.length) return;
+        Array.prototype.forEach.call(ui.dragHandles, function (handle) {
+            handle.addEventListener('pointerdown', function (event) {
+                if (event.button !== undefined && event.button !== 0) return;
+                if (event.target.closest('button') && event.target.closest('button') !== ui.toggle) return;
+                adoptOpenPanelPosition();
+                var pos = currentPosition();
+                dragState = {
+                    pointerId: event.pointerId,
+                    startX: event.clientX,
+                    startY: event.clientY,
+                    left: pos.x,
+                    top: pos.y,
+                    usePanelBounds: root.classList.contains('is-open'),
+                    moved: false
+                };
+                try { handle.setPointerCapture(event.pointerId); } catch (e) {}
+            });
+            handle.addEventListener('pointermove', function (event) {
+                if (!dragState || dragState.pointerId !== event.pointerId) return;
+                var dx = event.clientX - dragState.startX;
+                var dy = event.clientY - dragState.startY;
+                if (!dragState.moved && Math.hypot(dx, dy) < 5) return;
+                dragState.moved = true;
+                suppressToggleClick = true;
+                root.classList.add('is-dragging');
+                applyPosition(dragState.left + dx, dragState.top + dy, false, dragState.usePanelBounds);
+                event.preventDefault();
+            });
+            var endDrag = function (event) {
+                if (!dragState || dragState.pointerId !== event.pointerId) return;
+                if (dragState.moved) {
+                    var pos = currentPosition();
+                    applyPosition(pos.x, pos.y, true, dragState.usePanelBounds);
+                    window.setTimeout(function () { suppressToggleClick = false; }, 0);
+                }
+                root.classList.remove('is-dragging');
+                try { handle.releasePointerCapture(event.pointerId); } catch (e) {}
+                dragState = null;
+            };
+            handle.addEventListener('pointerup', endDrag);
+            handle.addEventListener('pointercancel', endDrag);
+        });
+        window.addEventListener('resize', function () {
+            keepCustomPlayerVisible(true);
+        });
+    }
+
+    function seekFromPointer(clientX, commit) {
+        if (!ui.progress || !ap || !ap.audio) return;
+        var rect = ui.progress.getBoundingClientRect();
+        if (!rect.width) return;
+        var ratio = Math.max(0, Math.min(1, (clientX - rect.left) / rect.width));
+        var duration = ap.audio.duration || 0;
+        draggingProgress = !commit;
+        setProgressVisual(ratio);
+        if (ui.current && duration > 0) ui.current.textContent = formatTime(duration * ratio);
+        if (commit && duration > 0) {
+            try { ap.seek(duration * ratio); } catch (e) {}
+            draggingProgress = false;
+            saveState();
+        }
+    }
+
     function setOpen(open) {
         root.classList.toggle('is-open', !!open);
+        if (open) {
+            updatePanelPlacement();
+            if (root.classList.contains('is-custom-position')) {
+                // Expanding changes the required bounding box from the compact
+                // dock to the full panel. Re-clamp immediately so the header and
+                // drag handle can never leave the viewport.
+                keepCustomPlayerVisible(true);
+            }
+        } else if (root.classList.contains('is-custom-position')) {
+            // The panel-safe coordinate is already valid for the compact dock;
+            // keep it stable instead of snapping back to an edge.
+            keepCustomPlayerVisible(true);
+        }
         if (ui.panel) ui.panel.setAttribute('aria-hidden', open ? 'false' : 'true');
         if (ui.toggle) ui.toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     }
@@ -129,8 +309,10 @@
         if (ui.artist) ui.artist.textContent = artist;
         if (ui.titleMini) ui.titleMini.textContent = title;
         if (ui.artistMini) ui.artistMini.textContent = artist;
-        setCover(ui.cover, ui.coverFallbackLarge, audio.cover || audio.pic || '');
-        setCover(ui.coverMini, ui.coverFallback, audio.cover || audio.pic || '');
+        var artworkUrl = audio.cover || audio.pic || '';
+        setCover(ui.cover, ui.coverFallbackLarge, artworkUrl);
+        setCover(ui.coverMini, ui.coverFallback, artworkUrl);
+        if (ui.artwork) ui.artwork.style.backgroundImage = artworkUrl ? 'url("' + String(artworkUrl).replace(/"/g, '\"') + '")' : 'none';
         refreshPlaylistActive();
     }
 
@@ -150,8 +332,7 @@
         if (ui.duration) ui.duration.textContent = formatTime(duration);
         if (!draggingProgress && ui.progress) {
             var ratio = duration > 0 ? now / duration : 0;
-            ui.progress.value = Math.round(ratio * 1000);
-            setRangeFill(ui.progress, ratio * 100);
+            setProgressVisual(ratio);
         }
     }
 
@@ -421,7 +602,10 @@
     }
 
     function bindUI() {
-        if (ui.toggle) ui.toggle.addEventListener('click', function () { setOpen(true); });
+        if (ui.toggle) ui.toggle.addEventListener('click', function () {
+            if (suppressToggleClick) return;
+            setOpen(true);
+        });
         if (ui.close) ui.close.addEventListener('click', function () { setOpen(false); });
         if (ui.refresh) ui.refresh.addEventListener('click', function () {
             syncPlaylist({ force: true, tryFallbacks: true });
@@ -454,20 +638,39 @@
             setRangeFill(ui.volume, value);
         });
         if (ui.progress) {
-            ui.progress.addEventListener('pointerdown', function () { draggingProgress = true; });
-            ui.progress.addEventListener('input', function () {
+            var progressPointerId = null;
+            ui.progress.addEventListener('pointerdown', function (event) {
+                progressPointerId = event.pointerId;
                 draggingProgress = true;
-                setRangeFill(ui.progress, (Number(ui.progress.value) || 0) / 10);
+                try { ui.progress.setPointerCapture(event.pointerId); } catch (e) {}
+                seekFromPointer(event.clientX, false);
+                event.preventDefault();
             });
-            var commitProgress = function () {
-                if (!ap || !ap.audio) return;
-                var duration = ap.audio.duration || 0;
-                if (duration > 0) ap.seek((Number(ui.progress.value) / 1000) * duration);
-                draggingProgress = false;
-                saveState();
+            ui.progress.addEventListener('pointermove', function (event) {
+                if (progressPointerId !== event.pointerId) return;
+                seekFromPointer(event.clientX, false);
+            });
+            var commitProgress = function (event) {
+                if (progressPointerId !== event.pointerId) return;
+                seekFromPointer(event.clientX, true);
+                try { ui.progress.releasePointerCapture(event.pointerId); } catch (e) {}
+                progressPointerId = null;
             };
-            ui.progress.addEventListener('change', commitProgress);
             ui.progress.addEventListener('pointerup', commitProgress);
+            ui.progress.addEventListener('pointercancel', function () {
+                progressPointerId = null;
+                draggingProgress = false;
+                refreshTime();
+            });
+            ui.progress.addEventListener('keydown', function (event) {
+                if (!ap || !ap.audio) return;
+                if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+                var delta = event.key === 'ArrowLeft' ? -5 : 5;
+                var duration = ap.audio.duration || 0;
+                var target = Math.max(0, Math.min(duration || Infinity, (ap.audio.currentTime || 0) + delta));
+                try { ap.seek(target); } catch (e) {}
+                event.preventDefault();
+            });
         }
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape' && root.classList.contains('is-open')) setOpen(false);
@@ -515,6 +718,8 @@
             save: saveState
         };
         bindUI();
+        bindDrag();
+        restorePosition();
         bindAPlayerEvents();
         renderPlaylist();
         refreshTrackMeta();

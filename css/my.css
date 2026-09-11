@@ -288,7 +288,7 @@ a:hover {
 
 /* ---------- global containers / cards ---------- */
 .content {
-    padding-top: 38px;
+    padding-top: 54px;
 }
 
 .home-content {
@@ -457,7 +457,7 @@ hr {
 }
 
 .forum-post-card:hover .card-image img {
-    transform: scale(1.035);
+    transform: scale(1.018);
     opacity: 1;
 }
 
@@ -1366,7 +1366,7 @@ body {
 
 #articles:not(.forum-article-grid) .card:hover .card-image img,
 .cd-timeline-content .card:hover .card-image img {
-    transform: scale(1.035);
+    transform: scale(1.02);
     opacity: .94;
 }
 
@@ -3529,4 +3529,491 @@ body {
 .forum-post-card:hover .forum-post-card__heat {
     transform: scale(1.12);
     border-color: rgba(127, 181, 255, .42);
+}
+
+/* =========================================================
+ * V7.1 - Compact inner hero / taller canvas
+ * Keeps the pre-Steam right-fade layout, but increases vertical room for artwork.
+ * The home hero and post hero are intentionally untouched.
+ * ========================================================= */
+.bg-cover.inner-cover {
+    position: relative;
+    height: 500px !important;
+    min-height: 500px !important;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+        radial-gradient(circle at 12% 20%, rgba(55, 112, 219, .17), transparent 28rem),
+        linear-gradient(110deg, #070b12 0%, #09111d 52%, #0a1321 100%) !important;
+    border-bottom: 1px solid rgba(127, 165, 221, .11) !important;
+}
+
+.bg-cover.inner-cover.inner-cover--archive,
+.bg-cover.inner-cover.inner-cover--contact {
+    height: 480px !important;
+    min-height: 480px !important;
+}
+
+.bg-cover.inner-cover.inner-cover--about {
+    height: 540px !important;
+    min-height: 540px !important;
+}
+
+.bg-cover.inner-cover.inner-cover--changelog {
+    height: 420px !important;
+    min-height: 420px !important;
+}
+
+.bg-cover.inner-cover .inner-cover__media {
+    z-index: 0;
+    inset: 0 0 0 36%;
+    width: auto;
+    height: 100%;
+    overflow: hidden;
+    background: transparent;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.18) 12%, #000 39%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.18) 12%, #000 39%, #000 100%);
+}
+
+.bg-cover.inner-cover .inner-cover__backdrop {
+    inset: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: var(--kz-inner-cover-image);
+    background-position: center center;
+    background-size: cover;
+    filter: blur(28px) brightness(.44) saturate(.92);
+    transform: scale(1.06);
+    opacity: .46;
+}
+
+.bg-cover.inner-cover .inner-cover__image {
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    filter: brightness(.70) saturate(.92) contrast(1.02);
+    opacity: .82;
+    transform: scale(1);
+    transition: transform 8s ease, opacity .35s ease;
+}
+
+.bg-cover.inner-cover:hover .inner-cover__image {
+    transform: scale(1.035);
+}
+
+.bg-cover.inner-cover::before {
+    z-index: 2;
+    background:
+        linear-gradient(90deg, rgba(6, 10, 17, .98) 0%, rgba(7, 12, 20, .94) 34%, rgba(7, 12, 20, .48) 63%, rgba(7, 11, 18, .20) 100%),
+        linear-gradient(180deg, rgba(6, 9, 15, .12) 0%, rgba(6, 10, 17, .28) 72%, rgba(7, 10, 16, .74) 100%);
+}
+
+.bg-cover.inner-cover::after {
+    z-index: 3;
+    opacity: .12;
+    background-image:
+        linear-gradient(rgba(124, 164, 224, .035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(124, 164, 224, .025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(90deg, #000 0%, transparent 72%);
+    -webkit-mask-image: linear-gradient(90deg, #000 0%, transparent 72%);
+}
+
+.bg-cover.inner-cover .container.inner-hero__container {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    width: min(92%, 1240px) !important;
+    max-width: 1240px !important;
+    height: 100%;
+    padding-top: 68px;
+}
+
+.inner-hero__copy {
+    width: min(54%, 650px);
+}
+
+.inner-hero__eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 13px;
+    color: #8298b9;
+    font-size: 11px;
+    font-weight: 750;
+    letter-spacing: .17em;
+}
+
+.inner-hero__eyebrow > span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4d8dff;
+    box-shadow: 0 0 17px rgba(77, 141, 255, .74);
+}
+
+.inner-hero__copy h1 {
+    margin: 0;
+    color: #f4f8ff;
+    font-size: clamp(32px, 3.2vw, 46px);
+    font-weight: 780;
+    line-height: 1.15;
+    letter-spacing: -.035em;
+    text-shadow: 0 10px 32px rgba(0, 0, 0, .36);
+}
+
+.inner-hero__copy p {
+    max-width: 520px;
+    margin: 13px 0 0;
+    color: #97a8bf;
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+.inner-hero__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.inner-hero__stats > span {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    min-height: 31px;
+    padding: 6px 10px;
+    border: 1px solid rgba(120, 162, 224, .14);
+    border-radius: 9px;
+    background: rgba(12, 20, 32, .46);
+    box-shadow: inset 0 1px rgba(255,255,255,.018);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.inner-hero__stats strong {
+    color: #dce9ff;
+    font-size: 14px;
+    font-weight: 750;
+}
+
+.inner-hero__stats em {
+    color: #71839c;
+    font-size: 11px;
+    font-style: normal;
+}
+
+/* V4 intentionally hid old Matery brand copy. The new hero uses its own
+ * namespace, so keep old cover copy hidden without hiding the new content. */
+.bg-cover.inner-cover .brand,
+.bg-cover.inner-cover .title,
+.bg-cover.inner-cover .description {
+    display: none !important;
+}
+
+/* The compact hero no longer needs the previous 68px cinematic overlap. */
+.bg-cover.inner-cover + main.content {
+    margin-top: -26px !important;
+    padding-top: 0 !important;
+}
+
+.inner-cover--taxonomy + main.content.taxonomy-page-content {
+    margin-top: 0 !important;
+    padding-top: 34px !important;
+}
+
+.inner-cover--about + main.content {
+    margin-top: -28px !important;
+}
+
+.inner-cover--changelog + main.content.changelog-page-content {
+    margin-top: -58px !important;
+}
+
+/* The page identity now lives in the hero, so the taxonomy hub can begin
+ * directly with categories instead of repeating the same title card. */
+.taxonomy-page-content .taxonomy-hub {
+    padding-top: 0;
+}
+
+@media only screen and (max-width: 992px) {
+    .bg-cover.inner-cover,
+    .bg-cover.inner-cover.inner-cover--archive,
+    .bg-cover.inner-cover.inner-cover--contact,
+    .bg-cover.inner-cover.inner-cover--about {
+        height: 420px !important;
+        min-height: 420px !important;
+    }
+
+    .bg-cover.inner-cover.inner-cover--changelog {
+        height: 360px !important;
+        min-height: 360px !important;
+    }
+
+    .bg-cover.inner-cover .inner-cover__media {
+        left: 28%;
+    }
+
+    .bg-cover.inner-cover .container.inner-hero__container {
+        padding-top: 58px;
+    }
+
+    .inner-hero__copy {
+        width: 62%;
+    }
+
+    .inner-hero__copy h1 {
+        font-size: clamp(30px, 5vw, 40px);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-cover.inner-cover,
+    .bg-cover.inner-cover.inner-cover--archive,
+    .bg-cover.inner-cover.inner-cover--contact,
+    .bg-cover.inner-cover.inner-cover--about {
+        height: 275px !important;
+        min-height: 275px !important;
+    }
+
+    .bg-cover.inner-cover.inner-cover--changelog {
+        height: 250px !important;
+        min-height: 250px !important;
+    }
+
+    .bg-cover.inner-cover .inner-cover__media {
+        left: 40%;
+        inset: 0 0 0 40%;
+        opacity: .76;
+    }
+
+    .bg-cover.inner-cover::before {
+        background:
+            linear-gradient(90deg, rgba(6, 10, 17, .99) 0%, rgba(7, 12, 20, .94) 55%, rgba(7, 12, 20, .48) 100%),
+            linear-gradient(180deg, rgba(6, 9, 15, .08), rgba(7, 10, 16, .70));
+    }
+
+    .bg-cover.inner-cover .container.inner-hero__container {
+        width: 90% !important;
+        padding-top: 42px;
+    }
+
+    .inner-hero__copy {
+        width: 78%;
+    }
+
+    .inner-hero__eyebrow {
+        margin-bottom: 8px;
+        font-size: 9px;
+    }
+
+    .inner-hero__copy h1 {
+        font-size: 28px;
+    }
+
+    .inner-hero__copy p {
+        margin-top: 8px;
+        font-size: 12px;
+        line-height: 1.55;
+    }
+
+    .inner-hero__stats {
+        gap: 6px;
+        margin-top: 12px;
+    }
+
+    .inner-hero__stats > span {
+        min-height: 27px;
+        padding: 4px 8px;
+    }
+
+    .inner-hero__stats strong {
+        font-size: 12px;
+    }
+
+    .inner-hero__stats em {
+        font-size: 10px;
+    }
+
+    .bg-cover.inner-cover + main.content,
+    .inner-cover--about + main.content,
+    .inner-cover--changelog + main.content.changelog-page-content {
+        margin-top: -14px !important;
+    }
+
+    .inner-cover--taxonomy + main.content.taxonomy-page-content {
+        margin-top: 0 !important;
+        padding-top: 24px !important;
+    }
+}
+
+
+/* =========================================================
+ * V7.2 - Ratio-safe inner hero artwork
+ * Banner assets are mostly ~3.10:1 (850x274 / 1920x620). The visual media
+ * is now width-capped and the sharp layer uses contain so browser zoom-out
+ * or ultra-wide viewports cannot stretch the artwork into a thin cropped strip.
+ * ========================================================= */
+.bg-cover.inner-cover {
+    height: clamp(400px, 27vw, 520px) !important;
+    min-height: 400px !important;
+}
+
+.bg-cover.inner-cover.inner-cover--archive,
+.bg-cover.inner-cover.inner-cover--contact {
+    height: clamp(390px, 26vw, 500px) !important;
+    min-height: 390px !important;
+}
+
+.bg-cover.inner-cover.inner-cover--about {
+    height: clamp(420px, 29vw, 560px) !important;
+    min-height: 420px !important;
+}
+
+.bg-cover.inner-cover.inner-cover--changelog {
+    height: clamp(360px, 24vw, 460px) !important;
+    min-height: 360px !important;
+}
+
+/* Keep the picture close to the content shell on ultra-wide / zoomed-out
+ * viewports instead of letting it grow with the full browser width. */
+.bg-cover.inner-cover .inner-cover__media {
+    inset: 0 max(0px, calc((100vw - 1720px) / 2)) 0 auto !important;
+    left: auto !important;
+    right: max(0px, calc((100vw - 1720px) / 2)) !important;
+    width: min(72vw, 1560px) !important;
+    max-width: 1560px;
+    height: 100% !important;
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.16) 10%, #000 34%, #000 100%) !important;
+    mask-image: linear-gradient(90deg, transparent 0%, rgba(0,0,0,.16) 10%, #000 34%, #000 100%) !important;
+}
+
+/* Archive uses the only 16:9 banner in this set, so a narrower media window
+ * keeps that artwork visually balanced while still showing it in full. */
+.bg-cover.inner-cover.inner-cover--archive .inner-cover__media {
+    width: min(56vw, 1040px) !important;
+    max-width: 1040px;
+}
+
+.bg-cover.inner-cover .inner-cover__backdrop {
+    inset: -7% !important;
+    width: 114% !important;
+    height: 114% !important;
+    background-position: center center !important;
+    background-size: cover !important;
+    filter: blur(26px) brightness(.44) saturate(.92) !important;
+    transform: scale(1.045) !important;
+    opacity: .50 !important;
+}
+
+/* The clear layer is never cropped. The blurred backdrop absorbs any spare
+ * space, preserving the existing right-fade / glass aesthetic. */
+.bg-cover.inner-cover .inner-cover__image {
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain !important;
+    object-position: right center !important;
+    transform: none !important;
+    filter: brightness(.72) saturate(.94) contrast(1.015) !important;
+    opacity: .88 !important;
+    transition: filter .4s ease, opacity .4s ease !important;
+}
+
+.bg-cover.inner-cover:hover .inner-cover__image {
+    transform: none !important;
+    filter: brightness(.76) saturate(.98) contrast(1.02) !important;
+    opacity: .92 !important;
+}
+
+@media only screen and (max-width: 1200px) {
+    .bg-cover.inner-cover .inner-cover__media {
+        right: 0 !important;
+        width: min(76vw, 1120px) !important;
+    }
+
+    .bg-cover.inner-cover.inner-cover--archive .inner-cover__media {
+        width: min(62vw, 920px) !important;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    .bg-cover.inner-cover,
+    .bg-cover.inner-cover.inner-cover--archive,
+    .bg-cover.inner-cover.inner-cover--contact,
+    .bg-cover.inner-cover.inner-cover--about {
+        height: clamp(350px, 46vw, 430px) !important;
+        min-height: 350px !important;
+    }
+
+    .bg-cover.inner-cover.inner-cover--changelog {
+        height: clamp(320px, 42vw, 390px) !important;
+        min-height: 320px !important;
+    }
+
+    .bg-cover.inner-cover .inner-cover__media,
+    .bg-cover.inner-cover.inner-cover--archive .inner-cover__media {
+        right: 0 !important;
+        width: min(82vw, 900px) !important;
+        max-width: 900px;
+    }
+
+    .bg-cover.inner-cover .container.inner-hero__container {
+        padding-top: 50px !important;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .bg-cover.inner-cover,
+    .bg-cover.inner-cover.inner-cover--archive,
+    .bg-cover.inner-cover.inner-cover--contact,
+    .bg-cover.inner-cover.inner-cover--about {
+        height: clamp(320px, 92vw, 390px) !important;
+        min-height: 320px !important;
+    }
+
+    .bg-cover.inner-cover.inner-cover--changelog {
+        height: clamp(300px, 86vw, 360px) !important;
+        min-height: 300px !important;
+    }
+
+    /* On phones the complete artwork sits across the upper portion rather than
+     * becoming a narrow right-hand sliver. Text occupies the lower dark field. */
+    .bg-cover.inner-cover .inner-cover__media,
+    .bg-cover.inner-cover.inner-cover--archive .inner-cover__media {
+        inset: 0 0 auto 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        max-width: none !important;
+        height: 62% !important;
+        opacity: .78;
+        -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.92) 58%, transparent 100%) !important;
+        mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.92) 58%, transparent 100%) !important;
+    }
+
+    .bg-cover.inner-cover .inner-cover__image {
+        object-position: center center !important;
+    }
+
+    .bg-cover.inner-cover::before {
+        background:
+            linear-gradient(180deg, rgba(6, 10, 17, .16) 0%, rgba(7, 12, 20, .58) 48%, rgba(6, 10, 17, .99) 82%, rgba(6, 10, 17, 1) 100%),
+            linear-gradient(90deg, rgba(6, 10, 17, .72), rgba(7, 12, 20, .20)) !important;
+    }
+
+    .bg-cover.inner-cover .container.inner-hero__container {
+        align-items: flex-end !important;
+        width: 90% !important;
+        padding: 0 0 30px !important;
+    }
+
+    .inner-hero__copy {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }

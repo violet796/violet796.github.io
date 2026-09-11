@@ -720,3 +720,242 @@
         transition: none !important;
     }
 }
+
+/* =========================================================
+ * V5 - release console header
+ * The page identity now lives in the taller image hero above.
+ * This panel is a compact live release summary rather than a second title card.
+ * ========================================================= */
+.changelog-release-console {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+    align-items: center;
+    gap: 46px;
+    min-height: 204px;
+    margin-bottom: 38px;
+    padding: 34px 42px;
+    overflow: hidden;
+    border: 1px solid rgba(104, 160, 244, .17);
+    border-radius: 23px;
+    background:
+        linear-gradient(135deg, rgba(17, 29, 48, .94), rgba(8, 14, 24, .965));
+    box-shadow:
+        0 28px 78px rgba(0, 0, 0, .28),
+        inset 0 1px rgba(255,255,255,.032);
+    backdrop-filter: blur(20px) saturate(122%);
+    -webkit-backdrop-filter: blur(20px) saturate(122%);
+    animation: changelogConsoleEnter .72s cubic-bezier(.2,.75,.25,1) both;
+}
+
+.changelog-release-console::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(110deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(118, 176, 255, .00) 45%,
+            rgba(118, 176, 255, .075) 50%,
+            rgba(118, 176, 255, .00) 55%,
+            transparent 60%,
+            transparent 100%);
+    transform: translateX(-115%);
+    animation: changelogConsoleSweep 8.5s ease-in-out 1.1s infinite;
+}
+
+.changelog-release-console::after {
+    content: '';
+    position: absolute;
+    left: 42px;
+    right: 42px;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(89, 149, 239, 0),
+        rgba(89, 149, 239, .36) 35%,
+        rgba(126, 185, 255, .52) 50%,
+        rgba(89, 149, 239, .18) 70%,
+        rgba(89, 149, 239, 0));
+    opacity: .66;
+}
+
+.changelog-release-console__glow {
+    position: absolute;
+    width: 440px;
+    height: 440px;
+    right: -150px;
+    top: -210px;
+    border-radius: 50%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(74, 137, 238, .17), rgba(74, 137, 238, 0) 69%);
+    filter: blur(6px);
+}
+
+.changelog-release-console__copy,
+.changelog-current--console {
+    position: relative;
+    z-index: 2;
+}
+
+.changelog-release-console__status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: #6684ad;
+    font-size: 8px;
+    font-weight: 850;
+    letter-spacing: .18em;
+}
+
+.changelog-release-console__pulse {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #69a9ff;
+    box-shadow: 0 0 0 0 rgba(105, 169, 255, .42);
+    animation: changelogStatusPulse 2.4s ease-out infinite;
+}
+
+.changelog-release-console__copy h2 {
+    margin: 9px 0 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: #f2f7ff !important;
+    font-size: clamp(31px, 3.2vw, 44px) !important;
+    font-weight: 900 !important;
+    line-height: 1.03 !important;
+    letter-spacing: -.04em !important;
+}
+
+.changelog-release-console__copy h2::before,
+.changelog-release-console__copy h2::after {
+    display: none !important;
+}
+
+.changelog-release-console__copy p {
+    max-width: 590px;
+    margin: 13px 0 0;
+    color: #8598b5;
+    font-size: 12px;
+    line-height: 1.72;
+}
+
+.changelog-current--console {
+    min-width: 0;
+    padding: 10px 0 10px 40px;
+    border-left: 1px solid rgba(106, 159, 239, .15);
+}
+
+.changelog-current--console .changelog-current__version {
+    font-size: clamp(39px, 4vw, 56px);
+}
+
+.changelog-current--console .changelog-current__label {
+    color: #7186a5;
+}
+
+.changelog-release-console__signal {
+    position: absolute;
+    z-index: 1;
+    right: 26px;
+    bottom: 24px;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 30px;
+    opacity: .34;
+    pointer-events: none;
+}
+
+.changelog-release-console__signal span {
+    width: 2px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #7db5ff, rgba(76, 133, 215, .18));
+    transform-origin: bottom;
+    animation: changelogSignal 2.8s ease-in-out infinite;
+}
+
+.changelog-release-console__signal span:nth-child(1) { height: 9px; animation-delay: -.4s; }
+.changelog-release-console__signal span:nth-child(2) { height: 18px; animation-delay: -1.1s; }
+.changelog-release-console__signal span:nth-child(3) { height: 27px; animation-delay: -.7s; }
+.changelog-release-console__signal span:nth-child(4) { height: 15px; animation-delay: -1.7s; }
+.changelog-release-console__signal span:nth-child(5) { height: 22px; animation-delay: -1.25s; }
+
+@keyframes changelogConsoleEnter {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes changelogConsoleSweep {
+    0%, 68% { transform: translateX(-115%); opacity: 0; }
+    74% { opacity: 1; }
+    88% { transform: translateX(115%); opacity: .72; }
+    100% { transform: translateX(115%); opacity: 0; }
+}
+
+@keyframes changelogStatusPulse {
+    0% { box-shadow: 0 0 0 0 rgba(105, 169, 255, .38); }
+    70%, 100% { box-shadow: 0 0 0 8px rgba(105, 169, 255, 0); }
+}
+
+@keyframes changelogSignal {
+    0%, 100% { transform: scaleY(.52); opacity: .45; }
+    50% { transform: scaleY(1); opacity: 1; }
+}
+
+@media only screen and (max-width: 992px) {
+    .changelog-release-console {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        min-height: 0;
+        padding: 30px 32px;
+    }
+
+    .changelog-current--console {
+        padding: 20px 0 4px;
+        border-left: 0;
+        border-top: 1px solid rgba(106, 159, 239, .13);
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .changelog-release-console {
+        margin-bottom: 28px;
+        padding: 24px 21px 25px;
+        border-radius: 18px;
+    }
+
+    .changelog-release-console::after {
+        left: 22px;
+        right: 22px;
+    }
+
+    .changelog-release-console__status {
+        margin-bottom: 12px;
+    }
+
+    .changelog-release-console__copy h2 {
+        font-size: 30px !important;
+    }
+
+    .changelog-current--console .changelog-current__version {
+        font-size: 38px;
+    }
+
+    .changelog-release-console__signal {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .changelog-release-console,
+    .changelog-release-console::before,
+    .changelog-release-console__pulse,
+    .changelog-release-console__signal span {
+        animation: none !important;
+    }
+}
