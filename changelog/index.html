@@ -25,6 +25,13 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
@@ -77,6 +84,17 @@
       <i class="fas fa-compass" style="zoom: 0.6;"></i>
       
       <span>文章导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/travel/" class="waves-effect waves-light">
+      
+      <i class="fas fa-map-marked-alt" style="zoom: 0.6;"></i>
+      
+      <span>足迹</span>
     </a>
     
   </li>
@@ -167,6 +185,17 @@
 			    <i class="fa-fw fas fa-compass"></i>
 			
 			文章导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/travel/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-map-marked-alt"></i>
+			
+			足迹
 		</a>
           
         </li>
@@ -374,6 +403,22 @@
 <li><strong>音乐播放器</strong>样式重构，更切合网站风格</li>
 <li>首页文章的描述右侧增加<strong>热力方块</strong>，以文章字数决定热力方块的颜色深度</li>
 <li><strong>更新日志</strong>页面增加新的动画，以丰富该页面的视觉效果</li>
+</ul>
+<h3 id="v1.3.0-更新日志-2026-09-15">V1.3.0 更新日志· 2026-09-15</h3>
+<p><strong>新增</strong></p>
+<ul>
+<li>网站新增足迹功能，以记录站主的旅行足迹，维护方式如下：
+<ul>
+<li>页面下按照，其中，国家作为父目录，存放有国家信息，该父目录下的所有城市均被认做是此国家的城市，城市对应的照片则存放在<strong>photos</strong>文件夹中</li>
+</ul></li>
+</ul>
+<p><strong>功能说明</strong></p>
+<ul>
+<li>城市目录下存放<strong>城市信息</strong>以及<strong>照片信息</strong>。城市以<strong>resident</strong>字段表明是否<strong>常居地</strong>，对于常居地，时间归档将记录该地的所有照片。此外，可用<strong>visit</strong>字段记录某一次特定的旅程，若目录下的照片文件中也具有相同的<strong>visit</strong>时间字段，则该照片将会被归为该旅程的照片，<strong>同时出现在两部分</strong></li>
+<li>地图右上部分点击对应的年份时，<strong>地图会高亮该年度内去过的城市</strong>，此部分以<strong>visit</strong>字段作为标注</li>
+<li>在地图上点击照片会在<strong>左侧显示照片的具体信息</strong></li>
+<li>系统会自动解析照片的EXIF信息，以确定照片拍摄的地理位置，并显示在地图上</li>
+<li>照片在地图缩小时<strong>会按照地理位置分成大簇</strong>，放大后将变成小簇</li>
 </ul>
 <h2 id="v0.0.0-2025-07-30">v0.0.0 · 2025-07-30</h2>
 <p><strong>版本概述：</strong> 网站正式上线，定位为记录个人日常博客，包括但不限于<strong>科研、笔记、生活、游戏</strong>。网站基于hexo + matery，初始版本保留该模板所有页面</p>
@@ -1144,6 +1189,11 @@ $(function () {
     
 
     
+
+    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="/js/travel-map.js"></script>
 
     
     <script src="/js/knight-music.js"></script>

@@ -90,6 +90,12 @@
     }
 
     function pageCleanup() {
+        // Travel Atlas is a stateful Leaflet view. Destroy it before the PJAX
+        // shell is replaced; otherwise Leaflet keeps event handlers and a map
+        // instance that points at the detached #travelMap node.
+        try {
+            if (typeof window.KnightTravelDestroy === 'function') window.KnightTravelDestroy();
+        } catch (e) { console.warn('[KnightPJAX] travel cleanup:', e); }
         try {
             if (window.tocbot && typeof window.tocbot.destroy === 'function') window.tocbot.destroy();
         } catch (e) {}
@@ -110,6 +116,14 @@
         try {
             if (window.AOS && typeof window.AOS.refreshHard === 'function') window.AOS.refreshHard();
         } catch (e) {}
+        // Explicitly remount Travel Atlas after the incoming shell's inline
+        // data script has executed. The runtime itself is global and survives
+        // PJAX, so returning to /travel/ never depends on re-downloading JS.
+        try {
+            if (document.querySelector('[data-travel-page]') && typeof window.KnightTravelInit === 'function') {
+                window.KnightTravelInit();
+            }
+        } catch (e) { console.warn('[KnightPJAX] travel init:', e); }
         document.dispatchEvent(new CustomEvent('knight:page-loaded', { detail: { url: location.href } }));
     }
 

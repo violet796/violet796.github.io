@@ -1,0 +1,785 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="足迹, ‘学习’">
+    <meta name="description" content="欢迎一起交流">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>足迹 | Knight Zhou 的博客</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    
+    <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+    
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 7.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <span class="logo-span">Knight Zhou 的博客</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/taxonomy/" class="waves-effect waves-light">
+      
+      <i class="fas fa-compass" style="zoom: 0.6;"></i>
+      
+      <span>文章导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/travel/" class="waves-effect waves-light">
+      
+      <i class="fas fa-map-marked-alt" style="zoom: 0.6;"></i>
+      
+      <span>足迹</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/changelog" class="waves-effect waves-light">
+      
+      <i class="fas fa-code-branch" style="zoom: 0.6;"></i>
+      
+      <span>更新日志</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <div class="logo-name">Knight Zhou 的博客</div>
+        <div class="logo-desc">
+            
+            欢迎一起交流
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/taxonomy/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-compass"></i>
+			
+			文章导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/travel/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-map-marked-alt"></i>
+			
+			足迹
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/changelog" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-code-branch"></i>
+			
+			更新日志
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    <div id="knight-page-shell">
+        
+<main class="travel-page" data-travel-page>
+  <section class="travel-hero">
+    <div class="travel-hero-glow travel-hero-glow--a"></div>
+    <div class="travel-hero-glow travel-hero-glow--b"></div>
+    <div class="travel-hero-copy">
+      <div class="travel-eyebrow"><span></span>TRAVEL ATLAS</div>
+      <h1>足迹</h1>
+      <p>把去过的地方、旅途中的照片，以及那些值得记住的瞬间留在一张世界地图上。</p>
+      <div class="travel-stats">
+        <div><strong>1</strong><span>国家</span></div>
+        <div><strong>5</strong><span>城市</span></div>
+        <div><strong>7</strong><span>照片</span></div>
+      </div>
+    </div>
+    <div class="travel-orbit" aria-hidden="true">
+      <div class="travel-orbit-ring travel-orbit-ring--one"></div>
+      <div class="travel-orbit-ring travel-orbit-ring--two"></div>
+      <div class="travel-orbit-dot"></div>
+      <i class="fas fa-globe-asia"></i>
+    </div>
+  </section>
+
+  <section class="travel-map-shell">
+    <header class="travel-map-toolbar">
+      <div>
+        <span class="travel-section-kicker">PHOTO MAP</span>
+        <h2>我的旅行地图</h2>
+        <p>滑动鼠标滚轮以放大世界地图</p>
+      </div>
+      <div class="travel-year-filters" data-travel-years>
+        <button type="button" class="is-active" data-year="all">全部</button>
+        <button type="button" data-year="2026">2026</button><button type="button" data-year="2025">2025</button>
+      </div>
+    </header>
+
+    <div class="travel-map-stage">
+      <div id="travelMap" class="travel-map" aria-label="旅行照片地图"></div>
+      <div class="travel-map-loading" data-travel-loading><span></span><em>正在加载地图</em></div>
+      <aside class="travel-place-panel" data-travel-panel aria-live="polite">
+        <button class="travel-panel-close" type="button" aria-label="关闭"><i class="fas fa-times"></i></button>
+
+        <div class="travel-panel-empty" data-panel-empty>
+          <span class="travel-panel-icon"><i class="fas fa-map-marker-alt"></i></span>
+          <strong>选择一张照片</strong>
+          <p>查看照片的具体记忆</p>
+        </div>
+
+        <div class="travel-panel-place" data-panel-place hidden>
+          <div class="travel-panel-cover" data-travel-cover></div>
+          <div class="travel-panel-meta">
+            <span data-travel-country></span>
+            <h3 data-travel-name></h3>
+            <div class="travel-place-summary" data-place-summary></div>
+            <p data-travel-note></p>
+            <div class="travel-visit-tabs" data-travel-visit-tabs></div>
+          </div>
+          <div class="travel-photo-grid" data-travel-photos></div>
+        </div>
+
+        <div class="travel-panel-photo" data-panel-photo hidden>
+          <button type="button" class="travel-photo-back" data-photo-back><i class="fas fa-arrow-left"></i><span>返回地点</span></button>
+          <button type="button" class="travel-photo-hero" data-photo-lightbox aria-label="查看原图"><img alt="旅行照片" data-photo-image></button>
+          <div class="travel-photo-info">
+            <span class="travel-photo-place" data-photo-place></span>
+            <h3 data-photo-title></h3>
+            <div class="travel-photo-facts">
+              <div><i class="far fa-clock"></i><span>拍摄时间</span><strong data-photo-time></strong></div>
+              <div><i class="fas fa-route"></i><span data-photo-group-name>旅程</span><strong data-photo-visit></strong></div>
+              <div><i class="fas fa-map-pin"></i><span>坐标</span><strong data-photo-coords></strong></div>
+            </div>
+            <p data-photo-note></p>
+            <div class="travel-photo-actions">
+              <button type="button" data-photo-show-visit><i class="far fa-images"></i><span data-photo-show-group-label>查看本次旅程</span></button>
+              <button type="button" data-photo-lightbox><i class="fas fa-expand"></i>查看原图</button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="travel-country-section">
+    <div class="travel-section-heading travel-section-heading--archive">
+      <div>
+        <span class="travel-section-kicker">TRAVEL ARCHIVE</span>
+        <h2>旅程</h2>
+        <p></p>
+      </div>
+      <div class="travel-archive-mode" data-travel-archive-mode aria-label="归档方式">
+        <button type="button" class="is-active" data-archive-mode="timeline"><i class="far fa-clock"></i>时间归档</button>
+        <button type="button" data-archive-mode="journey"><i class="fas fa-route"></i>旅程</button>
+      </div>
+    </div>
+    <div class="travel-country-archive" data-travel-archive></div>
+  </section>
+</main>
+
+<div class="travel-lightbox" data-travel-lightbox hidden>
+  <button type="button" class="travel-lightbox-close" aria-label="关闭"><i class="fas fa-times"></i></button>
+  <button type="button" class="travel-lightbox-prev" aria-label="上一张"><i class="fas fa-chevron-left"></i></button>
+  
+    <img alt="旅行照片" data-travel-lightbox-image>
+    
+  
+  <button type="button" class="travel-lightbox-next" aria-label="下一张"><i class="fas fa-chevron-right"></i></button>
+</div>
+
+<script>window.KnightTravelPlaces = [{"slug":"CHINA/ChongQING","country_dir":"CHINA","city_dir":"ChongQING","name":"重庆","country":"中国","country_code":"CN","mode":"residence","resident":true,"lat":29.563,"lng":106.551,"visits":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":"","photo_count":1}],"journeys":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":"","photo_count":1}],"declared_visits":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":""},{"id":"2025-03","date":"2025-03","label":"2025-03","note":""}],"time_archives":[{"id":"time:2026","year":"2026","label":"2026年","photo_count":2}],"visited":["2026-09"],"note":"重庆","photos":[{"id":"CHINA/ChongQING:金沙天街.jpg","file":"金沙天街.jpg","src":"/travel/places/CHINA/ChongQING/photos/%E9%87%91%E6%B2%99%E5%A4%A9%E8%A1%97.jpg","title":"金沙天街","note":"看到好看就顺手拍了","lat":29.5566,"lng":106.4568,"taken_at":"2026-06-20 15:31","visit":"","requested_visit":"","archive_year":"2026","archive_month":"2026-06","order":0,"width":1706,"height":1279,"aspect_ratio":1.3338545738858483,"gps_source":"manual"},{"id":"CHINA/ChongQING:人民大礼堂.jpg","file":"人民大礼堂.jpg","src":"/travel/places/CHINA/ChongQING/photos/%E4%BA%BA%E6%B0%91%E5%A4%A7%E7%A4%BC%E5%A0%82.jpg","title":"人民大礼堂","note":"五点半关门，五点三十一到的","lat":29.5109,"lng":106.5079,"taken_at":"2026-09-07 17:31","visit":"2026-09","requested_visit":"2026-09","archive_year":"2026","archive_month":"2026-09","order":1,"width":1706,"height":1279,"aspect_ratio":1.3338545738858483,"gps_source":"manual"}]},{"slug":"CHINA/HangZhou","country_dir":"CHINA","city_dir":"HangZhou","name":"杭州","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":30.25,"lng":120.1666,"visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":3}],"journeys":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":3}],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[{"id":"time:2025","year":"2025","label":"2025年","photo_count":3}],"visited":["2025-07"],"note":"杭州","photos":[{"id":"CHINA/HangZhou:杭州墙.jpg","file":"杭州墙.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E6%9D%AD%E5%B7%9E%E5%A2%99.jpg","title":"杭州墙","note":"","lat":30.240253,"lng":120.170774,"taken_at":"2025-07-15 14:59","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":0,"width":3000,"height":4000,"aspect_ratio":0.75,"gps_source":"manual"},{"id":"CHINA/HangZhou:西湖.jpg","file":"西湖.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E8%A5%BF%E6%B9%96.jpg","title":"西湖","note":"西湖","lat":30.2588,"lng":120.15430833333333,"taken_at":"2025-07-13 10:04","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":1,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"exif"},{"id":"CHINA/HangZhou:西湖树.jpg","file":"西湖树.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E8%A5%BF%E6%B9%96%E6%A0%91.jpg","title":"西湖树","note":"好多鸟","lat":30.252379,"lng":120.16227,"taken_at":"2025-07-13 9:54","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":2,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"manual"}]},{"slug":"CHINA/JingDEZhen","country_dir":"CHINA","city_dir":"JingDEZhen","name":"景德镇","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":29.1204,"lng":117.1351,"visits":[],"journeys":[],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[],"visited":[],"note":"景德镇","photos":[]},{"slug":"CHINA/NanChang","country_dir":"CHINA","city_dir":"NanChang","name":"南昌","country":"中国","country_code":"CN","mode":"residence","resident":true,"lat":28.7803,"lng":116.2762,"visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":1}],"journeys":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":1}],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[{"id":"time:2026","year":"2026","label":"2026年","photo_count":1},{"id":"time:2025","year":"2025","label":"2025年","photo_count":1}],"visited":["2025-07"],"note":"南昌","photos":[{"id":"CHINA/NanChang:昌北机场.jpg","file":"昌北机场.jpg","src":"/travel/places/CHINA/NanChang/photos/%E6%98%8C%E5%8C%97%E6%9C%BA%E5%9C%BA.jpg","title":"昌北机场","note":"标准鸡翅位","lat":28.8583,"lng":115.9124,"taken_at":"2026-09-02 12:20","visit":"","requested_visit":"","archive_year":"2026","archive_month":"2026-09","order":0,"width":960,"height":1282,"aspect_ratio":0.748829953198128,"gps_source":"manual"},{"id":"CHINA/NanChang:滕王阁.jpg","file":"滕王阁.jpg","src":"/travel/places/CHINA/NanChang/photos/%E6%BB%95%E7%8E%8B%E9%98%81.jpg","title":"滕王阁","note":"标准鸡翅位","lat":28.683569444444444,"lng":115.87525555555555,"taken_at":"2025-07-07 19:02","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":1,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"exif"}]},{"slug":"CHINA/ShangHai","country_dir":"CHINA","city_dir":"ShangHai","name":"上海","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":31.2479,"lng":121.453,"visits":[],"journeys":[],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[],"visited":[],"note":"上海","photos":[]}];</script>
+
+    </div>
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2025-2026</span>
+            
+            <span id="year">2025</span>
+            <a href="/about" target="_blank">Knight Zhou</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2025";
+                    var startMonth = "7";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/violet796" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1904354135@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1904354135" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 1904354135" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    
+        <div id="knightMusicRoot"
+     class="knight-music"
+     data-remember-state="true"
+     data-default-open="false"
+     data-music-server="netease"
+     data-music-type="playlist"
+     data-music-id="14060001796"
+     data-music-sync-minutes="15"
+     data-music-api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
+     data-music-api-fallbacks="https://meting.mikus.ink/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r|KM|https://meting.naihee.com/api?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r">
+    <meting-js data-km-engine
+               class="knight-music-engine"
+               server="netease"
+               type="playlist"
+               id="14060001796"
+               api="https://api.injahow.cn/meting/?server=:server&amp;type=:type&amp;id=:id&amp;auth=:auth&amp;r=:r"
+               fixed="false"
+               mini="false"
+               autoplay="false"
+               mutex="false"
+               theme="#42b983"
+               loop="all"
+               order="random"
+               preload="auto"
+               volume="0.7"
+               list-folded="true"
+               lrc-type="3"></meting-js>
+
+    <div class="km-dock" data-km-dock>
+        <button type="button" class="km-dock-main" data-km-toggle data-km-drag-handle aria-label="展开音乐播放器，可拖动位置" aria-expanded="false" title="拖动可移动播放器，点击展开">
+            <span class="km-dock-cover-wrap">
+                <img class="km-dock-cover" data-km-cover-mini alt="当前歌曲封面">
+                <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
+            </span>
+            <span class="km-dock-meta">
+                <strong data-km-title-mini>音乐加载中</strong>
+                <small data-km-artist-mini>NetEase Playlist</small>
+            </span>
+            <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="km-drag-grip" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
+        </button>
+        <div class="km-dock-controls" aria-label="迷你播放控制">
+            <button type="button" class="km-dock-control" data-km-prev-mini aria-label="上一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 9.5 12 18 17.5z"/></svg>
+            </button>
+            <button type="button" class="km-dock-control km-dock-play" data-km-play-mini aria-label="播放音乐">
+                <svg class="km-icon km-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+                <svg class="km-icon km-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+            </button>
+            <button type="button" class="km-dock-control" data-km-next-mini aria-label="下一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14.5 12 6 17.5z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <section class="km-panel" data-km-panel aria-label="音乐播放器" aria-hidden="true">
+        <div class="km-panel-artwork" data-km-artwork aria-hidden="true"></div>
+        <div class="km-panel-glow" aria-hidden="true"></div>
+        <header class="km-panel-header" data-km-drag-handle title="拖动可移动播放器">
+            <div class="km-panel-heading">
+                <span class="km-eyebrow">KNIGHT MUSIC</span>
+                <h3>正在播放</h3>
+                <span class="km-panel-drag-note">拖动此处可移动</span>
+            </div>
+            <button type="button" class="km-icon-button km-close" data-km-close aria-label="收起播放器">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6.5 6.5 11 11m0-11-11 11"/></svg>
+            </button>
+        </header>
+
+        <div class="km-hero">
+            <div class="km-cover-shell">
+                <img class="km-cover" data-km-cover alt="当前歌曲封面">
+                <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
+            </div>
+            <div class="km-track-meta">
+                <h4 data-km-title>音乐加载中</h4>
+                <p data-km-artist>正在读取网易云歌单</p>
+            </div>
+        </div>
+
+        <div class="km-progress-block">
+            <div class="km-progress" data-km-progress role="slider" tabindex="0" aria-label="播放进度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                <span class="km-progress-fill" data-km-progress-fill></span>
+                <span class="km-progress-thumb" data-km-progress-thumb></span>
+            </div>
+            <div class="km-time-row"><span data-km-current>00:00</span><span data-km-duration>00:00</span></div>
+        </div>
+
+        <div class="km-main-controls">
+            <button type="button" class="km-icon-button" data-km-prev aria-label="上一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14M18 6.5 9.5 12 18 17.5z"/></svg>
+            </button>
+            <button type="button" class="km-play-main" data-km-play aria-label="播放">
+                <svg class="km-icon km-icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10-6.5z"/></svg>
+                <svg class="km-icon km-icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zm6 0h4v14h-4z"/></svg>
+            </button>
+            <button type="button" class="km-icon-button" data-km-next aria-label="下一首">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M6 6.5 14.5 12 6 17.5z"/></svg>
+            </button>
+        </div>
+
+        <div class="km-secondary-controls">
+            <button type="button" class="km-chip" data-km-order aria-label="切换播放顺序">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h3c5 0 5 10 10 10h3m-3-3 3 3-3 3M4 17h3c2.5 0 3.8-2.5 5-5 1.2-2.5 2.5-5 5-5h3m-3-3 3 3-3 3"/></svg>
+                <span data-km-order-label>随机</span>
+            </button>
+            <div class="km-volume-wrap">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 10v4h3l4 4V6L8 10zm10.5-1.5a5 5 0 0 1 0 7M17.8 6.2a8 8 0 0 1 0 11.6"/></svg>
+                <input type="range" class="km-range km-volume" data-km-volume min="0" max="100" value="70" aria-label="音量">
+            </div>
+        </div>
+
+        <div class="km-playlist-head">
+            <div>
+                <span class="km-eyebrow">PLAYLIST</span>
+                <strong data-km-count>0 TRACKS</strong>
+            </div>
+            <div class="km-playlist-source-wrap">
+                <span class="km-playlist-source">网易云 · 14060001796</span>
+                <button type="button" class="km-sync-button" data-km-refresh title="重新同步网易云歌单" aria-label="重新同步网易云歌单">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5M6.1 8.2A7 7 0 0 1 18.6 7M17.9 15.8A7 7 0 0 1 5.4 17"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="km-playlist" data-km-playlist>
+            <div class="km-loading" data-km-loading><span></span><span></span><span></span>正在读取歌单</div>
+        </div>
+    </section>
+</div>
+
+    
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+	
+    
+
+    
+
+    
+
+    
+
+    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="/js/travel-map.js"></script>
+
+    
+    <script src="/js/knight-music.js"></script>
+    
+    <script src="/js/knight-pjax.js"></script>
+    
+    
+
+</body>
+</html>

@@ -25,6 +25,13 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
@@ -77,6 +84,17 @@
       <i class="fas fa-compass" style="zoom: 0.6;"></i>
       
       <span>文章导航</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/travel/" class="waves-effect waves-light">
+      
+      <i class="fas fa-map-marked-alt" style="zoom: 0.6;"></i>
+      
+      <span>足迹</span>
     </a>
     
   </li>
@@ -167,6 +185,17 @@
 			    <i class="fa-fw fas fa-compass"></i>
 			
 			文章导航
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/travel/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-map-marked-alt"></i>
+			
+			足迹
 		</a>
           
         </li>
@@ -585,7 +614,7 @@
         grid: { left: 42, right: 18, top: 48, bottom: 55 },
         xAxis: [{
             type: 'category',
-            data: ["论文","时序知识图谱","Hot100","算法题","滑动窗口","笔记","RNN","数据分析","算法","工具"],
+            data: ["论文","时序知识图谱","Hot100","算法题","滑动窗口","笔记","RNN","数据分析","算法","开发工具"],
             axisLine: { lineStyle: { color: kzChartLine } },
             axisTick: { show: false },
             axisLabel: { color: '#6f829d', fontSize: 9, rotate: 28 }
@@ -1139,6 +1168,11 @@ $(function () {
     
 
     
+
+    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+    <script src="/js/travel-map.js"></script>
 
     
     <script src="/js/knight-music.js"></script>
