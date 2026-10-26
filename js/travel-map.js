@@ -508,6 +508,16 @@
       if (activeYear !== 'all') {
         places.forEach(function (place) {
           if (!placeHasDeclaredVisitYear(place, activeYear)) return;
+
+          // A city-level visit marker is only a fallback for a visited city that
+          // has no photo marker in the selected year. If photos already exist,
+          // those thumbnails are the richer location signal and the extra city
+          // marker would visually duplicate / overlap them.
+          var hasPhotoInSelectedYear = visiblePhotos(place, 'all').some(function (photo) {
+            return Number.isFinite(Number(photo.lat)) && Number.isFinite(Number(photo.lng));
+          });
+          if (hasPhotoInSelectedYear) return;
+
           if (!Number.isFinite(Number(place.lat)) || !Number.isFinite(Number(place.lng))) return;
           var marker = L.marker([place.lat, place.lng], {
             icon: yearCityIcon(place),

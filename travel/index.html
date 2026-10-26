@@ -258,27 +258,71 @@
 
     <div id="knight-page-shell">
         
+
+
+<div class="bg-cover pd-header about-cover inner-cover inner-cover--travel" data-banner-index="6">
+    <div class="inner-cover__media" aria-hidden="true">
+        <div class="inner-cover__backdrop"></div>
+        <img class="inner-cover__image" src="" alt="" draggable="false">
+    </div>
+
+    
+    <div class="container inner-hero__container">
+        <div class="inner-hero__copy" data-aos="fade-up">
+            <div class="inner-hero__eyebrow"><span></span>TRAVEL ATLAS</div>
+            <h1>足迹</h1>
+            
+            <p>把去过的地方、旅途中的照片，以及那些值得记住的瞬间留在一张世界地图上。</p>
+            
+            
+            <div class="inner-hero__stats" aria-label="页面统计">
+                
+                <span><strong>1</strong><em>国家</em></span>
+                
+                <span><strong>5</strong><em>城市</em></span>
+                
+                <span><strong>7</strong><em>照片</em></span>
+                
+            </div>
+            
+        </div>
+    </div>
+    
+
+    
+<script>
+(function () {
+    var cover = document.currentScript && document.currentScript.closest('.bg-cover.inner-cover');
+    if (!cover) cover = document.querySelector('.bg-cover.inner-cover');
+    if (!cover) return;
+
+    var configuredIndex = parseInt(cover.getAttribute('data-banner-index'), 10);
+    var bannerIndex = Number.isFinite(configuredIndex) ? configuredIndex : new Date().getDay();
+    var bannerBase = "/medias/banner/";
+    var bannerUrl = bannerBase + bannerIndex + '.jpg';
+
+    cover.style.backgroundImage = 'none';
+    cover.style.setProperty('--kz-inner-cover-image', 'url("' + bannerUrl + '")');
+
+    var image = cover.querySelector('.inner-cover__image');
+    if (!image) return;
+    image.src = bannerUrl;
+    image.onerror = function () {
+        var fallback = bannerBase + '0.jpg';
+        if (image.src.indexOf('/0.jpg') === -1) {
+            cover.style.setProperty('--kz-inner-cover-image', 'url("' + fallback + '")');
+            image.src = fallback;
+        } else {
+            image.style.display = 'none';
+        }
+    };
+})();
+</script>
+
+</div>
+
 <main class="travel-page" data-travel-page>
-  <section class="travel-hero">
-    <div class="travel-hero-glow travel-hero-glow--a"></div>
-    <div class="travel-hero-glow travel-hero-glow--b"></div>
-    <div class="travel-hero-copy">
-      <div class="travel-eyebrow"><span></span>TRAVEL ATLAS</div>
-      <h1>足迹</h1>
-      <p>把去过的地方、旅途中的照片，以及那些值得记住的瞬间留在一张世界地图上。</p>
-      <div class="travel-stats">
-        <div><strong>1</strong><span>国家</span></div>
-        <div><strong>5</strong><span>城市</span></div>
-        <div><strong>7</strong><span>照片</span></div>
-      </div>
-    </div>
-    <div class="travel-orbit" aria-hidden="true">
-      <div class="travel-orbit-ring travel-orbit-ring--one"></div>
-      <div class="travel-orbit-ring travel-orbit-ring--two"></div>
-      <div class="travel-orbit-dot"></div>
-      <i class="fas fa-globe-asia"></i>
-    </div>
-  </section>
+
 
   <section class="travel-map-shell">
     <header class="travel-map-toolbar">
@@ -365,7 +409,7 @@
   <button type="button" class="travel-lightbox-next" aria-label="下一张"><i class="fas fa-chevron-right"></i></button>
 </div>
 
-<script>window.KnightTravelPlaces = [{"slug":"CHINA/ChongQING","country_dir":"CHINA","city_dir":"ChongQING","name":"重庆","country":"中国","country_code":"CN","mode":"residence","resident":true,"lat":29.563,"lng":106.551,"visits":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":"","photo_count":1}],"journeys":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":"","photo_count":1}],"declared_visits":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":""},{"id":"2025-03","date":"2025-03","label":"2025-03","note":""}],"time_archives":[{"id":"time:2026","year":"2026","label":"2026年","photo_count":2}],"visited":["2026-09"],"note":"重庆","photos":[{"id":"CHINA/ChongQING:金沙天街.jpg","file":"金沙天街.jpg","src":"/travel/places/CHINA/ChongQING/photos/%E9%87%91%E6%B2%99%E5%A4%A9%E8%A1%97.jpg","title":"金沙天街","note":"看到好看就顺手拍了","lat":29.5566,"lng":106.4568,"taken_at":"2026-06-20 15:31","visit":"","requested_visit":"","archive_year":"2026","archive_month":"2026-06","order":0,"width":1706,"height":1279,"aspect_ratio":1.3338545738858483,"gps_source":"manual"},{"id":"CHINA/ChongQING:人民大礼堂.jpg","file":"人民大礼堂.jpg","src":"/travel/places/CHINA/ChongQING/photos/%E4%BA%BA%E6%B0%91%E5%A4%A7%E7%A4%BC%E5%A0%82.jpg","title":"人民大礼堂","note":"五点半关门，五点三十一到的","lat":29.5109,"lng":106.5079,"taken_at":"2026-09-07 17:31","visit":"2026-09","requested_visit":"2026-09","archive_year":"2026","archive_month":"2026-09","order":1,"width":1706,"height":1279,"aspect_ratio":1.3338545738858483,"gps_source":"manual"}]},{"slug":"CHINA/HangZhou","country_dir":"CHINA","city_dir":"HangZhou","name":"杭州","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":30.25,"lng":120.1666,"visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":3}],"journeys":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":3}],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[{"id":"time:2025","year":"2025","label":"2025年","photo_count":3}],"visited":["2025-07"],"note":"杭州","photos":[{"id":"CHINA/HangZhou:杭州墙.jpg","file":"杭州墙.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E6%9D%AD%E5%B7%9E%E5%A2%99.jpg","title":"杭州墙","note":"","lat":30.240253,"lng":120.170774,"taken_at":"2025-07-15 14:59","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":0,"width":3000,"height":4000,"aspect_ratio":0.75,"gps_source":"manual"},{"id":"CHINA/HangZhou:西湖.jpg","file":"西湖.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E8%A5%BF%E6%B9%96.jpg","title":"西湖","note":"西湖","lat":30.2588,"lng":120.15430833333333,"taken_at":"2025-07-13 10:04","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":1,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"exif"},{"id":"CHINA/HangZhou:西湖树.jpg","file":"西湖树.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E8%A5%BF%E6%B9%96%E6%A0%91.jpg","title":"西湖树","note":"好多鸟","lat":30.252379,"lng":120.16227,"taken_at":"2025-07-13 9:54","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":2,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"manual"}]},{"slug":"CHINA/JingDEZhen","country_dir":"CHINA","city_dir":"JingDEZhen","name":"景德镇","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":29.1204,"lng":117.1351,"visits":[],"journeys":[],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[],"visited":[],"note":"景德镇","photos":[]},{"slug":"CHINA/NanChang","country_dir":"CHINA","city_dir":"NanChang","name":"南昌","country":"中国","country_code":"CN","mode":"residence","resident":true,"lat":28.7803,"lng":116.2762,"visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":1}],"journeys":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":1}],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[{"id":"time:2026","year":"2026","label":"2026年","photo_count":1},{"id":"time:2025","year":"2025","label":"2025年","photo_count":1}],"visited":["2025-07"],"note":"南昌","photos":[{"id":"CHINA/NanChang:昌北机场.jpg","file":"昌北机场.jpg","src":"/travel/places/CHINA/NanChang/photos/%E6%98%8C%E5%8C%97%E6%9C%BA%E5%9C%BA.jpg","title":"昌北机场","note":"标准鸡翅位","lat":28.8583,"lng":115.9124,"taken_at":"2026-09-02 12:20","visit":"","requested_visit":"","archive_year":"2026","archive_month":"2026-09","order":0,"width":960,"height":1282,"aspect_ratio":0.748829953198128,"gps_source":"manual"},{"id":"CHINA/NanChang:滕王阁.jpg","file":"滕王阁.jpg","src":"/travel/places/CHINA/NanChang/photos/%E6%BB%95%E7%8E%8B%E9%98%81.jpg","title":"滕王阁","note":"标准鸡翅位","lat":28.683569444444444,"lng":115.87525555555555,"taken_at":"2025-07-07 19:02","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":1,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"exif"}]},{"slug":"CHINA/ShangHai","country_dir":"CHINA","city_dir":"ShangHai","name":"上海","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":31.2479,"lng":121.453,"visits":[],"journeys":[],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[],"visited":[],"note":"上海","photos":[]}];</script>
+<script>window.KnightTravelPlaces = [{"slug":"CHINA/ChongQING","country_dir":"CHINA","city_dir":"ChongQING","name":"重庆","country":"中国","country_code":"CN","mode":"residence","resident":true,"lat":29.563,"lng":106.551,"visits":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":"","photo_count":1}],"journeys":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":"","photo_count":1}],"declared_visits":[{"id":"2026-09","date":"2026-09","label":"2026-09","note":""},{"id":"2025-03","date":"2025-03","label":"2025-03","note":""}],"time_archives":[{"id":"time:2026","year":"2026","label":"2026年","photo_count":2}],"visited":["2026-09"],"note":"重庆","photos":[{"id":"CHINA/ChongQING:金沙天街.jpg","file":"金沙天街.jpg","src":"/travel/places/CHINA/ChongQING/photos/%E9%87%91%E6%B2%99%E5%A4%A9%E8%A1%97.jpg","title":"金沙天街","note":"看到好看就顺手拍了","lat":29.5566,"lng":106.4568,"taken_at":"2026-06-20 15:31","visit":"","requested_visit":"","archive_year":"2026","archive_month":"2026-06","order":0,"width":1706,"height":1279,"aspect_ratio":1.3338545738858483,"gps_source":"manual"},{"id":"CHINA/ChongQING:人民大礼堂.jpg","file":"人民大礼堂.jpg","src":"/travel/places/CHINA/ChongQING/photos/%E4%BA%BA%E6%B0%91%E5%A4%A7%E7%A4%BC%E5%A0%82.jpg","title":"人民大礼堂","note":"五点半关门，五点三十一到的","lat":29.563,"lng":106.551,"taken_at":"2026-09-07 17:31","visit":"2026-09","requested_visit":"2026-09","archive_year":"2026","archive_month":"2026-09","order":1,"width":4032,"height":3024,"aspect_ratio":1.3333333333333333,"gps_source":"city"}]},{"slug":"CHINA/HangZhou","country_dir":"CHINA","city_dir":"HangZhou","name":"杭州","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":30.25,"lng":120.1666,"visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":3}],"journeys":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":3}],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[{"id":"time:2025","year":"2025","label":"2025年","photo_count":3}],"visited":["2025-07"],"note":"杭州","photos":[{"id":"CHINA/HangZhou:杭州墙.jpg","file":"杭州墙.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E6%9D%AD%E5%B7%9E%E5%A2%99.jpg","title":"杭州墙","note":"","lat":30.240253,"lng":120.170774,"taken_at":"2025-07-15 14:59","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":0,"width":3000,"height":4000,"aspect_ratio":0.75,"gps_source":"manual"},{"id":"CHINA/HangZhou:西湖.jpg","file":"西湖.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E8%A5%BF%E6%B9%96.jpg","title":"西湖","note":"西湖","lat":30.2588,"lng":120.15430833333333,"taken_at":"2025-07-13 10:04","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":1,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"exif"},{"id":"CHINA/HangZhou:西湖树.jpg","file":"西湖树.jpg","src":"/travel/places/CHINA/HangZhou/photos/%E8%A5%BF%E6%B9%96%E6%A0%91.jpg","title":"西湖树","note":"好多鸟","lat":30.252379,"lng":120.16227,"taken_at":"2025-07-13 9:54","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":2,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"manual"}]},{"slug":"CHINA/JingDEZhen","country_dir":"CHINA","city_dir":"JingDEZhen","name":"景德镇","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":29.1204,"lng":117.1351,"visits":[],"journeys":[],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[],"visited":[],"note":"景德镇","photos":[]},{"slug":"CHINA/NanChang","country_dir":"CHINA","city_dir":"NanChang","name":"南昌","country":"中国","country_code":"CN","mode":"residence","resident":true,"lat":28.7803,"lng":116.2762,"visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":1}],"journeys":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":"","photo_count":1}],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[{"id":"time:2026","year":"2026","label":"2026年","photo_count":1},{"id":"time:2025","year":"2025","label":"2025年","photo_count":1}],"visited":["2025-07"],"note":"南昌","photos":[{"id":"CHINA/NanChang:昌北机场.jpg","file":"昌北机场.jpg","src":"/travel/places/CHINA/NanChang/photos/%E6%98%8C%E5%8C%97%E6%9C%BA%E5%9C%BA.jpg","title":"昌北机场","note":"标准鸡翅位","lat":28.8583,"lng":115.9124,"taken_at":"2026-09-02 12:20","visit":"","requested_visit":"","archive_year":"2026","archive_month":"2026-09","order":0,"width":960,"height":1282,"aspect_ratio":0.748829953198128,"gps_source":"manual"},{"id":"CHINA/NanChang:滕王阁.jpg","file":"滕王阁.jpg","src":"/travel/places/CHINA/NanChang/photos/%E6%BB%95%E7%8E%8B%E9%98%81.jpg","title":"滕王阁","note":"标准鸡翅位","lat":28.683569444444444,"lng":115.87525555555555,"taken_at":"2025-07-07 19:02","visit":"2025-07","requested_visit":"2025-07","archive_year":"2025","archive_month":"2025-07","order":1,"width":4000,"height":3000,"aspect_ratio":1.3333333333333333,"gps_source":"exif"}]},{"slug":"CHINA/ShangHai","country_dir":"CHINA","city_dir":"ShangHai","name":"上海","country":"中国","country_code":"CN","mode":"travel","resident":false,"lat":31.2479,"lng":121.453,"visits":[],"journeys":[],"declared_visits":[{"id":"2025-07","date":"2025-07","label":"2025年7月","note":""}],"time_archives":[],"visited":[],"note":"上海","photos":[]}];</script>
 
     </div>
 
