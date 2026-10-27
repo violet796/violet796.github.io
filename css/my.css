@@ -722,22 +722,99 @@ main.container.content {
     background: rgba(77, 141, 255, .055);
 }
 
-#articleContent table {
-    overflow: hidden;
-    border: 1px solid var(--kz-border);
-    border-radius: 10px;
-    color: #b9c4d4;
-    background: #0c121d;
+/* Keep the scroll area transparent; only the actual cells paint a table surface. */
+#articleContent .article-table-scroll {
+    max-width: 100%;
+    margin: 24px auto;
+    overflow-x: auto;
+    background: transparent;
+    scrollbar-width: thin;
+    scrollbar-color: #405b7e transparent;
 }
 
+#articleContent .article-table-scroll:focus-visible {
+    outline: 2px solid #72a7ff;
+    outline-offset: 3px;
+}
+
+#articleContent table {
+    display: table;
+    width: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    table-layout: auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid #344963;
+    border-radius: 10px;
+    color: #d6e2f2;
+    background: #142133;
+}
+
+#articleContent table thead,
+#articleContent table thead tr,
 #articleContent table th {
-    color: #dce7f7;
-    background: #141e2e;
+    color: #f0f5fd;
+    background: #243750;
+}
+
+#articleContent table tbody > tr:nth-child(odd) {
+    background: #142133;
+}
+
+#articleContent table tbody > tr:nth-child(even) {
+    background: #1b2b3f;
 }
 
 #articleContent table td,
 #articleContent table th {
-    border-color: var(--kz-border) !important;
+    min-width: 96px;
+    max-width: 36rem;
+    padding: 10px 14px;
+    border: 0;
+    border-right: 1px solid #2f425b;
+    border-bottom: 1px solid #2f425b;
+    font-size: 14px;
+    line-height: 1.7;
+    vertical-align: middle;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+#articleContent table td {
+    color: #d6e2f2;
+    background: transparent;
+}
+
+#articleContent table th {
+    font-weight: 700;
+}
+
+#articleContent table tr > :last-child {
+    border-right: 0;
+}
+
+#articleContent table tbody:last-child > tr:last-child > *,
+#articleContent table tfoot:last-child > tr:last-child > * {
+    border-bottom: 0;
+}
+
+#articleContent table td p,
+#articleContent table td li {
+    color: inherit;
+}
+
+#articleContent table td p {
+    margin: .35em 0;
+}
+
+@media only screen and (max-width: 600px) {
+    #articleContent table td,
+    #articleContent table th {
+        padding: 9px 11px;
+        font-size: 13px;
+    }
 }
 
 #articleContent code:not([class*="language-"]) {
@@ -773,10 +850,6 @@ main.container.content {
 .toc-widget a:hover,
 .toc-widget .is-active-link {
     color: #8db6ff !important;
-}
-
-.toc-widget .is-active-link::before {
-    background: var(--kz-primary) !important;
 }
 
 /* ---------- archive timeline ---------- */
@@ -4016,4 +4089,68 @@ body {
         width: 100% !important;
         max-width: 100% !important;
     }
+}
+
+/* The embedded guestbook follows the about card instead of overlapping it. */
+#aboutme + #contact.chip-container {
+    margin-top: 2rem;
+    scroll-margin-top: 5rem;
+}
+
+/* Replace the legacy white ellipsis mask with the shared article heat cell. */
+.archive-article__summary-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 6px;
+}
+
+.archive-article__summary-row .summary {
+    flex: 1 1 auto;
+    min-width: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    padding-right: 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-align: left;
+}
+
+.archive-article__summary-row .block-with-text::before,
+.archive-article__summary-row .block-with-text::after {
+    display: none !important;
+    content: none !important;
+}
+
+.archive-article__heat {
+    margin-top: 5px;
+    cursor: help;
+}
+
+.archive-article > .card:hover .archive-article__heat {
+    transform: scale(1.12);
+    border-color: rgba(127, 181, 255, .42);
+}
+
+/* Article directory cards use the same summary-side heat cell as other feeds. */
+.taxonomy-post-card__summary-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.taxonomy-post-card__summary-row > p {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.taxonomy-post-card__heat {
+    margin-top: 5px;
+    cursor: help;
+}
+
+.taxonomy-post-card:hover .taxonomy-post-card__heat {
+    transform: scale(1.12);
+    border-color: rgba(127, 181, 255, .42);
 }

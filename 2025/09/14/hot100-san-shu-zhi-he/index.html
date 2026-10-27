@@ -123,17 +123,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/changelog" class="waves-effect waves-light">
       
       <i class="fas fa-code-branch" style="zoom: 0.6;"></i>
@@ -218,17 +207,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -342,13 +320,10 @@
         text-decoration: underline;
     }
 
+    /* Highlight the active link text without drawing markers over the article. */
     #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
+        content: none;
+        display: none;
     }
 
     #toc-content .is-active-link {
@@ -1057,6 +1032,23 @@ nums[j] + nums[k]  = -nums[i]
 </article>
 
 </div>
+
+<script>
+    // Runs on initial loads and when PJAX executes the incoming article scripts.
+    (function () {
+        document.querySelectorAll('#articleContent table').forEach(function (table) {
+            if (table.parentElement.classList.contains('article-table-scroll')) return;
+            var wrapper = document.createElement('div');
+            wrapper.className = 'article-table-scroll';
+            wrapper.tabIndex = 0;
+            wrapper.setAttribute('role', 'region');
+            var caption = table.querySelector('caption');
+            wrapper.setAttribute('aria-label', caption ? caption.textContent.trim() : '文章表格，可左右滚动');
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+        });
+    })();
+</script>
 
 
 <script>

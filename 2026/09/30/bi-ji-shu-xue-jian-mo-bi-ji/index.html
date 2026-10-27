@@ -123,17 +123,6 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/changelog" class="waves-effect waves-light">
       
       <i class="fas fa-code-branch" style="zoom: 0.6;"></i>
@@ -218,17 +207,6 @@
 			    <i class="fa-fw fas fa-user-circle"></i>
 			
 			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
 		</a>
           
         </li>
@@ -342,13 +320,10 @@
         text-decoration: underline;
     }
 
+    /* Highlight the active link text without drawing markers over the article. */
     #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
+        content: none;
+        display: none;
     }
 
     #toc-content .is-active-link {
@@ -1091,51 +1066,53 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2026/09/30/bi-ji-shu-xue-jian-mo-bi-ji/">
+                <a href="/2026/10/28/lun-wen-hlcrl-hierarchical-pruning-temporal-knowledge-graph-reasoning-model/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】数学建模笔记">
+                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3-%E5%95%86%E4%B8%9A%E8%A1%97.jpg" class="responsive-img" alt="【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model">
                         
-                        <span class="card-title">【笔记】数学建模笔记</span>
+                        <span class="card-title">【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            学习数学建模时的笔记
+                            Expert System With Application 两个智能体分层，减少关系候选以完成TKGC
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2026-09-30
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2026-10-28
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Notes/" class="post-category">
-                                    Notes
+                            <a href="/categories/Paper/" class="post-category">
+                                    Paper
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">笔记</span>
+                    <a href="/tags/%E8%AE%BA%E6%96%87/">
+                        <span class="chip bg-color">论文</span>
                     </a>
                     
-                    <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/">
-                        <span class="chip bg-color">数学建模</span>
+                    <a href="/tags/%E6%97%B6%E5%BA%8F%E7%9F%A5%E8%AF%86%E5%9B%BE%E8%B0%B1/">
+                        <span class="chip bg-color">时序知识图谱</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%99%BA%E8%83%BD%E4%BD%93/">
+                        <span class="chip bg-color">智能体</span>
                     </a>
                     
                 </div>
@@ -1199,6 +1176,23 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
 </article>
 
 </div>
+
+<script>
+    // Runs on initial loads and when PJAX executes the incoming article scripts.
+    (function () {
+        document.querySelectorAll('#articleContent table').forEach(function (table) {
+            if (table.parentElement.classList.contains('article-table-scroll')) return;
+            var wrapper = document.createElement('div');
+            wrapper.className = 'article-table-scroll';
+            wrapper.tabIndex = 0;
+            wrapper.setAttribute('role', 'region');
+            var caption = table.querySelector('caption');
+            wrapper.setAttribute('aria-label', caption ? caption.textContent.trim() : '文章表格，可左右滚动');
+            table.parentNode.insertBefore(wrapper, table);
+            wrapper.appendChild(table);
+        });
+    })();
+</script>
 
 
 <script>
