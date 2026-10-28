@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A2.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A2.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -448,7 +438,7 @@
 <p>多目标可以用<strong>加权求和</strong>，给不同目标函数设定权重等方法。</p>
 <p>目标函数越简单越好，且约束条件数量需要适中，太少求解空间大；太多求解不合理</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260916144135502.png" alt="约束的常见形式">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260916144135502.png" alt="约束的常见形式">
 
 <p><strong>多目标优化</strong>是涉及多个目标函数同时优化的数学问题，需要在两个或多个相互冲突的目标之间进行权衡的情况下作出<strong>最优决策</strong>，智能优化算法分下面步骤</p>
 <ul>
@@ -459,7 +449,7 @@
 <p><strong>基本原理</strong></p>
 <p><strong>支配：</strong>对于一个解，其有多个指标，只有在其中一个解A的<strong>某指标</strong>好于另一个解B的该指标，且其余指标不差于另一个解时，才称<strong>A支配B</strong></p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260921001158077.png" alt="支配比较图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260921001158077.png" alt="支配比较图">
 
 <p>如该图中需要两项指标均为越小越好，则有A支配D，B支配D，故A,B均严格 比D好。但是A和B之间不存在支配关系，故暂时无法评价<strong>A和B之间的支配关系</strong>。</p>
 <p><strong>拥挤距离：</strong>为了让解均匀分布，利于种群多样性，故同一层帕累托前沿的解最好需要按照一定的距离分隔开来，而非聚集在一起。拥挤距离指的是指的是<strong>某一层帕累托前沿</strong>中一个解离左右两边解的距离，同一层次上优先选择拥挤距离大的解。</p>
@@ -601,7 +591,7 @@ FSE_1=\sum_jSTD_1{ij}
 <p>因此，接受概率的表达式必须能够有效帮助模型去往正确答案。</p>
 <p>对于优化类问题，先<strong>列出需要优化的表达式</strong>，这一步即为建模过程，如下题：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260916170457094.png" alt="模拟退火例题">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260916170457094.png" alt="模拟退火例题">
 
 <p>假设我们最后将题目表述为上述形式，观察发现有无数的可行解，因此符合模拟退火的使用条件，假设定义一个随机解为<span class="math inline">\(x=1,y=4.1\)</span>时结果最大，此时得到一个可行解<span class="math inline">\(z_1\)</span>。</p>
 <blockquote>
@@ -628,11 +618,11 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
 <p><strong>变异过程</strong></p>
 <p>筛选出所有解的等级后，需要进行到<strong>优化问题中</strong>产生新解的步骤，具体流程为，根据<strong>等级、拥挤距离</strong>筛选出<strong>父类解</strong>，并利用父类解的基因生成新的<strong>子类解</strong>，产生的新子类解一般与父类解数量相同（视情况而定）。对于多目标问题，一个解中目标的一个决策变量就是一个<strong>父类基因</strong>，通过两两交换决策变量的值得到新解，即<strong>子类解</strong>，具体过程如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260921005232679.png" alt="交叉变异过程">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260921005232679.png" alt="交叉变异过程">
 
 <p>在交换完毕得到新解后，某基因可能会发生突变，通过在一定范围内得到一个全新的数值，从而<strong>得到一个全新解</strong>，具体过程如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260921005305533.png" alt="基因突变">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260921005305533.png" alt="基因突变">
 
 <p>得到<strong>子类解</strong>后，将子类解与父类解一起参与<strong>快速非支配排序</strong>，得到新一轮的<span class="math inline">\(rank\)</span>，并循环上述步骤，得到最终解。</p>
 <h3 id="决策树和随机森林算法">决策树和随机森林算法</h3>
@@ -660,7 +650,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
 <p>底层逻辑是<strong>集体智慧</strong>，森林实际上是一大片<strong>决策树</strong>。</p>
 <p>随机主要体现在两个方面，分别是随机样本采样以及随机特征选择，这可以减小各个树模型之间的关联性，确保模型的多样性。<strong>通过强制让每棵树观察不同的组合，让答案百花齐放</strong>。随机森林如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260922152305485.png" alt="决策森林">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260922152305485.png" alt="决策森林">
 
 <p>当一个新问题来了，每颗决策树进行投票，决定新问题的答案，这可以极大提升泛化能力。</p>
 <h3 id="集成学习之boosting模型">集成学习之Boosting模型</h3>
@@ -681,7 +671,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
 <p><strong>CatBoost</strong></p>
 <p>该模型非常适合做<strong>大量类别型特征的业务场景</strong>，尤其是类别值很多的情况下，因为其内部就有一套极强的方法（Target Statistics）自动处理</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260922154525431.png" alt="三种Boosting的对比">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260922154525431.png" alt="三种Boosting的对比">
 
 
                 
@@ -1073,7 +1063,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
                 <a href="/2026/10/28/lun-wen-hlcrl-hierarchical-pruning-temporal-knowledge-graph-reasoning-model/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3-%E5%95%86%E4%B8%9A%E8%A1%97.jpg" class="responsive-img" alt="【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3-%E5%95%86%E4%B8%9A%E8%A1%97.jpg" class="responsive-img" alt="【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model">
                         
                         <span class="card-title">【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model</span>
                     </div>
@@ -1129,7 +1119,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
                 <a href="/2026/09/08/gong-ju-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" class="responsive-img" alt="【工具】Git的基本概念及相关使用">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" class="responsive-img" alt="【工具】Git的基本概念及相关使用">
                         
                         <span class="card-title">【工具】Git的基本概念及相关使用</span>
                     </div>
@@ -1511,7 +1501,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1523,7 +1513,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1563,7 +1553,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1634,6 +1624,7 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1650,6 +1641,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1716,11 +1708,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1775,16 +1781,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

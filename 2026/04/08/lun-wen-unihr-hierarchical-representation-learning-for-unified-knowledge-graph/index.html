@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -431,7 +421,7 @@
 <li><p>论文全称：<strong>UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</strong></p></li>
 <li><p>作者信息：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413180804757.png" alt="作者信息">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413180804757.png" alt="作者信息">
 </li>
 <li><p>发表信息：<strong>2026 年AAAI</strong> CCFA会议</p></li>
 <li><p>领域定位：<strong>知识图谱统一化表示学习</strong></p></li>
@@ -446,7 +436,7 @@
 </ul>
 <p>三类知识图谱示意如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260408163926179.png" alt="三类知识图谱">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260408163926179.png" alt="三类知识图谱">
 
 <p>现有研究主要有以下<strong>两个问题</strong>:</p>
 <p>1）这些知识图谱不能反应有多种异构事实的真实场景，只能把它们分离，单个建模。</p>
@@ -473,7 +463,7 @@
 <h2 id="论文方法">论文方法</h2>
 <p><strong>UniHR</strong>总体架构如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413003052544.png" alt="UniHR总体架构">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413003052544.png" alt="UniHR总体架构">
 
 <p>分为以下三步:</p>
 <ul>
@@ -511,7 +501,7 @@
 <p>将时序知识图谱转换成<strong>特殊的超关系知识图谱</strong>，对于每个四元组<span class="math inline">\((h,r,t,[t_1,t_2])\)</span>，先将其转换为<span class="math inline">\((h,r,t,begin:t_1,end:t_2)\)</span>的<strong>类HKG</strong>形式，再按照<strong>HKG</strong>的模式转换成<span class="math inline">\(G^{HiDR}\)</span>。</p>
 <p>各知识图谱转换方式如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260409174530878.png" alt="各知识图谱转换方式">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260409174530878.png" alt="各知识图谱转换方式">
 
 <h3 id="hierarchical-structure-learning-hisl模块">Hierarchical Structure Learning (HiSL)模块</h3>
 <p><strong>HiDR</strong>定义了大量的额外节点，为了避免引入大量的训练参数，论文设计一个<strong>层级结构学习模块（HiSL）</strong>，分成三个步骤实现:</p>
@@ -574,17 +564,17 @@ L=\sum_{t=0}^{|R|+|V|}y_tlogP_t
 </blockquote>
 <p>实验涉及到的数据集统计如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413141402855.png" alt="数据集统计">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413141402855.png" alt="数据集统计">
 
 <p><strong>With Q</strong>指包含超关系的事实占比；<strong>Arity</strong>是元数数量，大于2则代表超关系；<strong>N-Fact</strong>是嵌套进其它事实中的事实数量；<strong>N-Rela</strong>是嵌套事实的类型；<strong>AF</strong>指的是嵌套事实拆开后，原子事实的个数。如：<strong>F1 =（周杰伦，创作了，F2），F2 =（晴天，收录于，叶惠美）</strong>，这样嵌套事实就只有<strong>F2</strong>一条，<strong>AF</strong>有<strong>（周杰伦，创作了，晴天），（晴天，收录于，叶惠美）</strong>两条。</p>
 <p>实验设置超参数如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413143455008.png" alt="超参数设置">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413143455008.png" alt="超参数设置">
 
 <h3 id="在hkg上的链路预测">在HKG上的链路预测</h3>
 <p>在<strong>HKG</strong>上的预测结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413164558477.png" alt="HKG链路预测结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413164558477.png" alt="HKG链路预测结果">
 
 <p><strong>HKG</strong>是超关系知识图谱，某些事实包含额外的键值对，任务包括<strong>预测传统三元组实体、预测键值对实体</strong>。</p>
 <ul>
@@ -594,7 +584,7 @@ L=\sum_{t=0}^{|R|+|V|}y_tlogP_t
 <h3 id="在nkg上的链路预测">在NKG上的链路预测</h3>
 <p>在<strong>NKG</strong>上的预测结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413163739973.png" alt="NKG链路预测结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413163739973.png" alt="NKG链路预测结果">
 
 <p><strong>NKG</strong>是嵌套知识图谱，某些事实中包含额外的<strong>嵌套事实</strong>，任务包括<strong>预测传统三元组、预测缺失的嵌套三元组</strong>。</p>
 <p><strong>QuatE和BiQUE</strong>面向标准三元组，故在<strong>带有嵌套事实的知识图谱</strong>的三元组预测任务中的<strong>MR</strong>极高，该任务需要预测的对象包括一整条三元组。</p>
@@ -602,46 +592,46 @@ L=\sum_{t=0}^{|R|+|V|}y_tlogP_t
 <h3 id="在tkg上的链路预测">在TKG上的链路预测</h3>
 <p>在<strong>TKG</strong>上的预测结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413165626075.png" alt="TKG链路预测结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413165626075.png" alt="TKG链路预测结果">
 
 <p><strong>TKG</strong>是时序知识图谱，过去的方法侧重于将时间戳融入实体的嵌入，让实体掌握一定的时序信息。<strong>UniHR</strong>则是直接将时间信息也作为一个实体进行嵌入，说明<strong>结构信息</strong>对于时序知识图谱而言也很重要。</p>
 <h3 id="消融实验">消融实验</h3>
 <p>消融实验探讨了<strong>不把事实初始化为可学习节点、不把关系初始化为可学习节点、不做事实内学习、不考虑关系类型权重、不考虑方向权重、不做事实间学习</strong>这五种情况，具体实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413170126301.png" alt="消融实验结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413170126301.png" alt="消融实验结果">
 
 <p>可以看到，关系节点的实体化仅仅起到一个辅助作用，但是事实节点的初始化对<strong>NKG</strong>的预测影响较大，因为<strong>NKG</strong>的预测任务中包括<strong>完整的三元组预测</strong>。</p>
 <h3 id="其它实验">其它实验</h3>
 <p>①<strong>在HTKG上的链路预测</strong></p>
 <p>论文提出的方法由于具有较强的统一化表示能力，故在混合知识图谱<strong>WiKi-hy和YAGO-by</strong>对模型进行测试。这两个知识图谱的事实包含<strong>时序以及键值对</strong>，具体的实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171239176.png" alt="在HTKG上的链路预测">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171239176.png" alt="在HTKG上的链路预测">
 
 <p><strong>UniHR</strong>也具有可竞争的表现</p>
 <p>②<strong>联合学习</strong></p>
 <ul>
 <li><p><strong>对NKG的两个任务进行联合学习</strong>：相比于分任务单独计算损失函数并更新模型参数，此方式让模型两种任务的损失函数合并，并更新参数，实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171745345.png" alt="对任务进行联合学习">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171745345.png" alt="对任务进行联合学习">
 </li>
 <li><p><strong>对知识图谱进行联合学习</strong>：让模型直接在混合知识图谱上学习，该图谱包含<strong>基本三元组事实、带时序事实、带超关系的事实等</strong>。实验结果如下图所示：</p></li>
 </ul>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171949878.png" alt="对知识图谱进行联合学习">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413171949878.png" alt="对知识图谱进行联合学习">
 
 <p>相较于单独学习，联合学习对模型的能力有所提高，直观表现图如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172244759.png" alt="两种训练方式对比图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172244759.png" alt="两种训练方式对比图">
 
 <p>橙色代表联合学习比单个学习多出来的效果。</p>
 <p>同时，联合学习可以<strong>使相同类型的实体嵌入更紧凑，使不同类型的实体嵌入簇边界更明显</strong>，这使得模型能够更好的学习实体的表示，实体嵌入可视化图如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172716364.png" alt="实体嵌入可视化图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172716364.png" alt="实体嵌入可视化图">
 
 <p>③<strong>模型效率分析</strong></p>
 <p><strong>UniHR</strong>的参数量和训练时间相较于其它模型都更少，具体对比图如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172848518.png" alt="模型效率图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413172848518.png" alt="模型效率图">
 
 <p>④<strong>解码器分析</strong></p>
 <p>采用ConVE的解码器，对嵌套知识图谱采用两种输入模式的打分函数，打分函数公式如下： <span class="math display">\[
@@ -658,11 +648,11 @@ vec(\sigma([\tilde{h_h};\tilde{e_r}]*\varphi))
 </ul>
 <p>具体实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413175654045.png" alt="替换解码器用于NKG">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413175654045.png" alt="替换解码器用于NKG">
 
 <p>不同解码器对比及消融实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413175753046.png" alt="解码器及消融实验横向对比">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260413175753046.png" alt="解码器及消融实验横向对比">
 
 <h2 id="论文结论">论文结论</h2>
 <ul>
@@ -2039,7 +2029,7 @@ nn<span class="token punctuation">.</span>init<span class="token punctuation">.<
                 <a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" class="responsive-img" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" class="responsive-img" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
                         
                         <span class="card-title">【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</span>
                     </div>
@@ -2095,7 +2085,7 @@ nn<span class="token punctuation">.</span>init<span class="token punctuation">.<
                 <a href="/2026/03/25/lun-wen-recurrent-event-network-autoregressive-structure-inference-over-temporal-knowledge-graphs/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" class="responsive-img" alt="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" class="responsive-img" alt="【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs">
                         
                         <span class="card-title">【论文】Recurrent Event Network Autoregressive Structure Inference over Temporal Knowledge Graphs</span>
                     </div>
@@ -2481,7 +2471,7 @@ nn<span class="token punctuation">.</span>init<span class="token punctuation">.<
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -2493,7 +2483,7 @@ nn<span class="token punctuation">.</span>init<span class="token punctuation">.<
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -2533,7 +2523,7 @@ nn<span class="token punctuation">.</span>init<span class="token punctuation">.<
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -2604,6 +2594,7 @@ nn<span class="token punctuation">.</span>init<span class="token punctuation">.<
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -2620,6 +2611,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -2686,11 +2678,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -2745,16 +2751,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

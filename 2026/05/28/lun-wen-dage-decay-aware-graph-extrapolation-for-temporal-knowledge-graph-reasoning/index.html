@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -429,7 +419,7 @@
             <div id="articleContent">
                 <ul>
 <li>论文全称：<strong>DAGE: Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning</strong></li>
-<li>论文作者：<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528214410171.png" alt="作者信息"></li>
+<li>论文作者：<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528214410171.png" alt="作者信息"></li>
 <li>发表信息：论文发表于 <strong>Information Fusion</strong> 2026，SCI一区TOP，影响因子15.5</li>
 <li>领域定位：时序知识图谱、时序衰减、路径式时序知识图谱补全</li>
 <li>论文PDF：<a target="_blank" rel="noopener" href="https://www.sciencedirect.com/science/article/pii/S1566253526003635">DAGE: decay-aware graph extrapolation for temporal knowledge graph reasoning - ScienceDirect</a></li>
@@ -443,7 +433,7 @@
 </ul>
 <p>本文主要聚焦于<strong>时序知识图谱补全的外推任务</strong>，具体形式如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260525155917256.png" alt="TKG外推任务说明图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260525155917256.png" alt="TKG外推任务说明图">
 
 <p>当前Query的事件为<strong>(Barack Obama,Make statement,?,2014-12-04)</strong>。其中<strong>2014-12-04</strong>为未来的时间。如时间轴所示，外推任务就是要通过时间轴上过去与当前实体相关的事件，预测在未来该实体可能发生的事件。</p>
 <p>针对外推任务，主流的方法有两种，分别是：</p>
@@ -462,7 +452,7 @@
 <h3 id="模型总体架构">模型总体架构</h3>
 <p>模型总体架构如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260527153916510.png" alt="模型总体架构图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260527153916510.png" alt="模型总体架构图">
 
 <p>模型分为<strong>四个模块</strong>，具体对应如下：</p>
 <ul>
@@ -531,7 +521,7 @@ F_{\Delta t}=\lambda(t_b\odot t_p)+(1-\lambda)t_b
 <h3 id="衰减增强聚合">衰减增强聚合</h3>
 <p>一个<strong>TWD-Graph</strong>的结构大致如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528162758622.png" alt="TWD-Graph示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528162758622.png" alt="TWD-Graph示意图">
 
 <p>从Query的实体出发，该层记为第一层，衰减增强聚合模块的步骤针对第二层及之后的所有实体。</p>
 <p>该模块将信息经过传递，聚合到实体中，以获得实体的嵌入，具体分为四个步骤，分别如下：</p>
@@ -590,39 +580,39 @@ score(e_0)=W_7h_{e_o}^{l}
 </ul>
 <p><strong>RQ1</strong>:模型一共在四个数据集上进行实验，数据集信息如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528194149997.png" alt="数据集信息">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528194149997.png" alt="数据集信息">
 
 <p>模型的结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528194804326.png" alt="实验结果图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528194804326.png" alt="实验结果图">
 
 <p>可以看到<strong>DAGE</strong>的数据达到了<strong>sota</strong>的级别。</p>
 <p><strong>RQ2</strong>：消融实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528195000129.png" alt="消融实验结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528195000129.png" alt="消融实验结果">
 
 <p>观察消融实验结果可知，每个模块对模型的预测能力都起到了作用，如果没有<strong>TRF</strong>和<strong>DEA</strong>两个模块，模型的性能掉的相对多些，这两个模块恰好为融入了时间信息的模块，说明融入时间信息对<strong>TKGC</strong>的任务极其重要。但是消除<strong>TWDG</strong>模块对模型的影响没有那么大，该模块仅仅是对路径做了一些初步的筛选，使得一些无意义的事实被过滤，但是由于有无该模块效果都差不多，且该模块剪枝是统一标准、硬性的，故能否考虑使用一些软衰减，让更多事实加入路径，并让<strong>各路径事实的信息衰减</strong>在<strong>DEA</strong>中完成。</p>
 <p><strong>RQ3：</strong>超参数对模型的影响结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528201746750.png" alt="超参数结果图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528201746750.png" alt="超参数结果图">
 
 <p>从超参数的结果可以发现，时间衰减率在0.3和0.7的时候效果都很好，但是在0.1的时候效果不是很好，说明考虑时间衰减的影响是合理的。当时间衰减率在0.3时，消息并未过多考虑时间衰减，主要还是本身的消息占主导。当时间衰减率到0.5时，模型效果明显下降。到0.7时，模型效果再次上升，它控制消息衰减的速度，但具体的衰减效果还需要其与<span class="math inline">\(\Delta t\)</span>共同决定。</p>
 <p><strong>RQ4</strong>：模型的时间泛化能力结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528203204654.png" alt="时间泛化能力结果图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528203204654.png" alt="时间泛化能力结果图">
 
 <p><strong>RQ5</strong>：案例分析示意图如下所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528204015253.png" alt="案例分析示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528204015253.png" alt="案例分析示意图">
 
 <p>当预测的Query为<span class="math inline">\((Barack\ Obama,Make\ statement,?,2014-12-04)\)</span>时，模型先按照上述方法构建一个<strong>TWG-Graph</strong>，对于超过时间窗口的事实，模型将直接进行剪枝。图中也体现了，一个实体可能会存在多条入度边的特点，一个局部通过注意力机制生成消息的示意图如下所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528204800149.png" alt="局部注意力传递机制示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528204800149.png" alt="局部注意力传递机制示意图">
 
 <p>但是这张案例分析图并未体现出算法中每一层实体的自环，故图看起来与具体的实现不太相符，且不太完善。</p>
 <p><strong>RQ6：</strong>模型训练时长图如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528204946118.png" alt="模型训练时长图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260528204946118.png" alt="模型训练时长图">
 
 <p>可以看到，<strong>DAGE</strong>在基于路径的方法中，训练时长最短，说明提前筛选出一些无用的路径对训练存在一定程度的帮助。</p>
 <h2 id="论文总结">论文总结</h2>
@@ -1040,7 +1030,7 @@ score(e_0)=W_7h_{e_o}^{l}
                 <a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
                         
                         <span class="card-title">【笔记】智能医学影像与知识图谱补全结课论文梳理</span>
                     </div>
@@ -1096,7 +1086,7 @@ score(e_0)=W_7h_{e_o}^{l}
                 <a href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" class="responsive-img" alt="【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" class="responsive-img" alt="【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion">
                         
                         <span class="card-title">【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion</span>
                     </div>
@@ -1482,7 +1472,7 @@ score(e_0)=W_7h_{e_o}^{l}
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1494,7 +1484,7 @@ score(e_0)=W_7h_{e_o}^{l}
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1534,7 +1524,7 @@ score(e_0)=W_7h_{e_o}^{l}
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1605,6 +1595,7 @@ score(e_0)=W_7h_{e_o}^{l}
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1621,6 +1612,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1687,11 +1679,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1746,16 +1752,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

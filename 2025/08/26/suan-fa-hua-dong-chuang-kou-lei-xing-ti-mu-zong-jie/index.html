@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://pic2.zhimg.com/v2-3aecfb4a857585d6eb2796902a565956_r.jpg?source=172ae18b" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://pic2.zhimg.com/v2-3aecfb4a857585d6eb2796902a565956_r.jpg?source=172ae18b" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -426,15 +416,15 @@
                 <h1 id="什么是滑动窗口">什么是滑动窗口</h1>
 <p>滑动窗口是算法题当中一种常见的解题方法，属于双指针的一种，常用于数据结构为数组（列表）、字符串类型的题目。其目的在于通过维护两个指针left、right，并将left和right当作题目给出数组（列表）、字符串中的一个子数组（列表）、字符串的左右端点，通过不断增大两指针的值，使得由两指针维护的窗口始终满足题目所给要求，最后计算答案。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826162157075.png" alt="一个符合题意的最大窗口">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826162157075.png" alt="一个符合题意的最大窗口">
 
 <p>如上图所示，在算法刚开始执行时窗口会先不断扩大，此时可以确保由left指向的a0作为左端点和right指向的a3作为右端点所构成的窗口是符合题意的。假设当窗口继续扩大，即right继续右移指向a4时，窗口不再满足题目要求，这个时候就需要通过右移left指向新的元素使得窗口缩小，以重新满足题目要求。假设当left指向a2时，由两指针构成的窗口可重新满足题意，如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826163339407.png" alt="重新满足题意的窗口">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826163339407.png" alt="重新满足题意的窗口">
 
 <p>这样由a2到a4构成的新的窗口又重新满足了题意。最后只需根据题目要求，计算答案的个数即可。由于移动两个指针的过程就像是一个窗口在移动，故得名为滑动窗口。而定长滑动窗口则又是滑动窗口的一个特殊形式，它的窗口大小是固定的，也就是窗口的左右端点需要一起移动，在后文中会对定长滑动窗口进行举例介绍。双指针、滑动窗口、定长滑动窗口的关系如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826164144380.png" alt="三者关系">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250826164144380.png" alt="三者关系">
 
 <p>双指针是最基础的方法，滑动窗口是双指针的应用，定长滑动窗口是一种特殊的滑动窗口。</p>
 <h1 id="滑动窗口的使用场景">滑动窗口的使用场景</h1>
@@ -452,7 +442,7 @@
 </ul>
 <p>相比一般滑动窗口，由于定长滑动窗口固定了窗口大小，寻找子数组的过程中无论结果如何左右指针都会一起移动，本身就不会回溯，故定长滑动窗口的使用对单调性并无要求，但其使用场景更为局限，判断条件更直观明确。</p>
 
-<img src="http://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250827213223761.png" alt="有无单调性的数组对比">
+<img loading="lazy" decoding="async" src="http://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250827213223761.png" alt="有无单调性的数组对比">
 
 <p>普通滑动窗口能否使用的核心，仍然在于题目是否具有单调性。以找到元素和大于<em>k</em>的子数组为例：通过第一小节<strong>什么是滑动窗口</strong>我们知道，当窗口不满足条件时，右指针会右移使得窗口逐渐满足条件。对于上图中具有单调性的数组，随着指针不断右移，子数组将越来越符合条件，因为它每次都是增加一个正数，使得子数组和越来越接近<em>k</em>。而不含单调性的数组随着指针右移，它有时因为加了一个正数，使得子数组和离<em>k</em>越接近，但有时候又因为加了一个负数使得子数组和离<em>k</em>越遥远，这就是不含有单调性的具体体现。</p>
 <p>关于单调性的必需的原因，将在下一节中介绍。</p>
@@ -485,11 +475,11 @@
 </blockquote>
 <p>对于单调性为越短越合法的题目而言，子数组越大，该子数组就越不满足题目要求，如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828102434545.png" alt="对性质一进行解释">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828102434545.png" alt="对性质一进行解释">
 
 <p>假设由left,right两指针构成的窗口<strong>恰好</strong>此时不满足条件了，由于单调性为越短越合法，也就是当窗口越大时，反而越不满足条件，那么由left和right之后的元素构成的窗口自然也是不满足条件的，之后就不用再进行判断了，这即为上述性质一。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828103312415.png" alt="对性质二进行解释">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828103312415.png" alt="对性质二进行解释">
 
 <p>如上图，假设由left和right构成的窗口此时是满足条件的，由于数组越短越合法，则从left到right之间的所有元素和right构成的窗口都是满足条件的，在后续又可以省去这一部分的判断，这即为上述性质二。</p>
 <p>正如前文所说，滑动窗口类型的题目，left和right两个指针只会向同一个地方移动，绝不回溯，这正是因为题目具有单调性，两个指针的作用分别如下:</p>
@@ -520,14 +510,14 @@
 <p>由于外层循环是right不断右移直至数组的末尾，内层循环是left不断右移（不回溯）直至数组的末尾，每个数组元素<strong>最多被操作两次</strong>（一次进窗口、一次出窗口）。故时间复杂度为O（2n），省略常数项，滑动窗口的时间复杂度可以达到<strong>O（n）</strong>。</p>
 <p>最后介绍单调性的必要性。倘若此时题目给出的数组不具有单调性，即有正有负。以找和小于<em>k</em>的子数组为例，假设在一个负数元素之前的所有元素均为正数，那么当该元素进入窗口时，它缩小了子数组的和，这就使得和小于<em>k</em>的子数组可能会<strong>出现在以当前left左边的元素为左端点的窗口中</strong>，如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828111059431.png" alt="找到和<=4的子数组个数">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250828111059431.png" alt="找到和<=4的子数组个数">
 
 <p>当<em>-5</em>进入窗口并作为窗口的右端点时，通过上文的分析我们知道，若具有单调性，由于<strong>性质一</strong>，left不必回溯。但对于这种不具有单调性的情况，当<em>-5</em>进入窗口时，left指向下标为0的元素1，此时新窗口依然符合题意，也就是左指针此时需要回溯，并未达到节省时间复杂度的目的，不符合滑动窗口的逻辑，故不能使用滑动窗口，这也解释了为什么单调性是使用滑动窗口的必要条件。</p>
 <h1 id="定长滑动窗口">定长滑动窗口</h1>
 <p>定长滑动窗口是一种特殊的滑动窗口，常用在给定一个数组（列表）、字符串，寻找一个大小为<em>k</em>的子数组(列表)、字符串，使其满足“窗口和最大”、“窗口平均值最大”、“窗口内某元素数量最多”等条件。</p>
 <p>以数组<em>nums</em>为例，由于<em>nums</em>中长度为<em>k</em>的子数组个数固定为<em>len（nums） - k + 1</em>，定长滑动窗口<strong>无论当前窗口结果</strong>如何，左右指针都要进行一次的移动来找到下一个窗口，也就是说，对于一个新的窗口而言，它与前一个窗口的区别在于首尾两个元素，如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250829094935530.png" alt="定长滑动窗口示例">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250829094935530.png" alt="定长滑动窗口示例">
 
 <p>从窗口1变换为窗口2，left指针指向的元素出窗口，right’指针指向的元素进入窗口，也就是只要将统计值减去left指针指向元素带来的影响，再加上right’指针指向元素带来的影响，得到的就是新的窗口的统计值，再利用新窗口的统计值和当前最优统计值进行对比，找到最满足题意的统计值，记录并返回即可。</p>
 <p>定长滑动窗口的三步曲如下:</p>
@@ -1557,7 +1547,7 @@ ans += left
                 <a href="/2025/09/14/hot100-san-shu-zhi-he/">
                     <div class="card-image">
                         
-                        <img src="https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0" class="responsive-img" alt="Hot100:三数之和">
+                        <img loading="lazy" decoding="async" src="https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0" class="responsive-img" alt="Hot100:三数之和">
                         
                         <span class="card-title">Hot100:三数之和</span>
                     </div>
@@ -1609,7 +1599,7 @@ ans += left
                 <a href="/2025/08/12/gong-ju-node.js-yu-javascript-de-xiang-guan-gai-nian/">
                     <div class="card-image">
                         
-                        <img src="https://images.wallpaperscraft.com/image/single/piano_silhouette_space_156662_1280x720.jpg" class="responsive-img" alt="【工具】Node.js与JavaScript的相关概念">
+                        <img loading="lazy" decoding="async" src="https://images.wallpaperscraft.com/image/single/piano_silhouette_space_156662_1280x720.jpg" class="responsive-img" alt="【工具】Node.js与JavaScript的相关概念">
                         
                         <span class="card-title">【工具】Node.js与JavaScript的相关概念</span>
                     </div>
@@ -1995,7 +1985,7 @@ ans += left
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -2007,7 +1997,7 @@ ans += left
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -2047,7 +2037,7 @@ ans += left
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -2118,6 +2108,7 @@ ans += left
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -2134,6 +2125,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -2200,11 +2192,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -2259,16 +2265,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3-%E5%95%86%E4%B8%9A%E8%A1%97.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3-%E5%95%86%E4%B8%9A%E8%A1%97.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -429,7 +419,7 @@
             <div id="articleContent">
                 <ul>
 <li>论文全称：<strong>HLCRL：Hierarchical pruning temporal knowledge graph reasoning model</strong></li>
-<li>论文作者：<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261028002916891.png" alt="作者信息"></li>
+<li>论文作者：<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261028002916891.png" alt="作者信息"></li>
 <li>发表信息：论文发表于 <strong>Expert System With Application</strong> 2026，SCI一区</li>
 <li>领域定位：时序知识图谱、缩减关系、智能体</li>
 </ul>
@@ -472,7 +462,7 @@
 </ul>
 <h2 id="论文方法">论文方法</h2>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027144848460.png" alt="论文框架图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027144848460.png" alt="论文框架图">
 
 <p>模型主要分为两层智能体加一层知识图谱环境，具体而言：</p>
 <ul>
@@ -518,7 +508,7 @@ o_t=(r'|e_t,r,e_{target})
 \]</span> 其中，<span class="math inline">\(r'\)</span>为待选择的关系，来自所有和当前实体有连接的关系。低层策略从这些关系中筛选出更有可能参与到后续推理的关系选项，得到一个关系簇<span class="math inline">\(r_{cluster}\)</span>。状态转移函数为： <span class="math display">\[
 P:S × O \ \ ——&gt; S
 \]</span> 即，在选择出新的关系簇后，状态空间将会发生改变。<strong>低层关系剪枝层</strong>的奖励函数与<strong>高层实体选择层</strong>基本一致，只有<span class="math inline">\(R_t\)</span>不考虑实时热度奖励的时间维度，具体公式为： <span class="math display">\[
-R_t=f(e_s,r,e_p)=\frac{1}{3}[\phi(\sum_ir_i,r)+|\phi(e_p,e_{target}|+|\phi(e_t,(e_s,r))|]
+R_t=f(e_s,r,e_p)=\frac{1}{3}[\phi(\sum_ir_i,r)+|\phi(e_p,e_{target})|+|\phi(e_t,(e_s,r))|]
 \]</span> L-PR依旧使用LSTM将历史信息编码为向量，历史状态的更新方式为： <span class="math display">\[
 \begin{cases}
 h_0=\operatorname{LSTM}(0,r_0)\\
@@ -545,7 +535,7 @@ R(s\mid e_s,r)
 \]</span> 其中<span class="math inline">\(\theta_L\)</span>为下层智能体对应的参数。具体含义同上，目标是使得每一次的关系选择获得的期望奖励足够大，再使得在所有查询上的期望奖励足够大。</p>
 <p>如下图所示，每一次完整的上下层交互分别对应两部分<strong>基础奖励，多样性奖励，实时热度奖励</strong>，可由两层各自计算出完整的奖励，并求和得到当前交互的总奖励。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027190014988.png" alt="模型交互过程">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027190014988.png" alt="模型交互过程">
 
 <p>为了优化目标函数，采用策略梯度方法，两部分策略梯度分别为：</p>
 <p><strong>H-ES：</strong> <span class="math display">\[
@@ -576,11 +566,11 @@ R_{\text{sum}}(s\mid e_s,r)
 </ul>
 <h2 id="模型实验">模型实验</h2>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027192113712.png" alt="总体实验结果表">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027192113712.png" alt="总体实验结果表">
 
 <p>模型总体结果如上表所示，所报告结果为三次实验的平均值，其余指标为对应论文自身的报告。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027193105097.png" alt="消融实验结果表">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027193105097.png" alt="消融实验结果表">
 
 <p>HLCRL主要组成部分包括双层强化学习框架、关系剪枝机制、实时热度奖励函数以及动作回退机制，消融的具体做法如下：</p>
 <ul>
@@ -589,7 +579,7 @@ R_{\text{sum}}(s\mid e_s,r)
 <li><span class="math inline">\(w/o\ \ reward\ feature\)</span>：删除实时热度奖励函数，仅保留基础奖励和多样性奖励</li>
 </ul>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027194219911.png" alt="各奖励权重效果图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261027194219911.png" alt="各奖励权重效果图">
 
 <p>具体实验方式为，固定其中两个参数的权重，探索第三个权重对应的效果，具体结果如上图所示。</p>
 <h2 id="论文总结">论文总结</h2>
@@ -609,7 +599,7 @@ R_{\text{sum}}(s\mid e_s,r)
 <p>针对以上几点，更合理的做法应该为，关系部分不要设置所谓的<strong>实时热度奖励函数</strong>，因为回退机制在这一层并不起作用；实体部分也可删除或者修改<span class="math inline">\(\phi(e_t,e_{score})\)</span>，并在回退时需要显示考虑<strong>实时热度奖励函数</strong>的各部分得分，判断到底是谁的问题再决定是否需要直接回退至上一状态并删除对应关系。</p>
 <p>第四：数据方面存在错误，TransE和DisMult在YAGO上的MRR甚至小于Hits@1，这在数学上是不可能成立的。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261028001211062.png" alt="数据问题">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20261028001211062.png" alt="数据问题">
 
 <p>综上，论文提出的双层智能体可以参考，但是具体的关系缩减还需要进一步完善。</p>
 <p><span class="math inline">\(Fin.\)</span></p>
@@ -1008,7 +998,7 @@ R_{\text{sum}}(s\mid e_s,r)
                 <a href="/2026/10/28/lun-wen-hlcrl-hierarchical-pruning-temporal-knowledge-graph-reasoning-model/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3-%E5%95%86%E4%B8%9A%E8%A1%97.jpg" class="responsive-img" alt="【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%81%E5%AD%97%E8%B7%AF%E5%8F%A3-%E5%95%86%E4%B8%9A%E8%A1%97.jpg" class="responsive-img" alt="【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model">
                         
                         <span class="card-title">【论文】HLCRL_Hierarchical pruning temporal knowledge graph reasoning model</span>
                     </div>
@@ -1065,7 +1055,7 @@ R_{\text{sum}}(s\mid e_s,r)
                 <a href="/2026/09/30/bi-ji-shu-xue-jian-mo-bi-ji/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】数学建模笔记">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】数学建模笔记">
                         
                         <span class="card-title">【笔记】数学建模笔记</span>
                     </div>
@@ -1447,7 +1437,7 @@ R_{\text{sum}}(s\mid e_s,r)
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1459,7 +1449,7 @@ R_{\text{sum}}(s\mid e_s,r)
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1499,7 +1489,7 @@ R_{\text{sum}}(s\mid e_s,r)
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1570,6 +1560,7 @@ R_{\text{sum}}(s\mid e_s,r)
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1586,6 +1577,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1652,11 +1644,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1711,16 +1717,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

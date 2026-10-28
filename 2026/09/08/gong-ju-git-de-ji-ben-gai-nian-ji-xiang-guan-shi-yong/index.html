@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -432,7 +422,7 @@
 <p>Git有许多的命令，每一次执行<strong>git commit、git revert等命令时都会生成SHA编码</strong>，该编码在同一个仓库内是唯一的。</p>
 <p>Git可以将涉及的区域分为四个部分，分别为工作区，暂存区，本地仓库，以及远程仓库。<span class="math inline">\(git\ add\)</span> 负责将代码加入暂存区，<span class="math inline">\(git\ commit\)</span>负责将代码加入到本地仓库，<span class="math inline">\(git\ push\)</span>负责将代码推送到远端仓库。四部分关系具体示意图如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907133908142.png" alt="git 四部分区域关系">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907133908142.png" alt="git 四部分区域关系">
 
 <h2 id="git本地仓库中的基础命令">Git本地仓库中的基础命令</h2>
 <blockquote>
@@ -441,12 +431,12 @@
 <h3 id="git-的增删">git 的“增、删”</h3>
 <p>若想要为某个文件夹创建一个仓库，需要在对应的文件夹当中输入<span class="math inline">\(git\ init\)</span>命令，此时文件夹内部会出现<span class="math inline">\(.git\)</span>文件夹，视为仓库创建成功，具体如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907141427632.png" alt="git仓库">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907141427632.png" alt="git仓库">
 
 <p>创建仓库后，需要先将<strong>工作区的代码添加到暂存区</strong>，才能够将代码进行提交。将代码添加到暂存区的命令为<span class="math inline">\(git\ add\)</span>。</p>
 <p>Git最基本的命令是<strong>commit</strong>，翻译过来是提交，它负责将<strong>暂存区中的所有文件</strong>上传到本地仓库中。当Commit的次数足够多时，就会在一个分支下形成一个<strong>commit</strong>链。如上所述，每一次<strong>commit</strong>都会生成一个仓库内唯一的<strong>SHA</strong>编码，该编码则对应文件当前状态下的快照。编码也被称作为修订号，修订号具体示意图如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907113619742.png" alt="修订号示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907113619742.png" alt="修订号示意图">
 
 <p>一个完整的修订号<strong>是一串很长的字符</strong>，如上图完整修订号为204c5970b47703b9573eccea27ef4084ae1bd3ac，框中的圈起的修订号为完整修订号的前七位，已经足够唯一表示一次修改。</p>
 <p><strong>commit </strong>的完整写法为<span class="math inline">\(git\ \ commit -m \text{“content"}\)</span>，此外，在提交过程中有一套<strong>约定式提交(Conventional Commits)</strong>，常见格式为:</p>
@@ -565,7 +555,7 @@
 </table>
 <p>如当前需要比较SHA分别为<em>0daeq21</em>和<em>daqe14r</em>的两次提交中<strong>QCPR.py</strong>文件的区别，可以使用命令： <span class="math display">\[
 git\ diff\ 0daeq21\ daqe14r\ -- QCPR.py
-\]</span> <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907145357413.png" alt="git diff示意图"></p>
+\]</span> <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260907145357413.png" alt="git diff示意图"></p>
 <p>以该图为例，第一行代表正在对比两次提交的./idea/.gitignore文件，其中<em>a</em>代表旧版本，<em>b</em>代表新版本；第二行代表当前两次对比下来，新版本新增了一个文件，具体为<strong>./idea/.gitignore</strong>，该文件在<em>a</em>中没有，在<em>b</em>中有。</p>
 <pre class="language-python" data-language="python"><code class="language-python">@@ <span class="token operator">-</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span> <span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">8</span>@@</code></pre>
 <p>代表两份文件有差异部分的起始行号，由于旧版本没有，故差异起始和结尾行号均为0；新版本则是从第一行至第八行存在差异。</p>
@@ -573,7 +563,7 @@ git\ diff\ 0daeq21\ daqe14r\ -- QCPR.py
 <h2 id="git-分支">Git 分支</h2>
 <p>Git在一个分支下的多次commit会形成一条commit链，而<strong>每一次commit就是链的其中节点</strong>，Git支持从任意commit中分离出一条单独的分支，并在分支中进行独立的开发。分支从某个节点分离，形成两条路径，两条路径共同保有<strong>分离节点及前序节点的所有内容</strong>，但在之后分支内部的开发中互不干扰，具体可表示为：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908153207321.png" alt="Git分支示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908153207321.png" alt="Git分支示意图">
 
 <p>如图所示，当前共有三条分支，分别为<strong>main、Branch1、Branch2</strong>，两条支线分支从主分支的commit4分离出来，并在各自的分支上独自创建新的提交，此时三条分支实现了并行开发。</p>
 <p>当<strong>主分支</strong>进行了commit5后，位于独立分支的Branch1和Branch2将无法看到主分支提交的内容；同理，两分支在进行<strong>自己分支上的commit5</strong>后，其它分支也无法看到这个commit5，但是这三条分支却能共同看到<strong>主分支上的commit1至commit4</strong>。从分支当中继续创建分支也是可行的。</p>
@@ -584,7 +574,7 @@ git\ diff\ 0daeq21\ daqe14r\ -- QCPR.py
 </ul>
 <p>分支的快速合并示意如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908155652904.png" alt="快速合并分支示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908155652904.png" alt="快速合并分支示意图">
 
 <p>git常见的分支命令分为以下几种：</p>
 <table>
@@ -639,19 +629,19 @@ git\ diff\ 0daeq21\ daqe14r\ -- QCPR.py
 </table>
 <p>若两个分支在合并时同时对一个文件进行了修改，此时Git会提示文件冲突，需要决定具体保留哪个文件的分支。首先创建Master分支，并创建文件<strong>GitTest.py</strong>，输入内容后提交，并创建新的分支<strong>branch1</strong>。在<strong>branch1</strong>对<strong>GitTest.py</strong>修改并提交，切换回<strong>Master</strong>分支。在<strong>Master</strong>分支对<strong>GitTest.py</strong>进行修改，提交后输入命令<span class="math inline">\(git\ merge\ branch1\)</span>，如下图所示，git提示两版本冲突：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908162438637.png" alt="合并时冲突示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908162438637.png" alt="合并时冲突示意图">
 
 <p>更细致地，git会指出冲突文件具体不一致的地方，如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908162557524.png" alt="分支冲突位置示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908162557524.png" alt="分支冲突位置示意图">
 
 <p>手动修改冲突文件至最终想要合并的版本，并将修改后的该文件使用<span class="math inline">\(git\ add\)</span>添加进暂存区后，使用<span class="math inline">\(git\ commit\)</span>添加进本地仓库，此时<span class="math inline">\(merge\)</span>已经完成，合并后的<strong>Git树如下图所示：</strong></p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908165128312.png" alt="合并后的git树">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908165128312.png" alt="合并后的git树">
 
 <h2 id="git与远程仓库">Git与远程仓库</h2>
 <p>上述所有操作针对的都是本地仓库，要想真正实现开源以及多人合作，需要用到类似于<strong>Github、Gitlab、Gitee</strong>等远程仓库。以<strong>Github</strong>为例，首先在Github中创建一个远程仓库，如下图所示：</p>
-<p><img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908170012971.png" alt="创建一个Github仓库" style="zoom:50%;"></p>
+<p><img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908170012971.png" alt="创建一个Github仓库" style="zoom:50%;"></p>
 <p><strong>Github</strong>仓库的链接通常为:<strong>https//(git@)github/用户名/仓库名.git</strong>。如刚才创建的仓库即为<strong>https//(git@)github/violet796/GitTest.git</strong>。</p>
 <p>创建好远程仓库后，需要用本地仓库和远程仓库取得连接，具体命令为： <span class="math display">\[
 git\ remote\ add\ origin\ Reporsitoryname
@@ -675,15 +665,15 @@ git\ push\ -u\ origin\ 本地分支名：远程分支名
 ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
 \]</span> 具体如下图所示，命令行后会提示密钥生成到了哪个文件当中：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E6%88%AA%E5%9B%BE.png" alt="输入对应命令">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E6%88%AA%E5%9B%BE.png" alt="输入对应命令">
 
 <p>找到对应的文件，发现已经生成公钥以及私钥，私钥保存在自己的电脑上。点开<span class="math inline">\(.pub\)</span>后缀的文件夹，复制里面的内容，如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908175011035.png" alt="公钥和私钥">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908175011035.png" alt="公钥和私钥">
 
 <p>打开Github，在settings的<strong>SSH and GPG keys</strong>中输入密钥的名字，并粘贴复制的公钥，点击<strong>Add SSH Key</strong>，即可完成公钥的添加，具体如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908175140011.png" alt="在github上添加公钥">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260908175140011.png" alt="在github上添加公钥">
 
 <p>添加公钥后，本机可以通过 SSH 被 GitHub 识别为对应账号；是否能 push 到某个仓库，还取决于该账号是否拥有该仓库的写权限。</p>
 <p><span class="math inline">\(Fin.\)</span></p>
@@ -1077,7 +1067,7 @@ ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
                 <a href="/2026/09/30/bi-ji-shu-xue-jian-mo-bi-ji/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】数学建模笔记">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】数学建模笔记">
                         
                         <span class="card-title">【笔记】数学建模笔记</span>
                     </div>
@@ -1129,7 +1119,7 @@ ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
                 <a href="/2026/09/06/bi-ji-zhi-neng-yi-xue-ying-xiang-yu-zhi-shi-tu-pu-bu-quan-jie-ke-lun-wen-shu-li/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" class="responsive-img" alt="【笔记】智能医学影像与知识图谱补全结课论文梳理">
                         
                         <span class="card-title">【笔记】智能医学影像与知识图谱补全结课论文梳理</span>
                     </div>
@@ -1515,7 +1505,7 @@ ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1527,7 +1517,7 @@ ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1567,7 +1557,7 @@ ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1638,6 +1628,7 @@ ssh-keygen\ -t\ ed25519\ -C\ \text{“GitHub邮箱"}
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1654,6 +1645,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1720,11 +1712,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1779,16 +1785,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

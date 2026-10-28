@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -429,7 +419,7 @@
             <div id="articleContent">
                 <ul>
 <li>论文全称：<strong>Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</strong></li>
-<li>论文作者：<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513233143360.png" alt="作者信息"></li>
+<li>论文作者：<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513233143360.png" alt="作者信息"></li>
 <li>发表信息：ICLR 2026 Poster</li>
 <li>领域定位：Temporal Knowledge Graph, Inductive Learning</li>
 <li>代码仓库：<a target="_blank" rel="noopener" href="https://github.com/zhaodazhuang2333/TransFIR">仓库链接</a></li>
@@ -438,14 +428,14 @@
 <p>时序知识图谱可以定义如下：</p>
 <p>假设有一条<strong>时间轴<span class="math inline">\(\tau\)</span></strong>，沿着时间轴有<strong>一系列时间刻度<span class="math inline">\(t\)</span></strong>，对于每个<span class="math inline">\(t\)</span>，都存在由多条三元组构成的<strong>知识图谱<span class="math inline">\(G_t\)</span></strong>，由所有<span class="math inline">\(G_t\)</span>组成的图谱则称作在<strong>跨度为<span class="math inline">\(\tau\)</span>的时序知识图谱。</strong>传统的时序知识图谱存在以下问题：真实世界在图谱中被当作是闭合的，即，在进行预测时，会默认测试集的实体在训练的过程中出现过，但是<strong>这与真实世界是不符合的</strong>。如，当有一个国家选取产生了新的总统，这个总统在时序知识图谱过去的信息中是不存在的，换言之，该实体在训练过程中由于<strong>缺乏历史交互监督信号</strong>，因此没有得到很好的嵌入表示，导致最后在<strong>预测、推理</strong>涉及到这些实体的四元组时，传统模型效果会大打折扣。如下例，当奥巴马首次就任美国总统时，由于不存在其历史交互，故预测其第一次国事访问将会边的非常困难，上述提到的实体为本文提出的<strong>新兴实体</strong>中的一部分。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230159820.png" alt="新兴实体实体预测示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230159820.png" alt="新兴实体实体预测示意图">
 
 <p>对新兴实体的定义如下：</p>
 <p>在<strong>时间轴<span class="math inline">\(\tau\)</span>上的时刻<span class="math inline">\(t\)</span></strong>，如果某个<strong>实体<span class="math inline">\(\epsilon\)</span></strong>在<span class="math inline">\(t\)</span>时刻之前没有参与任何事件，即，该实体在<span class="math inline">\(t\)</span>时刻第一次出现，则称<span class="math inline">\(\epsilon\)</span>为<span class="math inline">\(t\)</span>时刻的新兴实体。</p>
 <p>论文需要解决的问题为：当一个实体为新兴实体，即过去不存在与该实体有关的事件，模型应该如何在这种情况下对涉及到的事实进行很好的预测。</p>
 <p>作者认为该研究是极其必要的，因为按照定义，时序知识图谱中的新兴实体数量占所有实体数量的比例高达25%。作者提出一个叫做<strong>表示坍缩</strong>的概念，用于描述不同实体间的向量区分度。表示坍缩的值越低，代表实体之间越不存在区分度；表示坍缩的值越高，代表实体之间越存在区分度。下图代表已见实体和新兴实体经过训练后在向量空间中表示的区分度：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260512200448793.png" alt="实体区分度">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260512200448793.png" alt="实体区分度">
 
 <ul>
 <li>对于经过训练的实体，其嵌入在向量空间中往往呈更分散的趋势</li>
@@ -454,7 +444,7 @@
 <h2 id="论文方法">论文方法</h2>
 <p><strong>模型总体架构如下</strong>：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260512200721010.png" alt="模型总体架构">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260512200721010.png" alt="模型总体架构">
 
 <p>作者提出三个模块：</p>
 <p>1）<strong>码本映射</strong>：将实体映射到对应的簇，每个簇都有一个中心表示向量。损失函数的优化目标在于拉近实体和簇中心表示之间的距离。</p>
@@ -503,20 +493,20 @@ L = L_{lp}+\lambda L_{codebook}
 <h2 id="论文实验">论文实验</h2>
 <p>涉及到<strong>新兴实体</strong>的四元组推理结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230056108.png" alt="涉及到未见实体的推理">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230056108.png" alt="涉及到未见实体的推理">
 
 <p>经过训练后，模型的<strong>表示坍缩</strong>如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230536418.png" alt="表示坍缩效果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513230536418.png" alt="表示坍缩效果">
 
 <p>可以发现在向量空间中，不同类型的实体在经过训练后被聚合在了一起，说明达到了分类器要求的<strong>让每个簇和簇内实体表示更接近</strong>的效果。</p>
 <p><strong>消融实验</strong>结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513231020863.png" alt="消融实验结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513231020863.png" alt="消融实验结果">
 
 <p>有些实体可能在训练集中没出现过，在训练集中却多次出现。该类实体从第二次在测试集中出现起，就已经具备了一定的信息，将这类实体定义为<strong>未知实体</strong>，针对<strong>未知实体</strong>和<strong>新兴实体</strong>的实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513231317861.png" alt="针对两种实体的对比">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260513231317861.png" alt="针对两种实体的对比">
 
 <h2 id="论文总结">论文总结</h2>
 <p>论文提出了一种针对新兴实体的嵌入的方法，通过迁移学习的方式，让新兴实体也能获得一定的语义表示。但是目前论文存在以下缺陷：</p>
@@ -922,7 +912,7 @@ L = L_{lp}+\lambda L_{codebook}
                 <a href="/2026/05/20/lun-wen-terdy-temporal-relation-dynamics-through-frequency-decomposition/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" class="responsive-img" alt="【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" class="responsive-img" alt="【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion">
                         
                         <span class="card-title">【论文】TeRDy Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion</span>
                     </div>
@@ -978,7 +968,7 @@ L = L_{lp}+\lambda L_{codebook}
                 <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
                         
                         <span class="card-title">【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</span>
                     </div>
@@ -1364,7 +1354,7 @@ L = L_{lp}+\lambda L_{codebook}
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1376,7 +1366,7 @@ L = L_{lp}+\lambda L_{codebook}
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1416,7 +1406,7 @@ L = L_{lp}+\lambda L_{codebook}
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1487,6 +1477,7 @@ L = L_{lp}+\lambda L_{codebook}
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1503,6 +1494,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1569,11 +1561,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1628,16 +1634,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

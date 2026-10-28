@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A24.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -444,7 +434,7 @@
 <p>基于上述两点，本文提出了一种<strong>能建模并发事件、能无标签连续预测未来</strong>的时序图谱模型<strong>RE-Net</strong>。</p>
 <p>下图为一个时序知识图谱随着事件的变化发生变化的示例图：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325182920881.png" alt="TKG示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325182920881.png" alt="TKG示意图">
 
 <h2 id="论文方法">论文方法</h2>
 <p>复发事件编码器总结过去事件序列的信息，邻居聚合器聚合同一个窗口内重复发生事件的信息</p>
@@ -501,17 +491,17 @@ p(s_t|G_{t-m:t-1}) \propto \exp(H_{t-1}^T·w_{s_t})
 g(N_t^s)=h_s^{(l+1)}=\sigma(\sum_{r\in R}\sum_{o\in N_t^{(s,r)}}\frac{1}{c_s}W_r^{(l)}h_o^{(l)}+W_o^{(l)}h_s^{(l)})
 \]</span> 每个节点的初始隐藏表示<span class="math inline">\((h_o^{(0)})\)</span>被设置成可训练的嵌入向量<span class="math inline">\((e_o)\)</span>。<span class="math inline">\(c_s\)</span>是归一化因子。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325085558755.png" alt="不同聚合器示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325085558755.png" alt="不同聚合器示意图">
 
 <p>上图为不同聚合器的对比示意图。</p>
-<p>下图为<strong>RE-Net</strong>工作架构示意图，聚合器同时处理局部邻域结构和整体结构，局部信息和全局信息一起送入<strong>RNN单元</strong>编码，再将编码送入<strong>MLP</strong>解码，得到预测值： <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325094702659.png" alt="RE-Net工作架构图"></p>
+<p>下图为<strong>RE-Net</strong>工作架构示意图，聚合器同时处理局部邻域结构和整体结构，局部信息和全局信息一起送入<strong>RNN单元</strong>编码，再将编码送入<strong>MLP</strong>解码，得到预测值： <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325094702659.png" alt="RE-Net工作架构图"></p>
 <p><strong>推理过程</strong></p>
 <p>元素的推理过程可以看作是一个<strong>多类别分类任务</strong>，损失函数定义如下: <span class="math display">\[
 L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s_t)
 \]</span> <span class="math inline">\(\lambda_1,\lambda_2\)</span>可以根据具体的任务需求调整大小。</p>
 <p>模型训练完毕后，假设需要预测在<span class="math inline">\(t+ \Delta t\)</span>时刻发生的事情，即计算<span class="math inline">\(p(G_{t+\Delta t}|G_t)\)</span>，可以将其看作一个分步推理的过程。具体算法如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325091445024.png" alt="分步推理算法">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325091445024.png" alt="分步推理算法">
 
 <p>输入过去时间戳的事件序列集合，以及每一步需要采样的实体个数<span class="math inline">\(M\)</span>，输出条件分布<span class="math inline">\(p(G_{t+\Delta t}|G_t)\)</span>的估计。</p>
 <p>从<span class="math inline">\(t+1\)</span>时刻开始，直到<span class="math inline">\(t+\Delta t\)</span>进行循环。每次循环有下列步骤:</p>
@@ -531,31 +521,31 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
 </blockquote>
 <p>实验对比了<strong>静态模型、时序模型、用于齐次图的模型</strong>。对于静态模型，将数据集中四元组的时间戳删去，并合并相同三元组，得到一个新的数据集，在此数据集上进行补全。数据集统计图如下所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325114925673.png" alt="数据集统计">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325114925673.png" alt="数据集统计">
 
 <p><strong>dyngraph2vecAE,tNodeEmbed</strong>两个模型用于处理齐次图，故在非齐次图上效果并不显著。<strong>Know-Evolve</strong>由于自身的模型问题，它无法正确预测并发事件，故表现的很差。总体实验结果图如下所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115318789.png" alt="总体实验结果图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115318789.png" alt="总体实验结果图">
 
 <p>论文还做了在未来时间戳上链路预测的对比实验，随着时间的推移，<strong>RE-Net</strong>效果将变差，因为时间越久，假设事实就越多。<strong>ConvE</strong>是静态模型，它不考虑时间戳带来的影响，故其效果相对平稳。具体实验结构如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115603727.png" alt="时间戳上的链路预测">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115603727.png" alt="时间戳上的链路预测">
 
 <p>在带有时间戳的两个数据集<strong>WIKI和YAGO</strong>上的时序链路预测结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325163525540.png" alt="带时间戳数据集实验结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325163525540.png" alt="带时间戳数据集实验结果">
 
 <p>以<strong>MRR</strong>为评价指标，针对不同聚合器的实验结过如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115800567.png" alt="不同聚合器实验结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325115800567.png" alt="不同聚合器实验结果">
 
 <p>论文还说明了训练<span class="math inline">\(p(s_t|G_{t-m:t-1})\)</span>和<span class="math inline">\(p(r_t|s_t,G_{t-m:t-1})\)</span>(简记为<span class="math inline">\(p(s),p(r)\)</span>)的必要性。假设实体和关系是独立的，那么<span class="math inline">\(p(s_t,r_t|G_{t-m:t-1})=p(s)p(r)\)</span>，简写等式左边为<span class="math inline">\(p(s,r)\)</span>。令<span class="math inline">\(p_e(s)\)</span>等于包含<span class="math inline">\(s\)</span>的三元组/总三元组，<span class="math inline">\(p_e(r)\)</span>等于包含<span class="math inline">\(r\)</span>的三元组除以总三元组，以<strong>MRR</strong>为评价指标，所得结果如下图:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325122601504.png" alt="对p(s)和p(s,r)的研究">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325122601504.png" alt="对p(s)和p(s,r)的研究">
 
 <p>消融实验探索了在没有聚合器和没有多步推理情况下<strong>RE-Net</strong>的能力。另一方面，如果允许<strong>RE-Net</strong>使用<strong>Ground Truth</strong>，实验效果会提高，但这是不被允许的，具体实验结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325162935969.png" alt="消融实验">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325162935969.png" alt="消融实验">
 
 <blockquote>
 <p>GT指的是在测试集中出现的事实，在预测完某个时间戳之后，将测试集中该时间戳的数据加入训练集</p>
@@ -563,7 +553,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
 <p><strong>参数敏感性实验</strong></p>
 <p>实验探索了<strong>历史事件长度，截断的数量k，RGCN的层数，全局表示</strong>对最后模型性能的影响，具体实验结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325165114089.png" alt="参数敏感性实验">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325165114089.png" alt="参数敏感性实验">
 
 <ul>
 <li>(a)历史长度指的是，模型需要根据过去多少<strong>时间戳的数据</strong>进行新事件的预测</li>
@@ -583,7 +573,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
 <p>对于第三种案例，待预测客体在先前的事件中完全没有任何规律，故<strong>RE-Net</strong>在预测该类客体的能力上表现较差。</p>
 <p>三个案例的示意图如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325171317283.png" alt="案例分析图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260325171317283.png" alt="案例分析图">
 
 <h2 id="论文结论">论文结论</h2>
 <ul>
@@ -999,7 +989,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                 <a href="/2026/04/08/lun-wen-unihr-hierarchical-representation-learning-for-unified-knowledge-graph/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E7%BA%BF%E6%9D%A1%E5%B0%8F%E7%8B%97.jpg" class="responsive-img" alt="【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph">
                         
                         <span class="card-title">【论文】 UniHR: Hierarchical Representation Learning for Unified Knowledge Graph</span>
                     </div>
@@ -1055,7 +1045,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                 <a href="/2026/03/22/hot100-zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A23.jpg" class="responsive-img" alt="Hot100-找到字符串中所有字母异位词">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A23.jpg" class="responsive-img" alt="Hot100-找到字符串中所有字母异位词">
                         
                         <span class="card-title">Hot100-找到字符串中所有字母异位词</span>
                     </div>
@@ -1441,7 +1431,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1453,7 +1443,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1493,7 +1483,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1564,6 +1554,7 @@ L=-\sum_{(s,r,o,t)\in G}logp(o_t|s_t,r_t)+\lambda_1logp(r_t|s_t)+\lambda_2logp(s
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1580,6 +1571,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1646,11 +1638,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1705,16 +1711,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

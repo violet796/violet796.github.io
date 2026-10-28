@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://pic3.zhimg.com/v2-6fab134c3621df30c3d5b032ebf883ba_r.jpg?source=1940ef5c" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://pic3.zhimg.com/v2-6fab134c3621df30c3d5b032ebf883ba_r.jpg?source=1940ef5c" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -437,7 +427,7 @@ pip install numpy==version <span class="token comment">#指定版本号，versio
 </ul>
 <p><strong>Anaconda</strong>集成了大量<strong>Python</strong>常用库，如Numpy，Pandas等。如果要安装特定版本的库，只需要在<strong>Anaconda Navigator</strong>中搜索即可，如图所示。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921153004937.png" alt="在Anaconda搜索需要的库">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921153004937.png" alt="在Anaconda搜索需要的库">
 
 <p>方法一可以只安装需要的<strong>Numpy</strong>库，对电脑的存储空间要求较小，但是操作相对来说更繁琐一些。方法二安装<strong>Anaconda</strong>，由于集成了大量库，故对存储空间的要求相对高得多，但是操作较为便捷。使用者可以根据自己的实际情况选择安装方法。</p>
 <p>安装后，可通过下列命令判断是否安装成功:</p>
@@ -445,7 +435,7 @@ pip install numpy==version <span class="token comment">#指定版本号，versio
 <span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>__version__<span class="token punctuation">)</span></code></pre>
 <p>若安装成功，将会输出所安装的版本号，如图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921154116473.png" alt="安装成功输出图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921154116473.png" alt="安装成功输出图">
 
 <h2 id="numpy的使用">Numpy的使用</h2>
 <p>下文大部分代码均是在导入了numpy库的前提下才能使用的，在成功安装numpy后，导入代码如下:</p>
@@ -464,13 +454,13 @@ arr2 <span class="token operator">=</span> np<span class="token punctuation">.</
 <p>指的是<strong>ndarray</strong>支持多种维度，如0维(一个数)、1维(一个向量)、2维(矩阵)或更高维。</p>
 <p>对于上文生成的三个数组，获取其维度，结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921160040501.png" alt="ndarray的多维性">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921160040501.png" alt="ndarray的多维性">
 
 <p><strong>② 同质性</strong></p>
 <p>指的是<strong>ndarray</strong>当中所有元素的类型都是一样的，不像Python的原生列表，列表中的元素可以涵盖从整型到字符串的多种元素。</p>
 <p>将元素<em>1</em>，和其它不同类型的元素组成列表，并生成一个<strong>ndarray</strong>，可以看到三个均包含元素<em>1</em>的<strong>ndarray</strong>的类型如图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921163641364.png" alt="ndarray的同质性">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921163641364.png" alt="ndarray的同质性">
 
 <p><strong>ndarray</strong>自动将元素的类型进行了转换。</p>
 <p><strong>③ 高效性</strong></p>
@@ -492,28 +482,28 @@ arr_1 = np.ones(shape=(3,),dtype=int) #shape可省略</code></pre>
 <p>通过<strong>zeros( )</strong>和<strong>ones( )</strong>方法创建全 0 和全 1 的数组。方法的 <strong>shape</strong> 参数决定了数组的形状，<strong>dtype</strong>参数决定了数组的元素类型，默认为浮点型。对于参数<strong>shape</strong>，<strong>shape=3</strong>和<strong>shape=(3 , )</strong>的写法在实现效果上完全一样，均代表创建一个一维行向量，且这个行向量的长度为<em>3</em>，但是带括号能使得写法更为统一。</p>
 <p>输出<strong>arr_0</strong>和<strong>arr_1</strong>的结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921170038871.png" alt="创建全0和全1的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921170038871.png" alt="创建全0和全1的数组">
 
 <p><strong>b) 创建一个未初始的数组</strong></p>
 <p>有时候只需要创建一个未初始化的数组，而无需定义具体的值，可以使用<strong>empty( )</strong>方法。</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_e <span class="token operator">=</span> np<span class="token punctuation">.</span>empty<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">#shape可省略</span></code></pre>
 <p>同样通过<strong>shape</strong>参数决定数组的形状，但由于元素未初始化，所以每次运行时，数组内元素的结果将是随机的，如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921170606194.png" alt="未初始化的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921170606194.png" alt="未初始化的数组">
 
 <p><strong>c) 创建一个全为固定值的数组</strong></p>
 <p>如果希望数组内的填充元素既非0又非1，可以通过<strong>full( )</strong>方法来指定需要创建的数组规模以及填充的元素。</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_f <span class="token operator">=</span> np<span class="token punctuation">.</span>full<span class="token punctuation">(</span>shape<span class="token operator">=</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">,</span>fill_value<span class="token operator">=</span><span class="token number">2025</span><span class="token punctuation">)</span> <span class="token comment">#shape和fill_value可省略</span></code></pre>
 <p><strong>shape</strong>参数指定数组形状，<strong>fill_value</strong>指定需要填充的值。运行结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921171319782.png" alt="指定填充元素的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921171319782.png" alt="指定填充元素的数组">
 
 <p><strong>d) 根据已知数组创造同型全0数组</strong></p>
 <p>如果想要创造一个全零数组，且该全零数组的形状和某个已有数组的形状一样，可以使用<strong>zeros_like( )</strong>方法。如创造一个如<strong>arr_f</strong>一样的3*3全零数组：</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_0l <span class="token operator">=</span> np<span class="token punctuation">.</span>zeros_like<span class="token punctuation">(</span>arr_f<span class="token punctuation">)</span></code></pre>
 <p>输出<strong>arr_0l</strong>结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921201833505.png" alt="创建同型全零数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921201833505.png" alt="创建同型全零数组">
 
 <p><code>③ 创建特殊的等间距数组</code></p>
 <p><strong>a) 已知步长，创建元素为等差数列的数组</strong></p>
@@ -521,59 +511,59 @@ arr_1 = np.ones(shape=(3,),dtype=int) #shape可省略</code></pre>
 <pre class="language-python" data-language="python"><code class="language-python">arr_aran <span class="token operator">=</span> np<span class="token punctuation">.</span>arange<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span></code></pre>
 <p>上述代码创建了一个元素为等差数列的数组。数组元素从1开始，到9结束，公差为2。打印数组结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921202600765.png" alt="arange()方法创建的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921202600765.png" alt="arange()方法创建的数组">
 
 <p><strong>b) 知道所需元素的首尾和个数，创建元素间隔相同的数组</strong></p>
 <p>使用<strong>linspace(start,end,num)</strong>方法，创建出来的数组元素范围为[start,end]，左闭右闭。<strong>start</strong>为数组的开始元素，<strong>end</strong>为数组的结尾元素，<strong>num</strong>为数组的元素个数。</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_lins <span class="token operator">=</span> np<span class="token punctuation">.</span>linspace<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span></code></pre>
 <p>上述代码创建了一个长度为5，以1开头，以10结尾的等间隔数组。打印数组结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921203911978.png" alt="linspace()方法创建的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921203911978.png" alt="linspace()方法创建的数组">
 
 <p>如果在此基础上，需要继续求底数<strong>base</strong>的各个元素次方，可以使用<strong>logspace(start,end,num,base)</strong>方法，该方法先和<strong>linspace( )</strong>方法一样，创建出等间隔数组，再将<strong>base</strong>的每个数组元素次方作为结果存入数组中。打印数组结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921204828951.png" alt="logspace()方法创建的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921204828951.png" alt="logspace()方法创建的数组">
 
 <p><code>④ 创建特殊矩阵</code></p>
 <p><strong>a) 创建n维单位矩阵</strong></p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_e <span class="token operator">=</span> np<span class="token punctuation">.</span>eye<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span></code></pre>
 <p><strong>eye( )</strong>方法创建了一个3维的单位矩阵，打印矩阵结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921205138720.png" alt="eye()方法创建的单位矩阵">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921205138720.png" alt="eye()方法创建的单位矩阵">
 
 <p><strong>b) 自定义创建对角矩阵</strong></p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_d <span class="token operator">=</span> np<span class="token punctuation">.</span>diag<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>对角矩阵为除了主对角线以外，其余元素均为0的矩阵。<strong>diag( )</strong>方法通过接收对角线元素列表，创建一个维数等于对角线元素列表长度的对角矩阵。打印矩阵结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921210127681.png" alt="diag()方法创建的矩阵">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921210127681.png" alt="diag()方法创建的矩阵">
 
 <p><code>⑤ 创建随机数组</code></p>
 <p><strong>a) 生成[0,1)之间的指定形状的浮点型数组</strong></p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_01f <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span></code></pre>
 <p>使用<strong>random.rand( row,column)</strong>方法，参数<strong>row</strong>代表要生成的行数，参数<strong>column</strong>代表要生成的列数。打印数组结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921210904342.png" alt="random.rand()方法创建的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921210904342.png" alt="random.rand()方法创建的数组">
 
 <p>数组中的元素符合[0,1)之间的均匀分布。</p>
 <p><strong>b) 生成指定区间的指定形状的浮点型数组</strong></p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_u <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>uniform<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>使用<strong>random.uniform(start,end,shape)</strong>方法。上面这行代码将生成大小为2*3，元素为[3,4)之间的浮点数的数组。打印数组结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921211354510.png" alt="random.uniform()方法创建的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921211354510.png" alt="random.uniform()方法创建的数组">
 
 <p>数组中的元素符合[3,4)之间的均匀分布。</p>
 <p><strong>c) 生成指定区间的指定形状的整型数组</strong></p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_i <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>使用<strong>random.randint(start,end,shape)</strong>方法。上面这行代码将生成大小3*3，元素为[1,10)之间的整型的数组。打印数组结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921213102395.png" alt="random.randint()方法创建的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921213102395.png" alt="random.randint()方法创建的数组">
 
 <p>数组中的元素符合[1,10)之间的均匀分布。</p>
 <p><strong>d) 生成服从正态分布的数组</strong></p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_nd <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randn<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span></code></pre>
 <p>使用<strong>random.randn(shape)</strong>方法。上面这行代码将生成大小3*3，元素服从<strong>均值为0，标准差为1</strong>的标准正态分布的数组。打印数组结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921213550544.png" alt="random.randn()方法创建的数组">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921213550544.png" alt="random.randn()方法创建的数组">
 
 <p><strong>e) 固定随机生成的数组</strong></p>
 <p>有时候若想一直使用某个随机生成的数组，那么可以在使用上述<strong>random.</strong>方法之前，给<strong>numpy</strong>设置一个种子。</p>
@@ -658,7 +648,7 @@ arr_1 = np.ones(shape=(3,),dtype=int) #shape可省略</code></pre>
 <pre class="language-python" data-language="python"><code class="language-python">arr_c <span class="token operator">=</span> arr1<span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">:</span><span class="token number">8</span><span class="token punctuation">]</span></code></pre>
 <p>切片arr1[start:end]，取到的是下标为[start,end - 1]的子数组。故该代码可取到下标为[4:7]的子数组，正好对应第5到第8个元素。将<strong>arr_c</strong>打印，结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921224241676.png" alt="一维数组的切片">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921224241676.png" alt="一维数组的切片">
 
 <p><strong>ndarray</strong>切片返回的值为其<strong>视图</strong>，也就是修改切片，<strong>ndarray</strong>也会一起被修改。</p>
 <p>对于<strong>ndarray</strong>来说，切片的内容可以通过布尔索引进行自定义。</p>
@@ -667,21 +657,21 @@ arr_1 = np.ones(shape=(3,),dtype=int) #shape可省略</code></pre>
 <p>这种方式叫做<strong>布尔索引</strong>。形式如arr[<strong>一个和arr规模一样的Bool类型数组</strong>]。在使用<strong>布尔索引</strong>的过程中，数组的每一个元素都对应一个<strong>布尔值</strong>，只有该值为<strong>True</strong>，对应的元素才会被保留。</p>
 <p>对于该代码，<strong>arr1&gt;5</strong>首先生成了一个和arr1规模一样的<strong>bool</strong>类型数组，只有元素的值大于5，对应位置的bool值才为<strong>Ture</strong>。这个数组作为<strong>布尔索引</strong>的布尔矩阵，并保留符合条件的值并赋给<strong>arr_b</strong>。输出结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921225317852.png" alt="布尔索引">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921225317852.png" alt="布尔索引">
 
 <p><strong>布尔索引</strong>返回的值为其<strong>副本</strong>，也就是修改得到的数组，<strong>ndarray</strong>不会一起被修改。</p>
 <p>如果切片的对象不是连续值，而是某一个区间内索引长度固定的离散值，可以使用<strong>arr[slice(start,end,step)]</strong>方法:</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_s <span class="token operator">=</span> arr1<span class="token punctuation">[</span><span class="token builtin">slice</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">]</span>  </code></pre>
 <p>该方法将相隔两个元素输出arr1下标为[4:7]的元素，输出结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921231341998.png" alt="按照步长切片">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921231341998.png" alt="按照步长切片">
 
 <p>二维<strong>ndarray</strong>的索引方式为<strong>ndarray[1,3]</strong>。这表示直接获得该数组的第二行第四个元素。使用<code>ndarray[1][3]</code>虽然也可以获得相应的元素，但这种方法的实现逻辑是先生成<code>ndarrat[1]</code>这个中间数组，再从这个中间数组中找到第4个元素，效率较低。</p>
 <p><strong>ndarray</strong>也支持对二维数组的快速切片，假设有一个规模为3*4的二维数组<strong>arr2</strong>。要对其第一行到第二行、第二列到第四列切片。具体的方法如下:</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr_a <span class="token operator">=</span> arr2<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">:</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span></code></pre>
 <p>行列的下标输入方法和一维切片完全一致，通过形如<strong>arr2[起始行下标:结尾行下标 + 1,起始列下标:起始列下标 + 1]</strong>的方式，实现对二维数组的行列同时切片。二维数组切片结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921230557801.png" alt="二维数组的切片">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921230557801.png" alt="二维数组的切片">
 
 <p>二维<strong>ndarray</strong>也可以只对行或者列切片,具体的方法如下: </p><pre class="language-python" data-language="python"><code class="language-python"><span class="token comment">#对某一行的特定列切片</span>
 arr2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span>
@@ -689,7 +679,7 @@ arr2<span class="token punctuation">[</span><span class="token number">1</span><
 arr2<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">]</span></code></pre><p></p>
 <p>对行或列切片结果如图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921232734958.png" alt="二维ndarray对特定行列切片">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250921232734958.png" alt="二维ndarray对特定行列切片">
 
 <h3 id="ndarray的计算">6.ndarray的计算</h3>
 <p>假设有两个同型二维数组<strong>arr1</strong>和<strong>arr2</strong>，以这两个数组为例说明<strong>ndarray</strong>的计算。</p>
@@ -743,12 +733,12 @@ arr2<span class="token punctuation">[</span><span class="token punctuation">:</s
 <p>这种机制叫做广播。当判断两个二维数组不同型，但是又满足上述条件之一，<strong>ndarray</strong>会自动将其扩充成同型数组。</p>
 <p>假设<strong>arr3</strong>的规模是3 * 4，<strong>arr4</strong>的规模是1 * 4。这符合上述第二种情况，<strong>arr4</strong>会被扩充为规模为3 * 4的数组，并做对应运算，以加法为例，运算结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922151535849.png" alt="广播机制示例一">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922151535849.png" alt="广播机制示例一">
 
 <p>可以看到运算结果是<strong>arr3</strong>和<strong>arr4</strong>经过广播后得到的一个规模为3 * 4，且每一行均为[5,3,5,8]的矩阵相加得来的。</p>
 <p>再假设<strong>arr3</strong>的规模是1* 4，<strong>arr4</strong>的规模是4 * 1。这符合上述第四种情况，<strong>arr3</strong>和<strong>arr4</strong>均会被扩充为规模为4 * 4的数组，并做对应运算，以加法为例，运算结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922152032871.png" alt="广播机制示例二">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922152032871.png" alt="广播机制示例二">
 
 <p>可以看到运算结果是由一个每一行均为[6,9,6,1]的4 * 4矩阵和一个每一列均为[1,2,8,7]的4 * 4矩阵相加得来的。这两个矩阵分别由<strong>arr3</strong>和<strong>arr4</strong>广播得到。</p>
 <h3 id="numpy常用的数学方法">7.Numpy常用的数学方法</h3>
@@ -924,7 +914,7 @@ arr_m <span class="token operator">=</span> np<span class="token punctuation">.<
 arr_mr <span class="token operator">=</span> np<span class="token punctuation">.</span><span class="token builtin">max</span><span class="token punctuation">(</span>arr_m<span class="token punctuation">,</span>axis<span class="token operator">=</span><span class="token number">1</span><span class="token punctuation">)</span></code></pre>
 <p>打印数组结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922170626987.png" alt="对每一行进行统计">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922170626987.png" alt="对每一行进行统计">
 
 <blockquote>
 <p>这种方式依然适用于其它统计方法。</p>
@@ -1089,14 +1079,14 @@ arr_mr <span class="token operator">=</span> np<span class="token punctuation">.
 <pre class="language-python" data-language="python"><code class="language-python">np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>arr<span class="token operator">&gt;</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span></code></pre>
 <p>运行结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922173310355.png" alt="使用where替换元素">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922173310355.png" alt="使用where替换元素">
 
 <p><strong>select(condlist, choicelist, default=0)</strong>适用于需要根据多个条件从不同数组中选择元素的场景。给出一个条件列表，一个选择列表，一个默认值(类似于switch - case)，数组中元素依次判断是否符合<strong>condlist</strong>中的条件，若符合下标为<strong>a</strong>的条件，就将该元素替换成<strong>choicelist</strong>中下标为<strong>a</strong>的元素，若所有条件都不符合则替换成<strong>default</strong>。假设给定一个成绩列表，要对不同分数段给出评级，代码如下:</p>
 <pre class="language-python" data-language="python"><code class="language-python">arr <span class="token operator">=</span> np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>randint<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">)</span>
 np<span class="token punctuation">.</span>select<span class="token punctuation">(</span><span class="token punctuation">[</span>arr<span class="token operator">&lt;</span><span class="token number">60</span><span class="token punctuation">,</span><span class="token punctuation">(</span>arr<span class="token operator">&gt;=</span><span class="token number">60</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>arr<span class="token operator">&lt;</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span>arr<span class="token operator">&gt;=</span><span class="token number">70</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>arr<span class="token operator">&lt;</span><span class="token number">80</span><span class="token punctuation">)</span><span class="token punctuation">,</span>arr<span class="token operator">&gt;=</span><span class="token number">80</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token string">'不及格'</span><span class="token punctuation">,</span><span class="token string">'及格'</span><span class="token punctuation">,</span><span class="token string">'良好'</span><span class="token punctuation">,</span><span class="token string">'优秀'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>default<span class="token operator">=</span><span class="token string">'未知'</span><span class="token punctuation">)</span></code></pre>
 <p>运行结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922173936938.png" alt="使用select替换元素">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922173936938.png" alt="使用select替换元素">
 
 <p><strong>column_stack(arr_1,arr_2)</strong>不支持广播，使用的条件是<strong>arr_1</strong>和<strong>arr_2</strong>的行数相同。若<strong>arr_1</strong>和<strong>arr_2</strong>是两个一维行向量，则会先转置为一维列向量再堆叠。</p>
 <h2 id="numpy练习题">Numpy练习题</h2>
@@ -1120,7 +1110,7 @@ np<span class="token punctuation">.</span>select<span class="token punctuation">
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'超过三十度的天气(统计非零方法):'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>count_nonzero<span class="token punctuation">(</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>temp<span class="token operator">&gt;</span><span class="token number">30</span><span class="token punctuation">,</span>temp<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174534680.png" alt="题目一输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174534680.png" alt="题目一输出结果">
 
 <h3 id="题目二学生成绩统计">题目二:学生成绩统计</h3>
 <p>某班级5名同学的数学成绩为[85,90,78,92,88]</p>
@@ -1137,7 +1127,7 @@ np<span class="token punctuation">.</span>select<span class="token punctuation">
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'转换为十分制后成绩为:'</span><span class="token punctuation">,</span><span class="token punctuation">(</span>score <span class="token operator">/</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174644267.png" alt="题目二输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174644267.png" alt="题目二输出结果">
 
 <h3 id="题目三矩阵运算">题目三:矩阵运算</h3>
 <p>给定矩阵A = [[1,2],[3,4]] 和B = [[5,6],[7,8]]</p>
@@ -1153,7 +1143,7 @@ B <span class="token operator">=</span> np<span class="token punctuation">.</spa
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"矩阵乘法结果为:\n"</span><span class="token punctuation">,</span>A @ B<span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174835576.png" alt="题目三输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922174835576.png" alt="题目三输出结果">
 
 <h3 id="题目四随机数据生成">题目四:随机数据生成</h3>
 <p>生成一个(3,4)的随机整数数组，范围[0,10) - 计算每列的最大值和每行的最小值 - 将数组中的所有奇数替换为 -1</p>
@@ -1167,7 +1157,7 @@ arr <span class="token operator">=</span> np<span class="token punctuation">.</s
 <span class="token keyword">print</span><span class="token punctuation">(</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>arr <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175032656.png" alt="题目四输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175032656.png" alt="题目四输出结果">
 
 <h3 id="题目五数组变形">题目五:数组变形</h3>
 <p>创建一个 1 到 12 的一维数组，并转换为(3,4)的二维数组。 - 计算每行的和与每列的平均值 - 将数组展平为一维数组</p>
@@ -1181,7 +1171,7 @@ arr <span class="token operator">=</span> np<span class="token punctuation">.</s
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'展平为一维数组:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>arr<span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">12</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175132764.png" alt="题目五输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175132764.png" alt="题目五输出结果">
 
 <h3 id="题目六布尔索引">题目六：布尔索引</h3>
 <p>生成一个 (5,5) 的随机数组，范围 [0,20) - 找出数组中大于 10 的元素 - 将所有大于 10 的元素替换为 0</p>
@@ -1195,7 +1185,7 @@ arr<span class="token punctuation">[</span>arr <span class="token operator">&gt;
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"替换后结果为:\n"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>arr<span class="token operator">&gt;</span><span class="token number">10</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="C:/Users/violet796/AppData/Roaming/Typora/typora-user-images/image-20250922175237211.png" alt="题目六输出结果">
+<img loading="lazy" decoding="async" src="C:/Users/violet796/AppData/Roaming/Typora/typora-user-images/image-20250922175237211.png" alt="题目六输出结果">
 
 <h3 id="题目七统计函数应用">题目七:统计函数应用</h3>
 <p>某公司 6 个月的销售额(万元) 为 [120,135,110,125,130,140]</p>
@@ -1212,7 +1202,7 @@ arr<span class="token punctuation">[</span>arr <span class="token operator">&gt;
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"销售额最低的月份:"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>argmin<span class="token punctuation">(</span>arr<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175405738.png" alt="题目七输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175405738.png" alt="题目七输出结果">
 
 <h3 id="题目八数组拼接">题目八:数组拼接</h3>
 <p>给定A = [1,2,3] 和B = [4,5,6] - 将 A 和 B 水平拼接为一个新数组 - 将 A 和 B 垂直拼接为一个新数组</p>
@@ -1223,7 +1213,7 @@ B <span class="token operator">=</span> np<span class="token punctuation">.</spa
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"垂直拼接结果为:\n"</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>np<span class="token punctuation">.</span>concatenate<span class="token punctuation">(</span><span class="token punctuation">[</span>A<span class="token punctuation">,</span>B<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175533427.png" alt="题目八输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175533427.png" alt="题目八输出结果">
 
 <h3 id="题目九唯一值与排序">题目九:唯一值与排序</h3>
 <p>给定数组[2,1,2,3,1,4,3] - 找出数组中的唯一值并排序 - 计算每个唯一值出现的次数</p>
@@ -1234,7 +1224,7 @@ u_arr<span class="token punctuation">,</span>counts <span class="token operator"
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"唯一值个数为:"</span><span class="token punctuation">,</span>counts<span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175631895.png" alt="题目九输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175631895.png" alt="题目九输出结果">
 
 <h3 id="题目十缺失值处理">题目十:缺失值处理</h3>
 <p>给定数组[1,np.nan,3,np.nan,5] - 计算数组中缺失值的数量 - 将缺失值替换为0</p>
@@ -1244,7 +1234,7 @@ u_arr<span class="token punctuation">,</span>counts <span class="token operator"
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'替换后数组结果为:'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>where<span class="token punctuation">(</span>np<span class="token punctuation">.</span>isnan<span class="token punctuation">(</span>arr<span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>arr<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175721037.png" alt="题目十输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175721037.png" alt="题目十输出结果">
 
 <h3 id="题目十一三角函数计算">题目十一:三角函数计算</h3>
 <p>生成一个包含 0 到 Π 的等间隔数组(包含五个数) - 计算数组中每个数的正弦值和余弦值 - 将结果保存为一个二位数组，第一列为正弦值，第二列为余弦值</p>
@@ -1256,7 +1246,7 @@ c_arr <span class="token operator">=</span> np<span class="token punctuation">.<
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'保存答案的二维数组为:\n'</span><span class="token punctuation">,</span>np<span class="token punctuation">.</span>column_stack<span class="token punctuation">(</span><span class="token punctuation">(</span>s_arr<span class="token punctuation">,</span>c_arr<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175805110.png" alt="题目十一输出结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250922175805110.png" alt="题目十一输出结果">
 
 <h2 id="总结">总结</h2>
 <p><strong>Numpy</strong>是一个极其强大的库，合理运用上文中的方法，可以极大提高数据运算与统计的效率。</p>
@@ -1650,7 +1640,7 @@ c_arr <span class="token operator">=</span> np<span class="token punctuation">.<
                 <a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E4%BA%91%E6%9C%B5-%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A.jpg" class="responsive-img" alt="Hot100-盛水最多的容器">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E4%BA%91%E6%9C%B5-%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A.jpg" class="responsive-img" alt="Hot100-盛水最多的容器">
                         
                         <span class="card-title">Hot100-盛水最多的容器</span>
                     </div>
@@ -1702,7 +1692,7 @@ c_arr <span class="token operator">=</span> np<span class="token punctuation">.<
                 <a href="/2025/09/14/hot100-san-shu-zhi-he/">
                     <div class="card-image">
                         
-                        <img src="https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0" class="responsive-img" alt="Hot100:三数之和">
+                        <img loading="lazy" decoding="async" src="https://th.bing.com/th/id/R.987f582c510be58755c4933cda68d525?rik=C0D21hJDYvXosw&riu=http%3a%2f%2fimg.pconline.com.cn%2fimages%2fupload%2fupc%2ftx%2fwallpaper%2f1305%2f16%2fc4%2f20990657_1368686545122.jpg&ehk=netN2qzcCVS4ALUQfDOwxAwFcy41oxC%2b0xTFvOYy5ds%3d&risl=&pid=ImgRaw&r=0" class="responsive-img" alt="Hot100:三数之和">
                         
                         <span class="card-title">Hot100:三数之和</span>
                     </div>
@@ -2062,7 +2052,7 @@ c_arr <span class="token operator">=</span> np<span class="token punctuation">.<
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -2074,7 +2064,7 @@ c_arr <span class="token operator">=</span> np<span class="token punctuation">.<
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -2114,7 +2104,7 @@ c_arr <span class="token operator">=</span> np<span class="token punctuation">.<
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -2185,6 +2175,7 @@ c_arr <span class="token operator">=</span> np<span class="token punctuation">.<
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -2201,6 +2192,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -2267,11 +2259,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -2326,16 +2332,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

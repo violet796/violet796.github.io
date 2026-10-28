@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E8%AE%BA%E6%96%87%E5%B0%81%E9%9D%A2.png" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -429,7 +419,7 @@
             <div id="articleContent">
                 <ul>
 <li>论文全称：<strong>TeRDy: Temporal Relation Dynamics through Frequency Decomposition for Temporal Knowledge Graph Completion</strong></li>
-<li>论文作者：<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520163919134.png" alt="作者信息"></li>
+<li>论文作者：<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520163919134.png" alt="作者信息"></li>
 <li>发表信息：ACL 2025</li>
 <li>领域定位：时序知识图谱、频域分解、分频率对关系进行表示</li>
 <li>论文PDF：<a target="_blank" rel="noopener" href="https://aclanthology.org/2025.acl-long.473.pdf">论文原文</a></li>
@@ -444,7 +434,7 @@
 </ul>
 <p>具体的实例图如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260519191007375.png" alt="关系三种特性说明">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260519191007375.png" alt="关系三种特性说明">
 
 <p>传统的时序知识图谱补全方法聚焦关系时，不考虑关系的如上三个特性，三个特性又可概括为关系的<strong>不变性</strong>和<strong>动态性</strong>。作者认为这两种概括性的特性对时序知识图谱补全同样重要，故在本论文中提出一种基于<strong>快速傅里叶变换</strong>的方法<strong>TeRDy</strong>，将两种特性考虑进关系的嵌入中。</p>
 <p>作者贡献如下：</p>
@@ -476,7 +466,7 @@ e_s^{r,\tau}=（e_s+T_{r,\tau})\odot S_{r,\tau}
 <h2 id="论文方法">论文方法</h2>
 <p>方法的总体架构图如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520093214016.png" alt="方法总体架构图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520093214016.png" alt="方法总体架构图">
 
 <p>主体嵌入经过时间不变关系嵌入的平移，得到一个带有时间关系的主体嵌入。时序依赖关系嵌入经过快速傅里叶变换，将其从<strong>时域转换到频域</strong>，关系的频域经过分解，可以分成高频和低频部分，两个部分经过快速傅里叶变换的逆变换，重新回到时域。将两个时域关系融合<strong>时间信息后再聚合</strong>，得到一个区分<strong>高频、低频</strong>信息的关系嵌入，再将该关系嵌入用于主体缩放，最后得到待预测的客体。</p>
 <h3 id="基于频率关系的分解">基于频率关系的分解</h3>
@@ -534,7 +524,7 @@ L_\tau=\frac{1}{N_\tau-1}\sum_{i=1}^{N_\tau-1}||T_{\tau(i+1)}-T_{\tau(i)}||_3^3
 <h3 id="实验设置">实验设置</h3>
 <p>论文在三个数据集上进行实验，三个数据集的统计信息如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520113828478.png" alt="数据集统计信息">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520113828478.png" alt="数据集统计信息">
 
 <p>针对三个不同的数据集，超参数设置如下：</p>
 <table>
@@ -579,32 +569,32 @@ L_\tau=\frac{1}{N_\tau-1}\sum_{i=1}^{N_\tau-1}||T_{\tau(i+1)}-T_{\tau(i)}||_3^3
 <p><strong>总体结果</strong></p>
 <p>实验总体结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520114508997.png" alt="实验总体结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520114508997.png" alt="实验总体结果">
 
 <p>论文所有实验结果均引用自原论文，<span class="math inline">\(-\)</span>代表数据缺失，说明作者没有在对应的数据集做实验，或者是未报告相关实验结果。可以看到<strong>TeRDy</strong>达到SOTA的效果。</p>
 <p><strong>消融实验</strong></p>
 <p>消融实验结果如下图所示;</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520115006525.png" alt="消融实验结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520115006525.png" alt="消融实验结果">
 
 <p>可以看到，模型的每个模块对模型都具有提升作用，尤其是在第一个数据集中，损失函数去除频率控制部分，结果下降最多，说明对于数据量大，但实体、关系种类相对较少的数据集而言，频率控制能起到较好的作用。</p>
 <p><strong>参数敏感性实验</strong></p>
 <p>参数敏感性实验结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520153508719.png" alt="参数敏感性实验结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520153508719.png" alt="参数敏感性实验结果">
 
 <p>可以看到，增大损失函数中的<span class="math inline">\(\lambda_\tau、\lambda_f、\alpha\)</span>，模型的性能下降并不那么显著。但是若增大<span class="math inline">\(\lambda_u\)</span>，模型的性能下降较为显著，说明如果过分的关注模型对实体和关系的嵌入，到最后可能会影响到模型的效果。</p>
 <p>值得注意的是，在<strong>GDELT</strong>上，若增大<span class="math inline">\(\lambda_\tau\)</span>，模型预测效果也会有明显下降，说明对于这类数据集，时间表示虽然变得更为平滑了，但是可能会使时间失去原本的特征。</p>
 <p><strong>实体嵌入可视化</strong></p>
 <p>实体嵌入可视化结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520154153595.png" alt="实体嵌入可视化结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520154153595.png" alt="实体嵌入可视化结果">
 
 <p>同一种颜色代表同一个四元组关系中的主体和客体。在向量空间里面，若主体和客体的嵌入越靠近，则说明其表示越合理，因为差异较大的两个实体之间存在关系的可能性较小。不难发现，将<strong>LTTD</strong>和<strong>STTD</strong>关系同时考虑进实体的嵌入中，同一关系的主体和客体之间距离较为接近。</p>
 <p><strong>案例分析</strong></p>
 <p>案例分析结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520154708623.png" alt="案例分析">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520154708623.png" alt="案例分析">
 
 <p>论文一共取六个案例，每个案例对应的关系都有其更突出的特性。</p>
 <ul>
@@ -620,7 +610,7 @@ L_\tau=\frac{1}{N_\tau-1}\sum_{i=1}^{N_\tau-1}||T_{\tau(i+1)}-T_{\tau(i)}||_3^3
 <p><strong>效率分析</strong></p>
 <p>效率分析结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520160327709.png" alt="效率分析结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260520160327709.png" alt="效率分析结果">
 
 <p>由图可知，对比一众基线方法，<strong>TeRDy</strong>的训练时间最短且<strong>MRR</strong>最高。</p>
 <h2 id="模型限制">模型限制</h2>
@@ -1036,7 +1026,7 @@ w_l = 1 - w_s
                 <a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" class="responsive-img" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" class="responsive-img" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
                         
                         <span class="card-title">【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning</span>
                     </div>
@@ -1092,7 +1082,7 @@ w_l = 1 - w_s
                 <a href="/2026/05/13/lun-wen-inductive-reasoning-for-temporal-knowledge-graphs-with-emerging-entities/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" class="responsive-img" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%A3%81%E7%BA%B8.png" class="responsive-img" alt="【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities">
                         
                         <span class="card-title">【论文】Inductive Reasoning for Temporal Knowledge Graphs with Emerging Entities</span>
                     </div>
@@ -1478,7 +1468,7 @@ w_l = 1 - w_s
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1490,7 +1480,7 @@ w_l = 1 - w_s
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1530,7 +1520,7 @@ w_l = 1 - w_s
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1601,6 +1591,7 @@ w_l = 1 - w_s
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1617,6 +1608,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1683,11 +1675,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1742,16 +1748,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

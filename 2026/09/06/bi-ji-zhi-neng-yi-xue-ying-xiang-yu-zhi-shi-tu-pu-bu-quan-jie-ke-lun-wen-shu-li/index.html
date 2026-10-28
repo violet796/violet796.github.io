@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%82%8D%E6%99%9A%E8%B7%AF%E7%81%AF-%E5%B1%B1%E8%84%89-%E6%B0%B4%E9%9D%A2.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -464,7 +454,7 @@
 <p>由于<strong>CAD</strong>的快速发展，将现有医学知识以可嵌入的形式辅助<strong>计算机</strong>诊断是极为重要的。知识图谱作为一种结构化知识的表达方式，可以很好承担这一项任务。但在医学领域中，核心数据大多是以图像的形式出现的，如各种<strong>CT扫描图像，这类数据并非结构化数据，因此在处理前还需要利用</strong>深度学习模型**提取其中的一些特征，再将其转换为结构化数据。</p>
 <p>知识图谱与医学影像结合的方式主要分为三种，分别是<strong>融入先验知识图谱、医学标注知识图谱、非语义特征知识图谱</strong>。近年来各论文的方法如下表所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612144051251.png" alt="知识图谱和医学影像结合统计">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612144051251.png" alt="知识图谱和医学影像结合统计">
 
 <ul>
 <li><p><strong>融入先验知识图谱</strong>：</p>
@@ -476,7 +466,7 @@
 </ul>
 <p>三类方法的大致流程图如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612150420006.png" alt="三类方法的图示说明">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612150420006.png" alt="三类方法的图示说明">
 
 <p>这三类方法各有各的缺点，对于第三类<strong>非语义特征知识图谱</strong>，具体流程是人为定义一种<strong>构图方式</strong>，模型通过这种方式提取图中的特征以构建一个非传统意义上的知识图谱，并通过学习该图来实现对新病例的泛化。但是这种方法具有<strong>非常强的黑盒性</strong>，模型通过提取到的特征学习，但是无法解释到底学到了什么信息，这对于医学这种需要<strong>极强可解释性</strong>兜底的领域来说是没那么容易接受的。</p>
 <p>对于<strong>融入先验知识图谱和医学标注知识图谱</strong>，这两类方法的思想其实都是通过知识图谱辅助模型进行判断。但是这类方法存在几个问题：</p>
@@ -485,7 +475,7 @@
 <p><strong>第三</strong>：这些方法对数据质量的要求极高，如果数据中存在某些明显的噪声，那么会在极大的程度下影响构建的图谱的质量，从而影响模型的判断。</p>
 <p>三类方法的优缺点对比分别如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612154458107.png" alt="三类方法优缺点对比">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260612154458107.png" alt="三类方法优缺点对比">
 
 <p><strong>可解释性</strong>表示模型推理过程和结果能够被人类理解的程度；<strong>可扩展性</strong>表示模型整合新数据的能力；<strong>特异性</strong>表示模型在特定任务上的表现，通常指某篇研究论文中针对目标疾病诊断任务的性能；<strong>泛化性</strong>表示模型迁移到其他数据来源或其他疾病类型数据集时的表现；<strong>可用性</strong>表示除原研究者之外的其他用户，例如其他研究团队或工业界用户，使用和部署该模型所需付出的努力。</p>
 <h2 id="对研究未来的展望">对研究未来的展望</h2>
@@ -894,7 +884,7 @@
                 <a href="/2026/09/08/gong-ju-git-de-ji-ben-gai-nian-ji-xiang-guan-shi-yong/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" class="responsive-img" alt="【工具】Git的基本概念及相关使用">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%8D%A1%E9%80%9A-%E5%A4%8F%E6%97%A5-%E5%A4%A7%E6%A0%91.jpg" class="responsive-img" alt="【工具】Git的基本概念及相关使用">
                         
                         <span class="card-title">【工具】Git的基本概念及相关使用</span>
                     </div>
@@ -946,7 +936,7 @@
                 <a href="/2026/05/28/lun-wen-dage-decay-aware-graph-extrapolation-for-temporal-knowledge-graph-reasoning/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" class="responsive-img" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/DAGE.png" class="responsive-img" alt="【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning">
                         
                         <span class="card-title">【论文】DAGE Decay-Aware Graph Extrapolation for Temporal Knowledge Graph Reasoning</span>
                     </div>
@@ -1332,7 +1322,7 @@
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1344,7 +1334,7 @@
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1384,7 +1374,7 @@
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1455,6 +1445,7 @@
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1471,6 +1462,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1537,11 +1529,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1596,16 +1602,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

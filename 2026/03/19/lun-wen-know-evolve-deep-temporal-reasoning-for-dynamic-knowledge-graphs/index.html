@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -438,7 +428,7 @@
 <p>传统的知识图谱是静态、固定的，在做预测任务中忽略了时间对其的影响。如果两国之间在之前是交好的，但由于种种原因使得其现在处于非友好状态，静态的知识图谱无法很好的捕捉到这类随着时间的变化，故引入<strong>时序知识图谱（Temporal Knowledge graph）</strong>。</p>
 <p>传统的知识图谱由（实体1，关系，实体2）这样的三元组构成，而时序知识图谱由（实体1，关系，实体2，关系发生的时间）这样的四元组构成。时序知识图谱的每一条边上都有一个与该事件关联的时间信息，如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260317135552655.png" title="时序知识图谱示例" alt="时序知识图谱">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260317135552655.png" title="时序知识图谱示例" alt="时序知识图谱">
 
 <p>对于传统的预测模型，如<strong>TransE、TransR、ER-NLP</strong>等等，在训练完成后，模型的参数和知识图谱中对应的实体嵌入将不再更改，这同样会忽略时间带来的影响，这有违真实世界的规律。基于此，提出一种新的模型<strong>Know-Evolve</strong>用于补全时序知识图谱。</p>
 <p>论文主要有如下几个贡献:</p>
@@ -498,11 +488,11 @@ h^{e^o}(t_q-)=\sigma(W^h·[v^{e^o}(t_{q-1})\oplus v^{e^s}(t_q-)\oplus r^{e^o}_{q
 \]</span></p>
 <p>实体嵌入的更新是由事件驱动的，只有当新事件发生，参与事件的实体嵌入才会被更新。以主体实体为例，假设<span class="math inline">\(m\)</span>是其参与的第<span class="math inline">\(p\)</span>个事件，<span class="math inline">\(t_p\)</span>代表该事件发生的事件。对于第一项<span class="math inline">\(v^{e^s}(t_p)\)</span>，<span class="math inline">\(t_p-t_{p-1}\)</span>代表两次事件发生的时间差，用一个<span class="math inline">\(d×1\)</span>维的学习数组<span class="math inline">\(W^s_t\)</span>将其转换成一个向量。其中，<span class="math inline">\(d\)</span>是实体嵌入的维度。对于第二项<span class="math inline">\(h^{e^s}(t_p-)\)</span>，<span class="math inline">\(v^{e^s}(t_{p-1})\)</span>代表主体实体上一次参与事件后更新得到的实体嵌入，<span class="math inline">\(v^{e^o}(t_q-)\)</span>代表客体实体在参与当前事件前最新的实体表示，<span class="math inline">\(r^{e^s}_{p-1}\)</span>代表主体实体上一次事件中关系的表示。将三个嵌入拼接，乘上<span class="math inline">\(l×(2d+c)\)</span>维度的<strong>共享待学习</strong>投影矩阵<span class="math inline">\(W^h\)</span>，该矩阵用于评估实体在其先前关系中的兼容性，经过激活函数<span class="math inline">\(\sigma(·)\)</span>后得到该项。将其带回第一项，乘上<span class="math inline">\(d×l\)</span>维度的<strong>共享矩阵</strong><span class="math inline">\(W^{hh}\)</span>，经过激活函数<span class="math inline">\(\sigma(·)\)</span>后得到实体的最新表示。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318133924358.png" title="实体嵌入更新示意图" alt="实体嵌入更新示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318133924358.png" title="实体嵌入更新示意图" alt="实体嵌入更新示意图">
 
 <p>上图为实体嵌入更新示意图，时间戳上的<span class="math inline">\(t\)</span>为当前时刻，事件(<span class="math inline">\(e^s,r_3,e^o,t\)</span>)发生时，模型会在时间戳上找到两个实体最新的表示以及当前实体参与的上一个事件的关系表示，并按照上述公式更新。<span class="math inline">\(t\)</span>时刻事件发生的强度以及实体更新可视化公式如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318134858927.png" title="相关示意图" alt="相关示意图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318134858927.png" title="相关示意图" alt="相关示意图">
 
 <h3 id="训练模型">训练模型</h3>
 <p>给定从(0,T]的时序窗口以及在这个时序窗口内发生的所有事件，定义损失函数如下: <span class="math display">\[
@@ -517,7 +507,7 @@ L = -\sum^N_{p=1}log(\lambda^{e^s,e^o}_r(t_p|\overline t_p))+\sum_{r=1}^{n_r}\su
 \]</span></p>
 <p>上述公式为损失函数的最终形式。由于一段时间内所有的事件组合数量过多，故采用小批次的生存损失近似代表全局生存损失，具体的算法如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318173141691.png" title="算法一" alt="算法一">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318173141691.png" title="算法一" alt="算法一">
 
 <p>对于该算法的解释如下:</p>
 <ul>
@@ -530,7 +520,7 @@ L = -\sum^N_{p=1}log(\lambda^{e^s,e^o}_r(t_p|\overline t_p))+\sum_{r=1}^{n_r}\su
 </ul>
 <p>对于以往的时间反向传播算法，时间序列会被拆分成相互独立的序列，并基于这些序列进行小批次传播，但是在本篇论文中，时序数据之间具有关联，故采用设计的<strong>BPTT算法</strong>进行模型训练，算法伪代码如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319161954452.png" title="算法二" alt="算法二">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319161954452.png" title="算法二" alt="算法二">
 
 <p>对于该算法的解释如下:</p>
 <ul>
@@ -543,7 +533,7 @@ L = -\sum^N_{p=1}log(\lambda^{e^s,e^o}_r(t_p|\overline t_p))+\sum_{r=1}^{n_r}\su
 <h2 id="论文实验">论文实验</h2>
 <p>首先对数据集进行预处理，去除重复四元组、单主体事件、自环事件。论文在四个数据集上进行实验，分别是<strong>Global Database of Events, Language,and Tone (GDELT)</strong>和<strong>Integrated Crisis Early Warning System (ICEWS) </strong>，以及两个数据集对应的过滤数据集。数据集的统计信息如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318234410521.png" title="数据集信息" alt="数据集信息">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260318234410521.png" title="数据集信息" alt="数据集信息">
 
 <p><strong>Possible Entries</strong>代表所有可能的事件组合，<strong>Avaliable Entires</strong>代表可能在现实世界中发生的事件组合。</p>
 <p>对于链接预测，采用传统知识图谱补全的方法进行实验。由于没有方法能对事实发生的时间预测，故设计如下两种基线方法:</p>
@@ -554,12 +544,12 @@ L = -\sum^N_{p=1}log(\lambda^{e^s,e^o}_r(t_p|\overline t_p))+\sum_{r=1}^{n_r}\su
 <p><strong>链路预测</strong></p>
 <p>由于研究具有时序性，为了说明模型的能力不会随着时间衰退，故将测试集分成长度为<strong>2weeks</strong>的窗口进行测试，判断模型在不同时间段的能力。对于一个四元组<span class="math inline">\((e^s,r,e^o,t)\)</span>，将客体实体替换成其它实体，根据事件在<span class="math inline">\(t\)</span>时刻发生的瞬时概率密度公式<span class="math inline">\(d(t)=\lambda^{e^o,e^s}_r(t)·S^{e^o,e^s}_r(t)\)</span>，将不同四元组的组合得分进行降序排序。同时过滤替换实体后仍然出现在训练集中的三元组，以<strong>MAR,STDEV,HITS_10</strong>作为评价指标，具体实验结果如下：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151031263.png" title="主要平均排名" alt="主要平均排名">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151031263.png" title="主要平均排名" alt="主要平均排名">
 
-<p><strong>MAR</strong>是模型的主要平均排名。由正确四元组在预测序列中的排名得到。正确三元组在预测中的排名越靠前，MAR越低。<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151444017.png" title="标准差" alt="标准差"></p>
+<p><strong>MAR</strong>是模型的主要平均排名。由正确四元组在预测序列中的排名得到。正确三元组在预测中的排名越靠前，MAR越低。<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151444017.png" title="标准差" alt="标准差"></p>
 <p><strong>STDEV</strong>是模型的标准差，用来判断模型预测能力的稳定程度，其数值越低，说明模型预测的越稳定。</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151650265.png" title="Hits_@10指标" alt="Hits_@10指标">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319151650265.png" title="Hits_@10指标" alt="Hits_@10指标">
 
 <p><strong>Hits_<span class="citation" data-cites="10">@10</span></strong>指标由<strong>正确四元组在模型给出预测序列中前10的概率</strong>得到，数值越高，代表模型越能准确预测四元组。</p>
 <p><strong>时间预测</strong></p>
@@ -567,12 +557,12 @@ L = -\sum^N_{p=1}log(\lambda^{e^s,e^o}_r(t_p|\overline t_p))+\sum_{r=1}^{n_r}\su
 E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
 \]</span> 其中<span class="math inline">\(g^{e^s,e^0}_{r}(t)=v^{e^s}(t-)^T·R_r·v^{e^o}(t-)\)</span>，实验使用<strong>Mean Average Error(MAE)</strong>作为评价指标。该指标揭露了预测的发生时间和真实发生时间之间的平均误差，实验结果图如下:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319160508636.png" title="时间预测结果图" alt="时间预测结果图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319160508636.png" title="时间预测结果图" alt="时间预测结果图">
 
 <p><strong>滑动窗口实验</strong></p>
 <p>由于本论文提出的模型的实体嵌入随着时间一直在改变，为了保证实验公平，对于传统的基线模型，首先给定其一个包含六个月事件训练集，训练出初始嵌入。由于时间轴被分成了大小为两周的12个切片，在之后的测试里，为了使基线模型的嵌入也能随时间更新，在一个切片结束后，测试集的数据会被加入训练集，同时，训练集会删除最开始两周的数据，用此方法使基线模型的嵌入也能随时间变化，实验结果如图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319165155590.png" title="滑动窗口实验" alt="滑动窗口实验">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319165155590.png" title="滑动窗口实验" alt="滑动窗口实验">
 
 <p><strong>新旧事实实验</strong></p>
 <p>为了判断模型能否正确判断新发生的事实，设置对比实验。</p>
@@ -582,7 +572,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
 </ul>
 <p>实验结果如下图所示；</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319165833265.png" title="新旧事实实验对比图" alt="新旧事实实验对比图">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20260319165833265.png" title="新旧事实实验对比图" alt="新旧事实实验对比图">
 
 <h2 id="论文结论">论文结论</h2>
 <ul>
@@ -993,7 +983,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                 <a href="/2026/03/22/hot100-wu-chong-fu-zi-fu-de-zui-chang-zi-chuan/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A22.jpg" class="responsive-img" alt="Hot100-无重复字符的最长子串">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A22.jpg" class="responsive-img" alt="Hot100-无重复字符的最长子串">
                         
                         <span class="card-title">Hot100-无重复字符的最长子串</span>
                     </div>
@@ -1049,7 +1039,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                 <a href="/2025/09/26/shu-ju-fen-xi-ku-pandas-de-shi-yong/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A-%E5%A4%AA%E9%98%B3.jpg" class="responsive-img" alt="数据分析库-Pandas的使用">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A-%E5%A4%AA%E9%98%B3.jpg" class="responsive-img" alt="数据分析库-Pandas的使用">
                         
                         <span class="card-title">数据分析库-Pandas的使用</span>
                     </div>
@@ -1431,7 +1421,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -1443,7 +1433,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -1483,7 +1473,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -1554,6 +1544,7 @@ E_r^{e^s,e^o}(t)=\sqrt{\frac{\pi}{2exp(g^{e^s,e^o}_r(t))}}
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -1570,6 +1561,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -1636,11 +1628,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -1695,16 +1701,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>

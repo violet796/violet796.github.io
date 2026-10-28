@@ -730,6 +730,7 @@
         restoreState();
         root.classList.add('is-ready');
         startPlaylistSync();
+        document.dispatchEvent(new CustomEvent('knight:music-ready'));
     }
 
     function showEngineStatus(title, detail, finalFailure) {
@@ -760,7 +761,7 @@
         fresh.setAttribute('theme', '#42b983');
         fresh.setAttribute('loop', 'all');
         fresh.setAttribute('order', 'random');
-        fresh.setAttribute('preload', 'auto');
+        fresh.setAttribute('preload', 'none');
         fresh.setAttribute('volume', '0.7');
         fresh.setAttribute('list-folded', 'true');
         fresh.setAttribute('lrc-type', '3');

@@ -25,21 +25,11 @@
     <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
     <link rel="stylesheet" type="text/css" href="/css/matery.css">
     <link rel="stylesheet" type="text/css" href="/css/my.css">
-    <!-- Travel Atlas assets live outside the PJAX shell so they survive page swaps. -->
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://tile.openstreetmap.org" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
-    <link rel="stylesheet" type="text/css" href="/css/travel-map.css">
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
     <link rel="stylesheet" type="text/css" href="/css/knight-music.css">
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     
     <script>window.meting_api = "https://api.injahow.cn/meting/?server=:server&type=:type&id=:id&auth=:auth&r=:r";</script>
     
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     
 
     <script src="/libs/jquery/jquery.min.js"></script>
@@ -244,7 +234,7 @@
 
     <!-- This stage uses the exact same horizontal envelope as the article + TOC. -->
     <div class="post-cover__stage">
-        <img class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A-%E5%A4%AA%E9%98%B3.jpg" alt="" draggable="false">
+        <img fetchpriority="high" loading="eager" decoding="async" class="post-cover__image" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A-%E5%A4%AA%E9%98%B3.jpg" alt="" draggable="false">
         <div class="post-cover__veil" aria-hidden="true"></div>
         <div class="post-cover__content">
             <div class="brand">
@@ -432,7 +422,7 @@
 </ul>
 <p>如果用一张Excel表格来类比Series和DataFrame两种数据结构:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250926152341598.png" alt="Excel类比表">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250926152341598.png" alt="Excel类比表">
 
 <p><strong>Series</strong>就像是其中的每一列数据，如姓名列、性别列、年龄列等。通过索引(在此表中是序号，实际上可以自定义)就可以找到需要的值。而<strong>DataFrame</strong>则是整张表，要想找到一个具体的元素，既需要知道该元素的<strong>行索引</strong>，也需要知道该元素的<strong>列索引</strong>。</p>
 <p><strong>Pandas</strong>主要功能包括:</p>
@@ -517,45 +507,45 @@ pip install pandas==version <span class="token comment">#version为需要安装�
 <p><strong>Series</strong>将以<strong>索引列</strong>和<strong>数据列</strong>的方式打印出来。</p>
 <p>对于第一种创建方法，由于没有指定索引，故<strong>Series</strong>中的各数据将有一个类似于数组下标的默认索引。打印s1结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927151129153.png" alt="s1打印结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927151129153.png" alt="s1打印结果">
 
 <p>如果按照方法二给每个数据指定索引，打印s2结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927151427267.png" alt="s2打印结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927151427267.png" alt="s2打印结果">
 
 <p>可以看到每个数据和索引一一对应。如果为<strong>Series</strong>自定义索引，索引个数和数据个数必须一致，否则将会报错。按照第三种方式创建一个<strong>Series</strong>，结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927151754851.png" alt="数据和索引个数不匹配">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927151754851.png" alt="数据和索引个数不匹配">
 
 <p>如前文所述，<strong>Series</strong>的data参数可以是<strong>Series、字典</strong>等本就带有索引的数据结构。如果创建时继续指定索引，那么新的<strong>Series</strong>将只会包含指定索引对应的数据。按照方法四创建s4，结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927152804463.png" alt="s4打印结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927152804463.png" alt="s4打印结果">
 
 <p>对于创建的合法<strong>Series</strong>，由于没有为其指定name，故name默认为none。打印结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927153010232.png" alt="打印三个Series的name">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927153010232.png" alt="打印三个Series的name">
 
 <p>按照方法五，在创建<strong>Series</strong>时指定参数name为test。打印s5结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927153214831.png" alt="s5打印结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927153214831.png" alt="s5打印结果">
 
 <p>可以看到s5的name属性也被一并打印出来。</p>
 <p>若将一个ndarray当作data参数的值，并将copy参数设置为False，创建一个<strong>Series</strong>并对其进行修改，两个数据结构之间的关系如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927154025470.png" alt="设置copy为False">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927154025470.png" alt="设置copy为False">
 
 <p>可以看到修改series的同时，ndarray也被修改了。若将copy的值设置为Ture，再对<strong>Series</strong>修改，结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927154252202.png" alt="设置copy为True">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927154252202.png" alt="设置copy为True">
 
 <p>可以看到修改<strong>Series</strong>并不影响<strong>ndarray</strong>的值。</p>
 <p>若给创建的<strong>Series</strong>指定类型，且输入的数据可以转换为指定类型的话，那么该<strong>Series</strong>的数据类型将变成指定的数据类型。按照方法七创建<strong>Series</strong>，结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927154632094.png" alt="s7打印结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927154632094.png" alt="s7打印结果">
 
 <p>可以看到输入的数据虽然是字符串类型，但最后打印出来该<strong>Series</strong>的类型为指定的int类型。但如果输入的数据类型不能转换为指定的数据类型(如pandas不支持截断浮点数类型为整型)，创建时将会报错。尝试将输入的<strong>字符型数据</strong>转换为<strong>整型数据</strong>，结果下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927163950795.png" alt="元素之间不能转换的报错信息">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927163950795.png" alt="元素之间不能转换的报错信息">
 
 <h4 id="series的属性和访问器">② Series的属性和访问器</h4>
 <p>以一个名为<code>se</code>的<strong>Series</strong>为例，它有下列几个常用的属性:</p>
@@ -646,12 +636,12 @@ pip install pandas==version <span class="token comment">#version为需要安装�
 </ul>
 <p>两种访问方式的切片结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927165530179.png" alt="loc和iloc的切片">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927165530179.png" alt="loc和iloc的切片">
 
 <p><strong>b) loc和iloc</strong>访问多个元素</p>
 <p>将需要访问元素的**显示索引*定义到一个列表当中，作为loc和iloc的参数。如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927170734980.png" alt="loc和iloc访问多个元素">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927170734980.png" alt="loc和iloc访问多个元素">
 
 <p><strong>c) loc +布尔索引</strong>访问多个元素</p>
 <blockquote>
@@ -659,7 +649,7 @@ pip install pandas==version <span class="token comment">#version为需要安装�
 </blockquote>
 <p>和<strong>Numpy</strong>的布尔索引一样，用一个和<strong>Series大小、形状相同</strong>的<strong>布尔数组或者能变成布尔数组的表达式</strong>作为参数，最后返回对应位置为True的值。使用布尔索引找到满足条件的值，如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927171457632.png" alt="loc+布尔索引访问多个元素">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250927171457632.png" alt="loc+布尔索引访问多个元素">
 
 <h4 id="series的常用方法">③ Series的常用方法</h4>
 <p><strong>a) 数据查看与统计</strong>方法</p>
@@ -1148,7 +1138,7 @@ Series2 <span class="token operator">=</span> pd<span class="token punctuation">
 df <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'第一列'</span><span class="token punctuation">:</span>Series1<span class="token punctuation">,</span><span class="token string">'第二列'</span><span class="token punctuation">:</span>Series2<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>打印df结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928173345324.png" alt="打印df结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928173345324.png" alt="打印df结果">
 
 <p><strong>DataFrame</strong>会将所有Series索引的并集当作自己的索引。假设有两个<strong>size = 5的Series</strong>的索引完全不同，那么用它们当作<strong>DataFrame</strong>的参数时，会出现十个索引，共有十行元素。对于不存在该索引的Series来说，对应位置将会被标记为缺失值，用<strong>NaN(缺失值)</strong>填充。具体代码如下:</p>
 <pre class="language-python" data-language="python"><code class="language-python">Series1 <span class="token operator">=</span> pd<span class="token punctuation">.</span>Series<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'a'</span><span class="token punctuation">,</span><span class="token string">'b'</span><span class="token punctuation">,</span><span class="token string">'c'</span><span class="token punctuation">,</span><span class="token string">'d'</span><span class="token punctuation">,</span><span class="token string">'e'</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
@@ -1156,7 +1146,7 @@ Series2 <span class="token operator">=</span> pd<span class="token punctuation">
 df_na <span class="token operator">=</span> pd<span class="token punctuation">.</span>DataFrame<span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token string">'第一列'</span><span class="token punctuation">:</span>Series1<span class="token punctuation">,</span><span class="token string">'第二列'</span><span class="token punctuation">:</span>Series2<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre>
 <p>打印df_na结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928174353575.png" alt="打印df_na结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928174353575.png" alt="打印df_na结果">
 
 <p><strong>方法二</strong>：通过自定义的字典创建</p>
 <p>可以通过自定义字典创建<strong>DataFrame</strong>，字典的每一项的<strong>key</strong>就相当于列名，<strong>value</strong>相当于该列数据。创建示例代码如下：</p>
@@ -1167,7 +1157,7 @@ df_na <span class="token operator">=</span> pd<span class="token punctuation">.<
 <span class="token punctuation">}</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'演唱会'</span><span class="token punctuation">,</span><span class="token string">'姓名'</span><span class="token punctuation">,</span><span class="token string">'代表作'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>打印df_d结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928180633113.png" alt="打印df_d结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928180633113.png" alt="打印df_d结果">
 
 <p>其中columns参数可以自定义列的顺序。如图所示，df_d按照columns的顺序打印出了每一列。</p>
 <p><strong>方法三：</strong>通过列表创建，且列表内的元素是字典</p>
@@ -1179,7 +1169,7 @@ df_na <span class="token operator">=</span> pd<span class="token punctuation">.<
 <span class="token punctuation">]</span><span class="token punctuation">,</span>index<span class="token operator">=</span><span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">,</span>columns<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">'性别'</span><span class="token punctuation">,</span><span class="token string">'年龄'</span><span class="token punctuation">,</span><span class="token string">'姓名'</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>打印df_a结果如下图所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928205900517.png" alt="打印df_a结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928205900517.png" alt="打印df_a结果">
 
 <p>可以看到输入列表中的每一个字典均对应最后元素的一行，输出的结果用columns参数调整了顺序。</p>
 <p><strong>对columns参数的补充：</strong></p>
@@ -1296,7 +1286,7 @@ DF的转置:
 <span class="token keyword">print</span><span class="token punctuation">(</span>df_a<span class="token punctuation">[</span><span class="token punctuation">[</span><span class="token string">'姓名'</span><span class="token punctuation">,</span><span class="token string">'年龄'</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>方法一和方法二返回的是列名为“姓名”的<strong>Series</strong>，只能访问该列数据。方法三返回的是一个<strong>DataFrame</strong>。将要返回的列的列名加入列表，即可返回需要的列。输出结果如下通过所示：</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928220101126.png" alt="访问列的方法">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928220101126.png" alt="访问列的方法">
 
 <p><strong>方法二：</strong>使用loc和iloc，at和iat方法</p>
 <p><strong>at和iat</strong>方法只支持访问单个元素。使用时需要确定要访问元素的行索引和列索引。对于at方法，由于其是显式索引，所以行索引为<strong>自定义或默认的索引</strong>，列索引为<strong>每一列的列名</strong>。对于iat方法，由于其是隐式索引，所以行列索引均为<strong>要访问元素对应的数组下标</strong>。</p>
@@ -1306,14 +1296,14 @@ DF的转置:
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>df_a<span class="token punctuation">.</span>sample<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>输入结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928220945997.png" alt="随机抽样">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928220945997.png" alt="随机抽样">
 
 <p><strong>方法四：</strong>布尔索引</p>
 <p>通过对<strong>DataFrame</strong>某一列或某些列的判断，来找到符合条件的某几条值。中括号内必须要填和<strong>DataFrame</strong>列规模一致的布尔数组，或是可以转换为布尔数组的布尔表达式。如要找到df_a中<strong>年龄大于40</strong>且<strong>性别为’‘男’’</strong>的人的信息，有以下代码:</p>
 <pre class="language-python" data-language="python"><code class="language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>df_a<span class="token punctuation">[</span><span class="token punctuation">(</span>df_a<span class="token punctuation">.</span>年龄<span class="token operator">&gt;</span><span class="token string">'40'</span><span class="token punctuation">)</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>df<span class="token punctuation">.</span>性别<span class="token operator">==</span><span class="token string">'男'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
 <p>输出结果如下图所示:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928221548970.png" alt="布尔索引">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250928221548970.png" alt="布尔索引">
 
 <h4 id="dataframe的常用方法">④ DataFrame的常用方法</h4>
 <p>虽然 <code>DataFrame</code> 的许多方法（如 <code>sum()</code>、<code>mean()</code> 等）可以作用于列（类似 <code>Series</code> 方法），但也有一些方法是 <code>DataFrame</code> 专属的，主要用于处理二维结构的特性（如多列交互、行列转换、合并等）。以下是 <code>DataFrame</code> 专属的核心方法：</p>
@@ -1419,7 +1409,7 @@ scores<span class="token punctuation">[</span><span class="token string">'平均
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'按总分从高到低排序的前三位:\n'</span><span class="token punctuation">,</span>scores<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'总分'</span><span class="token punctuation">,</span>ascending<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p><strong>实现结果如下</strong>:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250929112231470.png" alt="案例一结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250929112231470.png" alt="案例一结果">
 
 <p><strong>方法补充：</strong></p>
 <p>一些统计类的方法，如<strong>sum()、mean()、median()等</strong>默认按照列进行统计，若需要按行进行统计，将axis参数设置成1即可。</p>
@@ -1443,7 +1433,7 @@ sells<span class="token punctuation">[</span><span class="token string">'总销�
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'销售额从高到底排序:\n'</span><span class="token punctuation">,</span>sells<span class="token punctuation">.</span>sort_values<span class="token punctuation">(</span>by<span class="token operator">=</span><span class="token string">'总销售额'</span><span class="token punctuation">,</span>ascending<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p><strong>实现结果如下</strong>:</p>
 
-<img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250929130847334.png" alt="案例二结果">
+<img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/image-20250929130847334.png" alt="案例二结果">
 
 <p><strong>方法补充：</strong></p>
 <ul>
@@ -1840,7 +1830,7 @@ sells<span class="token punctuation">[</span><span class="token string">'总销�
                 <a href="/2026/03/19/lun-wen-know-evolve-deep-temporal-reasoning-for-dynamic-knowledge-graphs/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" class="responsive-img" alt="【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E5%B0%81%E9%9D%A21.jpg" class="responsive-img" alt="【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs">
                         
                         <span class="card-title">【论文】Know-Evolve-Deep Temporal Reasoning for Dynamic Knowledge Graphs</span>
                     </div>
@@ -1896,7 +1886,7 @@ sells<span class="token punctuation">[</span><span class="token string">'总销�
                 <a href="/2025/09/24/hot100-sheng-shui-zui-duo-de-rong-qi/">
                     <div class="card-image">
                         
-                        <img src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E4%BA%91%E6%9C%B5-%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A.jpg" class="responsive-img" alt="Hot100-盛水最多的容器">
+                        <img loading="lazy" decoding="async" src="https://030803-1373963860.cos.ap-chongqing.myqcloud.com/%E3%80%90%E5%93%B2%E9%A3%8E%E5%A3%81%E7%BA%B8%E3%80%91%E4%BA%91%E6%9C%B5-%E5%86%9C%E5%9C%BA-%E5%8D%A1%E9%80%9A.jpg" class="responsive-img" alt="Hot100-盛水最多的容器">
                         
                         <span class="card-title">Hot100-盛水最多的容器</span>
                     </div>
@@ -2256,7 +2246,7 @@ sells<span class="token punctuation">[</span><span class="token string">'总销�
                theme="#42b983"
                loop="all"
                order="random"
-               preload="auto"
+               preload="none"
                volume="0.7"
                list-folded="true"
                lrc-type="3"></meting-js>
@@ -2268,7 +2258,7 @@ sells<span class="token punctuation">[</span><span class="token string">'总销�
                 <span class="km-dock-cover-fallback" data-km-cover-fallback aria-hidden="true">♪</span>
             </span>
             <span class="km-dock-meta">
-                <strong data-km-title-mini>音乐加载中</strong>
+                <strong data-km-title-mini>点击加载音乐</strong>
                 <small data-km-artist-mini>NetEase Playlist</small>
             </span>
             <span class="km-dock-equalizer" aria-hidden="true"><i></i><i></i><i></i></span>
@@ -2308,7 +2298,7 @@ sells<span class="token punctuation">[</span><span class="token string">'总销�
                 <div class="km-cover-fallback km-cover-fallback--large" data-km-cover-fallback-large aria-hidden="true">♪</div>
             </div>
             <div class="km-track-meta">
-                <h4 data-km-title>音乐加载中</h4>
+                <h4 data-km-title>点击加载音乐</h4>
                 <p data-km-artist>正在读取网易云歌单</p>
             </div>
         </div>
@@ -2379,6 +2369,7 @@ sells<span class="token punctuation">[</span><span class="token string">'总销�
 
 <script type="text/javascript">
 $(function () {
+    var searchStarted = false;
     var searchFunc = function (path, search_id, content_id) {
         'use strict';
         $.ajax({
@@ -2395,6 +2386,7 @@ $(function () {
                 }).get();
                 var $input = document.getElementById(search_id);
                 var $resultContent = document.getElementById(content_id);
+                $resultContent.textContent = '';
                 $input.addEventListener('input', function () {
                     var str = '<ul class=\"search-result-list\">';
                     var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
@@ -2461,11 +2453,25 @@ $(function () {
                     str += "</ul>";
                     $resultContent.innerHTML = str;
                 });
+                // Include text entered while the index request was still pending.
+                if ($input.value.trim()) $input.dispatchEvent(new Event('input'));
+            },
+            error: function () {
+                searchStarted = false;
+                document.getElementById(content_id).textContent = '搜索暂时无法加载，请稍后重试。';
             }
         });
     };
 
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
+    function ensureSearchIndex() {
+        if (searchStarted) return;
+        searchStarted = true;
+        document.getElementById('searchResult').textContent = '正在载入搜索索引…';
+        searchFunc('/search.xml', 'searchInput', 'searchResult');
+    }
+    var searchInput = document.getElementById('searchInput');
+    searchInput.addEventListener('focus', ensureSearchIndex);
+    searchInput.addEventListener('input', ensureSearchIndex);
 });
 </script>
 
@@ -2520,16 +2526,22 @@ $(function () {
 
     
 
-    <!-- Travel Atlas runtime is global so PJAX never removes its Leaflet instance code. -->
-    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-    <script src="/js/travel-map.js"></script>
+    <!-- Keep only the small loader global; feature assets are cached outside PJAX. -->
+    <script src="/js/knight-assets.js"
+            data-leaflet-css="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css"
+            data-cluster-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+            data-cluster-theme-css="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+            data-travel-css="/css/travel-map.css"
+            data-leaflet-js="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"
+            data-cluster-js="https://cdn.jsdelivr.net/npm/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
+            data-travel-js="/js/travel-map.js"
+            data-player-css="/libs/aplayer/APlayer.min.css"
+            data-player-js="/libs/aplayer/APlayer.min.js"
+            data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
+            data-music-js="/js/knight-music.js"></script>
 
     
-    <script src="/js/knight-music.js"></script>
-    
     <script src="/js/knight-pjax.js"></script>
-    
     
 
 </body>
