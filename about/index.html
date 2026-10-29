@@ -554,7 +554,7 @@
             color: ['#5f9cf5', '#788bf0', '#6676c9', '#7f6fc5', '#477fbd', '#74a8e5', '#535f9f', '#8a80d4', '#4f92c4'],
             label: { color: '#8394ad', fontSize: 10 },
             labelLine: { lineStyle: { color: 'rgba(122, 158, 209, .25)' } },
-            data: [{"name":"Hot100","value":4},{"name":"Tools","value":2},{"name":"Notes","value":2},{"name":"Paper","value":8},{"name":"DataAnalysis","value":2},{"name":"Algorithm","value":2}],
+            data: [{"name":"Hot100","value":4},{"name":"Tools","value":2},{"name":"Notes","value":2},{"name":"Paper","value":8},{"name":"Algorithm","value":2},{"name":"DataAnalysis","value":2}],
             itemStyle: {
                 borderColor: '#0d1521',
                 borderWidth: 2,
@@ -582,7 +582,7 @@
         grid: { left: 42, right: 18, top: 48, bottom: 55 },
         xAxis: [{
             type: 'category',
-            data: ["论文","时序知识图谱","Hot100","算法题","滑动窗口","笔记","RNN","数据分析","算法","开发工具"],
+            data: ["论文","时序知识图谱","Hot100","算法题","滑动窗口","笔记","RNN","算法","数据分析","开发工具"],
             axisLine: { lineStyle: { color: kzChartLine } },
             axisTick: { show: false },
             axisLabel: { color: '#6f829d', fontSize: 9, rotate: 28 }
@@ -1056,14 +1056,18 @@
             
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                    class="white-color">加载中</span>&nbsp;次
             </span>
             
             
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                    class="white-color">加载中</span>&nbsp;人
             </span>
+            
+            
+            <span data-statistics-status role="status" style="margin-left: 6px;"></span>
+            <button type="button" data-statistics-retry hidden style="margin-left: 6px; border: 0; background: transparent; color: inherit; text-decoration: underline; cursor: pointer;">重试统计</button>
             
             <br>
             
@@ -1465,6 +1469,10 @@ $(function () {
             data-player-js="/libs/aplayer/APlayer.min.js"
             data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
             data-music-js="/js/knight-music.js"></script>
+
+    
+    <script src="/js/knight-hero.js" defer></script>
+    
 
     
     <script src="/js/knight-pjax.js"></script>

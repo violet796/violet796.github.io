@@ -1385,14 +1385,18 @@ p_i=e^{-((f_{old}-f_{new})/C_{t_i})}
             
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                    class="white-color">加载中</span>&nbsp;次
             </span>
             
             
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                    class="white-color">加载中</span>&nbsp;人
             </span>
+            
+            
+            <span data-statistics-status role="status" style="margin-left: 6px;"></span>
+            <button type="button" data-statistics-retry hidden style="margin-left: 6px; border: 0; background: transparent; color: inherit; text-decoration: underline; cursor: pointer;">重试统计</button>
             
             <br>
             
@@ -1794,6 +1798,10 @@ $(function () {
             data-player-js="/libs/aplayer/APlayer.min.js"
             data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
             data-music-js="/js/knight-music.js"></script>
+
+    
+    <script src="/js/knight-hero.js" defer></script>
+    
 
     
     <script src="/js/knight-pjax.js"></script>

@@ -225,36 +225,59 @@
 </header>
 
     <div id="knight-page-shell">
-        <section class="forum-hero" aria-label="首页介绍">
-    <div class="container forum-hero__inner">
-        <div class="forum-hero__eyebrow">
-            <span class="forum-hero__dot"></span>
-            <span>KNIGHT ZHOU · PERSONAL BLOG</span>
-        </div>
-
-        <div class="forum-hero__content">
-            <h1>万物皆虚，万事皆允</h1>
-            <p>欢迎一起交流</p>
-        </div>
-
-        <div class="forum-hero__actions">
-            <a href="#" id="dailyRecommendation" class="forum-btn forum-btn--primary" aria-label="随机推荐一篇文章">
-                <i class="fas fa-random"></i>
-                <span>每日推荐</span>
-            </a>
-            <a href="#searchModal" class="modal-trigger forum-btn forum-btn--ghost">
-                <i class="fas fa-search"></i>
-                <span>搜索</span>
-            </a>
-            
-            <a href="https://github.com/violet796" class="forum-btn forum-btn--ghost" target="_blank" rel="noopener">
-                <i class="fab fa-github-alt"></i>
-                <span>Github</span>
-            </a>
-            
-        </div>
-
+        
+<section class="forum-hero forum-hero--with-media"
+         data-hero-media aria-label="首页介绍">
+    
+    <div class="hero-background" aria-hidden="true">
+        <video class="hero-background__video" data-hero-video
+               data-src="/medias/home/waterside.mp4"
+               poster="/medias/home/waterside.webp"
+               width="960" height="540" preload="none" muted loop playsinline tabindex="-1">
+        </video>
+        <div class="hero-background__shade"></div>
     </div>
+    
+
+    <div class="container forum-hero__inner">
+        <div class="forum-hero__intro">
+            <div class="forum-hero__eyebrow">
+                <span class="forum-hero__dot"></span>
+                <span>KNIGHT ZHOU · PERSONAL BLOG</span>
+            </div>
+            <div class="forum-hero__content">
+                <h1>万物皆虚，万事皆允</h1>
+                <p>欢迎一起交流</p>
+            </div>
+            <div class="forum-hero__actions">
+                <a href="#" id="dailyRecommendation" class="forum-btn forum-btn--primary" aria-label="随机推荐一篇文章">
+                    <i class="fas fa-random"></i>
+                    <span>每日推荐</span>
+                </a>
+                <a href="#searchModal" class="modal-trigger forum-btn forum-btn--ghost">
+                    <i class="fas fa-search"></i>
+                    <span>搜索</span>
+                </a>
+                
+                <a href="https://github.com/violet796" class="forum-btn forum-btn--ghost" target="_blank" rel="noopener">
+                    <i class="fab fa-github-alt"></i>
+                    <span>Github</span>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="hero-background__controls">
+        <span class="hero-background__status" data-hero-status role="status"></span>
+        <button class="hero-background__toggle" type="button" data-hero-toggle
+                aria-label="播放首页动图" title="播放首页动图" hidden>
+            <svg class="hero-background__play" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 9 6-9 6Z"/></svg>
+            <svg class="hero-background__pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12"/></svg>
+        </button>
+    </div>
+    
 </section>
 
 
@@ -1438,14 +1461,18 @@
             
             <span id="busuanzi_container_site_pv">
                 |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
+                    class="white-color">加载中</span>&nbsp;次
             </span>
             
             
             <span id="busuanzi_container_site_uv">
                 |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
+                    class="white-color">加载中</span>&nbsp;人
             </span>
+            
+            
+            <span data-statistics-status role="status" style="margin-left: 6px;"></span>
+            <button type="button" data-statistics-retry hidden style="margin-left: 6px; border: 0; background: transparent; color: inherit; text-decoration: underline; cursor: pointer;">重试统计</button>
             
             <br>
             
@@ -1847,6 +1874,10 @@ $(function () {
             data-player-js="/libs/aplayer/APlayer.min.js"
             data-meting-js="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"
             data-music-js="/js/knight-music.js"></script>
+
+    
+    <script src="/js/knight-hero.js" defer></script>
+    
 
     
     <script src="/js/knight-pjax.js"></script>
