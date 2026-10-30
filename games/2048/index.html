@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>2048 · Knight Arcade</title><link rel="stylesheet" href="game.css"></head>
+<body>
+<main class="game-shell">
+    <header class="game-header"><div><span class="eyebrow">01 / PUZZLE</span><h1>2048<span class="title-dot">.</span></h1><p>每一次合并，都离下一块更近。</p></div><span class="local-badge"><span></span> 本地排行榜</span></header>
+    <div class="game-layout">
+    <section class="play-area" aria-label="2048 游戏">
+        <div class="score-row"><div class="score-box"><span>本局得分</span><strong data-score>0</strong></div><div class="score-box"><span>最佳成绩</span><strong data-best>0</strong></div><div class="score-box"><span>最大方块</span><strong data-max>2</strong></div></div>
+        <div class="board-wrap">
+            <div class="board" data-board tabindex="0" role="group" aria-label="2048 棋盘，使用方向键或 WASD 移动"></div>
+            <div class="board-overlay" data-pause-overlay hidden><strong>稍作休息</strong><p>准备好了，再走下一步。</p><button data-resume type="button" class="primary">继续游戏</button></div>
+        </div>
+        <div class="toolbar"><button class="primary" data-new type="button">新的一局</button><button data-pause type="button">暂停</button><button data-record type="button">登记成绩</button></div>
+        <p class="game-message" data-message role="status" aria-live="polite">点击棋盘后使用方向键，或直接在棋盘上滑动。</p>
+        <div class="directions" aria-label="方向控制"><button data-direction="up" aria-label="向上移动">↑</button><button data-direction="left" aria-label="向左移动">←</button><button data-direction="down" aria-label="向下移动">↓</button><button data-direction="right" aria-label="向右移动">→</button></div>
+        <p class="instructions"><b>怎么玩</b> 使用 ↑ ↓ ← → / WASD，或在棋盘上滑动。同数方块相撞时合并，合成 2048 后可以继续挑战。无效移动不会生成新方块。</p>
+    </section>
+    <aside class="leaderboard" aria-label="本地最高分榜">
+        <div class="leaderboard-heading"><span class="eyebrow">HIGH SCORES</span><h2>排行榜</h2><p>目前没钱做共享排行榜，故只能先记录本地的</p></div>
+        <div class="rank-label"><span>排名 / 玩家</span><span>得分 / 最大方块</span></div>
+        <ol data-leaderboard></ol><p class="empty-state" data-empty>榜单还在等第一位挑战者。<br>合并、得分，然后署名。</p>
+        <p class="local-note">前 10 名<br>每局保留得分与最大方块，可更新更高得分。</p>
+    </aside>
+    </div>
+    <p class="storage-note" data-storage-note role="status"></p>
+</main>
+<dialog data-dialog aria-labelledby="dialog-title">
+    <form data-form novalidate>
+        <span class="eyebrow">PLAYER RECORD</span><h2 id="dialog-title" data-dialog-title>登记本局成绩</h2><p data-dialog-copy></p>
+        <div class="record-score"><span>SCORE</span><div><strong data-dialog-score>0</strong><small class="record-max" data-dialog-max></small></div></div>
+        <label for="player-name">玩家名称</label><input id="player-name" name="player" autocomplete="off" maxlength="20" placeholder="给这一局签个名" aria-describedby="name-help name-error" required>
+        <p id="name-help" class="form-help">2–10 个汉字、字母或数字；请使用友善名称。</p><p id="name-error" data-name-error role="alert"></p>
+        <div class="dialog-actions"><button type="submit" class="primary" data-save>保存成绩</button><button type="button" data-close>继续游戏</button><button type="button" data-discard hidden>不登记，开新局</button></div>
+    </form>
+</dialog>
+<script src="core.js"></script><script src="game.js"></script></body></html>
